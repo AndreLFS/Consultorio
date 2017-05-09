@@ -123,7 +123,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 jTextField7ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 72, 30));
+        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 160, 30));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel15.setText("Bairro");
@@ -143,7 +143,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 174, 30));
+        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 160, 30));
 
         try {
             jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9####-####")));
@@ -199,15 +199,13 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel19.setText("Senha");
         jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, 20));
 
-        jPasswordField1.setText("jPasswordField1");
         jPasswordField1.setBorder(null);
-        jPasswordField1.setCaretPosition(8);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 80, 20));
+        jPanel4.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 160, 30));
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel18.setText("Email");
@@ -231,7 +229,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 100, 40));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 700, 390));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 700, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
