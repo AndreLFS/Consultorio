@@ -24,9 +24,9 @@ public class Pessoa {
 
 	private String telefone;
 
-	private Raca raca;
+	private String raca;
 
-    public Pessoa(String nome, Date dataNascimento, String cpf, boolean sexo, String rg, Endereco endereco, String telefone, Raca raca) {
+    public Pessoa(String nome, Date dataNascimento, String cpf, boolean sexo, String rg, Endereco endereco, String telefone, String raca) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;

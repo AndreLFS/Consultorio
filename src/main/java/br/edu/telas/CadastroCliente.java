@@ -7,6 +7,9 @@ package br.edu.telas;
 
 import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Endereco;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -36,7 +39,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_nome = new javax.swing.JLabel();
         jT_nome = new javax.swing.JTextField();
         jL_nascimento = new javax.swing.JLabel();
-        jFT_nascimento = new javax.swing.JFormattedTextField();
+        jFT_altura = new javax.swing.JFormattedTextField();
         jL_rg = new javax.swing.JLabel();
         jT_rg = new javax.swing.JTextField();
         jl_logradouro = new javax.swing.JLabel();
@@ -59,14 +62,16 @@ public class CadastroCliente extends javax.swing.JFrame {
         jT_alergias = new javax.swing.JTextField();
         jL_peso = new javax.swing.JLabel();
         jL_altura = new javax.swing.JLabel();
-        jFT_nascimento1 = new javax.swing.JFormattedTextField();
-        jFT_nascimento2 = new javax.swing.JFormattedTextField();
-        jL_bairro1 = new javax.swing.JLabel();
-        jT_bairro1 = new javax.swing.JTextField();
-        jl_logradouro2 = new javax.swing.JLabel();
-        jT_logradouro2 = new javax.swing.JTextField();
+        jFT_nascimento = new javax.swing.JFormattedTextField();
+        jFT_peso = new javax.swing.JFormattedTextField();
+        jL_numero = new javax.swing.JLabel();
+        jT_numero = new javax.swing.JTextField();
+        jl_complemento = new javax.swing.JLabel();
+        jT_complemento = new javax.swing.JTextField();
         jL_estado = new javax.swing.JLabel();
         jT_estado = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,19 +110,19 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_nascimento.setText("Data de Nascimento");
         jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 190, 20));
 
-        jFT_nascimento.setBorder(null);
+        jFT_altura.setBorder(null);
         try {
-            jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.##")));
+            jFT_altura.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFT_nascimento.setText(" .  ");
-        jFT_nascimento.addActionListener(new java.awt.event.ActionListener() {
+        jFT_altura.setText(" .  ");
+        jFT_altura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFT_nascimentoActionPerformed(evt);
+                jFT_alturaActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 50, 30));
+        jP_conteudo.add(jFT_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 50, 30));
 
         jL_rg.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_rg.setText("RG");
@@ -251,55 +256,55 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_altura.setText("Altura");
         jP_conteudo.add(jL_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, 20));
 
-        jFT_nascimento1.setBorder(null);
+        jFT_nascimento.setBorder(null);
         try {
-            jFT_nascimento1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFT_nascimento1.addActionListener(new java.awt.event.ActionListener() {
+        jFT_nascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFT_nascimento1ActionPerformed(evt);
+                jFT_nascimentoActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_nascimento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, 30));
+        jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, 30));
 
-        jFT_nascimento2.setBorder(null);
+        jFT_peso.setBorder(null);
         try {
-            jFT_nascimento2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.##")));
+            jFT_peso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFT_nascimento2.addActionListener(new java.awt.event.ActionListener() {
+        jFT_peso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFT_nascimento2ActionPerformed(evt);
+                jFT_pesoActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_nascimento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 70, 30));
+        jP_conteudo.add(jFT_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 70, 30));
 
-        jL_bairro1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_bairro1.setText("Numero");
-        jP_conteudo.add(jL_bairro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 74, 20));
+        jL_numero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_numero.setText("Numero");
+        jP_conteudo.add(jL_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 74, 20));
 
-        jT_bairro1.setBorder(null);
-        jT_bairro1.addActionListener(new java.awt.event.ActionListener() {
+        jT_numero.setBorder(null);
+        jT_numero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_bairro1ActionPerformed(evt);
+                jT_numeroActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_bairro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 160, 30));
+        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 160, 30));
 
-        jl_logradouro2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jl_logradouro2.setText("Complemento");
-        jP_conteudo.add(jl_logradouro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 140, -1));
+        jl_complemento.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jl_complemento.setText("Complemento");
+        jP_conteudo.add(jl_complemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 140, -1));
 
-        jT_logradouro2.setBorder(null);
-        jT_logradouro2.addActionListener(new java.awt.event.ActionListener() {
+        jT_complemento.setBorder(null);
+        jT_complemento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_logradouro2ActionPerformed(evt);
+                jT_complementoActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_logradouro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 150, 30));
+        jP_conteudo.add(jT_complemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 150, 30));
 
         jL_estado.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_estado.setText("Estado");
@@ -312,6 +317,12 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
         jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 220, 30));
+
+        jLabel1.setText("Sexo");
+        jP_conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
+
+        jLabel2.setText("Raça");
+        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
 
         getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 470));
 
@@ -326,9 +337,9 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_nomeActionPerformed
 
-    private void jFT_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_nascimentoActionPerformed
+    private void jFT_alturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_alturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFT_nascimentoActionPerformed
+    }//GEN-LAST:event_jFT_alturaActionPerformed
 
     private void jT_rgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_rgActionPerformed
         // TODO add your handling code here:
@@ -351,28 +362,58 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_cepActionPerformed
 
     private void jB_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cadastrarActionPerformed
-        Endereco endereco = new Endereco(jT_logradouro.getText(), jT_bairro.getText(), jT_cidade.getText(), "Ceara", "Numero", "Complemento", jT_cep.getText());
+        //criação do valor da classe endereço, para ser salvo em cliente
+        Endereco endereco = new Endereco(
+                jT_logradouro.getText(),    //get do logradouro
+                jT_bairro.getText(),        //get do bairro
+                jT_cidade.getText(),        //get da cidade
+                jT_estado.getText(),        //get do estado
+                jT_numero.getText(),        //get do numero
+                jT_complemento.getText(),   //get do complemento
+                jT_cep.getText()            //get do cep
+        );
+        //pegar data para passar para o cliente
+        Date  nascimento = null;
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            nascimento = (java.util.Date)format.parse(jFT_nascimento.getText());
+        } catch (ParseException e) {            
+            System.out.println("Erro na conversao da data "+ e);;
+        }
+        //criação do cliente
+        Cliente cliente = new Cliente(jT_alergias.getText(),
+                Double.parseDouble(jFT_altura.getText()),
+                Double.parseDouble(jFT_peso.getText()),
+                jT_nome.getText(),
+                nascimento,
+                jFT_cpf.getText(),
+                true,//sexo
+                jL_rg.getText(),
+                endereco,
+                jFT_telefone.getText(),
+                "negro"//raça
+        );
     }//GEN-LAST:event_jB_cadastrarActionPerformed
 
     private void jT_alergiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_alergiasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_alergiasActionPerformed
 
-    private void jFT_nascimento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_nascimento1ActionPerformed
+    private void jFT_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_nascimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFT_nascimento1ActionPerformed
+    }//GEN-LAST:event_jFT_nascimentoActionPerformed
 
-    private void jFT_nascimento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_nascimento2ActionPerformed
+    private void jFT_pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_pesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFT_nascimento2ActionPerformed
+    }//GEN-LAST:event_jFT_pesoActionPerformed
 
-    private void jT_bairro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_bairro1ActionPerformed
+    private void jT_numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_numeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_bairro1ActionPerformed
+    }//GEN-LAST:event_jT_numeroActionPerformed
 
-    private void jT_logradouro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_logradouro2ActionPerformed
+    private void jT_complementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_complementoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_logradouro2ActionPerformed
+    }//GEN-LAST:event_jT_complementoActionPerformed
 
     private void jT_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_estadoActionPerformed
         // TODO add your handling code here:
@@ -416,15 +457,14 @@ public class CadastroCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB_cadastrar;
     private javax.swing.JButton jB_cancelar;
+    private javax.swing.JFormattedTextField jFT_altura;
     private javax.swing.JFormattedTextField jFT_cpf;
     private javax.swing.JFormattedTextField jFT_nascimento;
-    private javax.swing.JFormattedTextField jFT_nascimento1;
-    private javax.swing.JFormattedTextField jFT_nascimento2;
+    private javax.swing.JFormattedTextField jFT_peso;
     private javax.swing.JFormattedTextField jFT_telefone;
     private javax.swing.JLabel jL_alerguias;
     private javax.swing.JLabel jL_altura;
     private javax.swing.JLabel jL_bairro;
-    private javax.swing.JLabel jL_bairro1;
     private javax.swing.JLabel jL_cep;
     private javax.swing.JLabel jL_cidade;
     private javax.swing.JLabel jL_cliente;
@@ -432,24 +472,27 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jL_estado;
     private javax.swing.JLabel jL_nascimento;
     private javax.swing.JLabel jL_nome;
+    private javax.swing.JLabel jL_numero;
     private javax.swing.JLabel jL_peso;
     private javax.swing.JLabel jL_rg;
     private javax.swing.JLabel jL_telefone;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jP_cabecalho;
     private javax.swing.JPanel jP_cadastrar;
     private javax.swing.JPanel jP_cancelar;
     private javax.swing.JPanel jP_conteudo;
     private javax.swing.JTextField jT_alergias;
     private javax.swing.JTextField jT_bairro;
-    private javax.swing.JTextField jT_bairro1;
     private javax.swing.JTextField jT_cep;
     private javax.swing.JTextField jT_cidade;
+    private javax.swing.JTextField jT_complemento;
     private javax.swing.JTextField jT_estado;
     private javax.swing.JTextField jT_logradouro;
-    private javax.swing.JTextField jT_logradouro2;
     private javax.swing.JTextField jT_nome;
+    private javax.swing.JTextField jT_numero;
     private javax.swing.JTextField jT_rg;
+    private javax.swing.JLabel jl_complemento;
     private javax.swing.JLabel jl_logradouro;
-    private javax.swing.JLabel jl_logradouro2;
     // End of variables declaration//GEN-END:variables
 }
