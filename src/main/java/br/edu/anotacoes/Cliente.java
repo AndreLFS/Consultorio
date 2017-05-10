@@ -1,50 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.anotacoes;
 
-import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-/**
- *
- * @author Lab1
- */
 
 @Entity
-@Table(name = "cliente")
-public class Cliente {
-    //Atributos
-    //Id do cliente
-    @Id
-    @GeneratedValue
-    private int id;
-    
-    //nome
-    @Column(length = 50, nullable = false)
-    private String nome;
+public class Cliente extends Pessoa {
 
-    public int getId() {
-        return id;
-    }
+	private String alergias;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	private double altura;
 
-    public String getNome() {
-        return nome;
-    }
+	private double peso;
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Cliente(String alergias, double altura, double peso, String nome, Date dataNascimento, String cpf, boolean sexo, String rg, Endereco endereco, String telefone, Raca raca) {
+        super(nome, dataNascimento, cpf, sexo, rg, endereco, telefone, raca);
+        this.alergias = alergias;
+        this.altura = altura;
+        this.peso = peso;
     }
-    
-    
-    
+        
+        
 }

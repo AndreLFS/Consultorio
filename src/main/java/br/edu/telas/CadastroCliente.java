@@ -5,6 +5,9 @@
  */
 package br.edu.telas;
 
+import br.edu.anotacoes.Cliente;
+import br.edu.anotacoes.Endereco;
+
 /**
  *
  * @author Usuario
@@ -49,9 +52,21 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_cep = new javax.swing.JLabel();
         jT_cep = new javax.swing.JTextField();
         jP_cadastrar = new javax.swing.JPanel();
-        jL_cadastrar = new javax.swing.JLabel();
+        jB_cadastrar = new javax.swing.JButton();
         jP_cancelar = new javax.swing.JPanel();
-        jL_cancelar = new javax.swing.JLabel();
+        jB_cancelar = new javax.swing.JButton();
+        jL_alerguias = new javax.swing.JLabel();
+        jT_alergias = new javax.swing.JTextField();
+        jL_peso = new javax.swing.JLabel();
+        jL_altura = new javax.swing.JLabel();
+        jFT_nascimento1 = new javax.swing.JFormattedTextField();
+        jFT_nascimento2 = new javax.swing.JFormattedTextField();
+        jL_bairro1 = new javax.swing.JLabel();
+        jT_bairro1 = new javax.swing.JTextField();
+        jl_logradouro2 = new javax.swing.JLabel();
+        jT_logradouro2 = new javax.swing.JTextField();
+        jL_estado = new javax.swing.JLabel();
+        jT_estado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,34 +103,36 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jL_nascimento.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_nascimento.setText("Data de Nascimento");
-        jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 190, 20));
+        jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 190, 20));
 
+        jFT_nascimento.setBorder(null);
         try {
-            jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFT_nascimento.setText(" .  ");
         jFT_nascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFT_nascimentoActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 110, 30));
+        jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 50, 30));
 
         jL_rg.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_rg.setText("RG");
-        jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 20));
+        jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
 
         jT_rg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_rgActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 250, 30));
+        jP_conteudo.add(jT_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 250, 30));
 
         jl_logradouro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jl_logradouro.setText("Logradouro");
-        jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 167, -1, -1));
+        jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jT_logradouro.setBorder(null);
         jT_logradouro.addActionListener(new java.awt.event.ActionListener() {
@@ -123,11 +140,11 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jT_logradouroActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 160, 180, 30));
+        jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 190, 30));
 
         jL_cidade.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cidade.setText("Cidade");
-        jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 20));
+        jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, 20));
 
         jT_cidade.setBorder(null);
         jT_cidade.addActionListener(new java.awt.event.ActionListener() {
@@ -135,33 +152,35 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jT_cidadeActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 200, 220, 30));
+        jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 220, 30));
 
         jL_telefone.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_telefone.setText("Telefone");
-        jP_conteudo.add(jL_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, 20));
+        jP_conteudo.add(jL_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, 20));
 
+        jFT_telefone.setBorder(null);
         try {
             jFT_telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jP_conteudo.add(jFT_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 160, 30));
+        jP_conteudo.add(jFT_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 160, 30));
 
         jL_cpf.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cpf.setText("CPF");
-        jP_conteudo.add(jL_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 49, 20));
+        jP_conteudo.add(jL_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 49, 20));
 
+        jFT_cpf.setBorder(null);
         try {
             jFT_cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 160, 30));
+        jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 160, 30));
 
         jL_bairro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_bairro.setText("Bairro");
-        jP_conteudo.add(jL_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 74, 20));
+        jP_conteudo.add(jL_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 74, 20));
 
         jT_bairro.setBorder(null);
         jT_bairro.addActionListener(new java.awt.event.ActionListener() {
@@ -169,11 +188,11 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jT_bairroActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 160, 30));
+        jP_conteudo.add(jT_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 190, 30));
 
         jL_cep.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cep.setText("CEP");
-        jP_conteudo.add(jL_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, 20));
+        jP_conteudo.add(jL_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, 20));
 
         jT_cep.setBorder(null);
         jT_cep.addActionListener(new java.awt.event.ActionListener() {
@@ -181,27 +200,120 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jT_cepActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 160, 30));
+        jP_conteudo.add(jT_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 200, 30));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
 
-        jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cadastrar.setText("Cadastrar ");
-        jP_cadastrar.add(jL_cadastrar);
+        jB_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jB_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jB_cadastrar.setText("Cadastrar");
+        jB_cadastrar.setBorder(null);
+        jB_cadastrar.setBorderPainted(false);
+        jB_cadastrar.setContentAreaFilled(false);
+        jB_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_cadastrarActionPerformed(evt);
+            }
+        });
+        jP_cadastrar.add(jB_cadastrar);
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, -1, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, 110, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
 
-        jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cancelar.setText("Cancelar");
-        jP_cancelar.add(jL_cancelar);
+        jB_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jB_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jB_cancelar.setText("Cancelar");
+        jB_cancelar.setBorder(null);
+        jB_cancelar.setBorderPainted(false);
+        jB_cancelar.setContentAreaFilled(false);
+        jP_cancelar.add(jB_cancelar);
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 100, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 100, 40));
 
-        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 320));
+        jL_alerguias.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_alerguias.setText("Alergias");
+        jP_conteudo.add(jL_alerguias, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, 30));
+
+        jT_alergias.setBorder(null);
+        jT_alergias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_alergiasActionPerformed(evt);
+            }
+        });
+        jP_conteudo.add(jT_alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 220, 30));
+
+        jL_peso.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_peso.setText("Peso");
+        jP_conteudo.add(jL_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, 20));
+
+        jL_altura.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_altura.setText("Altura");
+        jP_conteudo.add(jL_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, 20));
+
+        jFT_nascimento1.setBorder(null);
+        try {
+            jFT_nascimento1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFT_nascimento1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFT_nascimento1ActionPerformed(evt);
+            }
+        });
+        jP_conteudo.add(jFT_nascimento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, 30));
+
+        jFT_nascimento2.setBorder(null);
+        try {
+            jFT_nascimento2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFT_nascimento2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFT_nascimento2ActionPerformed(evt);
+            }
+        });
+        jP_conteudo.add(jFT_nascimento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 70, 30));
+
+        jL_bairro1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_bairro1.setText("Numero");
+        jP_conteudo.add(jL_bairro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 74, 20));
+
+        jT_bairro1.setBorder(null);
+        jT_bairro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_bairro1ActionPerformed(evt);
+            }
+        });
+        jP_conteudo.add(jT_bairro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 160, 30));
+
+        jl_logradouro2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jl_logradouro2.setText("Complemento");
+        jP_conteudo.add(jl_logradouro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 140, -1));
+
+        jT_logradouro2.setBorder(null);
+        jT_logradouro2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_logradouro2ActionPerformed(evt);
+            }
+        });
+        jP_conteudo.add(jT_logradouro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 150, 30));
+
+        jL_estado.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_estado.setText("Estado");
+        jP_conteudo.add(jL_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, 20));
+
+        jT_estado.setBorder(null);
+        jT_estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_estadoActionPerformed(evt);
+            }
+        });
+        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 220, 30));
+
+        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,6 +349,34 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void jT_cepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_cepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_cepActionPerformed
+
+    private void jB_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cadastrarActionPerformed
+        Endereco endereco = new Endereco(jT_logradouro.getText(), jT_bairro.getText(), jT_cidade.getText(), "Ceara", "Numero", "Complemento", jT_cep.getText());
+    }//GEN-LAST:event_jB_cadastrarActionPerformed
+
+    private void jT_alergiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_alergiasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_alergiasActionPerformed
+
+    private void jFT_nascimento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_nascimento1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFT_nascimento1ActionPerformed
+
+    private void jFT_nascimento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_nascimento2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFT_nascimento2ActionPerformed
+
+    private void jT_bairro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_bairro1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_bairro1ActionPerformed
+
+    private void jT_logradouro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_logradouro2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_logradouro2ActionPerformed
+
+    private void jT_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_estadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_estadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,30 +414,42 @@ public class CadastroCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jB_cadastrar;
+    private javax.swing.JButton jB_cancelar;
     private javax.swing.JFormattedTextField jFT_cpf;
     private javax.swing.JFormattedTextField jFT_nascimento;
+    private javax.swing.JFormattedTextField jFT_nascimento1;
+    private javax.swing.JFormattedTextField jFT_nascimento2;
     private javax.swing.JFormattedTextField jFT_telefone;
+    private javax.swing.JLabel jL_alerguias;
+    private javax.swing.JLabel jL_altura;
     private javax.swing.JLabel jL_bairro;
-    private javax.swing.JLabel jL_cadastrar;
-    private javax.swing.JLabel jL_cancelar;
+    private javax.swing.JLabel jL_bairro1;
     private javax.swing.JLabel jL_cep;
     private javax.swing.JLabel jL_cidade;
     private javax.swing.JLabel jL_cliente;
     private javax.swing.JLabel jL_cpf;
+    private javax.swing.JLabel jL_estado;
     private javax.swing.JLabel jL_nascimento;
     private javax.swing.JLabel jL_nome;
+    private javax.swing.JLabel jL_peso;
     private javax.swing.JLabel jL_rg;
     private javax.swing.JLabel jL_telefone;
     private javax.swing.JPanel jP_cabecalho;
     private javax.swing.JPanel jP_cadastrar;
     private javax.swing.JPanel jP_cancelar;
     private javax.swing.JPanel jP_conteudo;
+    private javax.swing.JTextField jT_alergias;
     private javax.swing.JTextField jT_bairro;
+    private javax.swing.JTextField jT_bairro1;
     private javax.swing.JTextField jT_cep;
     private javax.swing.JTextField jT_cidade;
+    private javax.swing.JTextField jT_estado;
     private javax.swing.JTextField jT_logradouro;
+    private javax.swing.JTextField jT_logradouro2;
     private javax.swing.JTextField jT_nome;
     private javax.swing.JTextField jT_rg;
     private javax.swing.JLabel jl_logradouro;
+    private javax.swing.JLabel jl_logradouro2;
     // End of variables declaration//GEN-END:variables
 }
