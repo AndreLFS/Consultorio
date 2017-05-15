@@ -7,7 +7,7 @@ package br.edu.telas;
 
 import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Endereco;
-import DAO.ClienteDAO;
+import br.edu.DAO.ClienteDAO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

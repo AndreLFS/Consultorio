@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package br.edu.DAO;
 
 import br.edu.anotacoes.Cliente;
+import br.edu.anotacoes.Endereco;
 import br.edu.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

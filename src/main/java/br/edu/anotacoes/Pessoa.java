@@ -5,10 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Pessoa {
+public abstract class Pessoa {
 
 	private String nome;
 
@@ -19,7 +20,8 @@ public class Pessoa {
 	private boolean sexo;
 
 	private String rg;
-
+        
+        @OneToOne
 	private Endereco endereco;
 
 	private String telefone;
