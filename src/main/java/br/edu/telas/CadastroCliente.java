@@ -7,9 +7,11 @@ package br.edu.telas;
 
 import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Endereco;
+import DAO.ClienteDAO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -393,6 +395,14 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jFT_telefone.getText(),
                 "negro"//raça
         );
+        
+        ClienteDAO clienteDao = new ClienteDAO();
+        if(clienteDao.salvarCliente(cliente) == true){
+            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso");
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
+        }
+        
     }//GEN-LAST:event_jB_cadastrarActionPerformed
 
     private void jT_alergiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_alergiasActionPerformed
