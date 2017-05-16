@@ -1,40 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.edu.anotacoes;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ *
+ * @author Lab1
+ */
 @Entity
 public class Endereco {
-        
     @Id
     @GeneratedValue
     private int id;
-    
     private String logradouro;
 
-    private String bairro;
-
-    private String cidade;
-
-    private String estado;
-
-    private String numero;
-
-    private String complemento;
-
-    private String cep;
-
-    public Endereco(String logradouro, String bairro, String cidade, String estado, String numero, String complemento, String cep) {
-        this.logradouro = logradouro;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.cep = cep;
+    public int getId() {
+        return id;
     }
 
-
-        
+    public Endereco(String logradouro) {
+        this.logradouro = logradouro;
+    }
+    
+    
 }

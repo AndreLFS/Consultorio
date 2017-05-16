@@ -5,15 +5,17 @@
  */
 package br.edu.DAO;
 
+import java.util.List;
+
 /**
  *
  * @author Lab1
  */
-public interface DAO {
+public interface DAO<T> {
     
-    public boolean salvar();
-    public boolean editar();
-    public boolean deletar();
-    public boolean listar();
+    public boolean salvar(T t);
+    public boolean editar(T t);
+    public boolean deletar(T t);
+    public List<T> listar(T t);
     
 }

@@ -6,32 +6,25 @@
 package br.edu.DAO;
 
 import br.edu.anotacoes.Cliente;
-import br.edu.anotacoes.Endereco;
-import br.edu.util.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 
 /**
  *
  * @author Lab1
  */
-public class ClienteDAO{
-    private Session conexao;
-    private Transaction update;
+public class ClienteDAO extends GenericoDAO<Cliente>{
 
-    public boolean salvarCliente(Cliente cliente) {
-        try {
-            conexao = HibernateUtil.getSessionFactory().openSession();
-            update = conexao.beginTransaction();
-            conexao.save(cliente);
-            update.commit();
-        } catch (Exception e) {
-            System.out.println("Erro no cadastro do cliente : " + e.getMessage());
-            return false;
-        }
-        conexao.close();
-        return true;
+    public ClienteDAO() {
+        super(Cliente.class);
     }
-     
+
+    @Override
+    public boolean salvar(Cliente cliente) {
+        if(cliente.getId() == 0){
+            return super.salvar(cliente);
+        }else{
+            return super.editar(cliente);
+        }
+    }
+    
+    
 }
