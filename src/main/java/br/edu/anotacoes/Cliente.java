@@ -17,15 +17,14 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente extends Pessoa{
-   
-    
-    private String cpf;
 
-    public Cliente(String cpf, Endereco endereco, String nome) {
-        super(endereco, nome);
-        this.cpf = cpf;
+    public Cliente(Endereco endereco, String nome, String rg, String cpf) {
+        super(endereco, nome, rg, cpf);
     }
-    
-    
+
+    public Cliente() {
+        super(null, null, null, null);
+    }
+   
     
 }

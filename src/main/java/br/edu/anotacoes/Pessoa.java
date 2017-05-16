@@ -29,49 +29,33 @@ public abstract class Pessoa implements Serializable{
     @OneToOne
     private Endereco endereco;
     private String nome;
+    private String rg;
+    private String cpf;
 
     public int getId() {
         return id;
     }
 
-    public Pessoa(Endereco endereco, String nome) {
-        this.endereco = endereco;
-        this.nome = nome;
+    public String getNome() {
+        return nome;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.id;
-        hash = 29 * hash + (this.endereco != null ? this.endereco.hashCode() : 0);
-        hash = 29 * hash + (this.nome != null ? this.nome.hashCode() : 0);
-        return hash;
+    public String getRg() {
+        return rg;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Pessoa other = (Pessoa) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if ((this.nome == null) ? (other.nome != null) : !this.nome.equals(other.nome)) {
-            return false;
-        }
-        if (this.endereco != other.endereco && (this.endereco == null || !this.endereco.equals(other.endereco))) {
-            return false;
-        }
-        return true;
+    public String getCpf() {
+        return cpf;
     }
     
+    
+    public Pessoa(Endereco endereco, String nome, String rg, String cpf) {
+        this.endereco = endereco;
+        this.nome = nome;
+        this.rg = rg;
+        this.cpf = cpf;
+    }
+
     
     
 }

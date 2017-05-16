@@ -79,10 +79,12 @@ public class GenericoDAO<T> implements DAO<T>{
         return true;
     }
 
-    public List<T> listar(T t) {
+    public List<T> listar() {
+         List<T> lista=null;
         sessao = null;
-        List<T> lista = null;
+        
         try {
+           
             sessao = getSessao().openSession();
             lista = sessao.createCriteria(classe).list();
         } catch (Exception e) {

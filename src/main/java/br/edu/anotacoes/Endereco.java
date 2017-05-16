@@ -24,6 +24,9 @@ public class Endereco {
         return id;
     }
 
+    public Endereco() {
+    }
+
     public Endereco(String logradouro) {
         this.logradouro = logradouro;
     }

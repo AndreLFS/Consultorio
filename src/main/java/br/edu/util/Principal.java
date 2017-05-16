@@ -22,13 +22,13 @@ public class Principal {
     public static void main(String[] args) {
         //criação do valor da classe endereço, para ser salvo em cliente
         Endereco endereco = new Endereco("sdjkbgfs");
-        Cliente cliente = new Cliente("0506213552",endereco, "joao");
+        Cliente cliente = new Cliente(endereco, "Andre", "2009", "069");
         ClienteDAO clienteDAO = new ClienteDAO();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
         
         enderecoDAO.salvar(endereco);
         clienteDAO.salvar(cliente);
         
-        //HibernateUtil.getSessionFactory();
+            //HibernateUtil.getSessionFactory();
     }
 }
