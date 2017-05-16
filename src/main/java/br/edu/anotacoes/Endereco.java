@@ -19,7 +19,14 @@ public class Endereco {
     @GeneratedValue
     private int id;
     private String logradouro;
+    private String bairro;
+    private String estado;
+    private String cidade;
+    private String numero;
+    private String observacoa;
+    private String cep;
 
+    
     public int getId() {
         return id;
     }
@@ -30,6 +37,18 @@ public class Endereco {
     public Endereco(String logradouro) {
         this.logradouro = logradouro;
     }
+
+    public Endereco(String logradouro, String bairro, String estado, String cidade, String numero, String observacoa, String cep) {
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.numero = numero;
+        this.observacoa = observacoa;
+        this.cep = cep;
+    }
+    
+    
     
     
 }
