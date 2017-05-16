@@ -5,6 +5,7 @@
  */
 package br.edu.DAO;
 
+
 import br.edu.anotacoes.Medico;
 
 
@@ -18,8 +19,13 @@ public class MedicoDAO extends GenericoDAO<Medico>  {
         super(Medico.class);
     }
 
- public boolean(int usuario){
- 
- }
+@Override
+    public boolean salvar(Medico medico) {
+        if(medico.getId() == 0){
+            return super.salvar(medico);
+        }else{
+            return super.editar(medico);
+        }
+    }
     
 }
