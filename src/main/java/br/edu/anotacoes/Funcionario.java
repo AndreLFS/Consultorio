@@ -27,6 +27,15 @@ import javax.persistence.Entity;
         return senha;
     }
 
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    
     public Funcionario(String usuario, String senha, Endereco endereco, String nome, String rg, String cpf) {
         super(endereco, nome, rg, cpf);
         this.usuario = usuario;
