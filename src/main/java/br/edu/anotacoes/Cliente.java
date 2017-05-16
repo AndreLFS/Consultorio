@@ -5,6 +5,7 @@
  */
 package br.edu.anotacoes;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,10 +18,18 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente extends Pessoa{
+    
+    private String alergias;
+    private double peso;
+    private double altura;
 
-    public Cliente(Endereco endereco, String nome, String rg, String cpf) {
-        super(endereco, nome, rg, cpf);
+    public Cliente(String alergias, double peso, double altura, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
+        super(endereco, nome, nascimento, genero, telefone, etinia, rg, cpf);
+        this.alergias = alergias;
+        this.peso = peso;
+        this.altura = altura;
     }
+    
 
     public Cliente() {
         super(null, null, null, null);

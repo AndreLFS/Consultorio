@@ -6,6 +6,7 @@
 package br.edu.anotacoes;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,10 @@ public abstract class Pessoa implements Serializable{
     @OneToOne
     private Endereco endereco;
     private String nome;
+    private Date nascimento;
+    private boolean genero;
+    private String telefone;
+    private String etinia;
     private String rg;
     private String cpf;
 
@@ -52,6 +57,17 @@ public abstract class Pessoa implements Serializable{
     public Pessoa(Endereco endereco, String nome, String rg, String cpf) {
         this.endereco = endereco;
         this.nome = nome;
+        this.rg = rg;
+        this.cpf = cpf;
+    }
+
+    public Pessoa(Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
+        this.endereco = endereco;
+        this.nome = nome;
+        this.nascimento = nascimento;
+        this.genero = genero;
+        this.telefone = telefone;
+        this.etinia = etinia;
         this.rg = rg;
         this.cpf = cpf;
     }
