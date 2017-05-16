@@ -22,7 +22,7 @@ public class Principal {
     public static void main(String[] args) {
         //criação do valor da classe endereço, para ser salvo em cliente
         Endereco endereco = new Endereco("sdjkbgfs");
-        Cliente cliente = new Cliente(endereco, "jaoa");
+        Cliente cliente = new Cliente("0506213552",endereco, "joao");
         ClienteDAO clienteDAO = new ClienteDAO();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
         

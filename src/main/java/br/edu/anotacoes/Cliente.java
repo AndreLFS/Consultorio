@@ -16,22 +16,16 @@ import javax.persistence.OneToOne;
  */
 
 @Entity
-public class Cliente {
-    @Id
-    @GeneratedValue
-    private int id;
-    @OneToOne
-    private Endereco endereco;
-    private String nome;
+public class Cliente extends Pessoa{
+   
+    
+    private String cpf;
 
-    public int getId() {
-        return id;
+    public Cliente(String cpf, Endereco endereco, String nome) {
+        super(endereco, nome);
+        this.cpf = cpf;
     }
-
-    public Cliente(Endereco endereco, String nome) {
-        this.endereco = endereco;
-        this.nome = nome;
-    }
+    
     
     
 }

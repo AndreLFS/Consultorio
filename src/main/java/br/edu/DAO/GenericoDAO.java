@@ -9,6 +9,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -86,6 +87,21 @@ public class GenericoDAO<T> implements DAO<T>{
             lista = sessao.createCriteria(classe).list();
         } catch (Exception e) {
             System.out.println("Erro na lista: " + e);
+        }
+        finally{
+            sessao.close();
+        }
+        return lista;
+    }
+
+    public List<T> listarCampos(String campo, Object valor) {
+        sessao = null;
+        List<T> lista = null;
+        try {
+            sessao = getSessao().openSession();
+            lista = sessao.createCriteria(classe).add(Restrictions.eq(campo, valor)).list();
+        } catch (Exception e) {
+            System.out.println("Erro na lista de campo: " + e);
         }
         finally{
             sessao.close();

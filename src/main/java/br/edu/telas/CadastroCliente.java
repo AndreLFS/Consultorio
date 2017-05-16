@@ -365,7 +365,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void jB_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cadastrarActionPerformed
         //criação do valor da classe endereço, para ser salvo em cliente
-        Endereco endereco = new Endereco(
+        /*Endereco endereco = new Endereco(
                 jT_logradouro.getText(),    //get do logradouro
                 jT_bairro.getText(),        //get do bairro
                 jT_cidade.getText(),        //get da cidade
@@ -402,7 +402,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
         }
-        
+        */
     }//GEN-LAST:event_jB_cadastrarActionPerformed
 
     private void jT_alergiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_alergiasActionPerformed
