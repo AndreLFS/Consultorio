@@ -26,6 +26,6 @@ public class MedicoDAO extends GenericoDAO<Medico>  {
         }else{
             return super.editar(medico);
         }
-    }
+     }
     
 }
