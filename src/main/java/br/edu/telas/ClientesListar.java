@@ -5,7 +5,7 @@
  */
 package br.edu.telas;
 
-import br.edu.DAO.ClienteDAO;
+import br.edu.DAO.ClienteDAO2;
 import br.edu.tableModel.ClienteTableModel;
 
 /**
@@ -19,7 +19,7 @@ public class ClientesListar extends javax.swing.JFrame {
      */
     public ClientesListar() {
         initComponents();
-        ClienteDAO clienteDAO = new ClienteDAO();
+        ClienteDAO2 clienteDAO = new ClienteDAO2();
         ClienteTableModel clienteTableModel = new ClienteTableModel(clienteDAO.listar());
         jTable1.setModel(clienteTableModel);
         

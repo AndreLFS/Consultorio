@@ -14,11 +14,6 @@ public class Medico extends Funcionario {
 
     private String especialidade;
 
-    public Medico(String especialidade, String usuario, String senha, Endereco endereco, String nome, String rg, String cpf) {
-        super(usuario, senha, endereco, nome, rg, cpf);
-        this.especialidade = especialidade;
-    }
-    
     public void manterProntuario(){}
     
 

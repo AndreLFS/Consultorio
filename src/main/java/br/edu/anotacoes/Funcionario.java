@@ -36,11 +36,6 @@ import javax.persistence.Entity;
     }
 
     
-    public Funcionario(String usuario, String senha, Endereco endereco, String nome, String rg, String cpf) {
-        super(endereco, nome, rg, cpf);
-        this.usuario = usuario;
-        this.senha = senha;
-    }
 
     
     

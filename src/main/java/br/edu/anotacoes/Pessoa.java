@@ -52,14 +52,6 @@ public abstract class Pessoa implements Serializable{
     public String getCpf() {
         return cpf;
     }
-    
-    
-    public Pessoa(Endereco endereco, String nome, String rg, String cpf) {
-        this.endereco = endereco;
-        this.nome = nome;
-        this.rg = rg;
-        this.cpf = cpf;
-    }
 
     public Pessoa(Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
         this.endereco = endereco;
@@ -70,6 +62,9 @@ public abstract class Pessoa implements Serializable{
         this.etinia = etinia;
         this.rg = rg;
         this.cpf = cpf;
+    }
+
+    public Pessoa() {
     }
 
     
