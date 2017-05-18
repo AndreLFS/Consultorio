@@ -7,8 +7,10 @@ package br.edu.telas;
 
 import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Endereco;
-import br.edu.DAO.ClienteDAO;
+import br.edu.DAO.ClienteDAO2;
 import br.edu.DAO.EnderecoDAO;
+import br.edu.util.Validacao;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -75,8 +77,8 @@ public class CadastroCliente extends javax.swing.JFrame {
         jT_estado = new javax.swing.JTextField();
         jL_cep1 = new javax.swing.JLabel();
         jL_genero = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jC_etinia = new javax.swing.JComboBox<>();
+        jC_Genero = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -236,6 +238,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         jB_cancelar.setBorder(null);
         jB_cancelar.setBorderPainted(false);
         jB_cancelar.setContentAreaFilled(false);
+        jB_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_cancelarActionPerformed(evt);
+            }
+        });
         jP_cancelar.add(jB_cancelar);
 
         jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 40));
@@ -330,18 +337,91 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_genero.setText("Genero");
         jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 20));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(null);
-        jP_conteudo.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 170, -1));
+        jC_etinia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_etinia.setBorder(null);
+        jP_conteudo.add(jC_etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 170, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jP_conteudo.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
 
         getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // <editor-fold defaultstate="collapsed" desc="funçoes">   
+    Validacao testes = new Validacao();
+    // <editor-fold defaultstate="collapsed" desc="vazio">   
+    //teste se os campos estao vazios
+    private boolean testeVazio(){
+        //começando com o nome
+        if (jT_nome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo nome esta em branco");
+            return false;
+            // se estiver ok testa a idade
+            //ele envia o campo de texto para a classe de validação e ela retorna um tipo date
+            //se estiver tudo certo e um nulo caso aja algum erro
+        }else if(testes.converterIdade(jFT_nascimento.getText()) == null){
+            JOptionPane.showMessageDialog(null, "Campo nascimento esta em branco ou invalida");
+            return false;
+            //testa altura e peso
+        }else if(jFT_altura.getText().equals(" .  ") || jFT_peso.getText().equals("   .  ")){
+            JOptionPane.showMessageDialog(null, "Campo altura ou peso esta em branco");
+            return false;
+            //teste do cpf enviando para a classe de validação
+        }else if(testes.isCPF(jFT_cpf.getText()) == false){
+            JOptionPane.showMessageDialog(null, "Campo cpf esta em branco ou invalida");
+            return false;
+            //teste se o campo do rg esta vazio
+        }else if(jT_rg.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campo rg esta em branco");
+            return false;
+        }
+        return true;
+    }
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="salvar">   
+    
+    private void salvar (){
+        //criação do valor da classe endereço, para ser salvo em cliente
+        Endereco endereco = new Endereco(
+                jT_logradouro.getText(),    //get do logradouro
+                jT_bairro.getText(),        //get do bairro
+                jT_cidade.getText(),        //get da cidade
+                jT_estado.getText(),        //get do estado
+                jT_numero.getText(),        //get do numero
+                jT_complemento.getText(),   //get do complemento
+                jT_cep.getText()            //get do cep
+        );
+        //criação do cliente
+        Cliente cliente = new Cliente(
+                jT_alergias.getText(),
+                Double.parseDouble(jFT_peso.getText()),
+                Double.parseDouble(jFT_altura.getText()),
+                endereco,
+                jT_nome.getText(),
+                testes.converterIdade(jFT_nascimento.getText()),
+                jC_Genero.getSelectedItem().toString().equals("Masculino"),
+                jFT_telefone.getText(),
+                jC_etinia.getSelectedItem().toString(),
+                jT_rg.getText(),
+                jFT_cpf.getText()
+        );
+        //criação das classes dao para o cadastro no banco de dados
+        ClienteDAO2 clienteDao = new ClienteDAO2();
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        //ele salva primeiro o endereço para depois salvar o cliente
+        enderecoDAO.salvar(endereco);
+        if(clienteDao.salvar(cliente) == true){
+            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso");
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
+        }
+    }
+    // </editor-fold>        
+    // </editor-fold>        
+    // <editor-fold defaultstate="collapsed" desc="eventos">        
     private void jT_nomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_nomeMouseClicked
         jT_nome.setText("");
     }//GEN-LAST:event_jT_nomeMouseClicked
@@ -375,49 +455,9 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_cepActionPerformed
 
     private void jB_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cadastrarActionPerformed
-        //criação do valor da classe endereço, para ser salvo em cliente
-        Endereco endereco = new Endereco(
-                jT_logradouro.getText(),    //get do logradouro
-                jT_bairro.getText(),        //get do bairro
-                jT_cidade.getText(),        //get da cidade
-                jT_estado.getText(),        //get do estado
-                jT_numero.getText(),        //get do numero
-                jT_complemento.getText(),   //get do complemento
-                jT_cep.getText()            //get do cep
-        );
-        //pegar data para passar para o cliente
-        Date  nascimento = null;
-        try {
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            nascimento = (java.util.Date)format.parse(jFT_nascimento.getText());
-        } catch (ParseException e) {            
-            System.out.println("Erro na conversao da data "+ e);;
+        if(testeVazio()){
+            salvar();
         }
-        //criação do cliente
-        Cliente cliente = new Cliente(
-                jT_alergias.getText(),
-                Double.parseDouble(jFT_peso.getText()),
-                Double.parseDouble(jFT_altura.getText()),
-                endereco,
-                jT_nome.getText(),
-                nascimento,
-                true,
-                //jC_Genero.getSelectedIndex()== -1,
-                jFT_telefone.getText(),
-                "negro",//etinia
-                jL_rg.getText(),
-                jFT_cpf.getText()
-        );
-        
-        ClienteDAO clienteDao = new ClienteDAO();
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        enderecoDAO.salvar(endereco);
-        if(clienteDao.salvar(cliente) == true){
-            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso");
-        }else{
-            JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
-        }
-        
     }//GEN-LAST:event_jB_cadastrarActionPerformed
 
     private void jT_alergiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_alergiasActionPerformed
@@ -443,7 +483,11 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void jT_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_estadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_estadoActionPerformed
-
+ 
+    private void jB_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jB_cancelarActionPerformed
+    // </editor-fold>        
     /**
      * @param args the command line arguments
      */
@@ -482,8 +526,8 @@ public class CadastroCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB_cadastrar;
     private javax.swing.JButton jB_cancelar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jC_Genero;
+    private javax.swing.JComboBox<String> jC_etinia;
     private javax.swing.JFormattedTextField jFT_altura;
     private javax.swing.JFormattedTextField jFT_cpf;
     private javax.swing.JFormattedTextField jFT_nascimento;

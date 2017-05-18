@@ -11,9 +11,9 @@ import br.edu.anotacoes.Cliente;
  *
  * @author Lab1
  */
-public class ClienteDAO extends GenericoDAO<Cliente>{
+public class ClienteDAO2 extends GenericoDAO<Cliente>{
 
-    public ClienteDAO() {
+    public ClienteDAO2() {
         super(Cliente.class);
     }
 

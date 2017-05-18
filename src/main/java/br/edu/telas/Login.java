@@ -5,18 +5,23 @@
  */
 package br.edu.telas;
 
+import br.edu.DAO.MedicoDAO;
+import br.edu.DAO.RecepcionistaDAO;
+import br.edu.anotacoes.Medico;
+import br.edu.anotacoes.Recepcionista;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Lab1
  */
-public class Loguin extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Loguin
      */
-    public Loguin() {
+    public Login() {
         initComponents();
     }
 
@@ -182,7 +187,33 @@ public class Loguin extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(862, 538));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private boolean logarMedico(){
+        MedicoDAO medicoDAO = new MedicoDAO();
+        List<Medico> medicos= medicoDAO.listarCampos("usuario", jTF_email.getText());
+        for (int i = 0; i < medicos.size(); i++) {
+            System.out.println(medicos.get(i).getUsuario());
+            System.out.println(medicos.get(i).getSenha());
+            if (medicos.get(i).getUsuario().equals(jTF_email.getText()) && medicos.get(i).getSenha().equals(new String(jPF_senha.getPassword()))) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean logarRecepcionista(){
+        RecepcionistaDAO recepcionistaDAO = new RecepcionistaDAO();
+        List<Recepcionista> medicos= recepcionistaDAO.listarCampos("usuario", jTF_email.getText());
+        for (int i = 0; i < medicos.size(); i++) {
+            System.out.println(medicos.get(i).getUsuario());
+            System.out.println(medicos.get(i).getSenha());
+            if (medicos.get(i).getUsuario().equals(jTF_email.getText()) && medicos.get(i).getSenha().equals(new String(jPF_senha.getPassword()))) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
     private void jTF_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTF_emailActionPerformed
@@ -196,7 +227,15 @@ public class Loguin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPF_senhaMouseClicked
 
     private void jL_loguinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseClicked
-        JOptionPane.showMessageDialog(this, "Login Executado Com Sucesso");
+        if(logarMedico()){
+            //home de medico
+            System.out.println("Login Medico");
+        }else if(logarRecepcionista()){
+            //home de recepcionista
+            System.out.println("Login Recepcionista");
+        }else{
+            System.out.println("Usuario ou senha errados");
+        }
     }//GEN-LAST:event_jL_loguinMouseClicked
 
     private void jL_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseClicked
@@ -227,20 +266,21 @@ public class Loguin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Loguin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Loguin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Loguin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Loguin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Loguin().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }

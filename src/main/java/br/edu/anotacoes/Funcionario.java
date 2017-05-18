@@ -7,6 +7,7 @@ package br.edu.anotacoes;
 
 import com.oracle.webservices.internal.api.EnvelopeStyle;
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 /**
  *
@@ -34,19 +35,16 @@ import javax.persistence.Entity;
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
     
-    public Funcionario(String usuario, String senha, Endereco endereco, String nome, String rg, String cpf) {
-        super(endereco, nome, rg, cpf);
+
+    public Funcionario() {
+    }
+
+    public Funcionario(String usuario, String senha, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
+        super(endereco, nome, nascimento, genero, telefone, etinia, rg, cpf);
         this.usuario = usuario;
         this.senha = senha;
     }
-
-    
-    
-    public boolean logar(int usuario,String senha){
-      
-        return  false;
-    }
      
+    
 }
