@@ -97,6 +97,7 @@ public class GenericoDAO<T> implements DAO<T>{
     }
 
     public List<T> listarCampos(String campo, Object valor) {
+        System.out.println(campo + valor);
         sessao = null;
         List<T> lista = null;
         try {

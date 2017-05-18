@@ -43,6 +43,14 @@
                     <artifactId>swingx</artifactId>
                     <version>1.6.1</version>
                 </dependency>
+                <!--Jcalendar -->
+                <dependency>
+                    <groupId>com.toedter</groupId>
+                    <artifactId>jcalendar</artifactId>
+                    <version>1.4</version>
+                </dependency>
+
+                
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>mysql-connector-java-5.1.23-bin</artifactId>
