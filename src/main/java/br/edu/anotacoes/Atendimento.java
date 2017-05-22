@@ -21,20 +21,46 @@ public class Atendimento {
     @GeneratedValue
     private int id;
     @OneToOne
-    private Pessoa pessoa;
+    private Cliente cliente;
     @OneToOne
     private Medico medico;
     private Date data;
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    
+    
     public Atendimento() {
     }
 
-    public Atendimento(int id, Pessoa pessoa, Medico medico, Date data) {
-        this.id = id;
-        this.pessoa = pessoa;
+    public Atendimento(Cliente cliente, Medico medico, Date data) {
+        this.cliente = cliente;
         this.medico = medico;
         this.data = data;
     }
+    
     
     
 }

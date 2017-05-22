@@ -9,6 +9,7 @@
     <property name="hibernate.connection.password"></property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="br.edu.anotacoes.Pessoa"/>
+    <mapping class="br.edu.anotacoes.Atendimento"/>
     <mapping class="br.edu.anotacoes.Cliente"/>
     <mapping class="br.edu.anotacoes.Endereco"/>
     <mapping class="br.edu.anotacoes.Funcionario"/>

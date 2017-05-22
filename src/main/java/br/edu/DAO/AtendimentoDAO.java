@@ -17,4 +17,4 @@ public class AtendimentoDAO extends GenericoDAO<Atendimento>{
         super(Atendimento.class);
     }
 
-}
+} 
