@@ -25,6 +25,7 @@ public class Atendimento {
     @OneToOne
     private Medico medico;
     private Date data;
+    private int horaConsulta;
 
     public Cliente getCliente() {
         return cliente;
@@ -50,15 +51,18 @@ public class Atendimento {
         this.data = data;
     }
 
-    
+    public int getHoraConsulta() {
+        return horaConsulta;
+    }
     
     public Atendimento() {
     }
 
-    public Atendimento(Cliente cliente, Medico medico, Date data) {
+    public Atendimento(Cliente cliente, Medico medico, Date data, int horaConsulta) {
         this.cliente = cliente;
         this.medico = medico;
         this.data = data;
+        this.horaConsulta = horaConsulta;
     }
     
     

@@ -50,12 +50,13 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jC_clientes = new javax.swing.JComboBox<>();
         jL_data = new javax.swing.JLabel();
         jL_medicos1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jL_cliente1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jC_idCliente = new javax.swing.JComboBox<>();
         jC_idMedicos = new javax.swing.JComboBox<>();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jL_hora = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jFT_data = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         jL_consultas = new javax.swing.JLabel();
 
@@ -78,7 +79,6 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jL_medicos1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_medicos1.setText("Medico");
         jPanel1.add(jL_medicos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, 20));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 130, -1));
 
         jL_cliente1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cliente1.setText("Cliente");
@@ -90,14 +90,33 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
         jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jC_idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         jC_idMedicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jC_idMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
-        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 130, -1));
+
+        jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_hora.setText("Hora");
+        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, 20));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "14", "15", "16", "17" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+
+        jFT_data.setBorder(null);
+        try {
+            jFT_data.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFT_data.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFT_dataActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 110, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 590, 260));
 
@@ -118,9 +137,13 @@ MedicoDAO medicoDAO = new MedicoDAO();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         salvar();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jFT_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_dataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFT_dataActionPerformed
     
     private boolean testarVazio(){
-        if (jDateChooser1.getDate() == null) {
+        if (jFT_data.getText().equals("  /  /    ")) {
             JOptionPane.showMessageDialog(null, "Data Em branco");
             return false;
         }else{
@@ -131,34 +154,36 @@ MedicoDAO medicoDAO = new MedicoDAO();
     private void salvar(){
         if (testarVazio()) {
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-            
+            Validacao validar = new Validacao();
             /*criação do medico, usando o campo de id, para pegar o id, criei uma lista que esta invisivel na aplicação com os ids
             quando o usuario seleciona o medico a busca pega o numero do campo que ele selecionou e vai buscar na comonbox invisivel
             pegando esse id ele o transforma de String para inteiro e passa pra busca, a busca retorna uma lista, onde pegamos apenas o primeiro resultado*/
             Medico medico = (medicoDAO.listarCampos("id", Integer.parseInt(jC_idMedicos.getItemAt(jC_medicos.getSelectedIndex()))).get(0));
             Cliente cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
-           
-            List<Atendimento> atendimentos = atendimentoDAO.listaEntreDatas(jDateChooser1.getDate(), jDateChooser2.getDate());
-            JOptionPane.showMessageDialog(null, atendimentos.size());
+            //boleano para controle do teste de medico ocupado
+            boolean teste = true;
+            //lista buscando pela data que vai ter que cadastrar
+            List<Atendimento> atendimentos = atendimentoDAO.listarCampos("data", validar.converterIdade(jFT_data.getText()));
             for (int i = 0; i < atendimentos.size(); i++) {
-              //  if(atendimentos.get(i).getData() ){
-             //       JOptionPane.showMessageDialog(null, "Medico Ocupado");
-              //      break;
-             //   
+                if((atendimentos.get(i).getMedico().getId() == medico.getId()) && (atendimentos.get(i).getHoraConsulta() == Integer.parseInt(jComboBox1.getSelectedItem().toString()))){
+                    JOptionPane.showMessageDialog(null, "Medico Ocupado");
+                    teste = false;
+                   break;
+                }
             }
-                    
-            Atendimento atendimento = new Atendimento(cliente, medico, jDateChooser1.getDate());
-            
-            try {
-                atendimentoDAO.salvar(atendimento);
-            } catch (Exception e) {
-                System.out.println("Erro no cadastro de atendimento " + e);
-                JOptionPane.showMessageDialog(null, "Erro na consulta");
+            if (teste) {
+                Atendimento atendimento = new Atendimento(cliente, medico, validar.converterIdade(jFT_data.getText()), Integer.parseInt(jComboBox1.getSelectedItem().toString()));
+                try {
+                    atendimentoDAO.salvar(atendimento);
+                } catch (Exception e) {
+                    System.out.println("Erro no cadastro de atendimento " + e);
+                    JOptionPane.showMessageDialog(null, "Erro na consulta");
+                }
+                JOptionPane.showMessageDialog(null, "Consulta salva com sucesso");
             }
-            JOptionPane.showMessageDialog(null, "Consulta salva com sucesso");
-        }
         
-    }
+        }
+}
     
     private void passarMedicos(){
         List<Medico> medicos= medicoDAO.listar();
@@ -222,11 +247,12 @@ MedicoDAO medicoDAO = new MedicoDAO();
     private javax.swing.JComboBox<String> jC_idCliente;
     private javax.swing.JComboBox<String> jC_idMedicos;
     private javax.swing.JComboBox<String> jC_medicos;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JFormattedTextField jFT_data;
     private javax.swing.JLabel jL_cliente1;
     private javax.swing.JLabel jL_consultas;
     private javax.swing.JLabel jL_data;
+    private javax.swing.JLabel jL_hora;
     private javax.swing.JLabel jL_medicos1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

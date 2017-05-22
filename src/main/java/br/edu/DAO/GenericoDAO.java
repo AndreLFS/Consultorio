@@ -110,22 +110,5 @@ public class GenericoDAO<T> implements DAO<T>{
         }
         return lista;
     }
-    public List<T> listaEntreDatas(java.util.Date dataInicio,java.util.Date dataFim){
-        sessao = null;
-        List<T> lista = null;
-        try {
-            sessao = getSessao().openSession();
-            lista = sessao.createCriteria(classe).
-                    add(Restrictions.ge("data",dataInicio)).
-                    add( Restrictions.le("data",dataFim) )
-                    .list();
-        } catch (Exception e) {
-            System.out.println("Erro na lista de campo: " + e);
-        }
-        finally{
-            sessao.close();
-        }
-        return lista;
-    }
 }
 
