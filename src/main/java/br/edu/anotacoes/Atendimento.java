@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -24,6 +26,7 @@ public class Atendimento {
     private Cliente cliente;
     @OneToOne
     private Medico medico;
+    @Temporal(TemporalType.DATE)
     private Date data;
     private int horaConsulta;
 

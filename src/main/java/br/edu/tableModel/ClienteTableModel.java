@@ -42,6 +42,10 @@ public class ClienteTableModel extends AbstractTableModel{
         }
         return null;
     }
+    
+    public Cliente getValueAt(int rowIndex){
+        return clientes.get(rowIndex);
+    }
 
     @Override
     public String getColumnName(int column) {
