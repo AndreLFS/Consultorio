@@ -5,6 +5,8 @@
  */
 package br.edu.anotacoes;
 
+import java.util.Date;
+
 /**
  *
  * @author Lab1
@@ -13,6 +15,11 @@ public class Recepcionista extends Funcionario{
 
     public Recepcionista() {
     }
+
+    public Recepcionista(String usuario, String senha, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
+        super(usuario, senha, endereco, nome, nascimento, genero, telefone, etinia, rg, cpf);
+    }
+    
     
     
     

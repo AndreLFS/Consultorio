@@ -5,7 +5,11 @@
  */
 package br.edu.telas;
 
+import br.edu.DAO.EnderecoDAO;
+import br.edu.DAO.RecepcionistaDAO;
 import br.edu.anotacoes.Endereco;
+import br.edu.anotacoes.Funcionario;
+import br.edu.anotacoes.Recepcionista;
 import br.edu.util.Validacao;
 import javax.swing.JOptionPane;
 
@@ -66,6 +70,10 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         jT_estado = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jT_numero = new javax.swing.JTextField();
+        jC_Genero = new javax.swing.JComboBox<>();
+        jL_genero = new javax.swing.JLabel();
+        jL_Etinia = new javax.swing.JLabel();
+        jC_etinia = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -149,11 +157,11 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
                 jT_cidadeActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 200, 220, 30));
+        jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 220, 30));
 
         jL_email.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_email.setText("Email");
-        jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 60, 20));
+        jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 60, 30));
 
         jT_email.setBorder(null);
         jT_email.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +169,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
                 jT_emailActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 240, 230, 30));
+        jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 230, 30));
 
         jL_telefone.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_telefone.setText("Telefone");
@@ -216,7 +224,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
 
         jL_senha.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_senha.setText("Senha");
-        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, 20));
+        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, -1, 30));
 
         JP_Senha.setBorder(null);
         JP_Senha.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +232,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
                 JP_SenhaActionPerformed(evt);
             }
         });
-        jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 160, 30));
+        jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 160, 30));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -238,7 +246,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         });
         jP_cadastrar.add(jL_cadastrar);
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -247,24 +255,39 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         jL_cancelar.setText("Cancelar");
         jP_cancelar.add(jL_cancelar);
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 100, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 100, 40));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setText("Complemento");
-        jP_conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-        jP_conteudo.add(jT_complemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 180, 30));
+        jP_conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        jP_conteudo.add(jT_complemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 180, 30));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel2.setText("Estado");
-        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
-        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 160, 30));
+        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, -1));
+        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 160, 30));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel3.setText("Numero");
-        jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
-        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 160, 30));
+        jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 220, 30));
 
-        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 440));
+        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+
+        jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_genero.setText("Genero");
+        jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 20));
+
+        jL_Etinia.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_Etinia.setText("Etinia");
+        jP_conteudo.add(jL_Etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, 20));
+
+        jC_etinia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_etinia.setBorder(null);
+        jP_conteudo.add(jC_etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 160, 20));
+
+        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -301,8 +324,33 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
                 jT_complemento.getText(),   
                 jT_cep.getText()            
         );
+    
+    Recepcionista recepcionista = new Recepcionista(
+            jT_email.getText(),
+            JP_Senha.getText(),
+            endereco,
+            jT_nome.getText(),
+            testes.converterIdade(jFT_nascimento.getText()),
+            rootPaneCheckingEnabled,
+            jFT_telefone.getText(),
+            jC_etinia.getSelectedItem().toString(),
+            jT_rg.getText(),
+            jFT_cpf.getText()
+    );
+    
+    RecepcionistaDAO recepcionistaDao = new RecepcionistaDAO();
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        //ele salva primeiro o endereço para depois salvar o cliente
+        enderecoDAO.salvar(endereco);
+        if(recepcionistaDao.salvar(recepcionista) == true){
+            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso");
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
+        }
     }
     
+
     private void jT_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_nomeActionPerformed
@@ -390,9 +438,12 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField JP_Senha;
+    private javax.swing.JComboBox<String> jC_Genero;
+    private javax.swing.JComboBox<String> jC_etinia;
     private javax.swing.JFormattedTextField jFT_cpf;
     private javax.swing.JFormattedTextField jFT_nascimento;
     private javax.swing.JFormattedTextField jFT_telefone;
+    private javax.swing.JLabel jL_Etinia;
     private javax.swing.JLabel jL_bairro;
     private javax.swing.JLabel jL_cadastrar;
     private javax.swing.JLabel jL_cancelar;
@@ -400,6 +451,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
     private javax.swing.JLabel jL_cidade;
     private javax.swing.JLabel jL_cpf;
     private javax.swing.JLabel jL_email;
+    private javax.swing.JLabel jL_genero;
     private javax.swing.JLabel jL_nascimento;
     private javax.swing.JLabel jL_nome;
     private javax.swing.JLabel jL_recepcionista;
