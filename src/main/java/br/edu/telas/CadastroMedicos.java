@@ -5,8 +5,12 @@
  */
 package br.edu.telas;
 
+import br.edu.DAO.EnderecoDAO;
 import br.edu.DAO.EspecialidadeDAO;
+import br.edu.DAO.MedicoDAO;
+import br.edu.anotacoes.Endereco;
 import br.edu.anotacoes.Especialidade;
+import br.edu.anotacoes.Medico;
 import br.edu.util.Validacao;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -64,7 +68,17 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_cadastrar = new javax.swing.JLabel();
         jP_cancelar = new javax.swing.JPanel();
         jL_cancelar = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jC_especialidade = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jT_complemento = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jT_estado = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jT_numero = new javax.swing.JTextField();
+        jL_Etinia = new javax.swing.JLabel();
+        jC_etinia = new javax.swing.JComboBox<>();
+        jL_genero = new javax.swing.JLabel();
+        jC_Genero = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -84,7 +98,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jL_nome.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_nome.setText("Nome");
-        jP_conteudo.add(jL_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 56, 20));
+        jP_conteudo.add(jL_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 56, 20));
 
         jT_nome.setBorder(null);
         jT_nome.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,11 +115,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jL_especialidade.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_especialidade.setText("Especialidade");
-        jP_conteudo.add(jL_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 150, 20));
+        jP_conteudo.add(jL_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 150, 20));
 
         jL_nascimento.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_nascimento.setText("Data de Nascimento");
-        jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 190, 20));
+        jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, 20));
 
         try {
             jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -121,7 +135,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jL_rg.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_rg.setText("RG");
-        jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
+        jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
         jT_rg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +146,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jl_logradouro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jl_logradouro.setText("Logradouro");
-        jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         jT_logradouro.setBorder(null);
         jT_logradouro.addActionListener(new java.awt.event.ActionListener() {
@@ -140,11 +154,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_logradouroActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 180, 30));
+        jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 190, 30));
 
         jL_cidade.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cidade.setText("Cidade");
-        jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, 20));
+        jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 20));
 
         jT_cidade.setBorder(null);
         jT_cidade.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +170,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jL_email.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_email.setText("Email");
-        jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 60, 20));
+        jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 60, 20));
 
         jT_email.setBorder(null);
         jT_email.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +178,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_emailActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 230, 30));
+        jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 240, 30));
 
         jL_telefone.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_telefone.setText("Telefone");
@@ -175,6 +189,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFT_telefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFT_telefoneActionPerformed(evt);
+            }
+        });
         jP_conteudo.add(jFT_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 160, 30));
 
         jL_cpf.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -186,6 +205,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFT_cpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFT_cpfActionPerformed(evt);
+            }
+        });
         jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 160, 30));
 
         jL_bairro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -214,7 +238,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jL_senha.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_senha.setText("Senha");
-        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, 20));
+        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, -1, 20));
 
         JP_Senha.setBorder(null);
         JP_Senha.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +246,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 JP_SenhaActionPerformed(evt);
             }
         });
-        jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 160, 30));
+        jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 160, 30));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -231,7 +255,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_cadastrar.setText("Cadastrar ");
         jP_cadastrar.add(jL_cadastrar);
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -240,12 +264,42 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_cancelar.setText("Cancelar");
         jP_cancelar.add(jL_cancelar);
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 100, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 100, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jP_conteudo.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 60, -1));
+        jC_especialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jP_conteudo.add(jC_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 60, -1));
 
-        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 390));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setText("Complemento");
+        jP_conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        jP_conteudo.add(jT_complemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 180, 30));
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel2.setText("Estado");
+        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
+        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 160, 30));
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel3.setText("Numero");
+        jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 220, 30));
+
+        jL_Etinia.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_Etinia.setText("Etinia");
+        jP_conteudo.add(jL_Etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, 20));
+
+        jC_etinia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_etinia.setBorder(null);
+        jP_conteudo.add(jC_etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 160, 20));
+
+        jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_genero.setText("Genero");
+        jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, 20));
+
+        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
+
+        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -253,24 +307,80 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private void passarEspecialidade(){
         EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
         List<Especialidade> especialidades = especialidadeDAO.listar();
-        jComboBox1.removeAllItems();
+        jC_especialidade.removeAllItems();
         for (int i = 0; i < especialidades.size(); i++) {
-            jComboBox1.addItem(especialidades.get(i).getEspecialidade());
+            jC_especialidade.addItem(especialidades.get(i).getEspecialidade());
         }
     }
     
     Validacao teste = new Validacao();
-     
+     // <editor-fold defaultstate="collapsed" desc="Funçoes">  
+    // <editor-fold defaultstate="collapsed" desc="Vazio"> 
     private boolean testeVazio(){
+        //Iniciando os campos de Testes
+        //Verificando se o campo Nome está vazio
         if (jT_nome.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,"O campo Nome está vazio!");
-            return false;        
+            return false;   
+        //Verificando se o Campo Data de Nascimento está vazio    
         } else if(jFT_nascimento.getText().equals("  /  /    ") || teste.converterIdade(jFT_nascimento.getText()) == null){
             JOptionPane.showMessageDialog(null,"O campo Data de Nascimento está vazio!");
-            return false;         
+            return false;       
+        //Verificando se o Campo CPF está vazio    
+        } else if(teste.isCPF(jFT_cpf.getText()) == false){
+            JOptionPane.showMessageDialog(null, "Campo CPF esta em branco ou invalida");
+            return false;
+        //Verificando se o campo RG está vazio    
+        } else if(jT_rg.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campo RG esta em branco");
+            return false;
         }
        return true;
     }
+     // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Salvar"> 
+    private void salvar(){
+     
+       Endereco endereco = new Endereco(
+                jT_logradouro.getText(),    
+                jT_bairro.getText(),        
+                jT_cidade.getText(),        
+                jT_estado.getText(),       
+                jT_numero.getText(),        
+                jT_complemento.getText(),   
+                jT_cep.getText()  
+       );
+       
+       Especialidade especialidade = new Especialidade(jC_especialidade.getActionCommand());
+       
+       Medico medico = new Medico(
+              especialidade,
+            jT_email.getText(),
+            JP_Senha.getText(),
+            endereco,
+            jT_nome.getText(),
+            teste.converterIdade(jFT_nascimento.getText()),
+            rootPaneCheckingEnabled,
+            jFT_telefone.getText(),
+            jC_etinia.getSelectedItem().toString(),
+            jT_rg.getText(),
+            jFT_cpf.getText()
+              
+       );
+       
+        MedicoDAO medicoDao = new MedicoDAO();
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        //ele salva primeiro o endereço para depois salvar o Médico
+        enderecoDAO.salvar(endereco);
+        if(medicoDao.salvar(medico) == true){
+            JOptionPane.showMessageDialog(null, "Médico Cadastrado com sucesso");
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
+        }
+    }
+     // </editor-fold>
+     // </editor-fold>
     private void jT_nomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_nomeMouseClicked
         jT_nome.setText("");
     }//GEN-LAST:event_jT_nomeMouseClicked
@@ -310,6 +420,14 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private void JP_SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JP_SenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JP_SenhaActionPerformed
+
+    private void jFT_telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_telefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFT_telefoneActionPerformed
+
+    private void jFT_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_cpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFT_cpfActionPerformed
                                            
 
     /**
@@ -349,10 +467,13 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField JP_Senha;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jC_Genero;
+    private javax.swing.JComboBox<String> jC_especialidade;
+    private javax.swing.JComboBox<String> jC_etinia;
     private javax.swing.JFormattedTextField jFT_cpf;
     private javax.swing.JFormattedTextField jFT_nascimento;
     private javax.swing.JFormattedTextField jFT_telefone;
+    private javax.swing.JLabel jL_Etinia;
     private javax.swing.JLabel jL_bairro;
     private javax.swing.JLabel jL_cadastrar;
     private javax.swing.JLabel jL_cancelar;
@@ -361,12 +482,16 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private javax.swing.JLabel jL_cpf;
     private javax.swing.JLabel jL_email;
     private javax.swing.JLabel jL_especialidade;
+    private javax.swing.JLabel jL_genero;
     private javax.swing.JLabel jL_medico;
     private javax.swing.JLabel jL_nascimento;
     private javax.swing.JLabel jL_nome;
     private javax.swing.JLabel jL_rg;
     private javax.swing.JLabel jL_senha;
     private javax.swing.JLabel jL_telefone;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jP_cabecalho;
     private javax.swing.JPanel jP_cadastrar;
     private javax.swing.JPanel jP_cancelar;
@@ -374,9 +499,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private javax.swing.JTextField jT_bairro;
     private javax.swing.JTextField jT_cep;
     private javax.swing.JTextField jT_cidade;
+    private javax.swing.JTextField jT_complemento;
     private javax.swing.JTextField jT_email;
+    private javax.swing.JTextField jT_estado;
     private javax.swing.JTextField jT_logradouro;
     private javax.swing.JTextField jT_nome;
+    private javax.swing.JTextField jT_numero;
     private javax.swing.JTextField jT_rg;
     private javax.swing.JLabel jl_logradouro;
     // End of variables declaration//GEN-END:variables

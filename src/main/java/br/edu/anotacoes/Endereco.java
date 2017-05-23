@@ -26,7 +26,7 @@ public class Endereco {
     private String observacoa;
     private String cep;
 
-    
+          
     public int getId() {
         return id;
     }
