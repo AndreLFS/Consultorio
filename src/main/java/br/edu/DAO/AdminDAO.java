@@ -17,4 +17,5 @@ public class AdminDAO extends GenericoDAO<AdminDAO>{
     public AdminDAO() {
         super(Admin.class);
     }
+    
 }

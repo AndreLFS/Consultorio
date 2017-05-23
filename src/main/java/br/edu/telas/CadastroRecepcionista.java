@@ -327,7 +327,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
     
     Recepcionista recepcionista = new Recepcionista(
             jT_email.getText(),
-            JP_Senha.getText(),
+            new String(JP_Senha.getPassword()),
             endereco,
             jT_nome.getText(),
             testes.converterIdade(jFT_nascimento.getText()),
@@ -343,7 +343,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         //ele salva primeiro o endereço para depois salvar o cliente
         enderecoDAO.salvar(endereco);
         if(recepcionistaDao.salvar(recepcionista) == true){
-            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso");
+            JOptionPane.showMessageDialog(null, "Recepcionista Cadastrado com sucesso");
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
@@ -393,7 +393,9 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
 
     private void jL_cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseClicked
         // TODO add your handling code here:
-        
+         if(testeVazio()){
+            salvar();
+         }
     }//GEN-LAST:event_jL_cadastrarMouseClicked
 
     private void jFT_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_cpfActionPerformed
