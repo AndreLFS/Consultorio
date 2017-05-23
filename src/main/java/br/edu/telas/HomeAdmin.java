@@ -716,10 +716,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_cadastrarClientesMouseMoved
 
     private void jP_cadastrarClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarClientesMouseClicked
-        if(ControleTelas.telaListarClientes == false){
-            ClientesListar clientesListar = new ClientesListar();
-            clientesListar.setVisible(true);
-            ControleTelas.telaListarClientes = true;
+        if(ControleTelas.telaCadastroClientes == false){
+            CadastroCliente cadastroCliente = new CadastroCliente();
+            cadastroCliente.setVisible(true);
+            ControleTelas.telaCadastroClientes = true;
         }
     }//GEN-LAST:event_jP_cadastrarClientesMouseClicked
 
@@ -732,7 +732,11 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_listarClientesMouseMoved
 
     private void jP_listarClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_listarClientesMouseClicked
-        // TODO add your handling code here:
+        if(ControleTelas.telaListarClientes == false){
+            ClientesListar clientesListar = new ClientesListar();
+            clientesListar.setVisible(true);
+            ControleTelas.telaListarClientes = true;
+        }
     }//GEN-LAST:event_jP_listarClientesMouseClicked
 
     private void jP_listarClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_listarClientesMouseExited

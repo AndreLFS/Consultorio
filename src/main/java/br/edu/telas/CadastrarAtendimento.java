@@ -159,6 +159,7 @@ MedicoDAO medicoDAO = new MedicoDAO();
             return true;
         }
     }
+         
     
     private void salvar(){
         if (testarVazio()) {
