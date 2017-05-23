@@ -5,6 +5,10 @@
  */
 package br.edu.telas;
 
+import br.edu.anotacoes.Endereco;
+import br.edu.util.Validacao;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -56,6 +60,12 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         jL_cadastrar = new javax.swing.JLabel();
         jP_cancelar = new javax.swing.JPanel();
         jL_cancelar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jT_complemento = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jT_estado = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jT_numero = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -173,6 +183,11 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFT_cpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFT_cpfActionPerformed(evt);
+            }
+        });
         jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 160, 30));
 
         jL_bairro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -216,9 +231,14 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
         jL_cadastrar.setText("Cadastrar ");
+        jL_cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMouseClicked(evt);
+            }
+        });
         jP_cadastrar.add(jL_cadastrar);
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -227,13 +247,62 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         jL_cancelar.setText("Cancelar");
         jP_cancelar.add(jL_cancelar);
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 100, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 100, 40));
 
-        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 370));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setText("Complemento");
+        jP_conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+        jP_conteudo.add(jT_complemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 180, 30));
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel2.setText("Estado");
+        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
+        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 160, 30));
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel3.setText("Numero");
+        jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 160, 30));
+
+        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        
+    Validacao testes = new Validacao();
+    
+    private boolean testeVazio(){
+        
+        if(jT_nome.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campo nome esta em branco");
+            return false;
+        }else if(testes.converterIdade(jFT_nascimento.getText()) == null){
+            JOptionPane.showMessageDialog(null, "Campo nascimento esta em branco ou invalida");
+            return false;
+        }else if(testes.isCPF(jFT_cpf.getText()) == false){
+            JOptionPane.showMessageDialog(null, "Campo cpf esta em branco ou invalida");
+            return false;
+        }else if(jT_rg.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campo rg esta em branco");
+            return false;        
+        }
+            return true;
+    }    
+    
+    private void salvar (){
+       
+        Endereco endereco = new Endereco(
+                jT_logradouro.getText(),    
+                jT_bairro.getText(),        
+                jT_cidade.getText(),        
+                jT_estado.getText(),       
+                jT_numero.getText(),        
+                jT_complemento.getText(),   
+                jT_cep.getText()            
+        );
+    }
+    
     private void jT_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_nomeActionPerformed
@@ -273,6 +342,15 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
     private void jT_nomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_nomeMouseClicked
         jT_nome.setText("");
     }//GEN-LAST:event_jT_nomeMouseClicked
+
+    private void jL_cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jL_cadastrarMouseClicked
+
+    private void jFT_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_cpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFT_cpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,6 +406,9 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
     private javax.swing.JLabel jL_rg;
     private javax.swing.JLabel jL_senha;
     private javax.swing.JLabel jL_telefone;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jP_cabecalho;
     private javax.swing.JPanel jP_cadastrar;
     private javax.swing.JPanel jP_cancelar;
@@ -335,9 +416,12 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
     private javax.swing.JTextField jT_bairro;
     private javax.swing.JTextField jT_cep;
     private javax.swing.JTextField jT_cidade;
+    private javax.swing.JTextField jT_complemento;
     private javax.swing.JTextField jT_email;
+    private javax.swing.JTextField jT_estado;
     private javax.swing.JTextField jT_logradouro;
     private javax.swing.JTextField jT_nome;
+    private javax.swing.JTextField jT_numero;
     private javax.swing.JTextField jT_rg;
     private javax.swing.JLabel jl_logradouro;
     // End of variables declaration//GEN-END:variables
