@@ -37,16 +37,15 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTF_email = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        jPF_senha = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
         jL_loguin = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jL_sair = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
+        jTF_email = new javax.swing.JTextField();
+        jPF_senha = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -54,7 +53,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(67, 212, 195));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(36, 47, 65));
@@ -64,24 +63,6 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("SENHA");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
-
-        jTF_email.setBackground(new java.awt.Color(36, 47, 65));
-        jTF_email.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jTF_email.setForeground(new java.awt.Color(255, 255, 255));
-        jTF_email.setText("Seu Email Aqui");
-        jTF_email.setBorder(null);
-        jTF_email.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTF_email.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTF_emailMouseClicked(evt);
-            }
-        });
-        jTF_email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_emailActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTF_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 210, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,31 +74,9 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText("EMAIL");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
-        jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 210, 10));
-
-        jPF_senha.setBackground(new java.awt.Color(36, 47, 65));
-        jPF_senha.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPF_senha.setForeground(new java.awt.Color(255, 255, 255));
-        jPF_senha.setText("jPasswordField1");
-        jPF_senha.setBorder(null);
-        jPF_senha.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jPF_senha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPF_senhaMouseClicked(evt);
-            }
-        });
-        jPF_senha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPF_senhaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jPF_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 210, -1));
-
         jPanel3.setBackground(new java.awt.Color(67, 212, 195));
 
         jL_loguin.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jL_loguin.setForeground(new java.awt.Color(255, 255, 255));
         jL_loguin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_loguin.setText("Login");
         jL_loguin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,8 +101,8 @@ public class Login extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(67, 212, 195));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jL_sair.setBackground(new java.awt.Color(0, 102, 102));
         jL_sair.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jL_sair.setForeground(new java.awt.Color(255, 255, 255));
         jL_sair.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_sair.setText("Sair");
         jL_sair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -157,18 +116,32 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 100, 40));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 210, 20));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 120, 10));
+
+        jTF_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_emailActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTF_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 260, 30));
+
+        jPF_senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPF_senhaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jPF_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 260, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 0, 420, 500));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Consultorio Medico");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+        jLabel2.setText("Consultório Médico");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
 
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 240, 20));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 240, 20));
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 300, 20));
@@ -210,18 +183,6 @@ public class Login extends javax.swing.JFrame {
     }
     
     
-    private void jTF_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_emailActionPerformed
-
-    private void jTF_emailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTF_emailMouseClicked
-        jTF_email.setText("");
-    }//GEN-LAST:event_jTF_emailMouseClicked
-
-    private void jPF_senhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPF_senhaMouseClicked
-       jPF_senha.setText("");
-    }//GEN-LAST:event_jPF_senhaMouseClicked
-
     private void jL_loguinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseClicked
         if(logarMedico()){
             //home de medico
@@ -240,6 +201,10 @@ public class Login extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jL_sairMouseClicked
+
+    private void jTF_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_emailActionPerformed
 
     private void jPF_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPF_senhaActionPerformed
         // TODO add your handling code here:
@@ -295,7 +260,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTF_email;
