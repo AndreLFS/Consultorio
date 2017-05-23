@@ -7,7 +7,9 @@ package br.edu.telas;
 
 import br.edu.DAO.EspecialidadeDAO;
 import br.edu.anotacoes.Especialidade;
+import br.edu.util.Validacao;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -257,6 +259,18 @@ public class CadastroMedicos extends javax.swing.JFrame {
         }
     }
     
+    Validacao teste = new Validacao();
+     
+    private boolean testeVazio(){
+        if (jT_nome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"O campo Nome está vazio!");
+            return false;        
+        } else if(jFT_nascimento.getText().equals("  /  /    ") || teste.converterIdade(jFT_nascimento.getText()) == null){
+            JOptionPane.showMessageDialog(null,"O campo Data de Nascimento está vazio!");
+            return false;         
+        }
+       return true;
+    }
     private void jT_nomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_nomeMouseClicked
         jT_nome.setText("");
     }//GEN-LAST:event_jT_nomeMouseClicked
