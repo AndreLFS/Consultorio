@@ -44,7 +44,6 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        birthdayEvaluator1 = new com.toedter.calendar.demo.BirthdayEvaluator();
         jPanel1 = new javax.swing.JPanel();
         jC_medicos = new javax.swing.JComboBox<>();
         jC_clientes = new javax.swing.JComboBox<>();
@@ -142,9 +141,10 @@ MedicoDAO medicoDAO = new MedicoDAO();
         // TODO add your handling code here:
     }//GEN-LAST:event_jFT_dataActionPerformed
     
+    Validacao validar = new Validacao();
     private boolean testarVazio(){
-        if (jFT_data.getText().equals("  /  /    ")) {
-            JOptionPane.showMessageDialog(null, "Data Em branco");
+        if (jFT_data.getText().equals("  /  /    ") && validar.converterIdade(jFT_data.getText())!= null) {
+            JOptionPane.showMessageDialog(null, "Data em branco ou invalida");
             return false;
         }else{
             return true;
@@ -153,8 +153,8 @@ MedicoDAO medicoDAO = new MedicoDAO();
     
     private void salvar(){
         if (testarVazio()) {
+            //criação de classes que serao necessarias para construção da função
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-            Validacao validar = new Validacao();
             /*criação do medico, usando o campo de id, para pegar o id, criei uma lista que esta invisivel na aplicação com os ids
             quando o usuario seleciona o medico a busca pega o numero do campo que ele selecionou e vai buscar na comonbox invisivel
             pegando esse id ele o transforma de String para inteiro e passa pra busca, a busca retorna uma lista, onde pegamos apenas o primeiro resultado*/
@@ -164,9 +164,25 @@ MedicoDAO medicoDAO = new MedicoDAO();
             boolean teste = true;
             //lista buscando pela data que vai ter que cadastrar
             List<Atendimento> atendimentos = atendimentoDAO.listarCampos("data", validar.converterIdade(jFT_data.getText()));
+            //busca todas as consultas da data
             for (int i = 0; i < atendimentos.size(); i++) {
-                if((atendimentos.get(i).getMedico().getId() == medico.getId()) && (atendimentos.get(i).getHoraConsulta() == Integer.parseInt(jComboBox1.getSelectedItem().toString()))){
-                    JOptionPane.showMessageDialog(null, "Medico Ocupado");
+                //dentro da consulta ele testa se o medico ja tem alguma consulta na hora selecionada
+                //ele pega medico pelo id para ter um parametro melhor de comparação
+                //e o horario vem do banco de dados e da comnbox, so que da comonbox ele é convertido para inteiro
+                if((atendimentos.get(i).getMedico().getId() == medico.getId()) && 
+                        (atendimentos.get(i).getHoraConsulta() == Integer.parseInt(jComboBox1.getSelectedItem().toString()))){
+                    //se ele tuver alguma consulta marcada imprime a mensagem e para a estrutura
+                    JOptionPane.showMessageDialog(null, "Medico com consulta marcada nesse horario");
+                    //se tiver alguma consulta a variavel controlador a é mudada pra false para não ser executado o cadastro
+                    teste = false;
+                   break;
+                }
+                //testamos tambem se o cliente não tem nenhuma consulta marcada para a mesma data e hora
+                if((atendimentos.get(i).getCliente().getId() == cliente.getId()) && 
+                        (atendimentos.get(i).getHoraConsulta() == Integer.parseInt(jComboBox1.getSelectedItem().toString()))){
+                    //se ele tiver alguma consulta marcada imprime a mensagem e para a estrutura
+                    JOptionPane.showMessageDialog(null, "Cliente com consulta marcada nesse horario");
+                    //se tiver alguma consulta a variavel controlador a é mudada pra false para não ser executado o cadastro
                     teste = false;
                    break;
                 }
@@ -241,7 +257,6 @@ MedicoDAO medicoDAO = new MedicoDAO();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.demo.BirthdayEvaluator birthdayEvaluator1;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jC_clientes;
     private javax.swing.JComboBox<String> jC_idCliente;

@@ -44,7 +44,7 @@ public class TesteCadastroCliente {
                 Double.parseDouble("71.11"),
                 Double.parseDouble("1.8"),
                 endereco,
-                "nome",
+                "nome2",
                 nascimento,
                 true,
                 //jC_Genero.getSelectedIndex()== -1,

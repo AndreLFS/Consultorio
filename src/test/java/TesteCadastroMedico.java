@@ -45,7 +45,7 @@ public class TesteCadastroMedico {
                 "Medico123",
                 "123456",
                 endereco,
-                "nome",
+                "nome2",
                 nascimento,
                 true,
                 "telefone",
