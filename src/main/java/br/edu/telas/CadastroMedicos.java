@@ -351,7 +351,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_cep.getText()  
        );
        
-       Especialidade especialidade = new Especialidade(jC_especialidade.getActionCommand());
+       Especialidade especialidade = new Especialidade("ssfg");
        
        Medico medico = new Medico(
               especialidade,
@@ -370,7 +370,9 @@ public class CadastroMedicos extends javax.swing.JFrame {
        
         MedicoDAO medicoDao = new MedicoDAO();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
+        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
         //ele salva primeiro o endereço para depois salvar o Médico
+        especialidadeDAO.salvar(especialidade);
         enderecoDAO.salvar(endereco);
         if(medicoDao.salvar(medico) == true){
             JOptionPane.showMessageDialog(null, "Médico Cadastrado com sucesso");

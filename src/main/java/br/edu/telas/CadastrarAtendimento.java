@@ -102,6 +102,11 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, 20));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "14", "15", "16", "17" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
 
         jFT_data.setBorder(null);
@@ -140,6 +145,10 @@ MedicoDAO medicoDAO = new MedicoDAO();
     private void jFT_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_dataActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFT_dataActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
     
     Validacao validar = new Validacao();
     private boolean testarVazio(){

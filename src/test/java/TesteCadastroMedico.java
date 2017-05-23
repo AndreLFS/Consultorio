@@ -5,10 +5,13 @@
  */
 import br.edu.DAO.ClienteDAO2;
 import br.edu.DAO.EnderecoDAO;
+import br.edu.DAO.EspecialidadeDAO;
 import br.edu.DAO.MedicoDAO;
 import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Endereco;
+import br.edu.anotacoes.Especialidade;
 import br.edu.anotacoes.Medico;
+import br.edu.util.Validacao;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,23 +42,31 @@ public class TesteCadastroMedico {
         } catch (ParseException e) {            
             System.out.println("Erro na conversao da data "+ e);;
         }
+        
+        Especialidade especialidade = new Especialidade("gesgs");
+        Validacao teste = new Validacao();
+        
         //criação do Médico
         Medico medico = new Medico(
-                "alergia",
-                "Medico123",
-                "123456",
-                endereco,
-                "nome2",
-                nascimento,
-                true,
-                "telefone",
-                "negro",//etinia
-                "rg",
-                "cpf"
-                );
+              especialidade,
+            "email",
+            "123",
+            endereco,
+            "nome",
+            teste.converterIdade("02/05/2017"),
+            true,
+            "(88)996746115",
+            "nego",
+            "rg",
+            "cpf"
+       );
         
         MedicoDAO medicoDAO = new MedicoDAO();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
+        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
+        //ele salva primeiro o endereço para depois salvar o Médico
+        especialidadeDAO.salvar(especialidade);
+        enderecoDAO.salvar(endereco);
         enderecoDAO.salvar(endereco);
         if(medicoDAO.salvar(medico) == true){
             JOptionPane.showMessageDialog(null, "Medico Cadastrado com sucesso");

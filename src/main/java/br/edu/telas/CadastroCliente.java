@@ -9,6 +9,7 @@ import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Endereco;
 import br.edu.DAO.ClienteDAO2;
 import br.edu.DAO.EnderecoDAO;
+import br.edu.util.ControleTelas;
 import br.edu.util.Validacao;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -80,7 +81,12 @@ public class CadastroCliente extends javax.swing.JFrame {
         jC_etinia = new javax.swing.JComboBox<>();
         jC_Genero = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jP_cabecalho.setBackground(new java.awt.Color(36, 47, 65));
@@ -487,6 +493,10 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void jB_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_jB_cancelarActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        ControleTelas.telaCadastroClientes = false;
+    }//GEN-LAST:event_formWindowClosing
     // </editor-fold>        
     /**
      * @param args the command line arguments

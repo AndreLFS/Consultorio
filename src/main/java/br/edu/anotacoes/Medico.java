@@ -7,20 +7,21 @@ package br.edu.anotacoes;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 
 @Entity
 
 public class Medico extends Funcionario {
-
-    private String especialidade;
+    @OneToOne
+    private Especialidade especialidade;
 
     public void manterProntuario(){}
 
     public Medico() {
     }
 
-    public Medico(String especialidade, String usuario, String senha, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
+    public Medico(Especialidade especialidade, String usuario, String senha, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
         super(usuario, senha, endereco, nome, nascimento, genero, telefone, etinia, rg, cpf);
         this.especialidade = especialidade;
     }

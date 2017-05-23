@@ -49,7 +49,7 @@ public class Validacao {
                     }
             }
             }
-        } catch (Exception e) {
+        }catch (Exception e) {
                 e.printStackTrace();			
         }
         //salvando o cpf sem mascara na sua variavel

@@ -192,8 +192,6 @@ public class Login extends javax.swing.JFrame {
         MedicoDAO medicoDAO = new MedicoDAO();
         List<Medico> medicos= medicoDAO.listarCampos("usuario", jTF_email.getText());
         for (int i = 0; i < medicos.size(); i++) {
-            System.out.println(medicos.get(i).getUsuario());
-            System.out.println(medicos.get(i).getSenha());
             if (medicos.get(i).getUsuario().equals(jTF_email.getText()) && medicos.get(i).getSenha().equals(new String(jPF_senha.getPassword()))) {
                 return true;
             }
@@ -202,11 +200,9 @@ public class Login extends javax.swing.JFrame {
     }
     private boolean logarRecepcionista(){
         RecepcionistaDAO recepcionistaDAO = new RecepcionistaDAO();
-        List<Recepcionista> medicos= recepcionistaDAO.listarCampos("usuario", jTF_email.getText());
-        for (int i = 0; i < medicos.size(); i++) {
-            System.out.println(medicos.get(i).getUsuario());
-            System.out.println(medicos.get(i).getSenha());
-            if (medicos.get(i).getUsuario().equals(jTF_email.getText()) && medicos.get(i).getSenha().equals(new String(jPF_senha.getPassword()))) {
+        List<Recepcionista> recepcionistas= recepcionistaDAO.listarCampos("usuario", jTF_email.getText());
+        for (int i = 0; i < recepcionistas.size(); i++) {
+            if (recepcionistas.get(i).getUsuario().equals(jTF_email.getText()) && recepcionistas.get(i).getSenha().equals(new String(jPF_senha.getPassword()))) {
                 return true;
             }
         }
