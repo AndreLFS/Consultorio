@@ -17,4 +17,5 @@ public class EspecialidadeDAO extends GenericoDAO<Especialidade>{
         super(Especialidade.class);
     }
     
+    
 }
