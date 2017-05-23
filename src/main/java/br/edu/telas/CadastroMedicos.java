@@ -253,6 +253,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
         jL_cadastrar.setText("Cadastrar ");
+        jL_cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMouseClicked(evt);
+            }
+        });
         jP_cadastrar.add(jL_cadastrar);
 
         jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, 40));
@@ -350,8 +355,9 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_complemento.getText(),   
                 jT_cep.getText()  
        );
+       EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
        
-       Especialidade especialidade = new Especialidade("ssfg");
+       Especialidade especialidade = especialidadeDAO.listarCampos("especialidade", jC_especialidade.getSelectedItem().toString()).get(0);
        
        Medico medico = new Medico(
               especialidade,
@@ -370,7 +376,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
        
         MedicoDAO medicoDao = new MedicoDAO();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
-        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
+        
         //ele salva primeiro o endereço para depois salvar o Médico
         especialidadeDAO.salvar(especialidade);
         enderecoDAO.salvar(endereco);
@@ -430,7 +436,14 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private void jFT_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_cpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFT_cpfActionPerformed
-                                           
+
+    private void jL_cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseClicked
+        // TODO add your handling code here:
+          if(testeVazio()){
+            salvar();
+        }
+    }//GEN-LAST:event_jL_cadastrarMouseClicked
+    
 
     /**
      * @param args the command line arguments
