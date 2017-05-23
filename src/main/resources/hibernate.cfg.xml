@@ -14,5 +14,6 @@
     <mapping class="br.edu.anotacoes.Endereco"/>
     <mapping class="br.edu.anotacoes.Funcionario"/>
     <mapping class="br.edu.anotacoes.Medico"/>
+    <mapping class="br.edu.anotacoes.Especialidade"/>
   </session-factory>
 </hibernate-configuration>
