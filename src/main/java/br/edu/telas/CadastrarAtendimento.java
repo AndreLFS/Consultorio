@@ -16,6 +16,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -157,10 +158,19 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         if (jFT_data.getText().equals("  /  /    ") && validar.converterIdade(jFT_data.getText())!= null) {
             JOptionPane.showMessageDialog(null, "Data em branco ou invalida");
             return false;
-        }else if( validar.converterIdade(jFT_data.getText()) ==
-                validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()))){
-            
-            return true;
+            //teste se a data que esta querendo ser cadastrada é igual a do dia atual
+        }else if( validar.converterIdade(jFT_data.getText()).compareTo(validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()))) == 0){
+           //se a data for igual, testa-se a se a hora é maior que a atuaç
+            GregorianCalendar calendar = new GregorianCalendar();
+            if(calendar.get(calendar.HOUR_OF_DAY) <= Integer.parseInt(jComboBox1.getSelectedItem().toString())){
+                JOptionPane.showMessageDialog(null, "Hora do exame tem que ser maior do que a atual");
+                return false;
+            }else{
+                return true;
+            }    
+        }else if( validar.converterIdade(jFT_data.getText()).compareTo(validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()))) < 0){
+            JOptionPane.showMessageDialog(null, "Data anterior a Atual!");
+            return false;
         }else{
             return true;
         }

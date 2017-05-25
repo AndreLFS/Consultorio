@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /*
@@ -23,7 +24,11 @@ import javax.swing.JOptionPane;
  */
 public class Teste {
     public static void main(String[] args) {
+        //pegar data
         JOptionPane.showMessageDialog(null,  java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()));
+        //pegar hora
+        GregorianCalendar calendar = new GregorianCalendar();
+        JOptionPane.showMessageDialog(null,   calendar.get(calendar.HOUR_OF_DAY));
       
     }
 }
