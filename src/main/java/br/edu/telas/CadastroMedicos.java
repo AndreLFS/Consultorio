@@ -99,7 +99,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_medico.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jL_medico.setForeground(new java.awt.Color(255, 255, 255));
         jL_medico.setText("Médicos");
-        jP_cabecalho.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 370, 44));
+        jP_cabecalho.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 370, 44));
 
         getContentPane().add(jP_cabecalho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 50));
 
