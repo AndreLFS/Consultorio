@@ -12,7 +12,7 @@ import br.edu.anotacoes.Atendimento;
  *
  * @author Lab1
  */
-public class AdminDAO extends GenericoDAO<AdminDAO>{
+public class AdminDAO extends GenericoDAO<Admin>{
 
     public AdminDAO() {
         super(Admin.class);

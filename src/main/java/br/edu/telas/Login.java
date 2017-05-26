@@ -5,12 +5,16 @@
  */
 package br.edu.telas;
 
+import br.edu.DAO.AdminDAO;
 import br.edu.DAO.MedicoDAO;
 import br.edu.DAO.RecepcionistaDAO;
+import br.edu.anotacoes.Admin;
 import br.edu.anotacoes.Medico;
 import br.edu.anotacoes.Recepcionista;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
  *
@@ -39,9 +43,9 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jP_loguin = new javax.swing.JPanel();
         jL_loguin = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jP_sair = new javax.swing.JPanel();
         jL_sair = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jTF_email = new javax.swing.JTextField();
@@ -74,46 +78,65 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText("EMAIL");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(67, 212, 195));
+        jP_loguin.setBackground(new java.awt.Color(0, 102, 102));
+        jP_loguin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP_loguin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_loguinMouseMoved(evt);
+            }
+        });
+        jP_loguin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_loguinMouseExited(evt);
+            }
+        });
+        jP_loguin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_loguin.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jL_loguin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_loguin.setText("Login");
+        jL_loguin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_loguinMouseMoved(evt);
+            }
+        });
         jL_loguin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jL_loguinMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_loguinMouseExited(evt);
+            }
         });
+        jP_loguin.add(jL_loguin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -1, 100, 40));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_loguin, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_loguin, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
+        jPanel2.add(jP_loguin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 100, 40));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 100, 40));
-
-        jPanel4.setBackground(new java.awt.Color(67, 212, 195));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jP_sair.setBackground(new java.awt.Color(0, 102, 102));
+        jP_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP_sair.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_sair.setBackground(new java.awt.Color(0, 102, 102));
         jL_sair.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jL_sair.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_sair.setText("Sair");
         jL_sair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_sairMouseMoved(evt);
+            }
+        });
         jL_sair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jL_sairMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_sairMouseExited(evt);
+            }
         });
-        jPanel4.add(jL_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
+        jP_sair.add(jL_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 100, 40));
+        jPanel2.add(jP_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 100, 40));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 120, 10));
@@ -181,7 +204,37 @@ public class Login extends javax.swing.JFrame {
         }
         return false;
     }
+    private boolean logarAdmin(){
+        AdminDAO adminDAO = new AdminDAO();
+        List<Admin> admins= adminDAO.listarCampos("usuario", jTF_email.getText());
+        for (int i = 0; i < admins.size(); i++) {
+            if (admins.get(i).getUsuario().equals(jTF_email.getText()) && admins.get(i).getSenha().equals(new String(jPF_senha.getPassword()))) {
+                return true;
+            }
+        }
+        return false;
+    }
     
+    private DropShadowBorder efeitoBorda(){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShadowColor(Color.BLACK);
+        shadow.setShadowSize(5);
+        shadow.setShowLeftShadow(true);
+        shadow.setShowRightShadow(true);
+        shadow.setShowBottomShadow(true);
+        shadow.setShowTopShadow(true);
+        return shadow;
+    }
+    //codigo para cancelar a borda em todas os paineis
+    private void efeitoBordaCancelar(javax.swing.JPanel painel){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShowLeftShadow(false);
+        shadow.setShowRightShadow(false);
+        shadow.setShowBottomShadow(false);
+        shadow.setShowTopShadow(false);
+        
+        painel.setBorder(shadow);
+    }
     
     private void jL_loguinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseClicked
         if(logarMedico()){
@@ -190,8 +243,11 @@ public class Login extends javax.swing.JFrame {
         }else if(logarRecepcionista()){
             //home de recepcionista
             System.out.println("Login Recepcionista");
+        }else if(logarAdmin()){
+            //home de admin
+            System.out.println("Loguin de Admin");
         }else{
-            System.out.println("Usuario ou senha errados");
+            JOptionPane.showMessageDialog(null, "Usuario ou senha errados");
         }
     }//GEN-LAST:event_jL_loguinMouseClicked
 
@@ -209,6 +265,30 @@ public class Login extends javax.swing.JFrame {
     private void jPF_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPF_senhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPF_senhaActionPerformed
+
+    private void jP_loguinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_loguinMouseMoved
+        jP_loguin.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jP_loguinMouseMoved
+
+    private void jL_loguinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseMoved
+        jP_loguin.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_loguinMouseMoved
+
+    private void jL_loguinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseExited
+        efeitoBordaCancelar(jP_loguin);
+    }//GEN-LAST:event_jL_loguinMouseExited
+
+    private void jP_loguinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_loguinMouseExited
+        efeitoBordaCancelar(jP_loguin);
+    }//GEN-LAST:event_jP_loguinMouseExited
+
+    private void jL_sairMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseMoved
+        jP_sair.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_sairMouseMoved
+
+    private void jL_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseExited
+        efeitoBordaCancelar(jP_sair);
+    }//GEN-LAST:event_jL_sairMouseExited
 
     /**
      * @param args the command line arguments
@@ -255,10 +335,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField jPF_senha;
+    private javax.swing.JPanel jP_loguin;
+    private javax.swing.JPanel jP_sair;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;

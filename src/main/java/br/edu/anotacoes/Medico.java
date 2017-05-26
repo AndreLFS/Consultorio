@@ -16,6 +16,10 @@ public class Medico extends Funcionario {
     @OneToOne
     private Especialidade especialidade;
 
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+    
     public void manterProntuario(){}
 
     public Medico() {

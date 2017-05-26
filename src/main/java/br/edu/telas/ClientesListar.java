@@ -101,7 +101,7 @@ public class ClientesListar extends javax.swing.JFrame {
         ClienteTableModel clienteTableModel = new ClienteTableModel(clienteDAO.listar());
         jTable1.setModel(clienteTableModel);
     }
-    private Cliente clinte(){
+    private Cliente cliente(){
         int linha = jTable1.getSelectedRow();
         if (linha > 0) {
             ClienteTableModel tbm = (ClienteTableModel) jTable1.getModel();
@@ -120,7 +120,7 @@ public class ClientesListar extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cliente cliente = clinte();
+        Cliente cliente = cliente();
         if(cliente !=  null){
             if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o cliente " + cliente.getNome()) == 0){
                 try {

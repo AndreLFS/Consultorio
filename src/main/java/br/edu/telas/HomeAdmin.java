@@ -41,26 +41,33 @@ public class HomeAdmin extends javax.swing.JFrame {
         jL_listarRecepcionista = new javax.swing.JLabel();
         jP_cadastrarAdmin = new javax.swing.JPanel();
         jL_cadastarAdmin = new javax.swing.JLabel();
+        bjhyvuil = new javax.swing.JLabel();
         jP_cadastrarRecepcionista = new javax.swing.JPanel();
         jL_cadastraRecepcionista = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jP_recepcionistas = new javax.swing.JPanel();
         jL_recepcionistas = new javax.swing.JLabel();
         jP_clientes = new javax.swing.JPanel();
         jL_clientes = new javax.swing.JLabel();
         jP_medicos = new javax.swing.JPanel();
         jL_medicos = new javax.swing.JLabel();
-        jP_listarAdmin = new javax.swing.JPanel();
-        jL_listarAdmin = new javax.swing.JLabel();
         jP_listarMedicos = new javax.swing.JPanel();
         jL_listaMedicos = new javax.swing.JLabel();
+        fbegasfvsa = new javax.swing.JLabel();
         jP_cadastrarMedico = new javax.swing.JPanel();
         jL_cadastrarMedicos = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jP_admin = new javax.swing.JPanel();
         jL_admin = new javax.swing.JLabel();
         jP_cadastrarClientes = new javax.swing.JPanel();
         jL_cadastrarCliente = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jP_listarClientes = new javax.swing.JPanel();
         jL_listaClientes = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jP_listarAdmin = new javax.swing.JPanel();
+        jL_listarAdmin = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,7 +89,7 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jP_listarRecepcionista.setBackground(new java.awt.Color(92, 179, 184));
+        jP_listarRecepcionista.setBackground(new java.awt.Color(0, 153, 153));
         jP_listarRecepcionista.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_listarRecepcionistaMouseMoved(evt);
@@ -95,29 +102,30 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_listarRecepcionista.setBackground(new java.awt.Color(255, 255, 255));
-        jL_listarRecepcionista.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_listarRecepcionista.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_listarRecepcionista.setForeground(new java.awt.Color(255, 255, 255));
-        jL_listarRecepcionista.setText("Listra de Recepcionista");
+        jL_listarRecepcionista.setText("Listar Recepcionista");
 
         javax.swing.GroupLayout jP_listarRecepcionistaLayout = new javax.swing.GroupLayout(jP_listarRecepcionista);
         jP_listarRecepcionista.setLayout(jP_listarRecepcionistaLayout);
         jP_listarRecepcionistaLayout.setHorizontalGroup(
             jP_listarRecepcionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_listarRecepcionistaLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jL_listarRecepcionista)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jP_listarRecepcionistaLayout.setVerticalGroup(
             jP_listarRecepcionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listarRecepcionistaLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(jL_listarRecepcionista)
-                .addContainerGap())
+                .addGap(67, 67, 67))
         );
 
-        jPanel1.add(jP_listarRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 110, 110));
+        jPanel1.add(jP_listarRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 160, 150));
 
-        jP_cadastrarAdmin.setBackground(new java.awt.Color(92, 152, 185));
+        jP_cadastrarAdmin.setBackground(new java.awt.Color(153, 153, 153));
         jP_cadastrarAdmin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jP_cadastrarAdminMouseDragged(evt);
@@ -136,30 +144,39 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_cadastarAdmin.setBackground(new java.awt.Color(241, 238, 219));
-        jL_cadastarAdmin.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_cadastarAdmin.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_cadastarAdmin.setForeground(new java.awt.Color(255, 255, 255));
         jL_cadastarAdmin.setText("Cadastrar Admin");
+
+        bjhyvuil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/Prontuario/Área de transferência_50.png"))); // NOI18N
 
         javax.swing.GroupLayout jP_cadastrarAdminLayout = new javax.swing.GroupLayout(jP_cadastrarAdmin);
         jP_cadastrarAdmin.setLayout(jP_cadastrarAdminLayout);
         jP_cadastrarAdminLayout.setHorizontalGroup(
             jP_cadastrarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_cadastrarAdminLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jL_cadastarAdmin)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(jP_cadastrarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jP_cadastrarAdminLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jL_cadastarAdmin))
+                    .addGroup(jP_cadastrarAdminLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(bjhyvuil)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jP_cadastrarAdminLayout.setVerticalGroup(
             jP_cadastrarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_cadastrarAdminLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+            .addGroup(jP_cadastrarAdminLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
                 .addComponent(jL_cadastarAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bjhyvuil)
                 .addContainerGap())
         );
 
-        jPanel1.add(jP_cadastrarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 110, 110));
+        jPanel1.add(jP_cadastrarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 160, 150));
 
-        jP_cadastrarRecepcionista.setBackground(new java.awt.Color(51, 160, 166));
+        jP_cadastrarRecepcionista.setBackground(new java.awt.Color(0, 204, 204));
         jP_cadastrarRecepcionista.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_cadastrarRecepcionistaMouseMoved(evt);
@@ -172,27 +189,36 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_cadastraRecepcionista.setBackground(new java.awt.Color(241, 238, 219));
-        jL_cadastraRecepcionista.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_cadastraRecepcionista.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jL_cadastraRecepcionista.setForeground(new java.awt.Color(255, 255, 255));
         jL_cadastraRecepcionista.setText("Cadastrar Recepcionista");
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/Prontuario/Área de transferência_50.png"))); // NOI18N
 
         javax.swing.GroupLayout jP_cadastrarRecepcionistaLayout = new javax.swing.GroupLayout(jP_cadastrarRecepcionista);
         jP_cadastrarRecepcionista.setLayout(jP_cadastrarRecepcionistaLayout);
         jP_cadastrarRecepcionistaLayout.setHorizontalGroup(
             jP_cadastrarRecepcionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_cadastrarRecepcionistaLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_cadastrarRecepcionistaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jL_cadastraRecepcionista)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(jP_cadastrarRecepcionistaLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jP_cadastrarRecepcionistaLayout.setVerticalGroup(
             jP_cadastrarRecepcionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_cadastrarRecepcionistaLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+            .addGroup(jP_cadastrarRecepcionistaLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
                 .addComponent(jL_cadastraRecepcionista)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jLabel9)
                 .addContainerGap())
         );
 
-        jPanel1.add(jP_cadastrarRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 110, 110));
+        jPanel1.add(jP_cadastrarRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 160, 150));
 
         jP_recepcionistas.setBackground(new java.awt.Color(0, 136, 144));
         jP_recepcionistas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -210,7 +236,7 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_recepcionistas.setBackground(new java.awt.Color(241, 238, 219));
-        jL_recepcionistas.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_recepcionistas.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_recepcionistas.setForeground(new java.awt.Color(255, 255, 255));
         jL_recepcionistas.setText("Recepcionistas");
 
@@ -219,21 +245,21 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_recepcionistasLayout.setHorizontalGroup(
             jP_recepcionistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_recepcionistasLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(jL_recepcionistas)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jP_recepcionistasLayout.setVerticalGroup(
             jP_recepcionistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_recepcionistasLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(75, Short.MAX_VALUE)
                 .addComponent(jL_recepcionistas)
-                .addContainerGap())
+                .addGap(56, 56, 56))
         );
 
-        jPanel1.add(jP_recepcionistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 110, 110));
+        jPanel1.add(jP_recepcionistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 160, 150));
 
-        jP_clientes.setBackground(new java.awt.Color(0, 94, 145));
+        jP_clientes.setBackground(new java.awt.Color(0, 0, 0));
         jP_clientes.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_clientesMouseMoved(evt);
@@ -249,7 +275,7 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_clientes.setBackground(new java.awt.Color(241, 238, 219));
-        jL_clientes.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_clientes.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_clientes.setForeground(new java.awt.Color(255, 255, 255));
         jL_clientes.setText("Clientes");
 
@@ -258,21 +284,21 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_clientesLayout.setHorizontalGroup(
             jP_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_clientesLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addComponent(jL_clientes)
-                .addGap(33, 33, 33))
+                .addGap(52, 52, 52))
         );
         jP_clientesLayout.setVerticalGroup(
             jP_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_clientesLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(75, Short.MAX_VALUE)
                 .addComponent(jL_clientes)
-                .addContainerGap())
+                .addGap(56, 56, 56))
         );
 
-        jPanel1.add(jP_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 110, 110));
+        jPanel1.add(jP_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 160, 150));
 
-        jP_medicos.setBackground(new java.awt.Color(0, 136, 144));
+        jP_medicos.setBackground(new java.awt.Color(0, 0, 102));
         jP_medicos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_medicosMouseMoved(evt);
@@ -288,7 +314,7 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_medicos.setBackground(new java.awt.Color(241, 238, 219));
-        jL_medicos.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_medicos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_medicos.setForeground(new java.awt.Color(255, 255, 255));
         jL_medicos.setText("Medicos");
 
@@ -297,60 +323,21 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_medicosLayout.setHorizontalGroup(
             jP_medicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_medicosLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(49, 49, 49)
                 .addComponent(jL_medicos)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jP_medicosLayout.setVerticalGroup(
             jP_medicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_medicosLayout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addComponent(jL_medicos)
-                .addGap(19, 19, 19))
+                .addGap(58, 58, 58))
         );
 
-        jPanel1.add(jP_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 110, 110));
+        jPanel1.add(jP_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 160, 150));
 
-        jP_listarAdmin.setBackground(new java.awt.Color(125, 173, 199));
-        jP_listarAdmin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jP_listarAdminMouseMoved(evt);
-            }
-        });
-        jP_listarAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jP_listarAdminMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jP_listarAdminMouseExited(evt);
-            }
-        });
-
-        jL_listarAdmin.setBackground(new java.awt.Color(241, 238, 219));
-        jL_listarAdmin.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
-        jL_listarAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        jL_listarAdmin.setText("Listar Admin");
-
-        javax.swing.GroupLayout jP_listarAdminLayout = new javax.swing.GroupLayout(jP_listarAdmin);
-        jP_listarAdmin.setLayout(jP_listarAdminLayout);
-        jP_listarAdminLayout.setHorizontalGroup(
-            jP_listarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_listarAdminLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jL_listarAdmin)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jP_listarAdminLayout.setVerticalGroup(
-            jP_listarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listarAdminLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addComponent(jL_listarAdmin)
-                .addContainerGap())
-        );
-
-        jPanel1.add(jP_listarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 110, 110));
-
-        jP_listarMedicos.setBackground(new java.awt.Color(92, 179, 184));
+        jP_listarMedicos.setBackground(new java.awt.Color(0, 102, 153));
         jP_listarMedicos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_listarMedicosMouseMoved(evt);
@@ -363,30 +350,39 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_listaMedicos.setBackground(new java.awt.Color(241, 238, 219));
-        jL_listaMedicos.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_listaMedicos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_listaMedicos.setForeground(new java.awt.Color(255, 255, 255));
         jL_listaMedicos.setText("Listar Medicos");
+
+        fbegasfvsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/Medico/PesquisarMedico50px.png"))); // NOI18N
 
         javax.swing.GroupLayout jP_listarMedicosLayout = new javax.swing.GroupLayout(jP_listarMedicos);
         jP_listarMedicos.setLayout(jP_listarMedicosLayout);
         jP_listarMedicosLayout.setHorizontalGroup(
             jP_listarMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_listarMedicosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jL_listaMedicos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jP_listarMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jP_listarMedicosLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jL_listaMedicos))
+                    .addGroup(jP_listarMedicosLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(fbegasfvsa)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jP_listarMedicosLayout.setVerticalGroup(
             jP_listarMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listarMedicosLayout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+            .addGroup(jP_listarMedicosLayout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(jL_listaMedicos)
-                .addGap(21, 21, 21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fbegasfvsa)
+                .addContainerGap())
         );
 
-        jPanel1.add(jP_listarMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 110, 110));
+        jPanel1.add(jP_listarMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 160, 150));
 
-        jP_cadastrarMedico.setBackground(new java.awt.Color(51, 160, 166));
+        jP_cadastrarMedico.setBackground(new java.awt.Color(0, 153, 255));
         jP_cadastrarMedico.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_cadastrarMedicoMouseMoved(evt);
@@ -399,30 +395,39 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_cadastrarMedicos.setBackground(new java.awt.Color(241, 238, 219));
-        jL_cadastrarMedicos.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_cadastrarMedicos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_cadastrarMedicos.setForeground(new java.awt.Color(255, 255, 255));
         jL_cadastrarMedicos.setText("Cadastrar Medico");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/Medico/Doutor em medicina_50.png"))); // NOI18N
 
         javax.swing.GroupLayout jP_cadastrarMedicoLayout = new javax.swing.GroupLayout(jP_cadastrarMedico);
         jP_cadastrarMedico.setLayout(jP_cadastrarMedicoLayout);
         jP_cadastrarMedicoLayout.setHorizontalGroup(
             jP_cadastrarMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_cadastrarMedicoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jL_cadastrarMedicos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jP_cadastrarMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jP_cadastrarMedicoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jL_cadastrarMedicos))
+                    .addGroup(jP_cadastrarMedicoLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel6)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jP_cadastrarMedicoLayout.setVerticalGroup(
             jP_cadastrarMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_cadastrarMedicoLayout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+            .addGroup(jP_cadastrarMedicoLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
                 .addComponent(jL_cadastrarMedicos)
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jP_cadastrarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 110, 110));
+        jPanel1.add(jP_cadastrarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 160, 150));
 
-        jP_admin.setBackground(new java.awt.Color(0, 94, 145));
+        jP_admin.setBackground(new java.awt.Color(0, 0, 0));
         jP_admin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_adminMouseMoved(evt);
@@ -438,30 +443,30 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_admin.setBackground(new java.awt.Color(241, 238, 219));
-        jL_admin.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_admin.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_admin.setForeground(new java.awt.Color(255, 255, 255));
-        jL_admin.setText("Admin");
+        jL_admin.setText("Administrador");
 
         javax.swing.GroupLayout jP_adminLayout = new javax.swing.GroupLayout(jP_admin);
         jP_admin.setLayout(jP_adminLayout);
         jP_adminLayout.setHorizontalGroup(
             jP_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_adminLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+            .addGroup(jP_adminLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addComponent(jL_admin)
-                .addGap(33, 33, 33))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jP_adminLayout.setVerticalGroup(
             jP_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_adminLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addComponent(jL_admin)
-                .addContainerGap())
+                .addGap(58, 58, 58))
         );
 
-        jPanel1.add(jP_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 110, 110));
+        jPanel1.add(jP_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 150));
 
-        jP_cadastrarClientes.setBackground(new java.awt.Color(92, 152, 185));
+        jP_cadastrarClientes.setBackground(new java.awt.Color(153, 153, 153));
         jP_cadastrarClientes.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_cadastrarClientesMouseMoved(evt);
@@ -477,30 +482,38 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_cadastrarCliente.setBackground(new java.awt.Color(241, 238, 219));
-        jL_cadastrarCliente.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_cadastrarCliente.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_cadastrarCliente.setForeground(new java.awt.Color(255, 255, 255));
         jL_cadastrarCliente.setText("Cadastrar Cliente");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/Cliente/Adicionar User Group da mulher do homem_50.png"))); // NOI18N
 
         javax.swing.GroupLayout jP_cadastrarClientesLayout = new javax.swing.GroupLayout(jP_cadastrarClientes);
         jP_cadastrarClientes.setLayout(jP_cadastrarClientesLayout);
         jP_cadastrarClientesLayout.setHorizontalGroup(
             jP_cadastrarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_cadastrarClientesLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jL_cadastrarCliente)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_cadastrarClientesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(53, 53, 53))
         );
         jP_cadastrarClientesLayout.setVerticalGroup(
             jP_cadastrarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_cadastrarClientesLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addComponent(jL_cadastrarCliente)
-                .addContainerGap())
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addComponent(jL_cadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(7, 7, 7))
         );
 
-        jPanel1.add(jP_cadastrarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 110, 110));
+        jPanel1.add(jP_cadastrarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 160, 150));
 
-        jP_listarClientes.setBackground(new java.awt.Color(125, 173, 199));
+        jP_listarClientes.setBackground(new java.awt.Color(102, 102, 102));
         jP_listarClientes.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_listarClientesMouseMoved(evt);
@@ -516,41 +529,97 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
 
         jL_listaClientes.setBackground(new java.awt.Color(241, 238, 219));
-        jL_listaClientes.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        jL_listaClientes.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jL_listaClientes.setForeground(new java.awt.Color(255, 255, 255));
-        jL_listaClientes.setText("Lista de Clientes");
+        jL_listaClientes.setText("Listar Clientes");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/Cliente/PesquisarUsuari2o50px.png"))); // NOI18N
 
         javax.swing.GroupLayout jP_listarClientesLayout = new javax.swing.GroupLayout(jP_listarClientes);
         jP_listarClientes.setLayout(jP_listarClientesLayout);
         jP_listarClientesLayout.setHorizontalGroup(
             jP_listarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_listarClientesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jL_listaClientes)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jP_listarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listarClientesLayout.createSequentialGroup()
+                        .addComponent(jL_listaClientes)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listarClientesLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(53, 53, 53))))
         );
         jP_listarClientesLayout.setVerticalGroup(
             jP_listarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listarClientesLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(jL_listaClientes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
                 .addContainerGap())
         );
 
-        jPanel1.add(jP_listarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 110, 110));
+        jPanel1.add(jP_listarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 160, 150));
+
+        jP_listarAdmin.setBackground(new java.awt.Color(102, 102, 102));
+        jP_listarAdmin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_listarAdminMouseMoved(evt);
+            }
+        });
+        jP_listarAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_listarAdminMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_listarAdminMouseExited(evt);
+            }
+        });
+
+        jL_listarAdmin.setBackground(new java.awt.Color(241, 238, 219));
+        jL_listarAdmin.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jL_listarAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        jL_listarAdmin.setText("Listar Admin");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/Prontuario/BuscarProntuario50px.png"))); // NOI18N
+
+        javax.swing.GroupLayout jP_listarAdminLayout = new javax.swing.GroupLayout(jP_listarAdmin);
+        jP_listarAdmin.setLayout(jP_listarAdminLayout);
+        jP_listarAdminLayout.setHorizontalGroup(
+            jP_listarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listarAdminLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(53, 53, 53))
+            .addGroup(jP_listarAdminLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jL_listarAdmin)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        jP_listarAdminLayout.setVerticalGroup(
+            jP_listarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_listarAdminLayout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addComponent(jL_listarAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jP_listarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 160, 150));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(909, 764));
+        setSize(new java.awt.Dimension(656, 488));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     //codigo para colocar as sombras nos paineis
@@ -565,25 +634,14 @@ public class HomeAdmin extends javax.swing.JFrame {
         return shadow;
     }
     //codigo para cancelar a borda em todas os paineis
-    private void efeitoBordaCancelar(){
+    private void efeitoBordaCancelar(javax.swing.JPanel painel){
         DropShadowBorder shadow = new DropShadowBorder();
         shadow.setShowLeftShadow(false);
         shadow.setShowRightShadow(false);
         shadow.setShowBottomShadow(false);
         shadow.setShowTopShadow(false);
         
-        jP_admin.setBorder(shadow);
-        jP_cadastrarAdmin.setBorder(shadow);
-        jP_listarAdmin.setBorder(shadow);
-        jP_clientes.setBorder(shadow);
-        jP_cadastrarClientes.setBorder(shadow);
-        jP_listarClientes.setBorder(shadow);
-        jP_medicos.setBorder(shadow);
-        jP_cadastrarMedico.setBorder(shadow);
-        jP_listarMedicos.setBorder(shadow);
-        jP_recepcionistas.setBorder(shadow);
-        jP_cadastrarRecepcionista.setBorder(shadow);
-        jP_listarRecepcionista.setBorder(shadow);
+        painel.setBorder(shadow);
     }
     private void esconderTodosPaineis(){
         jP_listarRecepcionista.setVisible(false);
@@ -599,6 +657,7 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_medicos.setVisible(controle);
         jP_clientes.setVisible(controle);
         jP_admin.setVisible(controle);
+        
         jP_recepcionistas.setVisible(controle);
     }
     
@@ -616,7 +675,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_listarRecepcionistaMouseMoved
 
     private void jP_listarRecepcionistaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_listarRecepcionistaMouseExited
-       efeitoBordaCancelar();
+       efeitoBordaCancelar(jP_listarRecepcionista);
     }//GEN-LAST:event_jP_listarRecepcionistaMouseExited
 
     private void jP_cadastrarAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarAdminMouseExited
@@ -811,6 +870,8 @@ public class HomeAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bjhyvuil;
+    private javax.swing.JLabel fbegasfvsa;
     private javax.swing.JLabel jL_admin;
     private javax.swing.JLabel jL_cadastarAdmin;
     private javax.swing.JLabel jL_cadastraRecepcionista;
@@ -823,6 +884,11 @@ public class HomeAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jL_listarRecepcionista;
     private javax.swing.JLabel jL_medicos;
     private javax.swing.JLabel jL_recepcionistas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jP_admin;
     private javax.swing.JPanel jP_cadastrarAdmin;
     private javax.swing.JPanel jP_cadastrarClientes;
