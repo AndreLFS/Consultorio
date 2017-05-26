@@ -12,9 +12,11 @@ import br.edu.anotacoes.Atendimento;
 import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Medico;
 import br.edu.util.Validacao;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -136,7 +138,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-MedicoDAO medicoDAO = new MedicoDAO();
+    MedicoDAO medicoDAO = new MedicoDAO();
     ClienteDAO2 clienteDAO2 = new ClienteDAO2();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         salvar();
@@ -151,9 +153,23 @@ MedicoDAO medicoDAO = new MedicoDAO();
     }//GEN-LAST:event_jComboBox1ActionPerformed
     
     Validacao validar = new Validacao();
-    private boolean testarVazio(){
+    private boolean testes(){
+        JOptionPane.showMessageDialog(null,  validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date())));
         if (jFT_data.getText().equals("  /  /    ") && validar.converterIdade(jFT_data.getText())!= null) {
             JOptionPane.showMessageDialog(null, "Data em branco ou invalida");
+            return false;
+            //teste se a data que esta querendo ser cadastrada é igual a do dia atual
+        }else if( validar.converterIdade(jFT_data.getText()).compareTo(validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()))) == 0){
+           //se a data for igual, testa-se a se a hora é maior que a atuaç
+            GregorianCalendar calendar = new GregorianCalendar();
+            if(calendar.get(calendar.HOUR_OF_DAY) <= Integer.parseInt(jComboBox1.getSelectedItem().toString())){
+                JOptionPane.showMessageDialog(null, "Hora do exame tem que ser maior do que a atual");
+                return false;
+            }else{
+                return true;
+            }    
+        }else if( validar.converterIdade(jFT_data.getText()).compareTo(validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()))) < 0){
+            JOptionPane.showMessageDialog(null, "Data anterior a Atual!");
             return false;
         }else{
             return true;
@@ -162,7 +178,7 @@ MedicoDAO medicoDAO = new MedicoDAO();
          
     
     private void salvar(){
-        if (testarVazio()) {
+        if (testes()) {
             //criação de classes que serao necessarias para construção da função
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
             /*criação do medico, usando o campo de id, para pegar o id, criei uma lista que esta invisivel na aplicação com os ids
@@ -221,6 +237,7 @@ MedicoDAO medicoDAO = new MedicoDAO();
             jC_idMedicos.addItem(String.valueOf(medicos.get(i).getId()));
         }
     }
+    
     private void passarClientes(){
         List<Cliente> clientes= clienteDAO2.listar();
         jC_clientes.removeAllItems();
