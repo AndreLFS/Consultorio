@@ -16,7 +16,7 @@ import java.util.InputMismatchException;
  * @author cra-dti-04
  */
 public class Validacao {
-    Date  nascimento = null;
+   Date   nascimento = null;
     //converte a data para o tipo date
     public Date converterIdade(String dataNascimento){
         //usado para testar se a data esta valida

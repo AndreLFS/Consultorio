@@ -1,16 +1,12 @@
 
-import br.edu.DAO.ClienteDAO2;
-import br.edu.DAO.EnderecoDAO;
-import br.edu.DAO.MedicoDAO;
-import br.edu.anotacoes.Cliente;
-import br.edu.anotacoes.Endereco;
-import br.edu.anotacoes.Medico;
+import br.edu.util.Validacao;
 import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
+
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,11 +20,17 @@ import javax.swing.JOptionPane;
  */
 public class Teste {
     public static void main(String[] args) {
-        //pegar data
-        JOptionPane.showMessageDialog(null,  java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()));
-        //pegar hora
-        GregorianCalendar calendar = new GregorianCalendar();
-        JOptionPane.showMessageDialog(null,   calendar.get(calendar.HOUR_OF_DAY));
+     
+            Validacao validar = new Validacao();
+
+        if( validar.converterIdade("27/05/2017").compareTo(validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()))) == 0){
+           //se a data for igual, testa-se a se a hora é maior que a atuaç
+            GregorianCalendar calendar = new GregorianCalendar();
+            System.out.println(calendar.get(calendar.HOUR_OF_DAY));
+            if(calendar.get(calendar.HOUR_OF_DAY) >= Integer.parseInt("10")){
+                JOptionPane.showMessageDialog(null, "Hora do exame tem que ser maior do que a atual");
+            }   
+        }
       
     }
 }

@@ -679,7 +679,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_listarRecepcionistaMouseExited
 
     private void jP_cadastrarAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarAdminMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_cadastrarAdmin);
     }//GEN-LAST:event_jP_cadastrarAdminMouseExited
 
     private void jP_recepcionistasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_recepcionistasMouseMoved
@@ -695,15 +695,15 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_medicosMouseMoved
 
     private void jP_recepcionistasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_recepcionistasMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_recepcionistas);
     }//GEN-LAST:event_jP_recepcionistasMouseExited
 
     private void jP_clientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_clientesMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_clientes);
     }//GEN-LAST:event_jP_clientesMouseExited
 
     private void jP_medicosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_medicosMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_medicos);
     }//GEN-LAST:event_jP_medicosMouseExited
 
     private void jP_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_clientesMouseClicked
@@ -729,11 +729,11 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_listarAdminMouseClicked
 
     private void jP_listarAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_listarAdminMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_listarAdmin);
     }//GEN-LAST:event_jP_listarAdminMouseExited
 
     private void jP_cadastrarRecepcionistaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarRecepcionistaMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_cadastrarRecepcionista);
     }//GEN-LAST:event_jP_cadastrarRecepcionistaMouseExited
 
     private void jP_cadastrarRecepcionistaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarRecepcionistaMouseMoved
@@ -745,7 +745,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_listarMedicosMouseMoved
 
     private void jP_listarMedicosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_listarMedicosMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_listarMedicos);
     }//GEN-LAST:event_jP_listarMedicosMouseExited
 
     private void jP_cadastrarMedicoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarMedicoMouseMoved
@@ -753,7 +753,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_cadastrarMedicoMouseMoved
 
     private void jP_cadastrarMedicoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarMedicoMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_cadastrarMedico);
     }//GEN-LAST:event_jP_cadastrarMedicoMouseExited
 
     private void jP_adminMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_adminMouseMoved
@@ -767,7 +767,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_adminMouseClicked
 
     private void jP_adminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_adminMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_admin);
     }//GEN-LAST:event_jP_adminMouseExited
 
     private void jP_cadastrarClientesMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarClientesMouseMoved
@@ -783,7 +783,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_cadastrarClientesMouseClicked
 
     private void jP_cadastrarClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarClientesMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_cadastrarClientes);
     }//GEN-LAST:event_jP_cadastrarClientesMouseExited
 
     private void jP_listarClientesMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_listarClientesMouseMoved
@@ -799,7 +799,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_listarClientesMouseClicked
 
     private void jP_listarClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_listarClientesMouseExited
-        efeitoBordaCancelar();
+        efeitoBordaCancelar(jP_listarClientes);
     }//GEN-LAST:event_jP_listarClientesMouseExited
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
