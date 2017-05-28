@@ -68,6 +68,11 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jC_medicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_medicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jC_medicosActionPerformed(evt);
+            }
+        });
         jPanel1.add(jC_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
 
         jC_clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -151,6 +156,10 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jC_medicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_medicosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jC_medicosActionPerformed
     
     Validacao validar = new Validacao();
     private boolean testes(){
