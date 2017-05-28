@@ -8,21 +8,23 @@ package br.edu.telas;
 import br.edu.DAO.AtendimentoDAO;
 import br.edu.anotacoes.Atendimento;
 import br.edu.tableModel.AtendimentoTableModel;
+import br.edu.util.Validacao;
+import java.text.DateFormat;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author cra-dti-04
+ * @author Andre
  */
-public class ListarAtendimento extends javax.swing.JFrame {
+public class ListarAtendimentoHoje extends javax.swing.JFrame {
 
     /**
-     * Creates new form ListarAtendimento
+     * Creates new form ListarAtendimentoHoje
      */
-    public ListarAtendimento() {
+    public ListarAtendimentoHoje() {
         initComponents();
         atualizarTabela();
     }
@@ -58,25 +60,27 @@ public class ListarAtendimento extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
+    
     private void atualizarTabela(){
+        Validacao validar = new Validacao();
         AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-        List<Atendimento> lista = atendimentoDAO.listar();
+        List<Atendimento> lista = atendimentoDAO.listarCampos("data", validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date())));
         Collections.sort(lista);
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
         jTable1.setModel(atendimentoTableModel);
@@ -99,20 +103,20 @@ public class ListarAtendimento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListarAtendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAtendimentoHoje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListarAtendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAtendimentoHoje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListarAtendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAtendimentoHoje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListarAtendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAtendimentoHoje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListarAtendimento().setVisible(true);
+                new ListarAtendimentoHoje().setVisible(true);
             }
         });
     }

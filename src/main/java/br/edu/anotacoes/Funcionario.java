@@ -5,7 +5,7 @@
  */
 package br.edu.anotacoes;
 
-import com.oracle.webservices.internal.api.EnvelopeStyle;
+//import com.oracle.webservices.internal.api.EnvelopeStyle;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;

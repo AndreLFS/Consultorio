@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 public class Teste {
     public static void main(String[] args) {
      
-            Validacao validar = new Validacao();
+        Validacao validar = new Validacao();
 
         if( validar.converterIdade("27/05/2017").compareTo(validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()))) == 0){
            //se a data for igual, testa-se a se a hora é maior que a atuaç

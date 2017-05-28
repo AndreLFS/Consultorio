@@ -6,6 +6,7 @@
 package br.edu.tableModel;
 
 import br.edu.anotacoes.Atendimento;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -32,9 +33,10 @@ public class AtendimentoTableModel extends AbstractTableModel{
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         Atendimento atendimento = atendimentos.get(rowIndex);
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         switch (columnIndex){
             case 0:
-                return atendimento.getData();
+                return formato.format(atendimento.getData());
             case 1:
                 return atendimento.getHoraConsulta();
             case 2:

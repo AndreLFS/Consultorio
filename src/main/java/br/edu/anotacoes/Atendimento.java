@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
  * @author cra-dti-04
  */
 @Entity
-public class Atendimento {
+public class Atendimento implements Comparable<Atendimento>{
     @Id
     @GeneratedValue
     private int id;
@@ -66,6 +66,15 @@ public class Atendimento {
         this.medico = medico;
         this.data = data;
         this.horaConsulta = horaConsulta;
+    }
+
+    @Override
+    public int compareTo(Atendimento atendimento) {
+        if (this.getData().compareTo(atendimento.getData()) > 0) {
+            return 1;
+        }else{
+            return -1;
+        }
     }
     
     
