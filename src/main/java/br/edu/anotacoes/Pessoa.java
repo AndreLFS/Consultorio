@@ -33,7 +33,6 @@ public abstract class Pessoa implements Serializable{
     private Date nascimento;
     private boolean genero;
     private String telefone;
-    private String etinia;
     private String rg;
     private String cpf;
 
@@ -80,15 +79,6 @@ public abstract class Pessoa implements Serializable{
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-    public String getEtinia() {
-        return etinia;
-    }
-
-    public void setEtinia(String etinia) {
-        this.etinia = etinia;
-    }
-
     public String getRg() {
         return rg;
     }
@@ -109,13 +99,12 @@ public abstract class Pessoa implements Serializable{
     }
     
 
-    public Pessoa(Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
+    public Pessoa(Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String rg, String cpf) {
         this.endereco = endereco;
         this.nome = nome;
         this.nascimento = nascimento;
         this.genero = genero;
         this.telefone = telefone;
-        this.etinia = etinia;
         this.rg = rg;
         this.cpf = cpf;
     }

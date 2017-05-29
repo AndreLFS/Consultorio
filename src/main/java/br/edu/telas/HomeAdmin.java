@@ -792,7 +792,7 @@ public class HomeAdmin extends javax.swing.JFrame {
 
     private void jP_listarClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_listarClientesMouseClicked
         if(ControleTelas.telaListarClientes == false){
-            ClientesListar clientesListar = new ClientesListar();
+            ListarClientes clientesListar = new ListarClientes();
             clientesListar.setVisible(true);
             ControleTelas.telaListarClientes = true;
         }

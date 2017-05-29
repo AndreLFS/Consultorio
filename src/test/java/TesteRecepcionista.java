@@ -57,7 +57,6 @@ public class TesteRecepcionista {
             teste.converterIdade("02/05/2017"),
             true,
             "(88)996746115",
-            "nego",
             "rg",
             "cpf"
        );

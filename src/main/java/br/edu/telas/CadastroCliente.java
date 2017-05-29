@@ -58,7 +58,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         jFT_cpf = new javax.swing.JFormattedTextField();
         jL_bairro = new javax.swing.JLabel();
         jT_bairro = new javax.swing.JTextField();
-        jL_Etinia = new javax.swing.JLabel();
         jT_cep = new javax.swing.JTextField();
         jP_cadastrar = new javax.swing.JPanel();
         jB_cadastrar = new javax.swing.JButton();
@@ -78,7 +77,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         jT_estado = new javax.swing.JTextField();
         jL_cep1 = new javax.swing.JLabel();
         jL_genero = new javax.swing.JLabel();
-        jC_etinia = new javax.swing.JComboBox<>();
         jC_Genero = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -206,10 +204,6 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
         jP_conteudo.add(jT_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 190, 30));
-
-        jL_Etinia.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_Etinia.setText("Etinia");
-        jP_conteudo.add(jL_Etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, 20));
 
         jT_cep.setBorder(null);
         jT_cep.addActionListener(new java.awt.event.ActionListener() {
@@ -343,10 +337,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_genero.setText("Genero");
         jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 20));
 
-        jC_etinia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jC_etinia.setBorder(null);
-        jP_conteudo.add(jC_etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 170, -1));
-
         jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
 
@@ -404,7 +394,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         jFT_nascimento.setText(cliente.getNascimento().toString());
         jC_Genero.setSelectedIndex(1);// erro
         jFT_telefone.setText(cliente.getTelefone());
-       // jC_etinia.getSelectedItem().toString(),
         jT_rg.setText(cliente.getRg());
         jFT_cpf.setText(cliente.getCpf());
     }
@@ -433,7 +422,6 @@ public class CadastroCliente extends javax.swing.JFrame {
                 testes.converterIdade(jFT_nascimento.getText()),
                 jC_Genero.getSelectedItem().toString().equals("Masculino"),
                 jFT_telefone.getText(),
-                jC_etinia.getSelectedItem().toString(),
                 jT_rg.getText(),
                 jFT_cpf.getText()
         );
@@ -561,13 +549,11 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JButton jB_cadastrar;
     private javax.swing.JButton jB_cancelar;
     private javax.swing.JComboBox<String> jC_Genero;
-    private javax.swing.JComboBox<String> jC_etinia;
     private javax.swing.JFormattedTextField jFT_altura;
     private javax.swing.JFormattedTextField jFT_cpf;
     private javax.swing.JFormattedTextField jFT_nascimento;
     private javax.swing.JFormattedTextField jFT_peso;
     private javax.swing.JFormattedTextField jFT_telefone;
-    private javax.swing.JLabel jL_Etinia;
     private javax.swing.JLabel jL_alerguias;
     private javax.swing.JLabel jL_altura;
     private javax.swing.JLabel jL_bairro;

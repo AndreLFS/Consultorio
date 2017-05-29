@@ -44,12 +44,11 @@ public class TesteCadastroCliente {
                 Double.parseDouble("71.11"),
                 Double.parseDouble("1.8"),
                 endereco,
-                "nome2",
+                "nome23",
                 nascimento,
                 true,
                 //jC_Genero.getSelectedIndex()== -1,
                 "telefone",
-                "negro",//etinia
                 "rg",
                 "cpf"
                 );

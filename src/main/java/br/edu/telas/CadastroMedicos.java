@@ -414,7 +414,6 @@ public class CadastroMedicos extends javax.swing.JFrame {
             teste.converterIdade(jFT_nascimento.getText()),
             rootPaneCheckingEnabled,
             jFT_telefone.getText(),
-            jC_etinia.getSelectedItem().toString(),
             jT_rg.getText(),
             jFT_cpf.getText()
               

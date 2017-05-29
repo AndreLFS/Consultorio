@@ -40,8 +40,8 @@ import javax.persistence.Entity;
     public Funcionario() {
     }
 
-    public Funcionario(String usuario, String senha, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
-        super(endereco, nome, nascimento, genero, telefone, etinia, rg, cpf);
+    public Funcionario(String usuario, String senha, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String rg, String cpf) {
+        super(endereco, nome, nascimento, genero, telefone, rg, cpf);
         this.usuario = usuario;
         this.senha = senha;
     }

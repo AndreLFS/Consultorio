@@ -50,8 +50,8 @@ public class Cliente extends Pessoa{
     
     public Cliente() {
     }
-    public Cliente(String alergias, double peso, double altura, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
-        super(endereco, nome, nascimento, genero, telefone, etinia, rg, cpf);
+    public Cliente(String alergias, double peso, double altura, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String rg, String cpf) {
+        super(endereco, nome, nascimento, genero, telefone, rg, cpf);
         this.alergias = alergias;
         this.peso = peso;
         this.altura = altura;

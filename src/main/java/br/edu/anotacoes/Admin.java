@@ -16,7 +16,7 @@ public class Admin extends Funcionario{
     public Admin() {
     }
     
-    public Admin(String usuario, String senha, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
-        super(usuario, senha, endereco, nome, nascimento, genero, telefone, etinia, rg, cpf);
+    public Admin(String usuario, String senha, Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String rg, String cpf) {
+        super(usuario, senha, endereco, nome, nascimento, genero, telefone, rg, cpf);
     }
 }
