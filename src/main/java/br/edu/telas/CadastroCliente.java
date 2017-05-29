@@ -387,6 +387,29 @@ public class CadastroCliente extends javax.swing.JFrame {
         return true;
     }
     // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="passarValores">
+    public void passarValores(Cliente cliente){
+        jT_logradouro.setText(cliente.getEndereco().getLogradouro());   //set do logradouro
+        jT_bairro.setText(cliente.getEndereco().getBairro());           //set do bairro
+        jT_cidade.setText(cliente.getEndereco().getCidade());           //set da cidade
+        jT_estado.setText(cliente.getEndereco().getEstado());           //set do estado
+        jT_numero.setText(cliente.getEndereco().getNumero());           //set do numero
+        jT_complemento.setText(cliente.getEndereco().getObservacoa());  //set do complemento
+        jT_cep.setText(cliente.getEndereco().getCep());                 //set do cep
+        
+        jT_alergias.setText(cliente.getAlergias());
+        jFT_peso.setText(String.valueOf(cliente.getPeso()));
+        jFT_altura.setText(String.valueOf(cliente.getAltura()));
+        jT_nome.setText(cliente.getNome());
+        jFT_nascimento.setText(cliente.getNascimento().toString());
+        jC_Genero.setSelectedIndex(1);// erro
+        jFT_telefone.setText(cliente.getTelefone());
+       // jC_etinia.getSelectedItem().toString(),
+        jT_rg.setText(cliente.getRg());
+        jFT_cpf.setText(cliente.getCpf());
+    }
+    
+    // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="salvar">   
     
     private void salvar (){

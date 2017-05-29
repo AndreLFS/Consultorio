@@ -40,18 +40,74 @@ public abstract class Pessoa implements Serializable{
     public int getId() {
         return id;
     }
+    
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public boolean isGenero() {
+        return genero;
+    }
+
+    public void setGenero(boolean genero) {
+        this.genero = genero;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEtinia() {
+        return etinia;
+    }
+
+    public void setEtinia(String etinia) {
+        this.etinia = etinia;
     }
 
     public String getRg() {
         return rg;
     }
 
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
     public String getCpf() {
         return cpf;
     }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
+    public Pessoa() {
+    }
+    
 
     public Pessoa(Endereco endereco, String nome, Date nascimento, boolean genero, String telefone, String etinia, String rg, String cpf) {
         this.endereco = endereco;
@@ -62,9 +118,6 @@ public abstract class Pessoa implements Serializable{
         this.etinia = etinia;
         this.rg = rg;
         this.cpf = cpf;
-    }
-
-    public Pessoa() {
     }
 
     
