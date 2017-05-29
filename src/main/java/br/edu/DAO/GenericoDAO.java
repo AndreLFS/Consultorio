@@ -17,7 +17,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public class GenericoDAO<T> implements DAO<T>{
     
-    private Session sessao;
+    protected Session sessao;
     public Class classe;
 
     public GenericoDAO(Class classe) {
@@ -82,7 +82,6 @@ public class GenericoDAO<T> implements DAO<T>{
     public List<T> listar() {
          List<T> lista=null;
         sessao = null;
-        
         try {
            
             sessao = getSessao().openSession();

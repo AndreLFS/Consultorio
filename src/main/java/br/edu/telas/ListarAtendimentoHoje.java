@@ -81,7 +81,6 @@ public class ListarAtendimentoHoje extends javax.swing.JFrame {
         Validacao validar = new Validacao();
         AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
         List<Atendimento> lista = atendimentoDAO.listarCampos("data", validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date())));
-        Collections.sort(lista);
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
         jTable1.setModel(atendimentoTableModel);
     }

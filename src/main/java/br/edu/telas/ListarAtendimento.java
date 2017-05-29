@@ -77,7 +77,6 @@ public class ListarAtendimento extends javax.swing.JFrame {
     private void atualizarTabela(){
         AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
         List<Atendimento> lista = atendimentoDAO.listar();
-        Collections.sort(lista);
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
         jTable1.setModel(atendimentoTableModel);
     }
