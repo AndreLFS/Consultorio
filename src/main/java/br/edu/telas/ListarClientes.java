@@ -60,6 +60,11 @@ public class ListarClientes extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jButton1.setText("Excluir");
@@ -108,7 +113,7 @@ public class ListarClientes extends javax.swing.JFrame {
     }
     private Cliente cliente(){
         int linha = jTable1.getSelectedRow();
-        if (linha > 0) {
+        if (linha >= 0) {
             ClienteTableModel tbm = (ClienteTableModel) jTable1.getModel();
             Cliente cliente = tbm.getValueAt(linha);
             return cliente;
@@ -146,6 +151,16 @@ public class ListarClientes extends javax.swing.JFrame {
         cac.passarValores(cliente());
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if (evt.getClickCount() > 1) {  
+            if(ControleTelas.telaAtendimentoGenerico == false){
+                ControleTelas.telaAtendimentoGenerico = true;
+                ListarAtendimentoGenerico listarAtendimentoGenerico = new ListarAtendimentoGenerico("cliente", cliente());
+                listarAtendimentoGenerico.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+    
     /**
      * @param args the command line arguments
      */

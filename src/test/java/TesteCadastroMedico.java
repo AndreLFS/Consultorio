@@ -46,13 +46,14 @@ public class TesteCadastroMedico {
         Especialidade especialidade = new Especialidade("gesgs");
         Validacao teste = new Validacao();
         
-        //criação do Médico
+        for (int i = 0; i < 10; i++) {
+            //criação do Médico
         Medico medico = new Medico(
               especialidade,
             "email",
-            "123",
+            "123",  
             endereco,
-            "nome",
+            ("medico " + i),
             teste.converterIdade("02/05/2017"),
             true,
             "(88)996746115",
@@ -71,6 +72,7 @@ public class TesteCadastroMedico {
             JOptionPane.showMessageDialog(null, "Medico Cadastrado com sucesso");
         }else{
             JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
+        }
         }
     }
     

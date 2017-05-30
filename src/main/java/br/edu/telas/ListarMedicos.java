@@ -6,7 +6,9 @@
 package br.edu.telas;
 
 import br.edu.DAO.MedicoDAO;
+import br.edu.anotacoes.Medico;
 import br.edu.tableModel.MedicoTableModel;
+import br.edu.util.ControleTelas;
 
 /**
  *
@@ -34,7 +36,7 @@ public class ListarMedicos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -47,6 +49,11 @@ public class ListarMedicos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -66,12 +73,33 @@ public class ListarMedicos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if (evt.getClickCount() > 1) {  
+            if(ControleTelas.telaAtendimentoGenerico == false){
+                ControleTelas.telaAtendimentoGenerico = true;
+                ListarAtendimentoGenerico listarAtendimentoGenerico = new ListarAtendimentoGenerico("medico", medico());
+                listarAtendimentoGenerico.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
     
     private void atualizarTabela(){
         MedicoDAO medicoDAO = new MedicoDAO();
         MedicoTableModel medicoTableModel = new MedicoTableModel(medicoDAO.listar());
         jTable1.setModel(medicoTableModel);
+    }
+    
+    private Medico medico(){
+        int linha = jTable1.getSelectedRow();
+        if (linha >= 0) {
+            MedicoTableModel mtm = (MedicoTableModel) jTable1.getModel();
+            Medico medico = mtm.getValueAt(linha);
+            return medico;
+        }
+        return null;
     }
     
     /**

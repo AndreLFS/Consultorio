@@ -12,4 +12,5 @@ package br.edu.util;
 public class ControleTelas {
     public static boolean telaListarClientes = false;
     public static boolean telaCadastroClientes = false;
+    public static boolean telaAtendimentoGenerico = false;
 }

@@ -8,6 +8,7 @@ package br.edu.DAO;
 import br.edu.anotacoes.Atendimento;
 import java.util.List;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -35,4 +36,20 @@ public class AtendimentoDAO extends GenericoDAO<Atendimento>{
         return lista;
     }
 
+    public List<Atendimento> listarGenerico(String campo, Object valor) {
+        List<Atendimento> lista = null;
+        try {
+            sessao = getSessao().openSession();
+            lista = sessao.createCriteria(classe).
+                    add(Restrictions.eq(campo, valor)).
+                    addOrder(Order.asc("horaConsulta")).
+                    list();
+        } catch (Exception e) {
+            System.out.println("Erro na lista de campo: " + e);
+        }
+        finally{
+            sessao.close();
+        }
+        return lista;
+    }
 } 

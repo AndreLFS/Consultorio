@@ -38,28 +38,30 @@ public class TesteCadastroCliente {
         } catch (ParseException e) {            
             System.out.println("Erro na conversao da data "+ e);;
         }
-        //criação do cliente
-        Cliente cliente = new Cliente(
-                "alergia",
-                Double.parseDouble("71.11"),
-                Double.parseDouble("1.8"),
-                endereco,
-                "nome23",
-                nascimento,
-                true,
-                //jC_Genero.getSelectedIndex()== -1,
-                "telefone",
-                "rg",
-                "cpf"
-                );
-        
-        ClienteDAO2 clienteDao = new ClienteDAO2();
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        enderecoDAO.salvar(endereco);
-        if(clienteDao.salvar(cliente) == true){
-            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso");
-        }else{
-            JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
+        for (int i = 0; i < 10; i++) {
+            //criação do cliente
+            Cliente cliente = new Cliente(
+                    "alergia",
+                    Double.parseDouble("71.11"),
+                    Double.parseDouble("1.8"),
+                    endereco,
+                    ("nome" + i),
+                    nascimento,
+                    true,
+                    //jC_Genero.getSelectedIndex()== -1,
+                    "telefone",
+                    "rg",
+                    "cpf"
+                    );
+
+            ClienteDAO2 clienteDao = new ClienteDAO2();
+            EnderecoDAO enderecoDAO = new EnderecoDAO();
+            enderecoDAO.salvar(endereco);
+            if(clienteDao.salvar(cliente) == true){
+                System.out.println("Cliente Cadastrado com sucesso");
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
+            }
         }
     }
 
