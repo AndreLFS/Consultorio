@@ -6,13 +6,16 @@
 package br.edu.telas;
 
 import br.edu.DAO.AtendimentoDAO;
+import br.edu.DAO.ClienteDAO2;
 import br.edu.anotacoes.Atendimento;
+import br.edu.anotacoes.Cliente;
 import br.edu.tableModel.AtendimentoTableModel;
 import br.edu.util.ControleTelas;
 import br.edu.util.Validacao;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,7 +31,9 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
         ControleTelas.telaAtendimentoGenerico = true;
         this.valor = valor;
         this.tipo = tipo;
+        passarClientes();
         atualizarTabela();
+        
     }
 
     private ListarAtendimentoGenerico() {
@@ -47,6 +52,13 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        Cliente = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jFT_nascimento = new javax.swing.JFormattedTextField();
+        jC_clientes = new javax.swing.JComboBox<>();
+        jC_idCliente = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -68,20 +80,85 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        Cliente.setText("Cliente");
+
+        jLabel2.setText("jLabel2");
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jFT_nascimento.setBorder(null);
+        try {
+            jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFT_nascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFT_nascimentoActionPerformed(evt);
+            }
+        });
+
+        jC_clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Cliente)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jC_clientes, 0, 110, Short.MAX_VALUE)
+                            .addComponent(jFT_nascimento))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jC_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)))
+                        .addGap(27, 27, 27))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(Cliente)
+                    .addComponent(jC_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jC_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton2)
+                    .addComponent(jFT_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -91,16 +168,46 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         ControleTelas.telaAtendimentoGenerico = false;
     }//GEN-LAST:event_formWindowClosed
+
+    private void jFT_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_nascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFT_nascimentoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
+        List<Atendimento> lista = atendimentoDAO.listarDoisCampos(valor, tipo, "data", validar.converterIdade(jFT_nascimento.getText()));
+        AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
+        jTable1.setModel(atendimentoTableModel);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
+        Cliente cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
+        List<Atendimento> lista = atendimentoDAO.listarDoisCampos(valor, tipo, "cliente", cliente);
+        AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
+        jTable1.setModel(atendimentoTableModel);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private String  valor = null;
     private Object tipo = null;
+    ClienteDAO2 clienteDAO2 = new ClienteDAO2();
+    Validacao validar = new Validacao();
     
     private void atualizarTabela(){
-        Validacao validar = new Validacao();
         AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-        List<Atendimento> lista = atendimentoDAO.listarGenerico(valor, tipo);
+        List<Atendimento> lista = atendimentoDAO.listarHoje(valor, tipo);
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
         jTable1.setModel(atendimentoTableModel);
+    }
+    private void passarClientes(){
+        List<Cliente> clientes= clienteDAO2.listar();
+        jC_clientes.removeAllItems();
+        jC_idCliente.removeAllItems();
+        jC_idCliente.setVisible(false);
+        for (int i = 0; i < clientes.size(); i++) {
+            jC_clientes.addItem(clientes.get(i).getNome());
+            jC_idCliente.addItem(String.valueOf(clientes.get(i).getId()));
+        }
     }
     
     /**
@@ -139,6 +246,13 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Cliente;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jC_clientes;
+    private javax.swing.JComboBox<String> jC_idCliente;
+    private javax.swing.JFormattedTextField jFT_nascimento;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

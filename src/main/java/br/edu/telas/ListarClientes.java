@@ -167,7 +167,6 @@ public class ListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-       atualizarTabela();
     }//GEN-LAST:event_formMouseClicked
     
     /**

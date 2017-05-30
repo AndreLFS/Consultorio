@@ -183,12 +183,13 @@ public class Login extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(862, 538));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+    Medico medico;
     private boolean logarMedico(){
         MedicoDAO medicoDAO = new MedicoDAO();
         List<Medico> medicos= medicoDAO.listarCampos("usuario", jTF_email.getText());
         for (int i = 0; i < medicos.size(); i++) {
             if (medicos.get(i).getUsuario().equals(jTF_email.getText()) && medicos.get(i).getSenha().equals(new String(jPF_senha.getPassword()))) {
+                medico = medicos.get(i);
                 return true;
             }
         }
@@ -239,7 +240,9 @@ public class Login extends javax.swing.JFrame {
     private void jL_loguinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseClicked
         if(logarMedico()){
             //home de medico
-            System.out.println("Login Medico");
+            HomeMedico homeMedico = new HomeMedico(medico);
+            homeMedico.setVisible(true);
+            this.dispose();
         }else if(logarRecepcionista()){
             //home de recepcionista
             System.out.println("Login Recepcionista");
