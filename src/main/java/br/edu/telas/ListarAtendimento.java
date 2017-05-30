@@ -7,11 +7,16 @@ package br.edu.telas;
 
 import br.edu.DAO.AtendimentoDAO;
 import br.edu.anotacoes.Atendimento;
+import br.edu.anotacoes.Cliente;
 import br.edu.tableModel.AtendimentoTableModel;
+import br.edu.tableModel.ClienteTableModel;
+import java.awt.Color;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.swing.JOptionPane;
+import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
  *
@@ -38,8 +43,11 @@ public class ListarAtendimento extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jP_Excluir = new javax.swing.JPanel();
+        jL_excluir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -54,31 +62,97 @@ public class ListarAtendimento extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 375, 275));
+
+        jP_Excluir.setBackground(new java.awt.Color(0, 102, 102));
+        jP_Excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP_Excluir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_excluir.setBackground(new java.awt.Color(0, 102, 102));
+        jL_excluir.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jL_excluir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_excluir.setText("Excluir");
+        jL_excluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_excluir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_excluirMouseMoved(evt);
+            }
+        });
+        jL_excluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_excluirMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_excluirMouseExited(evt);
+            }
+        });
+        jP_Excluir.add(jL_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
+
+        getContentPane().add(jP_Excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 100, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private DropShadowBorder efeitoBorda(){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShadowColor(Color.BLACK);
+        shadow.setShadowSize(5);
+        shadow.setShowLeftShadow(true);
+        shadow.setShowRightShadow(true);
+        shadow.setShowBottomShadow(true);
+        shadow.setShowTopShadow(true);
+        return shadow;
+    }
+    //codigo para cancelar a borda em todas os paineis
+    private void efeitoBordaCancelar(javax.swing.JPanel painel){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShowLeftShadow(false);
+        shadow.setShowRightShadow(false);
+        shadow.setShowBottomShadow(false);
+        shadow.setShowTopShadow(false);
+        
+        painel.setBorder(shadow);
+    }
+    
+    private void jL_excluirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_excluirMouseMoved
+        jP_Excluir.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_excluirMouseMoved
+
+    private void jL_excluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_excluirMouseClicked
+    Atendimento atendimento = getAtendimento();
+        if(getAtendimento() !=  null){
+            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar") == 0){
+                try {
+                    AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
+                    atendimentoDAO.deletar(atendimento);
+                } catch (Exception e) {
+                    System.out.println("Erro no delete do atendimento " +e);
+                }
+                JOptionPane.showMessageDialog(null, "Atendimento deletado com sucesso");
+            }
+        }
+        atualizarTabela();
+    }//GEN-LAST:event_jL_excluirMouseClicked
+
+    private void jL_excluirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_excluirMouseExited
+        efeitoBordaCancelar(jP_Excluir);
+    }//GEN-LAST:event_jL_excluirMouseExited
 
     private void atualizarTabela(){
         AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
         List<Atendimento> lista = atendimentoDAO.listar();
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
         jTable1.setModel(atendimentoTableModel);
+    }
+    
+    private Atendimento getAtendimento(){
+        int linha = jTable1.getSelectedRow();
+        if (linha >= 0) {
+            AtendimentoTableModel atm = (AtendimentoTableModel) jTable1.getModel();
+            Atendimento atendimento = atm.getValueAt(linha);
+            return atendimento;
+        }
+        return null;
     }
     
     /**
@@ -117,6 +191,8 @@ public class ListarAtendimento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jL_excluir;
+    private javax.swing.JPanel jP_Excluir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

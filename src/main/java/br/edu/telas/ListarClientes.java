@@ -22,6 +22,7 @@ public class ListarClientes extends javax.swing.JFrame {
      */
     public ListarClientes() {
         initComponents();
+        ControleTelas.telaListarClientes = true;
         atualizarTabela();
     }
 
@@ -40,6 +41,11 @@ public class ListarClientes extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -74,7 +80,7 @@ public class ListarClientes extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Editar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -106,12 +112,12 @@ public class ListarClientes extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    private void atualizarTabela(){
+    protected static void atualizarTabela(){
         ClienteDAO2 clienteDAO = new ClienteDAO2();
         ClienteTableModel clienteTableModel = new ClienteTableModel(clienteDAO.listar());
         jTable1.setModel(clienteTableModel);
     }
-    private Cliente cliente(){
+    private Cliente getCliente(){
         int linha = jTable1.getSelectedRow();
         if (linha >= 0) {
             ClienteTableModel tbm = (ClienteTableModel) jTable1.getModel();
@@ -130,7 +136,7 @@ public class ListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cliente cliente = cliente();
+        Cliente cliente = getCliente();
         if(cliente !=  null){
             if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o cliente " + cliente.getNome()) == 0){
                 try {
@@ -146,20 +152,23 @@ public class ListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CadastroCliente cac = new CadastroCliente();
+        CadastroCliente cac = new CadastroCliente(getCliente());
         cac.setVisible(true);
-        cac.passarValores(cliente());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         if (evt.getClickCount() > 1) {  
             if(ControleTelas.telaAtendimentoGenerico == false){
                 ControleTelas.telaAtendimentoGenerico = true;
-                ListarAtendimentoGenerico listarAtendimentoGenerico = new ListarAtendimentoGenerico("cliente", cliente());
+                ListarAtendimentoGenerico listarAtendimentoGenerico = new ListarAtendimentoGenerico("cliente", getCliente());
                 listarAtendimentoGenerico.setVisible(true);
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+       atualizarTabela();
+    }//GEN-LAST:event_formMouseClicked
     
     /**
      * @param args the command line arguments
@@ -203,6 +212,6 @@ public class ListarClientes extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

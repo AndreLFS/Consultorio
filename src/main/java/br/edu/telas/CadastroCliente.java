@@ -22,12 +22,40 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class CadastroCliente extends javax.swing.JFrame {
-
+    Cliente cliente;
+    Endereco endereco;
     /**
      * Creates new form CadastroCliente
      */
     public CadastroCliente() {
         initComponents();
+        ControleTelas.telaCadastroClientes = true;
+        this.cliente = new Cliente();
+        this.endereco = new Endereco();
+    }
+    public CadastroCliente(Cliente cliente) {
+        initComponents();
+        ControleTelas.telaCadastroClientes = true;
+        jB_cadastrar.setText("Editar");
+        this.cliente = cliente;
+        this.endereco = cliente.getEndereco();
+        jT_logradouro.setText(cliente.getEndereco().getLogradouro());   //set do logradouro
+        jT_bairro.setText(cliente.getEndereco().getBairro());           //set do bairro
+        jT_cidade.setText(cliente.getEndereco().getCidade());           //set da cidade
+        jT_estado.setText(cliente.getEndereco().getEstado());           //set do estado
+        jT_numero.setText(cliente.getEndereco().getNumero());           //set do numero
+        jT_complemento.setText(cliente.getEndereco().getObservacoa());  //set do complemento
+        jT_cep.setText(cliente.getEndereco().getCep());                 //set do cep
+        
+        jT_alergias.setText(cliente.getAlergias());
+        jFT_peso.setText(String.valueOf(cliente.getPeso()));
+        jFT_altura.setText(String.valueOf(cliente.getAltura()));
+        jT_nome.setText(cliente.getNome());
+        jFT_nascimento.setText(cliente.getNascimento().toString());
+        jC_Genero.setSelectedIndex(1);// erro
+        jFT_telefone.setText(cliente.getTelefone());
+        jT_rg.setText(cliente.getRg());
+        jFT_cpf.setText(cliente.getCpf());
     }
 
     /**
@@ -377,67 +405,49 @@ public class CadastroCliente extends javax.swing.JFrame {
         return true;
     }
     // </editor-fold>
-    // <editor-fold defaultstate="collapsed" desc="passarValores">
-    public void passarValores(Cliente cliente){
-        jT_logradouro.setText(cliente.getEndereco().getLogradouro());   //set do logradouro
-        jT_bairro.setText(cliente.getEndereco().getBairro());           //set do bairro
-        jT_cidade.setText(cliente.getEndereco().getCidade());           //set da cidade
-        jT_estado.setText(cliente.getEndereco().getEstado());           //set do estado
-        jT_numero.setText(cliente.getEndereco().getNumero());           //set do numero
-        jT_complemento.setText(cliente.getEndereco().getObservacoa());  //set do complemento
-        jT_cep.setText(cliente.getEndereco().getCep());                 //set do cep
-        
-        jT_alergias.setText(cliente.getAlergias());
-        jFT_peso.setText(String.valueOf(cliente.getPeso()));
-        jFT_altura.setText(String.valueOf(cliente.getAltura()));
-        jT_nome.setText(cliente.getNome());
-        jFT_nascimento.setText(cliente.getNascimento().toString());
-        jC_Genero.setSelectedIndex(1);// erro
-        jFT_telefone.setText(cliente.getTelefone());
-        jT_rg.setText(cliente.getRg());
-        jFT_cpf.setText(cliente.getCpf());
-    }
-    
-    // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="salvar">   
     
     private void salvar (){
-        //criação do valor da classe endereço, para ser salvo em cliente
-        Endereco endereco = new Endereco(
-                jT_logradouro.getText(),    //get do logradouro
-                jT_bairro.getText(),        //get do bairro
-                jT_cidade.getText(),        //get da cidade
-                jT_estado.getText(),        //get do estado
-                jT_numero.getText(),        //get do numero
-                jT_complemento.getText(),   //get do complemento
-                jT_cep.getText()            //get do cep
-        );
-        //criação do cliente
-        Cliente cliente = new Cliente(
-                jT_alergias.getText(),
-                Double.parseDouble(jFT_peso.getText()),
-                Double.parseDouble(jFT_altura.getText()),
-                endereco,
-                jT_nome.getText(),
-                testes.converterIdade(jFT_nascimento.getText()),
-                jC_Genero.getSelectedItem().toString().equals("Masculino"),
-                jFT_telefone.getText(),
-                jT_rg.getText(),
-                jFT_cpf.getText()
-        );
+        Validacao validar = new Validacao();
+        this.endereco.setLogradouro(jT_logradouro.getText());
+        this.endereco.setBairro(jT_bairro.getText());
+        this.endereco.setCep(jT_cep.getText());
+        this.endereco.setCidade(jT_cidade.getText());
+        this.endereco.setEstado(jT_estado.getText());
+        this.endereco.setNumero(jT_numero.getText());
+        this.endereco.setObservacoa(jT_complemento.getText());
+        
+        this.cliente.setAlergias(jT_alergias.getText());
+        this.cliente.setAltura(Double.valueOf(jFT_altura.getText()));
+        this.cliente.setPeso(Double.valueOf(jFT_peso.getText()));
+        this.cliente.setCpf(jFT_cpf.getText());
+        this.cliente.setEndereco(this.endereco);
+        this.cliente.setGenero(jC_Genero.getSelectedItem().toString().equals("Masculino"));
+        this.cliente.setNascimento(validar.converterIdade(jFT_nascimento.getText()));
+        this.cliente.setNome(jT_nome.getText());
+        this.cliente.setRg(jT_rg.getText());
+        this.cliente.setTelefone(jFT_telefone.getText());
+        
         //criação das classes dao para o cadastro no banco de dados
         ClienteDAO2 clienteDao = new ClienteDAO2();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
         //ele salva primeiro o endereço para depois salvar o cliente
         enderecoDAO.salvar(endereco);
         if(clienteDao.salvar(cliente) == true){
-            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso");
+            JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso");
+            fechar();
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
         }
     }
-    // </editor-fold>        
+    // </editor-fold>      
+    public void fechar(){
+        if(ControleTelas.telaListarClientes  == true){
+            ControleTelas.telaCadastroClientes = false;
+            ListarClientes.atualizarTabela();
+        }
+    }
     // </editor-fold>        
     // <editor-fold defaultstate="collapsed" desc="eventos">        
     private void jT_nomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_nomeMouseClicked
@@ -509,6 +519,8 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         ControleTelas.telaCadastroClientes = false;
     }//GEN-LAST:event_formWindowClosing
+    
+    
     // </editor-fold>        
     /**
      * @param args the command line arguments
