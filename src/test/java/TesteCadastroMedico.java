@@ -50,7 +50,7 @@ public class TesteCadastroMedico {
             //criação do Médico
         Medico medico = new Medico(
               especialidade,
-            "email",
+            "email"+i,
             "123",  
             endereco,
             ("medico " + i),

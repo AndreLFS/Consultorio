@@ -6,7 +6,9 @@
 package br.edu.telas;
 
 import br.edu.DAO.AdminDAO;
+import br.edu.anotacoes.Admin;
 import br.edu.tableModel.AdministradorTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,6 +35,8 @@ public class ListarAdministrador extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jB_Excluir = new javax.swing.JButton();
+        jB_Editar = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -47,27 +51,70 @@ public class ListarAdministrador extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jB_Excluir.setText("Excluir");
+        jB_Excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_ExcluirActionPerformed(evt);
+            }
+        });
+
+        jB_Editar.setText("Editar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(0, 29, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jB_Excluir)
+                .addGap(92, 92, 92)
+                .addComponent(jB_Editar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jB_Excluir)
+                    .addComponent(jB_Editar))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jB_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ExcluirActionPerformed
+        Admin admin = getAdmin();
+        if(admin !=  null){
+            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o Administrador " + admin.getNome()) == 0){
+                try {
+                    AdminDAO adminDAO = new AdminDAO();
+                    adminDAO.deletar(admin);
+                } catch (Exception e) {
+                    System.out.println("Erro no delete do Administrador " +e);
+                }
+                JOptionPane.showMessageDialog(null, "Administrador deletado com sucesso");
+            }
+        }
+        atualizarTabela();
+    }//GEN-LAST:event_jB_ExcluirActionPerformed
 
   private void atualizarTabela(){
         AdminDAO adminDAO = new AdminDAO();
         AdministradorTableModel administradorTableModel = new AdministradorTableModel(adminDAO.listar());
         jTable1.setModel(administradorTableModel);
+    }
+  private Admin getAdmin(){
+        int linha = jTable1.getSelectedRow();
+        if (linha >= 0) {
+            AdministradorTableModel tbm = (AdministradorTableModel) jTable1.getModel();
+            Admin admin= tbm.getValueAt(linha);
+            return admin;
+        }
+        return null;
     }
   
     public static void main(String args[]) {
@@ -102,6 +149,8 @@ public class ListarAdministrador extends javax.swing.JPanel {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jB_Editar;
+    private javax.swing.JButton jB_Excluir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
