@@ -25,6 +25,7 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
      */
     public ListarAtendimentoGenerico(String valor, Object tipo) {
         initComponents();
+        ControleTelas.telaAtendimentoGenerico = true;
         this.valor = valor;
         this.tipo = tipo;
         atualizarTabela();
@@ -32,6 +33,7 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
 
     private ListarAtendimentoGenerico() {
         initComponents();
+        ControleTelas.telaAtendimentoGenerico = true;
     }
 
     /**
@@ -92,14 +94,6 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
     
     private String  valor = null;
     private Object tipo = null;
-
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
-
-    public void setTipo(Object tipo) {
-        this.tipo = tipo;
-    }
     
     private void atualizarTabela(){
         Validacao validar = new Validacao();
