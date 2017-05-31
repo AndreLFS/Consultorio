@@ -10,6 +10,7 @@ import br.edu.DAO.RecepcionistaDAO;
 import br.edu.anotacoes.Endereco;
 import br.edu.anotacoes.Funcionario;
 import br.edu.anotacoes.Recepcionista;
+import br.edu.util.ControleTelas;
 import br.edu.util.Validacao;
 import javax.swing.JOptionPane;
 
@@ -19,12 +20,42 @@ import javax.swing.JOptionPane;
  */
 public class CadastroRecepcionista extends javax.swing.JFrame {
 
+    Recepcionista recepcionista;
+    Endereco endereco;
     /**
      * Creates new form CadastroFuncionario
      */
     public CadastroRecepcionista() {
         initComponents();
+        ControleTelas.telaCadastroRecepcionista = true;
+        this.recepcionista = new Recepcionista();
+        this.endereco = new Endereco();
     }
+     public CadastroRecepcionista(Recepcionista recepcionista) {
+            ControleTelas.telaCadastroRecepcionista = true;
+            jL_cadastrar.setText("Editar");
+            this.recepcionista = recepcionista;
+            this.endereco = recepcionista.getEndereco();
+            jT_logradouro.setText(recepcionista.getEndereco().getLogradouro());   //set do logradouro
+            jT_bairro.setText(recepcionista.getEndereco().getBairro());           //set do bairro
+            jT_cidade.setText(recepcionista.getEndereco().getCidade());           //set da cidade
+            jT_estado.setText(recepcionista.getEndereco().getEstado());           //set do estado
+            jT_numero.setText(recepcionista.getEndereco().getNumero());           //set do numero
+            jT_complemento.setText(recepcionista.getEndereco().getObservacoa());  //set do complemento
+            jT_cep.setText(recepcionista.getEndereco().getCep());                 //set do cep
+        
+            jT_nome.setText(recepcionista.getNome());
+            jFT_nascimento.setText(recepcionista.getNascimento().toString());
+            jC_Genero.setSelectedIndex(1);// erro
+            jFT_telefone.setText(recepcionista.getTelefone());
+            jT_rg.setText(recepcionista.getRg());
+            jFT_cpf.setText(recepcionista.getCpf());
+            jT_email.setText(recepcionista.getUsuario());
+            JP_Senha.setText(recepcionista.getSenha());
+
+            
+    }
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -242,6 +273,11 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 190, 30));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_cadastrarMouseClicked(evt);
+            }
+        });
 
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -347,31 +383,31 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
     
     private void salvar (){
        
-        Endereco endereco = new Endereco(
-                jT_logradouro.getText(),    
-                jT_bairro.getText(),        
-                jT_cidade.getText(),        
-                jT_estado.getText(),       
-                jT_numero.getText(),        
-                jT_complemento.getText(),   
-                jT_cep.getText()            
-        );
+        Validacao validar = new Validacao();
+                this.endereco.setLogradouro(jT_logradouro.getText());
+                this.endereco.setBairro(jT_bairro.getText());
+                this.endereco.setCidade(jT_cidade.getText());
+                this.endereco.setEstado(jT_estado.getText());    
+                this.endereco.setNumero(jT_numero.getText());    
+                this.endereco.setObservacoa(jT_complemento.getText());
+                this.endereco.setCep(jT_cep.getText());
+                
+                this.recepcionista.setCpf(jFT_cpf.getText());
+                this.recepcionista.setEndereco(this.endereco);
+                this.recepcionista.setGenero(jC_Genero.getSelectedItem().toString().equals("Masculino"));
+                this.recepcionista.setNascimento(validar.converterIdade(jFT_nascimento.getText()));
+                this.recepcionista.setNome(jT_nome.getText());
+                this.recepcionista.setRg(jT_rg.getText());
+                this.recepcionista.setTelefone(jFT_telefone.getText());
+                this.recepcionista.setSenha(new String(JP_Senha.getPassword()));
+                this.recepcionista.setUsuario(jL_email.getText());
+                
     
-    Recepcionista recepcionista = new Recepcionista(
-            jT_email.getText(),
-            new String(JP_Senha.getPassword()),
-            endereco,
-            jT_nome.getText(),
-            testes.converterIdade(jFT_nascimento.getText()),
-            rootPaneCheckingEnabled,
-            jFT_telefone.getText(),
-            jT_rg.getText(),
-            jFT_cpf.getText()
-    );
+   
     
-    RecepcionistaDAO recepcionistaDao = new RecepcionistaDAO();
+        RecepcionistaDAO recepcionistaDao = new RecepcionistaDAO();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
-        //ele salva primeiro o endereço para depois salvar o cliente
+        //ele salva primeiro o endere?o para depois salvar o cliente
         enderecoDAO.salvar(endereco);
         if(recepcionistaDao.salvar(recepcionista) == true){
             JOptionPane.showMessageDialog(null, "Recepcionista Cadastrado com sucesso");
@@ -380,7 +416,13 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
         }
     }
-    
+    public void fechar(){
+        if(ControleTelas.telaListarRecepcionista  == true){
+            ControleTelas.telaCadastroRecepcionista = false;
+            ListarRecepcionista.atualizarTabela();
+        }
+    }
+
 
     private void jT_rgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_rgActionPerformed
         // TODO add your handling code here:
@@ -432,6 +474,10 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
     private void jT_nomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_nomeMouseClicked
         jT_nome.setText("");
     }//GEN-LAST:event_jT_nomeMouseClicked
+
+    private void jP_cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarMouseClicked
 
     /**
      * @param args the command line arguments
