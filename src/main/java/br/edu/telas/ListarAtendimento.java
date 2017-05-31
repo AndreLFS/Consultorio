@@ -10,6 +10,7 @@ import br.edu.anotacoes.Atendimento;
 import br.edu.anotacoes.Cliente;
 import br.edu.tableModel.AtendimentoTableModel;
 import br.edu.tableModel.ClienteTableModel;
+import br.edu.util.ControleTelas;
 import java.awt.Color;
 import java.util.Collections;
 import java.util.HashSet;
@@ -29,6 +30,7 @@ public class ListarAtendimento extends javax.swing.JFrame {
      */
     public ListarAtendimento() {
         initComponents();
+        ControleTelas.telaListarAtendimento = true;
         atualizarTabela();
     }
 
@@ -43,10 +45,17 @@ public class ListarAtendimento extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jP_Excluir1 = new javax.swing.JPanel();
+        jL_editar = new javax.swing.JLabel();
         jP_Excluir = new javax.swing.JPanel();
         jL_excluir = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -63,6 +72,32 @@ public class ListarAtendimento extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 375, 275));
+
+        jP_Excluir1.setBackground(new java.awt.Color(0, 102, 102));
+        jP_Excluir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP_Excluir1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_editar.setBackground(new java.awt.Color(0, 102, 102));
+        jL_editar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jL_editar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_editar.setText("Editar");
+        jL_editar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_editar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_editarMouseMoved(evt);
+            }
+        });
+        jL_editar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_editarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_editarMouseExited(evt);
+            }
+        });
+        jP_Excluir1.add(jL_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
+
+        getContentPane().add(jP_Excluir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 100, 40));
 
         jP_Excluir.setBackground(new java.awt.Color(0, 102, 102));
         jP_Excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -91,6 +126,7 @@ public class ListarAtendimento extends javax.swing.JFrame {
         getContentPane().add(jP_Excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 100, 40));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private DropShadowBorder efeitoBorda(){
@@ -119,12 +155,11 @@ public class ListarAtendimento extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_excluirMouseMoved
 
     private void jL_excluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_excluirMouseClicked
-    Atendimento atendimento = getAtendimento();
         if(getAtendimento() !=  null){
             if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar") == 0){
                 try {
                     AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-                    atendimentoDAO.deletar(atendimento);
+                    atendimentoDAO.deletar(getAtendimento());
                 } catch (Exception e) {
                     System.out.println("Erro no delete do atendimento " +e);
                 }
@@ -138,7 +173,29 @@ public class ListarAtendimento extends javax.swing.JFrame {
         efeitoBordaCancelar(jP_Excluir);
     }//GEN-LAST:event_jL_excluirMouseExited
 
-    private void atualizarTabela(){
+    private void jL_editarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_editarMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_editarMouseMoved
+
+    private void jL_editarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_editarMouseClicked
+       System.out.println(ControleTelas.telaCadastroAtendimento);
+        System.out.println(ControleTelas.telaCadastroAtendimento);
+        System.out.println(ControleTelas.telaCadastroAtendimento);
+        if(ControleTelas.telaCadastroAtendimento == false){
+            CadastrarAtendimento cadastrarAtendimento = new CadastrarAtendimento(getAtendimento());
+            cadastrarAtendimento.setVisible(true);
+        }
+    }//GEN-LAST:event_jL_editarMouseClicked
+
+    private void jL_editarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_editarMouseExited
+        
+    }//GEN-LAST:event_jL_editarMouseExited
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       ControleTelas.telaListarAtendimento = true;
+    }//GEN-LAST:event_formWindowClosing
+
+    public void atualizarTabela(){
         AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
         List<Atendimento> lista = atendimentoDAO.listar();
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
@@ -191,8 +248,10 @@ public class ListarAtendimento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jL_editar;
     private javax.swing.JLabel jL_excluir;
     private javax.swing.JPanel jP_Excluir;
+    private javax.swing.JPanel jP_Excluir1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

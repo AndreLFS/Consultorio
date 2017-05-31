@@ -11,6 +11,8 @@ import br.edu.DAO.MedicoDAO;
 import br.edu.anotacoes.Atendimento;
 import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Medico;
+import br.edu.util.ControleTelas;
+import br.edu.util.TestesAtendimento;
 import br.edu.util.Validacao;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -27,14 +29,34 @@ import javax.swing.JOptionPane;
  * @author cra-dti-04
  */
 public class CadastrarAtendimento extends javax.swing.JFrame {
-
+    Atendimento atendimento;
+    Medico medico;
+    Cliente cliente;
+    String mensagem;
     /**
      * Creates new form CadastrarAtendimento
      */
     public CadastrarAtendimento() {
         initComponents();
+        atendimento = new Atendimento();
+        mensagem = "Atendimento cadastrado com sucesso";
+        ControleTelas.telaCadastroAtendimento = true;
         passarMedicos();
         passarClientes();
+    }
+    public CadastrarAtendimento(Atendimento atendimento) {
+        initComponents();
+        ControleTelas.telaCadastroAtendimento = true;
+        this.atendimento = atendimento;
+        this.cliente = atendimento.getCliente();
+        this.medico = atendimento.getMedico();
+        mensagem = "Atendimento editado com sucesso";
+        passarMedicos();
+        passarClientes();
+        localizarClientes();
+        localizarHora();
+        localizarMedicos();
+        jFT_data.setText(validar.converterData(atendimento.getData()));
     }
 
     /**
@@ -61,7 +83,12 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jL_consultas = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(67, 212, 195));
@@ -142,9 +169,9 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 600, 60));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    MedicoDAO medicoDAO = new MedicoDAO();
-    ClienteDAO2 clienteDAO2 = new ClienteDAO2();
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         salvar();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -160,7 +187,13 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private void jC_medicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_medicosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jC_medicosActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        fechar();
+    }//GEN-LAST:event_formWindowClosing
     
+    MedicoDAO medicoDAO = new MedicoDAO();
+    ClienteDAO2 clienteDAO2 = new ClienteDAO2();
     Validacao validar = new Validacao();
     private boolean testes(){
        if (jFT_data.getText().equals("  /  /    ") && validar.converterIdade(jFT_data.getText())!= null) {
@@ -183,53 +216,25 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
             return true;
         }
     }
-         
-    
+       
     private void salvar(){
         if (testes()) {
-            //criação de classes que serao necessarias para construção da função
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-            /*criação do medico, usando o campo de id, para pegar o id, criei uma lista que esta invisivel na aplicação com os ids
-            quando o usuario seleciona o medico a busca pega o numero do campo que ele selecionou e vai buscar na comonbox invisivel
-            pegando esse id ele o transforma de String para inteiro e passa pra busca, a busca retorna uma lista, onde pegamos apenas o primeiro resultado*/
-            Medico medico = (medicoDAO.listarCampos("id", Integer.parseInt(jC_idMedicos.getItemAt(jC_medicos.getSelectedIndex()))).get(0));
-            Cliente cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
-            //boleano para controle do teste de medico ocupado
-            boolean teste = true;
-            //lista buscando pela data que vai ter que cadastrar
-            List<Atendimento> atendimentos = atendimentoDAO.listarCampos("data", validar.converterIdade(jFT_data.getText()));
-            //busca todas as consultas da data
-            for (int i = 0; i < atendimentos.size(); i++) {
-                //dentro da consulta ele testa se o medico ja tem alguma consulta na hora selecionada
-                //ele pega medico pelo id para ter um parametro melhor de comparação
-                //e o horario vem do banco de dados e da comnbox, so que da comonbox ele é convertido para inteiro
-                if((atendimentos.get(i).getMedico().getId() == medico.getId()) && 
-                        (atendimentos.get(i).getHoraConsulta() == Integer.parseInt(jComboBox1.getSelectedItem().toString()))){
-                    //se ele tuver alguma consulta marcada imprime a mensagem e para a estrutura
-                    JOptionPane.showMessageDialog(null, "Medico com consulta marcada nesse horario");
-                    //se tiver alguma consulta a variavel controlador a é mudada pra false para não ser executado o cadastro
-                    teste = false;
-                   break;
-                }
-                //testamos tambem se o cliente não tem nenhuma consulta marcada para a mesma data e hora
-                if((atendimentos.get(i).getCliente().getId() == cliente.getId()) && 
-                        (atendimentos.get(i).getHoraConsulta() == Integer.parseInt(jComboBox1.getSelectedItem().toString()))){
-                    //se ele tiver alguma consulta marcada imprime a mensagem e para a estrutura
-                    JOptionPane.showMessageDialog(null, "Cliente com consulta marcada nesse horario");
-                    //se tiver alguma consulta a variavel controlador a é mudada pra false para não ser executado o cadastro
-                    teste = false;
-                   break;
-                }
-            }
-            if (teste) {
-                Atendimento atendimento = new Atendimento(cliente, medico, validar.converterIdade(jFT_data.getText()), Integer.parseInt(jComboBox1.getSelectedItem().toString()));
+            this.medico = (medicoDAO.listarCampos("id", Integer.parseInt(jC_idMedicos.getItemAt(jC_medicos.getSelectedIndex()))).get(0));
+            this.cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
+            if(TestesAtendimento.testeAtendimento(medico, cliente, validar.converterIdade(jFT_data.getText()), Integer.parseInt(jComboBox1.getSelectedItem().toString()))) {
+                atendimento.setCliente(cliente);
+                atendimento.setData(validar.converterIdade(jFT_data.getText()));
+                atendimento.setMedico(medico);
+                atendimento.setHoraConsulta(Integer.parseInt(jComboBox1.getSelectedItem().toString()));
                 try {
                     atendimentoDAO.salvar(atendimento);
+                    JOptionPane.showMessageDialog(null, mensagem);
+                    fechar();
+                    this.dispose();
                 } catch (Exception e) {
-                    System.out.println("Erro no cadastro de atendimento " + e);
-                    JOptionPane.showMessageDialog(null, "Erro na consulta");
+                    System.out.println("Erro " + e);
                 }
-                JOptionPane.showMessageDialog(null, "Consulta salva com sucesso");
             }
         
         }
@@ -246,6 +251,15 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         }
     }
     
+    private void localizarMedicos(){
+        List<Medico> medicos= medicoDAO.listar();
+        for (int i = 0; i < medicos.size(); i++) {
+            if (medico.getId() == medicos.get(i).getId()) {
+                jC_medicos.setSelectedIndex(i);
+            }
+        }
+    }
+    
     private void passarClientes(){
         List<Cliente> clientes= clienteDAO2.listar();
         jC_clientes.removeAllItems();
@@ -254,6 +268,52 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         for (int i = 0; i < clientes.size(); i++) {
             jC_clientes.addItem(clientes.get(i).getNome());
             jC_idCliente.addItem(String.valueOf(clientes.get(i).getId()));
+        }
+    }
+    
+    private void localizarClientes(){
+        List<Cliente> clientes= clienteDAO2.listar();
+        for (int i = 0; i < clientes.size(); i++) {
+            if (cliente.getId() == clientes.get(i).getId()) {
+                jC_clientes.setSelectedIndex(i);
+            }
+        }
+    }
+    
+    private void localizarHora(){
+        switch (atendimento.getHoraConsulta()){
+            case 8:
+                jComboBox1.setSelectedIndex(0);
+                break;
+            case 9:
+                jComboBox1.setSelectedIndex(1);
+                break;
+            case 10:
+                jComboBox1.setSelectedIndex(2);
+                break;
+            case 11:
+                jComboBox1.setSelectedIndex(3);
+                break;
+            case 14:
+                jComboBox1.setSelectedIndex(4);
+                break;
+            case 15:
+                jComboBox1.setSelectedIndex(5);
+                break;
+            case 16:
+                jComboBox1.setSelectedIndex(6);
+                break;
+            case 17:
+                jComboBox1.setSelectedIndex(7);
+                break;
+        }
+    }
+
+    private void fechar(){
+        ControleTelas.telaCadastroAtendimento = false;
+        if (ControleTelas.telaListarAtendimento) {
+            ListarAtendimento listarAtendimento = new ListarAtendimento();
+            listarAtendimento.atualizarTabela();
         }
     }
     /**

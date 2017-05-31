@@ -9,6 +9,7 @@ import br.edu.DAO.MedicoDAO;
 import br.edu.anotacoes.Medico;
 import br.edu.tableModel.MedicoTableModel;
 import br.edu.util.ControleTelas;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +22,7 @@ public class ListarMedicos extends javax.swing.JFrame {
      */
     public ListarMedicos() {
         initComponents();
+        ControleTelas.telaListarMedicos = true;
         atualizarTabela();
     }
 
@@ -35,8 +37,15 @@ public class ListarMedicos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jB_Editar = new javax.swing.JButton();
+        jB_Excluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -56,35 +65,51 @@ public class ListarMedicos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jB_Editar.setText("Editar");
+        jB_Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_EditarActionPerformed(evt);
+            }
+        });
+
+        jB_Excluir.setText("Excluir");
+        jB_Excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_ExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jB_Excluir)
+                .addGap(78, 78, 78)
+                .addComponent(jB_Editar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jB_Editar)
+                    .addComponent(jB_Excluir))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        if (evt.getClickCount() > 1) {  
-            if(ControleTelas.telaAtendimentoGenerico == false){
-                ControleTelas.telaAtendimentoGenerico = true;
-                ListarAtendimentoGenerico listarAtendimentoGenerico = new ListarAtendimentoGenerico("medico", medico());
-                listarAtendimentoGenerico.setVisible(true);
-            }
-        }
-    }//GEN-LAST:event_jTable1MouseClicked
+ 
+                           
     
     private void atualizarTabela(){
         MedicoDAO medicoDAO = new MedicoDAO();
@@ -101,6 +126,43 @@ public class ListarMedicos extends javax.swing.JFrame {
         }
         return null;
     }
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if (evt.getClickCount() > 1) {  
+            if(ControleTelas.telaAtendimentoGenerico == false){
+                ControleTelas.telaAtendimentoGenerico = true;
+                ListarAtendimentoGenerico listarAtendimentoGenerico = new ListarAtendimentoGenerico("medico", medico());
+                listarAtendimentoGenerico.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jB_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EditarActionPerformed
+        CadastroMedicos cam = new CadastroMedicos();
+        //Falta colocar o Parametro Médico a cima
+        cam.setVisible(true);
+    }//GEN-LAST:event_jB_EditarActionPerformed
+
+    private void jB_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ExcluirActionPerformed
+       Medico medico = medico();
+        if(medico !=  null){
+            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o cliente " + medico.getNome()) == 0){
+                try {
+                    MedicoDAO medicoDAO = new MedicoDAO();
+                    medicoDAO.deletar(medico);
+                } catch (Exception e) {
+                    System.out.println("Erro ao deletar Médico " +e);
+                }
+                JOptionPane.showMessageDialog(null, "Médico deletado com sucesso");
+            }
+        }
+        atualizarTabela();
+    }//GEN-LAST:event_jB_ExcluirActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       ControleTelas.telaListarMedicos = false;
+    }//GEN-LAST:event_formWindowClosing
+    
+   
     
     /**
      * @param args the command line arguments
@@ -138,6 +200,8 @@ public class ListarMedicos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jB_Editar;
+    private javax.swing.JButton jB_Excluir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

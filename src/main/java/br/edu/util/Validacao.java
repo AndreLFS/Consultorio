@@ -36,24 +36,15 @@ public class Validacao {
         return nascimento;
     }
     
+    public String converterData(Date data){
+        DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+        df.setLenient(false);
+        return df.format(data);
+    }
+    
     public boolean isCPF(String CPF) {
         //tirar a mascara do cpf
-    	StringBuffer pkWithoutMask = new StringBuffer("");
-    	String pk = CPF;
-    	try {
-            if (pk != null) {
-            for (int i = 0; pk.length() > i; i++) {
-                    //carcter de mascara q ele vai remover
-                    if (pk.charAt(i) != '-') {
-                            pkWithoutMask.append(pk.charAt(i));
-                    }
-            }
-            }
-        }catch (Exception e) {
-                e.printStackTrace();			
-        }
-        //salvando o cpf sem mascara na sua variavel
-        CPF = pkWithoutMask.toString().trim();
+    	 CPF = retirarMascara(CPF);
         // considera-se erro CPF's formados por uma sequencia de numeros iguais
         if (CPF.equals("00000000000") || CPF.equals("11111111111") ||
             CPF.equals("22222222222") || CPF.equals("33333333333") ||
@@ -109,4 +100,22 @@ public class Validacao {
         }
     }
     
+    public String retirarMascara(String texto){
+        StringBuffer pkWithoutMask = new StringBuffer("");
+    	String pk = texto;
+    	try {
+            if (pk != null) {
+                for (int i = 0; pk.length() > i; i++) {
+                        //carcter de mascara q ele vai remover
+                        if (pk.charAt(i) != '-') {
+                                pkWithoutMask.append(pk.charAt(i));
+                        }
+                }
+            }
+        }catch (Exception e) {
+                e.printStackTrace();			
+        }
+        //salvando o cpf sem mascara na sua variavel
+        return pkWithoutMask.toString().trim();
+    }
 }

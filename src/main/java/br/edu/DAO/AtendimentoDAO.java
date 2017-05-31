@@ -24,6 +24,15 @@ public class AtendimentoDAO extends GenericoDAO<Atendimento>{
         super(Atendimento.class);
     }
     
+    @Override
+    public boolean salvar(Atendimento atendimento) {
+        if(atendimento.getId() == 0){
+            return super.salvar(atendimento);
+        }else{
+            return super.editar(atendimento);
+        }
+    }
+    
     public List<Atendimento> listar() {
         List<Atendimento> lista=null;
         try {

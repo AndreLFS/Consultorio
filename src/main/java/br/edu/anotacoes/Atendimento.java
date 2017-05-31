@@ -30,6 +30,10 @@ public class Atendimento{
     private Date data;
     private int horaConsulta;
 
+    public int getId() {
+        return id;
+    }
+    
     public Cliente getCliente() {
         return cliente;
     }
@@ -57,6 +61,11 @@ public class Atendimento{
     public int getHoraConsulta() {
         return horaConsulta;
     }
+
+    public void setHoraConsulta(int horaConsulta) {
+        this.horaConsulta = horaConsulta;
+    }
+    
     
     public Atendimento() {
     }
