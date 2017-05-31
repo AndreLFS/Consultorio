@@ -11,6 +11,7 @@ import br.edu.DAO.MedicoDAO;
 import br.edu.anotacoes.Endereco;
 import br.edu.anotacoes.Especialidade;
 import br.edu.anotacoes.Medico;
+import br.edu.util.ControleTelas;
 import br.edu.util.Validacao;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -20,13 +21,42 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class CadastroMedicos extends javax.swing.JFrame {
-
+      Medico medico;
+      Endereco endereco;
     /**
      * Creates new form CadastroMedicos
      */
     public CadastroMedicos() {
         initComponents();
+        ControleTelas.telaCadastroMedicos = true;
         passarEspecialidade();
+        this.medico = new Medico();
+        this.endereco = new Endereco();
+    }
+    
+    public CadastroMedicos(Medico medico){
+        initComponents();
+        ControleTelas.telaCadastroMedicos = true;
+        
+        this.medico = medico;
+        this.endereco = medico.getEndereco();
+        jT_logradouro.setText(medico.getEndereco().getLogradouro());   //set do logradouro
+        jT_bairro.setText(medico.getEndereco().getBairro());           //set do bairro
+        jT_cidade.setText(medico.getEndereco().getCidade());           //set da cidade
+        jT_estado.setText(medico.getEndereco().getEstado());           //set do estado
+        jT_numero.setText(medico.getEndereco().getNumero());           //set do numero
+        jT_complemento.setText(medico.getEndereco().getObservacoa());  //set do complemento
+        jT_cep.setText(medico.getEndereco().getCep());                 //set do cep
+        
+        //Falta Setar a especialidade
+        jT_nome.setText(medico.getNome());
+        jFT_nascimento.setText(medico.getNascimento().toString());
+        jC_Genero.setSelectedIndex(1);// erro
+        jFT_telefone.setText(medico.getTelefone());
+        jT_rg.setText(medico.getRg());
+        jFT_cpf.setText(medico.getCpf());
+        jT_email.setText(medico.getUsuario());
+        JP_Senha.setText(medico.getSenha());
     }
 
     /**
@@ -392,32 +422,28 @@ public class CadastroMedicos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Salvar"> 
     private void salvar(){
      
-       Endereco endereco = new Endereco(
-                jT_logradouro.getText(),    
-                jT_bairro.getText(),        
-                jT_cidade.getText(),        
-                jT_estado.getText(),       
-                jT_numero.getText(),        
-                jT_complemento.getText(),   
-                jT_cep.getText()  
-       );
-       EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
+       Validacao validar = new Validacao();
+        this.endereco.setLogradouro(jT_logradouro.getText());
+        this.endereco.setBairro(jT_bairro.getText());
+        this.endereco.setCep(jT_cep.getText());
+        this.endereco.setCidade(jT_cidade.getText());
+        this.endereco.setEstado(jT_estado.getText());
+        this.endereco.setNumero(jT_numero.getText());
+        this.endereco.setObservacoa(jT_complemento.getText());
+        
+        this.medico.setCpf(jFT_cpf.getText());
+        this.medico.setEndereco(this.endereco);
+        this.medico.setGenero(jC_Genero.getSelectedItem().toString().equals("Masculino"));
+        this.medico.setNascimento(validar.converterIdade(jFT_nascimento.getText()));
+        this.medico.setNome(jT_nome.getText());
+        this.medico.setRg(jT_rg.getText());
+        this.medico.setTelefone(jFT_telefone.getText());
+        this.medico.setUsuario(jT_email.getText());
+        this.medico.setSenha(new String(JP_Senha.getPassword()));
        
-       Especialidade especialidade = especialidadeDAO.listarCampos("especialidade", jC_especialidade.getSelectedItem().toString()).get(0);
+        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
        
-       Medico medico = new Medico(
-              especialidade,
-            jT_email.getText(),
-            JP_Senha.getText(),
-            endereco,
-            jT_nome.getText(),
-            teste.converterIdade(jFT_nascimento.getText()),
-            rootPaneCheckingEnabled,
-            jFT_telefone.getText(),
-            jT_rg.getText(),
-            jFT_cpf.getText()
-              
-       );
+        Especialidade especialidade = especialidadeDAO.listarCampos("especialidade", jC_especialidade.getSelectedItem().toString()).get(0);
        
         MedicoDAO medicoDao = new MedicoDAO();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
@@ -434,6 +460,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
     }
      // </editor-fold>
      // </editor-fold>
+    public void fechar(){
+        if(ControleTelas.telaListarMedicos  == true){
+            ControleTelas.telaCadastroMedicos = false;
+            ListarClientes.atualizarTabela();
+        }
+    }
     private void jT_nomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_nomeMouseClicked
         jT_nome.setText("");
     }//GEN-LAST:event_jT_nomeMouseClicked

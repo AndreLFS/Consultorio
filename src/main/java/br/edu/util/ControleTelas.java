@@ -17,5 +17,7 @@ public class ControleTelas {
     public static boolean telaListarAdministrador = false;
     public static boolean telaCadastroRecepcionista = false;
     public static boolean telaListarRecepcionista = false;
+    public static boolean telaListarMedicos = false;
+    public static boolean telaCadastroMedicos = false;
 
 }
