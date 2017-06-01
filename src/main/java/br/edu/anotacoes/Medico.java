@@ -19,6 +19,10 @@ public class Medico extends Funcionario {
     public Especialidade getEspecialidade() {
         return especialidade;
     }
+
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
+    }
     
     public void manterProntuario(){}
 

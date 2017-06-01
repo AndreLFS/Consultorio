@@ -30,6 +30,10 @@ public class Especialidade {
         this.especialidade = especialidade;
     }
 
+    public int getId() {
+        return id;
+    }
+    
     public Especialidade() {
     }
 

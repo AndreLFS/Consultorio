@@ -117,9 +117,9 @@ public class ListarMedicos extends javax.swing.JFrame {
         jTable1.setModel(medicoTableModel);
     }
     
-    private Medico medico(){
+    private Medico getMedico(){
         int linha = jTable1.getSelectedRow();
-        if (linha >= 0) {
+        if (linha > -1) {
             MedicoTableModel mtm = (MedicoTableModel) jTable1.getModel();
             Medico medico = mtm.getValueAt(linha);
             return medico;
@@ -130,32 +130,42 @@ public class ListarMedicos extends javax.swing.JFrame {
         if (evt.getClickCount() > 1) {  
             if(ControleTelas.telaAtendimentoGenerico == false){
                 ControleTelas.telaAtendimentoGenerico = true;
-                ListarAtendimentoMedico listarAtendimentoGenerico = new ListarAtendimentoMedico("medico", medico());
+                ListarAtendimentoMedico listarAtendimentoGenerico = new ListarAtendimentoMedico("medico", getMedico());
                 listarAtendimentoGenerico.setVisible(true);
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jB_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EditarActionPerformed
-        CadastroMedicos cam = new CadastroMedicos();
-        //Falta colocar o Parametro Médico a cima
-        cam.setVisible(true);
+        if (getMedico() != null) {
+            CadastroMedicos cam = new CadastroMedicos(getMedico());
+            cam.setVisible(true);
+        }
+        
     }//GEN-LAST:event_jB_EditarActionPerformed
 
     private void jB_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ExcluirActionPerformed
-       Medico medico = medico();
-        if(medico !=  null){
-            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o cliente " + medico.getNome()) == 0){
+        if(getMedico() !=  null){
+            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o cliente " + getMedico().getNome()) == 0){
                 try {
                     MedicoDAO medicoDAO = new MedicoDAO();
-                    medicoDAO.deletar(medico);
+                    medicoDAO.deletar(getMedico());
+                    atualizarTabela();
                 } catch (Exception e) {
+                    System.out.println("Erro ao deletar Médico " +e);
+                    System.out.println("Erro ao deletar Médico " +e);
+                    System.out.println("Erro ao deletar Médico " +e);
+                    System.out.println("Erro ao deletar Médico " +e);
+                    System.out.println("Erro ao deletar Médico " +e);
+                    System.out.println("Erro ao deletar Médico " +e);
+                    System.out.println("Erro ao deletar Médico " +e);
+                    System.out.println("Erro ao deletar Médico " +e);
                     System.out.println("Erro ao deletar Médico " +e);
                 }
                 JOptionPane.showMessageDialog(null, "Médico deletado com sucesso");
             }
         }
-        atualizarTabela();
+        
     }//GEN-LAST:event_jB_ExcluirActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

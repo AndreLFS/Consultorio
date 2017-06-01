@@ -23,6 +23,9 @@ import javax.swing.JOptionPane;
 public class CadastroMedicos extends javax.swing.JFrame {
       Medico medico;
       Endereco endereco;
+      Especialidade especialidade;
+      String mensagem;
+      
     /**
      * Creates new form CadastroMedicos
      */
@@ -30,6 +33,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         initComponents();
         ControleTelas.telaCadastroMedicos = true;
         passarEspecialidade();
+        mensagem =  "Medico salvo com sucesso";
         this.medico = new Medico();
         this.endereco = new Endereco();
     }
@@ -37,7 +41,8 @@ public class CadastroMedicos extends javax.swing.JFrame {
     public CadastroMedicos(Medico medico){
         initComponents();
         ControleTelas.telaCadastroMedicos = true;
-        
+        mensagem =  "Medico editado com sucesso";
+        jL_cadastrar.setText("Editar");
         this.medico = medico;
         this.endereco = medico.getEndereco();
         jT_logradouro.setText(medico.getEndereco().getLogradouro());   //set do logradouro
@@ -50,13 +55,20 @@ public class CadastroMedicos extends javax.swing.JFrame {
         
         //Falta Setar a especialidade
         jT_nome.setText(medico.getNome());
-        jFT_nascimento.setText(medico.getNascimento().toString());
-        jC_Genero.setSelectedIndex(1);// erro
+        jFT_nascimento.setText(validar.converterData(medico.getNascimento()));
+        if (medico.isGenero()) {
+            jC_Genero.setSelectedIndex(0);
+        }else{
+            jC_Genero.setSelectedIndex(1);
+        }
         jFT_telefone.setText(medico.getTelefone());
         jT_rg.setText(medico.getRg());
-        jFT_cpf.setText(medico.getCpf());
+        jFT_cpf.setText(validar.retirarMascara(medico.getCpf()));
         jT_email.setText(medico.getUsuario());
         JP_Senha.setText(medico.getSenha());
+        
+        passarEspecialidade();
+        localizarEspecialidade();
     }
 
     /**
@@ -383,17 +395,8 @@ public class CadastroMedicos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passarEspecialidade(){
-        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
-        List<Especialidade> especialidades = especialidadeDAO.listar();
-        jC_especialidade.removeAllItems();
-        for (int i = 0; i < especialidades.size(); i++) {
-            jC_especialidade.addItem(especialidades.get(i).getEspecialidade());
-        }
-    }
-    
-    Validacao teste = new Validacao();
-     // <editor-fold defaultstate="collapsed" desc="Funçoes">  
+    Validacao validar = new Validacao();
+    // <editor-fold defaultstate="collapsed" desc="Funçoes">  
     // <editor-fold defaultstate="collapsed" desc="Vazio"> 
     private boolean testeVazio(){
         //Iniciando os campos de Testes
@@ -402,11 +405,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"O campo Nome está vazio!");
             return false;   
         //Verificando se o Campo Data de Nascimento está vazio    
-        } else if(jFT_nascimento.getText().equals("  /  /    ") || teste.converterIdade(jFT_nascimento.getText()) == null){
+        } else if(jFT_nascimento.getText().equals("  /  /    ") || validar.converterIdade(jFT_nascimento.getText()) == null){
             JOptionPane.showMessageDialog(null,"O campo Data de Nascimento está vazio!");
             return false;       
         //Verificando se o Campo CPF está vazio    
-        } else if(teste.isCPF(jFT_cpf.getText()) == false){
+        } else if(validar.isCPF(jFT_cpf.getText()) == false){
             JOptionPane.showMessageDialog(null, "Campo CPF esta em branco ou invalida");
             return false;
         //Verificando se o campo RG está vazio    
@@ -420,7 +423,10 @@ public class CadastroMedicos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Salvar"> 
     private void salvar(){
      
-       Validacao validar = new Validacao();
+       
+        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
+        this.especialidade = especialidadeDAO.listarCampos("especialidade", jC_especialidade.getSelectedItem().toString()).get(0);
+        
         this.endereco.setLogradouro(jT_logradouro.getText());
         this.endereco.setBairro(jT_bairro.getText());
         this.endereco.setCep(jT_cep.getText());
@@ -438,32 +444,47 @@ public class CadastroMedicos extends javax.swing.JFrame {
         this.medico.setTelefone(jFT_telefone.getText());
         this.medico.setUsuario(jT_email.getText());
         this.medico.setSenha(new String(JP_Senha.getPassword()));
+       this.medico.setEspecialidade(especialidade);
        
-        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
-       
-        Especialidade especialidade = especialidadeDAO.listarCampos("especialidade", jC_especialidade.getSelectedItem().toString()).get(0);
        
         MedicoDAO medicoDao = new MedicoDAO();
         EnderecoDAO enderecoDAO = new EnderecoDAO();
         
-        //ele salva primeiro o endereço para depois salvar o Médico
-        especialidadeDAO.salvar(especialidade);
         enderecoDAO.salvar(endereco);
         if(medicoDao.salvar(medico) == true){
-            JOptionPane.showMessageDialog(null, "Médico Cadastrado com sucesso");
+            JOptionPane.showMessageDialog(null, mensagem);
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Erro Fale com seu administrador");
         }
     }
-     // </editor-fold>
-     // </editor-fold>
     public void fechar(){
         if(ControleTelas.telaListarMedicos  == true){
             ControleTelas.telaCadastroMedicos = false;
             ListarClientes.atualizarTabela();
         }
     }
+    
+    private void passarEspecialidade(){
+        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
+        List<Especialidade> especialidades = especialidadeDAO.listar();
+        jC_especialidade.removeAllItems();
+        for (int i = 0; i < especialidades.size(); i++) {
+            jC_especialidade.addItem(especialidades.get(i).getEspecialidade());
+        }
+    }
+    private void localizarEspecialidade(){
+        EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
+        List<Especialidade> especialidades = especialidadeDAO.listar();
+        for (int i = 0; i < especialidades.size(); i++) {
+            if(especialidades.get(i).getId() == this.medico.getEspecialidade().getId()){
+                jC_especialidade.setSelectedIndex(i);
+            }
+        }
+    }
+     // </editor-fold>
+     // </editor-fold>
+    
     private void jT_nomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_nomeMouseClicked
         jT_nome.setText("");
     }//GEN-LAST:event_jT_nomeMouseClicked

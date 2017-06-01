@@ -28,6 +28,10 @@ public class MedicoDAO extends GenericoDAO<Medico>  {
             return super.editar(medico);
         }
     }
+    @Override
+    public boolean deletar(Medico medico) {
+        return super.deletar(medico);
+    }
     
     
     @Override

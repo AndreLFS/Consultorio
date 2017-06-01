@@ -7,6 +7,7 @@ package br.edu.tableModel;
 
 import br.edu.anotacoes.Medico;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
