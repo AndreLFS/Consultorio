@@ -51,11 +51,15 @@ public class CadastroCliente extends javax.swing.JFrame {
         jFT_peso.setText(String.valueOf(cliente.getPeso()));
         jFT_altura.setText(String.valueOf(cliente.getAltura()));
         jT_nome.setText(cliente.getNome());
-        jFT_nascimento.setText(cliente.getNascimento().toString());
-        jC_Genero.setSelectedIndex(1);// erro
+        jFT_nascimento.setText(testes.converterData(cliente.getNascimento()));
+        if (cliente.isGenero()) {
+            jC_Genero.setSelectedIndex(0);
+        }else{
+            jC_Genero.setSelectedIndex(1);
+        }
         jFT_telefone.setText(cliente.getTelefone());
         jT_rg.setText(cliente.getRg());
-        jFT_cpf.setText(cliente.getCpf());
+        jFT_cpf.setText(testes.retirarMascara(cliente.getCpf()));
     }
 
     /**
@@ -73,7 +77,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_nome = new javax.swing.JLabel();
         jT_nome = new javax.swing.JTextField();
         jL_nascimento = new javax.swing.JLabel();
-        jFT_altura = new javax.swing.JFormattedTextField();
         jL_rg = new javax.swing.JLabel();
         jT_rg = new javax.swing.JTextField();
         jl_logradouro = new javax.swing.JLabel();
@@ -96,7 +99,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_peso = new javax.swing.JLabel();
         jL_altura = new javax.swing.JLabel();
         jFT_nascimento = new javax.swing.JFormattedTextField();
-        jFT_peso = new javax.swing.JFormattedTextField();
         jL_numero = new javax.swing.JLabel();
         jT_numero = new javax.swing.JTextField();
         jl_complemento = new javax.swing.JLabel();
@@ -106,6 +108,8 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_cep1 = new javax.swing.JLabel();
         jL_genero = new javax.swing.JLabel();
         jC_Genero = new javax.swing.JComboBox<>();
+        jFT_peso = new javax.swing.JTextField();
+        jFT_altura = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -148,19 +152,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         jL_nascimento.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_nascimento.setText("Data de Nascimento");
         jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 190, 20));
-
-        jFT_altura.setBorder(null);
-        try {
-            jFT_altura.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFT_altura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFT_alturaActionPerformed(evt);
-            }
-        });
-        jP_conteudo.add(jFT_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 50, 30));
 
         jL_rg.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_rg.setText("RG");
@@ -308,19 +299,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         });
         jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 110, 30));
 
-        jFT_peso.setBorder(null);
-        try {
-            jFT_peso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFT_peso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFT_pesoActionPerformed(evt);
-            }
-        });
-        jP_conteudo.add(jFT_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 70, 30));
-
         jL_numero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_numero.setText("Numero");
         jP_conteudo.add(jL_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 74, 20));
@@ -367,6 +345,8 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        jP_conteudo.add(jFT_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 70, 30));
+        jP_conteudo.add(jFT_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 80, 30));
 
         getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 440));
 
@@ -458,10 +438,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_nomeActionPerformed
 
-    private void jFT_alturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_alturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFT_alturaActionPerformed
-
     private void jT_rgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_rgActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_rgActionPerformed
@@ -496,10 +472,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFT_nascimentoActionPerformed
 
-    private void jFT_pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_pesoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFT_pesoActionPerformed
-
     private void jT_numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_numeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_numeroActionPerformed
@@ -513,6 +485,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_estadoActionPerformed
  
     private void jB_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cancelarActionPerformed
+        fechar();
         this.dispose();
     }//GEN-LAST:event_jB_cancelarActionPerformed
 
@@ -561,10 +534,10 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JButton jB_cadastrar;
     private javax.swing.JButton jB_cancelar;
     private javax.swing.JComboBox<String> jC_Genero;
-    private javax.swing.JFormattedTextField jFT_altura;
+    private javax.swing.JTextField jFT_altura;
     private javax.swing.JFormattedTextField jFT_cpf;
     private javax.swing.JFormattedTextField jFT_nascimento;
-    private javax.swing.JFormattedTextField jFT_peso;
+    private javax.swing.JTextField jFT_peso;
     private javax.swing.JFormattedTextField jFT_telefone;
     private javax.swing.JLabel jL_alerguias;
     private javax.swing.JLabel jL_altura;

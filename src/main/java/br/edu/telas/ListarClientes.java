@@ -123,8 +123,10 @@ public class ListarClientes extends javax.swing.JFrame {
             ClienteTableModel tbm = (ClienteTableModel) jTable1.getModel();
             Cliente cliente = tbm.getValueAt(linha);
             return cliente;
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum cliente selecionado");
+            return null;
         }
-        return null;
     }
     
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -142,18 +144,21 @@ public class ListarClientes extends javax.swing.JFrame {
                 try {
                     ClienteDAO2 clienteDAO2 = new ClienteDAO2();
                     clienteDAO2.deletar(cliente);
+                    atualizarTabela();
                 } catch (Exception e) {
                     System.out.println("Erro no delete do cliente " +e);
                 }
                 JOptionPane.showMessageDialog(null, "Cliente deletado com sucesso");
             }
         }
-        atualizarTabela();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CadastroCliente cac = new CadastroCliente(getCliente());
-        cac.setVisible(true);
+        if(ControleTelas.telaCadastroClientes == false && getCliente() != null){
+            CadastroCliente cac = new CadastroCliente(getCliente());
+            cac.setVisible(true);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
