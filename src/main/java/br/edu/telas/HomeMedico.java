@@ -6,6 +6,8 @@
 package br.edu.telas;
 
 import br.edu.anotacoes.Medico;
+import java.awt.Color;
+import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
  *
@@ -23,7 +25,6 @@ public class HomeMedico extends javax.swing.JFrame {
     public HomeMedico(Medico medico) {
         initComponents();
         this.medico = medico;
-        jL_bemVindo.setText("Bem Vindo Medico " + this.medico.getNome());
     }
 
     /**
@@ -35,52 +36,136 @@ public class HomeMedico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jL_bemVindo = new javax.swing.JLabel();
+        jP_container = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jP_buscarConsultas = new javax.swing.JPanel();
+        jL_buscarConsultas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Buscar Todas Consultas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jP_container.setBackground(new java.awt.Color(0, 102, 102));
+
+        jPanel1.setBackground(new java.awt.Color(36, 47, 65));
+
+        jP_buscarConsultas.setBackground(new java.awt.Color(0, 102, 102));
+        jP_buscarConsultas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jP_buscarConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP_buscarConsultas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_buscarConsultasMouseMoved(evt);
             }
         });
+        jP_buscarConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_buscarConsultasMouseExited(evt);
+            }
+        });
+        jP_buscarConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jL_bemVindo.setText("jLabel1");
+        jL_buscarConsultas.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jL_buscarConsultas.setForeground(new java.awt.Color(255, 255, 255));
+        jL_buscarConsultas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_buscarConsultas.setText("Buscar Todas as Consultas");
+        jL_buscarConsultas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_buscarConsultasMouseMoved(evt);
+            }
+        });
+        jL_buscarConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_buscarConsultasMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_buscarConsultasMouseExited(evt);
+            }
+        });
+        jP_buscarConsultas.add(jL_buscarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 40));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jP_buscarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(375, Short.MAX_VALUE)
+                .addComponent(jP_buscarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jP_containerLayout = new javax.swing.GroupLayout(jP_container);
+        jP_container.setLayout(jP_containerLayout);
+        jP_containerLayout.setHorizontalGroup(
+            jP_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_containerLayout.createSequentialGroup()
+                .addContainerGap(422, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jP_containerLayout.setVerticalGroup(
+            jP_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jL_bemVindo)))
-                .addContainerGap(191, Short.MAX_VALUE))
+            .addComponent(jP_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jL_bemVindo)
-                .addGap(71, 71, 71)
-                .addComponent(jButton1)
-                .addContainerGap(181, Short.MAX_VALUE))
+            .addComponent(jP_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+//codigo para colocar as sombras nos paineis
+    private DropShadowBorder efeitoBorda(){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShadowColor(Color.black);
+        shadow.setShadowSize(5);
+        shadow.setShowLeftShadow(true);
+        shadow.setShowRightShadow(true);
+        shadow.setShowBottomShadow(true);
+        shadow.setShowTopShadow(true);
+        return shadow;
+    }
+    //codigo para cancelar a borda em todas os paineis
+    private void efeitoBordaCancelar(javax.swing.JPanel painel){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShowLeftShadow(false);
+        shadow.setShowRightShadow(false);
+        shadow.setShowBottomShadow(false);
+        shadow.setShowTopShadow(false);
+        
+        painel.setBorder(shadow);
+    }
+    
+    private void jL_buscarConsultasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_buscarConsultasMouseMoved
+        jP_buscarConsultas.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_buscarConsultasMouseMoved
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ListarAtendimentoMedico atendimentoGenerico = new ListarAtendimentoMedico("medico", medico);
-        atendimentoGenerico.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jL_buscarConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_buscarConsultasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_buscarConsultasMouseClicked
+
+    private void jL_buscarConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_buscarConsultasMouseExited
+        efeitoBordaCancelar(jP_buscarConsultas);
+    }//GEN-LAST:event_jL_buscarConsultasMouseExited
+
+    private void jP_buscarConsultasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_buscarConsultasMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_buscarConsultasMouseMoved
+
+    private void jP_buscarConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_buscarConsultasMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_buscarConsultasMouseExited
 
     /**
      * @param args the command line arguments
@@ -118,7 +203,9 @@ public class HomeMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jL_bemVindo;
+    private javax.swing.JLabel jL_buscarConsultas;
+    private javax.swing.JPanel jP_buscarConsultas;
+    private javax.swing.JPanel jP_container;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
