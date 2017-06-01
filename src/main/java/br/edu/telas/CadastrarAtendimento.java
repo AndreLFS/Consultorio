@@ -8,9 +8,11 @@ package br.edu.telas;
 import br.edu.DAO.AtendimentoDAO;
 import br.edu.DAO.ClienteDAO2;
 import br.edu.DAO.MedicoDAO;
+import br.edu.DAO.ProntuarioDAO;
 import br.edu.anotacoes.Atendimento;
 import br.edu.anotacoes.Cliente;
 import br.edu.anotacoes.Medico;
+import br.edu.anotacoes.Prontuario;
 import br.edu.util.ControleTelas;
 import br.edu.util.TestesAtendimento;
 import br.edu.util.Validacao;
@@ -32,6 +34,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     Atendimento atendimento;
     Medico medico;
     Cliente cliente;
+    Prontuario prontuario;
     String mensagem;
     /**
      * Creates new form CadastrarAtendimento
@@ -39,6 +42,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     public CadastrarAtendimento() {
         initComponents();
         atendimento = new Atendimento();
+        this.prontuario = new Prontuario();
         mensagem = "Atendimento cadastrado com sucesso";
         ControleTelas.telaCadastroAtendimento = true;
         passarMedicos();
@@ -50,6 +54,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         this.atendimento = atendimento;
         this.cliente = atendimento.getCliente();
         this.medico = atendimento.getMedico();
+        this.prontuario = atendimento.getProntuario();
         mensagem = "Atendimento editado com sucesso";
         passarMedicos();
         passarClientes();
@@ -227,7 +232,13 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
                 atendimento.setData(validar.converterIdade(jFT_data.getText()));
                 atendimento.setMedico(medico);
                 atendimento.setHoraConsulta(Integer.parseInt(jComboBox1.getSelectedItem().toString()));
+                atendimento.setProntuario(this.prontuario);
                 try {
+                    if(this.atendimento.getProntuario().getId() == 0){
+                        ProntuarioDAO prontuarioDAO = new ProntuarioDAO();
+                        prontuarioDAO.salvar(prontuario);
+                        
+                    }
                     atendimentoDAO.salvar(atendimento);
                     JOptionPane.showMessageDialog(null, mensagem);
                     fechar();

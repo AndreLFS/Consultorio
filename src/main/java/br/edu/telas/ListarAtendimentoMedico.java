@@ -21,12 +21,12 @@ import javax.swing.JOptionPane;
  *
  * @author Lab1
  */
-public class ListarAtendimentoGenerico extends javax.swing.JFrame {
+public class ListarAtendimentoMedico extends javax.swing.JFrame {
 
     /**
      * Creates new form ListarAtendimentoGenerico
      */
-    public ListarAtendimentoGenerico(String valor, Object tipo) {
+    public ListarAtendimentoMedico(String valor, Object tipo) {
         initComponents();
         ControleTelas.telaAtendimentoGenerico = true;
         this.valor = valor;
@@ -36,7 +36,7 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
         
     }
 
-    private ListarAtendimentoGenerico() {
+    private ListarAtendimentoMedico() {
         initComponents();
         ControleTelas.telaAtendimentoGenerico = true;
     }
@@ -78,6 +78,11 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("jButton1");
@@ -187,6 +192,13 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
         jTable1.setModel(atendimentoTableModel);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if(evt.getClickCount() >= 2 && getAtendimento() != null){
+            CadastroProntuario cadastroProntuario = new CadastroProntuario(getAtendimento());
+            cadastroProntuario.setVisible(true);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
     
     private String  valor = null;
     private Object tipo = null;
@@ -210,6 +222,18 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
         }
     }
     
+    private Atendimento getAtendimento(){
+        int linha = jTable1.getSelectedRow();
+        if (linha >= 0) {
+            AtendimentoTableModel atendimentoTableModel = (AtendimentoTableModel) jTable1.getModel();
+            Atendimento atendimento = atendimentoTableModel.getValueAt(linha);
+            return atendimento;
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhuma Consulta selecionado");
+            return null;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -227,20 +251,21 @@ public class ListarAtendimentoGenerico extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListarAtendimentoGenerico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAtendimentoMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListarAtendimentoGenerico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAtendimentoMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListarAtendimentoGenerico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAtendimentoMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListarAtendimentoGenerico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAtendimentoMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListarAtendimentoGenerico().setVisible(true);
+                new ListarAtendimentoMedico().setVisible(true);
             }
         });
     }

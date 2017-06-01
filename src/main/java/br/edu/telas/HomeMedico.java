@@ -78,7 +78,7 @@ public class HomeMedico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ListarAtendimentoGenerico atendimentoGenerico = new ListarAtendimentoGenerico("medico", medico);
+        ListarAtendimentoMedico atendimentoGenerico = new ListarAtendimentoMedico("medico", medico);
         atendimentoGenerico.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

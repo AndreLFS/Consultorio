@@ -72,6 +72,9 @@ public class Prontuario {
     public void setMedicamentos(String medicamentos) {
         this.medicamentos = medicamentos;
     }
+
+    public Prontuario() {
+    }
    
    public Prontuario(Atendimento atentimento, String sintomas, String observaçoes, String encaminhamentos, String medicamentos ){
        

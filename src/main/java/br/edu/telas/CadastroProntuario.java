@@ -5,17 +5,32 @@
  */
 package br.edu.telas;
 
+import br.edu.anotacoes.Atendimento;
+import br.edu.anotacoes.Prontuario;
+import br.edu.util.Validacao;
+
 /**
  *
  * @author Usuario
  */
 public class CadastroProntuario extends javax.swing.JFrame {
-
+    Atendimento atendimento;
+    Prontuario prontuario;
     /**
      * Creates new form CadastroProntuario
      */
     public CadastroProntuario() {
         initComponents();
+    }
+    public CadastroProntuario(Atendimento atendimento) {
+        initComponents();
+        this.atendimento = atendimento;
+        this.prontuario = atendimento.getProntuario();
+        
+        jT_cliente.setText(this.atendimento.getCliente().getNome());
+        jT_medico.setText(this.atendimento.getMedico().getNome());
+        jFT_data.setText(validar.converterData(this.atendimento.getData()));
+        jT_hora.setText(String.valueOf(this.atendimento.getHoraConsulta()));
     }
 
     /**
@@ -31,12 +46,12 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jL_consultas = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jL_data = new javax.swing.JLabel();
-        jL_cliente1 = new javax.swing.JLabel();
+        jL_cliente = new javax.swing.JLabel();
         Sintomas = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jT_cliente = new javax.swing.JTextField();
         jFT_data = new javax.swing.JFormattedTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jL_hora1 = new javax.swing.JLabel();
+        jT_hora = new javax.swing.JTextField();
+        jL_hora = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         Sintomas1 = new javax.swing.JLabel();
@@ -52,6 +67,8 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jL_cadastrar1 = new javax.swing.JLabel();
         jP_cancelar = new javax.swing.JPanel();
         jB_cancelar = new javax.swing.JButton();
+        jL_medico = new javax.swing.JLabel();
+        jT_medico = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,25 +81,25 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jL_consultas.setText("Prontuário de Atendimentos");
         jPanel2.add(jL_consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 500, 44));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 600, 60));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 530, 60));
 
         jPanel1.setBackground(new java.awt.Color(67, 212, 195));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_data.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_data.setText("Data");
-        jPanel1.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, 20));
+        jPanel1.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
 
-        jL_cliente1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_cliente1.setText("Cliente");
-        jPanel1.add(jL_cliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 70, 20));
+        jL_cliente.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cliente.setText("Cliente");
+        jPanel1.add(jL_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, 20));
 
         Sintomas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Sintomas.setText("Medicamentos");
         jPanel1.add(Sintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 170, 20));
 
-        jTextField1.setEditable(false);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 310, -1));
+        jT_cliente.setEditable(false);
+        jPanel1.add(jT_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 310, -1));
 
         jFT_data.setEditable(false);
         jFT_data.setBorder(null);
@@ -96,14 +113,14 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jFT_dataActionPerformed(evt);
             }
         });
-        jPanel1.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 80, 20));
+        jPanel1.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 100, 20));
 
-        jTextField2.setEditable(false);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 80, -1));
+        jT_hora.setEditable(false);
+        jPanel1.add(jT_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 150, -1));
 
-        jL_hora1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_hora1.setText("Hora");
-        jPanel1.add(jL_hora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 90, 20));
+        jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_hora.setText("Hora");
+        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 90, 20));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -176,6 +193,13 @@ public class CadastroProntuario extends javax.swing.JFrame {
 
         jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 100, 40));
 
+        jL_medico.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_medico.setText("Medico");
+        jPanel1.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, 20));
+
+        jT_medico.setEditable(false);
+        jPanel1.add(jT_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 310, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 520, 390));
 
         pack();
@@ -193,7 +217,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cadastrarMouseClicked
 
     private void jL_cadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseClicked
-        // TODO add your handling code here:
+       
         
         
     }//GEN-LAST:event_jL_cadastrar1MouseClicked
@@ -202,6 +226,8 @@ public class CadastroProntuario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jB_cancelarActionPerformed
 
+    Validacao validar =  new Validacao();
+    
     /**
      * @param args the command line arguments
      */
@@ -236,7 +262,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
             }
         });
     }
-
+                
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Sintomas;
     private javax.swing.JLabel Sintomas1;
@@ -246,10 +272,11 @@ public class CadastroProntuario extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFT_data;
     private javax.swing.JLabel jL_cadastrar;
     private javax.swing.JLabel jL_cadastrar1;
-    private javax.swing.JLabel jL_cliente1;
+    private javax.swing.JLabel jL_cliente;
     private javax.swing.JLabel jL_consultas;
     private javax.swing.JLabel jL_data;
-    private javax.swing.JLabel jL_hora1;
+    private javax.swing.JLabel jL_hora;
+    private javax.swing.JLabel jL_medico;
     private javax.swing.JPanel jP_cadastrar;
     private javax.swing.JPanel jP_cadastrar1;
     private javax.swing.JPanel jP_cancelar;
@@ -257,10 +284,11 @@ public class CadastroProntuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jT_cliente;
+    private javax.swing.JTextField jT_hora;
+    private javax.swing.JTextField jT_medico;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables

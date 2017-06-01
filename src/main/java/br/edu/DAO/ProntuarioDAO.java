@@ -13,8 +13,15 @@ import br.edu.anotacoes.Prontuario;
  */
 public class ProntuarioDAO extends GenericoDAO<Prontuario>{
     
-    public ProntuarioDAO(Class classe) {
-        super(classe);
+    public ProntuarioDAO() {
+        super(Prontuario.class);
     }
-    
+    @Override
+    public boolean salvar(Prontuario prontuario) {
+        if(prontuario.getId() == 0){
+            return super.salvar(prontuario);
+        }else{
+            return super.editar(prontuario);
+        }
+    }
 }

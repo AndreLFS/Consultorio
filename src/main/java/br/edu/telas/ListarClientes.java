@@ -165,7 +165,7 @@ public class ListarClientes extends javax.swing.JFrame {
         if (evt.getClickCount() > 1) {  
             if(ControleTelas.telaAtendimentoGenerico == false){
                 ControleTelas.telaAtendimentoGenerico = true;
-                ListarAtendimentoGenerico listarAtendimentoGenerico = new ListarAtendimentoGenerico("cliente", getCliente());
+                ListarAtendimentoMedico listarAtendimentoGenerico = new ListarAtendimentoMedico("cliente", getCliente());
                 listarAtendimentoGenerico.setVisible(true);
             }
         }

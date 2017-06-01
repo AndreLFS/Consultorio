@@ -26,6 +26,8 @@ public class Atendimento{
     private Cliente cliente;
     @OneToOne
     private Medico medico;
+    @OneToOne
+    private Prontuario prontuario;
     @Temporal(TemporalType.DATE)
     private Date data;
     private int horaConsulta;
@@ -65,7 +67,14 @@ public class Atendimento{
     public void setHoraConsulta(int horaConsulta) {
         this.horaConsulta = horaConsulta;
     }
-    
+
+    public Prontuario getProntuario() {
+        return prontuario;
+    }
+
+    public void setProntuario(Prontuario prontuario) {
+        this.prontuario = prontuario;
+    }
     
     public Atendimento() {
     }

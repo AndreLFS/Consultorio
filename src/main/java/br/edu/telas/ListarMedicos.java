@@ -130,7 +130,7 @@ public class ListarMedicos extends javax.swing.JFrame {
         if (evt.getClickCount() > 1) {  
             if(ControleTelas.telaAtendimentoGenerico == false){
                 ControleTelas.telaAtendimentoGenerico = true;
-                ListarAtendimentoGenerico listarAtendimentoGenerico = new ListarAtendimentoGenerico("medico", medico());
+                ListarAtendimentoMedico listarAtendimentoGenerico = new ListarAtendimentoMedico("medico", medico());
                 listarAtendimentoGenerico.setVisible(true);
             }
         }
