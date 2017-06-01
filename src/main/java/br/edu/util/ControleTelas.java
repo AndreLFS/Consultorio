@@ -10,16 +10,23 @@ package br.edu.util;
  * @author Lab1
  */
 public class ControleTelas {
-    public static boolean telaListarClientes = false;
-    public static boolean telaCadastroClientes = false;
-    public static boolean telaAtendimentoGenerico = false;
     public static boolean telaCadastroAdmins = false;
-    public static boolean telaListarAdministrador = false;
-    public static boolean telaCadastroRecepcionista = false;
-    public static boolean telaListarRecepcionista = false;
-    public static boolean telaListarAtendimento = false;
-    public static boolean telaListarMedicos = false;
-    public static boolean telaCadastroMedicos = false;
     public static boolean telaCadastroAtendimento= false;
+    
+    public static boolean telaCadastroClientes = false;
+    public static boolean telaCadastroMedicos = false;
+    
+    public static boolean telaCadastroRecepcionista = false;
+    
+    public static boolean telaListarAdministrador = false; 
+    public static boolean telaListarAtendimento = false;
+    public static boolean telaAtendimentoGenerico = false;
+    
+    public static boolean telaListarClientes = false;
+    public static boolean telaListarRecepcionista = false;
+    public static boolean telaListarMedicos = false;
+    
+    
+    
 
 }
