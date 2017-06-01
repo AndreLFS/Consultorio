@@ -21,11 +21,12 @@ public class ListarRecepcionista extends javax.swing.JFrame {
      */
     public ListarRecepcionista() {
         initComponents();
+        atualizarTabela();
     }
     protected static void atualizarTabela(){
         RecepcionistaDAO recepcionistaDAO = new RecepcionistaDAO();
         RecepcionistaTableModel recepcionistaTableModel = new RecepcionistaTableModel(recepcionistaDAO.listar());
-        //jTable1.setModel(recepcionistaTableModel); Dando erro ajeitar depois
+        jTable1.setModel(recepcionistaTableModel);
     }
     private Recepcionista getRecepcionista(){
         int linha = jTable1.getSelectedRow();
@@ -68,6 +69,11 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Editar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         Excluir.setText("Excluir");
         Excluir.addActionListener(new java.awt.event.ActionListener() {
@@ -109,18 +115,25 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         // TODO add your handling code here:
         Recepcionista recepcionista = getRecepcionista();
         if(recepcionista !=  null){
-            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o Administrador " + recepcionista.getNome()) == 0){
+            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar a recepcionista " + recepcionista.getNome()) == 0){
                 try {
                     RecepcionistaDAO recepcionistaDAO = new RecepcionistaDAO();
                     recepcionistaDAO.deletar(recepcionista);
                 } catch (Exception e) {
-                    System.out.println("Erro no delete do Administrador " +e);
+                    System.out.println("Erro no delete do recepcionista " +e);
                 }
-                JOptionPane.showMessageDialog(null, "Administrador deletado com sucesso");
+                JOptionPane.showMessageDialog(null, "Recepcionista deletado com sucesso");
             }
         }
         atualizarTabela();
     }//GEN-LAST:event_ExcluirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(getRecepcionista() != null){
+            CadastroRecepcionista cadastroRecepcionista = new CadastroRecepcionista(getRecepcionista());
+            cadastroRecepcionista.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,6 +174,6 @@ public class ListarRecepcionista extends javax.swing.JFrame {
     private javax.swing.JButton Excluir;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

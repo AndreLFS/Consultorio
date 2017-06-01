@@ -43,7 +43,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         
         
         jT_nome.setText(admin.getNome());
-         jFT_nascimento.setText(validar.converterData(admin.getNascimento()));
+        jFT_nascimento.setText(validar.converterData(admin.getNascimento()));
         if (admin.isGenero()) {
             jC_Genero.setSelectedIndex(0);
         }else{

@@ -32,28 +32,32 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         this.endereco = new Endereco();
     }
      public CadastroRecepcionista(Recepcionista recepcionista) {
-            ControleTelas.telaCadastroRecepcionista = true;
-            jL_cadastrar.setText("Editar");
-            this.recepcionista = recepcionista;
-            this.endereco = recepcionista.getEndereco();
-            jT_logradouro.setText(recepcionista.getEndereco().getLogradouro());   //set do logradouro
-            jT_bairro.setText(recepcionista.getEndereco().getBairro());           //set do bairro
-            jT_cidade.setText(recepcionista.getEndereco().getCidade());           //set da cidade
-            jT_estado.setText(recepcionista.getEndereco().getEstado());           //set do estado
-            jT_numero.setText(recepcionista.getEndereco().getNumero());           //set do numero
-            jT_complemento.setText(recepcionista.getEndereco().getObservacoa());  //set do complemento
-            jT_cep.setText(recepcionista.getEndereco().getCep());                 //set do cep
-        
-            jT_nome.setText(recepcionista.getNome());
-            jFT_nascimento.setText(recepcionista.getNascimento().toString());
-            jC_Genero.setSelectedIndex(1);// erro
-            jFT_telefone.setText(recepcionista.getTelefone());
-            jT_rg.setText(recepcionista.getRg());
-            jFT_cpf.setText(recepcionista.getCpf());
-            jT_email.setText(recepcionista.getUsuario());
-            JP_Senha.setText(recepcionista.getSenha());
+        initComponents();
+        ControleTelas.telaCadastroRecepcionista = true;
+        jL_cadastrar.setText("Editar");
+        this.recepcionista = recepcionista;
+        this.endereco = recepcionista.getEndereco();
+        jT_logradouro.setText(recepcionista.getEndereco().getLogradouro());   //set do logradouro
+        jT_bairro.setText(recepcionista.getEndereco().getBairro());           //set do bairro
+        jT_cidade.setText(recepcionista.getEndereco().getCidade());           //set da cidade
+        jT_estado.setText(recepcionista.getEndereco().getEstado());           //set do estado
+        jT_numero.setText(recepcionista.getEndereco().getNumero());           //set do numero
+        jT_complemento.setText(recepcionista.getEndereco().getObservacoa());  //set do complemento
+        jT_cep.setText(recepcionista.getEndereco().getCep());                 //set do cep
 
-            
+        jT_nome.setText(recepcionista.getNome());
+        jFT_nascimento.setText(testes.converterData(recepcionista.getNascimento()));
+        if (recepcionista.isGenero()) {
+            jC_Genero.setSelectedIndex(0);
+        }else{
+            jC_Genero.setSelectedIndex(1);
+        }
+        jFT_telefone.setText(recepcionista.getTelefone());
+        jT_rg.setText(recepcionista.getRg());
+        jFT_cpf.setText(testes.retirarMascara(recepcionista.getCpf()));
+        jT_email.setText(recepcionista.getUsuario());
+        JP_Senha.setText(recepcionista.getSenha());
+       
     }
      
 
@@ -281,7 +285,6 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
 
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/icons/accept.png"))); // NOI18N
         jL_cadastrar.setText("Cadastrar ");
         jL_cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -296,7 +299,6 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/icones/icons/cancel.png"))); // NOI18N
         jL_cancelar.setText("Cancelar");
         jP_cancelar.add(jL_cancelar);
 
@@ -400,7 +402,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
                 this.recepcionista.setRg(jT_rg.getText());
                 this.recepcionista.setTelefone(jFT_telefone.getText());
                 this.recepcionista.setSenha(new String(JP_Senha.getPassword()));
-                this.recepcionista.setUsuario(jL_email.getText());
+                this.recepcionista.setUsuario(jT_email.getText());
                 
     
    
