@@ -18,8 +18,6 @@ public class Prontuario {
    @Id
    @GeneratedValue
    private int id;
-   @OneToOne
-   private Atendimento atendimento;
    private String sintomas;
    private String observaçoes;
    private String encaminhamentos;
@@ -27,18 +25,6 @@ public class Prontuario {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Atendimento getAtendimento() {
-        return atendimento;
-    }
-
-    public void setAtendimento(Atendimento atendimento) {
-        this.atendimento = atendimento;
     }
     
     public String getSintomas() {
@@ -74,17 +60,6 @@ public class Prontuario {
     }
 
     public Prontuario() {
-    }
-   
-   public Prontuario(Atendimento atentimento, String sintomas, String observaçoes, String encaminhamentos, String medicamentos ){
-       
-       this.atendimento=atentimento;
-       this.encaminhamentos=encaminhamentos;
-       this.observaçoes=observaçoes;
-       this.sintomas=sintomas;
-       this.medicamentos=medicamentos;
-       
-   }
-    
+    } 
     
 }
