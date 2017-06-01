@@ -43,16 +43,20 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         
         
         jT_nome.setText(admin.getNome());
-        jFT_nascimento.setText(admin.getNascimento().toString());
-        jC_Genero.setSelectedIndex(1);// erro
+         jFT_nascimento.setText(validar.converterData(admin.getNascimento()));
+        if (admin.isGenero()) {
+            jC_Genero.setSelectedIndex(0);
+        }else{
+            jC_Genero.setSelectedIndex(1);
+        }
         jFT_telefone.setText(admin.getTelefone());
         jT_rg.setText(admin.getRg());
-        jFT_cpf.setText(admin.getCpf());
+        jFT_cpf.setText(validar.retirarMascara(admin.getCpf()));
         jT_email.setText(admin.getUsuario());
         JP_Senha.setText(admin.getSenha());
     }
     
-    Validacao teste = new Validacao();
+    Validacao validar = new Validacao();
     
     private boolean testeVazio(){
         //Iniciando os campos de Testes
@@ -61,11 +65,11 @@ public class CadastrarAdmins extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"O campo Nome está vazio!");
             return false;   
         //Verificando se o Campo Data de Nascimento está vazio    
-        } else if(jFT_nascimento.getText().equals("  /  /    ") || teste.converterIdade(jFT_nascimento.getText()) == null){
+        } else if(jFT_nascimento.getText().equals("  /  /    ") || validar.converterIdade(jFT_nascimento.getText()) == null){
             JOptionPane.showMessageDialog(null,"O campo Data de Nascimento está vazio!");
             return false;       
         //Verificando se o Campo CPF está vazio    
-        } else if(teste.isCPF(jFT_cpf.getText()) == false){
+        } else if(validar.isCPF(jFT_cpf.getText()) == false){
             JOptionPane.showMessageDialog(null, "Campo CPF esta em branco ou invalida");
             return false;
         //Verificando se o campo RG está vazio    
@@ -77,7 +81,6 @@ public class CadastrarAdmins extends javax.swing.JFrame {
     }
     
     private void salvar(){
-        Validacao validar = new Validacao();
         this.endereco.setLogradouro(jT_logradouro.getText());
         this.endereco.setBairro(jT_bairro.getText());
         this.endereco.setCep(jT_cep.getText());
@@ -102,6 +105,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         enderecoDAO.salvar(endereco);
         if(adminDAO.salvar(admin)== true){
             JOptionPane.showMessageDialog(null, "Administrador Cadastrado com sucesso");
+            this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Erro no Cadastro !");
         }

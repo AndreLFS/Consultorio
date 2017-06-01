@@ -6,11 +6,13 @@
 package br.edu.anotacoes;
 
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Lab1
  */
+@Entity
 public class Admin extends Funcionario{
 
     public Admin() {
