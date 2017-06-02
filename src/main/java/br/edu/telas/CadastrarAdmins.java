@@ -189,6 +189,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_nome.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_nome.setForeground(new java.awt.Color(255, 255, 255));
         jL_nome.setText("Nome");
         jP_conteudo.add(jL_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 56, 20));
 
@@ -206,6 +207,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jT_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 500, 30));
 
         jL_nascimento.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_nascimento.setForeground(new java.awt.Color(255, 255, 255));
         jL_nascimento.setText("Data de Nascimento");
         jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 190, 20));
 
@@ -222,6 +224,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 90, 30));
 
         jL_rg.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_rg.setForeground(new java.awt.Color(255, 255, 255));
         jL_rg.setText("RG");
         jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
 
@@ -233,6 +236,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jT_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 250, 30));
 
         jl_logradouro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jl_logradouro.setForeground(new java.awt.Color(255, 255, 255));
         jl_logradouro.setText("Logradouro");
         jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
@@ -245,6 +249,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 240, 30));
 
         jL_cidade.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cidade.setForeground(new java.awt.Color(255, 255, 255));
         jL_cidade.setText("Cidade");
         jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, 20));
 
@@ -257,6 +262,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 270, 30));
 
         jL_email.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_email.setForeground(new java.awt.Color(255, 255, 255));
         jL_email.setText("Email");
         jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 60, 20));
 
@@ -269,6 +275,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 240, 30));
 
         jL_telefone.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_telefone.setForeground(new java.awt.Color(255, 255, 255));
         jL_telefone.setText("Telefone");
         jP_conteudo.add(jL_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, 20));
 
@@ -285,6 +292,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jFT_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 190, 30));
 
         jL_cpf.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cpf.setForeground(new java.awt.Color(255, 255, 255));
         jL_cpf.setText("CPF");
         jP_conteudo.add(jL_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 49, 20));
 
@@ -301,6 +309,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 220, 30));
 
         jL_bairro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_bairro.setForeground(new java.awt.Color(255, 255, 255));
         jL_bairro.setText("Bairro");
         jP_conteudo.add(jL_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 74, 20));
 
@@ -313,6 +322,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jT_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 280, 30));
 
         jL_cep.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cep.setForeground(new java.awt.Color(255, 255, 255));
         jL_cep.setText("CEP");
         jP_conteudo.add(jL_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, 20));
 
@@ -325,6 +335,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jT_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 180, 30));
 
         jL_senha.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_senha.setForeground(new java.awt.Color(255, 255, 255));
         jL_senha.setText("Senha");
         jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, -1, 20));
 
@@ -378,27 +389,33 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 130, 40));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Estado");
         jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
         jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 150, 30));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Número");
         jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
         jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 150, 30));
 
         jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_genero.setForeground(new java.awt.Color(255, 255, 255));
         jL_genero.setText("Genero");
         jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 20));
 
+        jC_Genero.setForeground(new java.awt.Color(255, 255, 255));
         jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dados de Acesso");
         jP_conteudo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Dados Pessoais");
         jP_conteudo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 

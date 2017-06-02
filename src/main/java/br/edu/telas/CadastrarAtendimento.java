@@ -16,6 +16,7 @@ import br.edu.anotacoes.Prontuario;
 import br.edu.util.ControleTelas;
 import br.edu.util.TestesAtendimento;
 import br.edu.util.Validacao;
+import java.awt.Color;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,6 +26,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
  *
@@ -73,18 +75,20 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jP_Container = new javax.swing.JPanel();
         jC_medicos = new javax.swing.JComboBox<>();
         jC_clientes = new javax.swing.JComboBox<>();
         jL_data = new javax.swing.JLabel();
         jL_medicos1 = new javax.swing.JLabel();
         jL_cliente1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jC_idCliente = new javax.swing.JComboBox<>();
         jC_idMedicos = new javax.swing.JComboBox<>();
         jL_hora = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jFT_data = new javax.swing.JFormattedTextField();
+        jP_conteudo = new javax.swing.JPanel();
+        jP_cadastrar = new javax.swing.JPanel();
+        jL_cadastrar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jL_consultas = new javax.swing.JLabel();
 
@@ -96,8 +100,8 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(67, 212, 195));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jP_Container.setBackground(new java.awt.Color(0, 153, 153));
+        jP_Container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jC_medicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jC_medicos.addActionListener(new java.awt.event.ActionListener() {
@@ -105,40 +109,36 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
                 jC_medicosActionPerformed(evt);
             }
         });
-        jPanel1.add(jC_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        jP_Container.add(jC_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
         jC_clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jC_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
+        jP_Container.add(jC_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
         jL_data.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_data.setForeground(new java.awt.Color(255, 255, 255));
         jL_data.setText("Data");
-        jPanel1.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, 20));
+        jP_Container.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 50, 20));
 
         jL_medicos1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_medicos1.setText("Medico");
-        jPanel1.add(jL_medicos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, 20));
+        jL_medicos1.setForeground(new java.awt.Color(255, 255, 255));
+        jL_medicos1.setText("Médico");
+        jP_Container.add(jL_medicos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 90, 20));
 
         jL_cliente1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cliente1.setForeground(new java.awt.Color(255, 255, 255));
         jL_cliente1.setText("Cliente");
-        jPanel1.add(jL_cliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, 20));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
+        jP_Container.add(jL_cliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 90, 20));
 
         jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jC_idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
+        jP_Container.add(jC_idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
         jC_idMedicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jC_idMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
+        jP_Container.add(jC_idMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_hora.setForeground(new java.awt.Color(255, 255, 255));
         jL_hora.setText("Hora");
-        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, 20));
+        jP_Container.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 90, 20));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "14", "15", "16", "17" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+        jP_Container.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
         jFT_data.setBorder(null);
         try {
@@ -159,9 +159,35 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
                 jFT_dataActionPerformed(evt);
             }
         });
-        jPanel1.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 110, 30));
+        jP_Container.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 140, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 590, 260));
+        jP_conteudo.setBackground(new java.awt.Color(153, 153, 153));
+        jP_conteudo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jP_Container.add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 540, 160));
+
+        jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
+
+        jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cadastrar.setText("Cadastrar ");
+        jL_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMouseMoved(evt);
+            }
+        });
+        jL_cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMouseExited(evt);
+            }
+        });
+        jP_cadastrar.add(jL_cadastrar);
+
+        jP_Container.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 130, 40));
+
+        getContentPane().add(jP_Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 590, 290));
 
         jPanel2.setBackground(new java.awt.Color(36, 47, 65));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -177,10 +203,6 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        salvar();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jFT_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_dataActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFT_dataActionPerformed
@@ -196,6 +218,21 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         fechar();
     }//GEN-LAST:event_formWindowClosing
+
+    private void jL_cadastrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseMoved
+        jP_cadastrar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_cadastrarMouseMoved
+
+    private void jL_cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseClicked
+        // TODO add your handling code here:
+        if(testes()){
+            salvar();
+        }
+    }//GEN-LAST:event_jL_cadastrarMouseClicked
+
+    private void jL_cadastrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseExited
+        efeitoBordaCancelar(jP_cadastrar);
+    }//GEN-LAST:event_jL_cadastrarMouseExited
     
     MedicoDAO medicoDAO = new MedicoDAO();
     ClienteDAO2 clienteDAO2 = new ClienteDAO2();
@@ -327,6 +364,28 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
             listarAtendimento.atualizarTabela();
         }
     }
+    
+    //codigo para colocar as sombras nos paineis
+    private DropShadowBorder efeitoBorda(){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShadowColor(Color.black);
+        shadow.setShadowSize(5);
+        shadow.setShowLeftShadow(true);
+        shadow.setShowRightShadow(true);
+        shadow.setShowBottomShadow(true);
+        shadow.setShowTopShadow(true);
+        return shadow;
+    }
+    //codigo para cancelar a borda em todas os paineis
+    private void efeitoBordaCancelar(javax.swing.JPanel painel){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShowLeftShadow(false);
+        shadow.setShowRightShadow(false);
+        shadow.setShowBottomShadow(false);
+        shadow.setShowTopShadow(false);
+        
+        painel.setBorder(shadow);
+    }
     /**
      * @param args the command line arguments
      */
@@ -363,19 +422,21 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jC_clientes;
     private javax.swing.JComboBox<String> jC_idCliente;
     private javax.swing.JComboBox<String> jC_idMedicos;
     private javax.swing.JComboBox<String> jC_medicos;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFormattedTextField jFT_data;
+    private javax.swing.JLabel jL_cadastrar;
     private javax.swing.JLabel jL_cliente1;
     private javax.swing.JLabel jL_consultas;
     private javax.swing.JLabel jL_data;
     private javax.swing.JLabel jL_hora;
     private javax.swing.JLabel jL_medicos1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jP_Container;
+    private javax.swing.JPanel jP_cadastrar;
+    private javax.swing.JPanel jP_conteudo;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
