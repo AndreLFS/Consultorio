@@ -87,8 +87,10 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jFT_data = new javax.swing.JFormattedTextField();
         jP_conteudo = new javax.swing.JPanel();
+        jP_cancelar = new javax.swing.JPanel();
+        jL_cancelar = new javax.swing.JLabel();
         jP_cadastrar = new javax.swing.JPanel();
-        jL_cadastrar = new javax.swing.JLabel();
+        jL_cadastrar1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jL_consultas = new javax.swing.JLabel();
 
@@ -165,25 +167,57 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jP_conteudo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jP_Container.add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 540, 160));
 
-        jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
-
-        jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cadastrar.setText("Cadastrar ");
-        jL_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jL_cadastrarMouseMoved(evt);
+                jP_cancelarMouseMoved(evt);
             }
         });
-        jL_cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cancelar.setText("Cancelar");
+        jL_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_cancelarMouseMoved(evt);
+            }
+        });
+        jL_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jL_cadastrarMouseClicked(evt);
+                jL_cancelarMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jL_cadastrarMouseExited(evt);
+                jL_cancelarMouseExited(evt);
             }
         });
-        jP_cadastrar.add(jL_cadastrar);
+        jP_cancelar.add(jL_cancelar);
+
+        jP_Container.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 130, 40));
+
+        jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_cadastrarMouseMoved(evt);
+            }
+        });
+
+        jL_cadastrar1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cadastrar1.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cadastrar1.setText("Cadastrar ");
+        jL_cadastrar1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_cadastrar1MouseMoved(evt);
+            }
+        });
+        jL_cadastrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrar1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_cadastrar1MouseExited(evt);
+            }
+        });
+        jP_cadastrar.add(jL_cadastrar1);
 
         jP_Container.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 130, 40));
 
@@ -219,20 +253,40 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         fechar();
     }//GEN-LAST:event_formWindowClosing
 
-    private void jL_cadastrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseMoved
-        jP_cadastrar.setBorder(efeitoBorda());
-    }//GEN-LAST:event_jL_cadastrarMouseMoved
+    private void jL_cancelarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseMoved
+        jP_cancelar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_cancelarMouseMoved
 
-    private void jL_cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseClicked
+    private void jL_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseClicked
         // TODO add your handling code here:
         if(testes()){
             salvar();
         }
-    }//GEN-LAST:event_jL_cadastrarMouseClicked
+    }//GEN-LAST:event_jL_cancelarMouseClicked
 
-    private void jL_cadastrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseExited
+    private void jL_cancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseExited
+        efeitoBordaCancelar(jP_cancelar);
+    }//GEN-LAST:event_jL_cancelarMouseExited
+
+    private void jP_cancelarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cancelarMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cancelarMouseMoved
+
+    private void jL_cadastrar1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseMoved
+        jP_cadastrar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_cadastrar1MouseMoved
+
+    private void jL_cadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_cadastrar1MouseClicked
+
+    private void jL_cadastrar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseExited
         efeitoBordaCancelar(jP_cadastrar);
-    }//GEN-LAST:event_jL_cadastrarMouseExited
+    }//GEN-LAST:event_jL_cadastrar1MouseExited
+
+    private void jP_cadastrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarMouseMoved
     
     MedicoDAO medicoDAO = new MedicoDAO();
     ClienteDAO2 clienteDAO2 = new ClienteDAO2();
@@ -428,7 +482,8 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jC_medicos;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFormattedTextField jFT_data;
-    private javax.swing.JLabel jL_cadastrar;
+    private javax.swing.JLabel jL_cadastrar1;
+    private javax.swing.JLabel jL_cancelar;
     private javax.swing.JLabel jL_cliente1;
     private javax.swing.JLabel jL_consultas;
     private javax.swing.JLabel jL_data;
@@ -436,6 +491,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private javax.swing.JLabel jL_medicos1;
     private javax.swing.JPanel jP_Container;
     private javax.swing.JPanel jP_cadastrar;
+    private javax.swing.JPanel jP_cancelar;
     private javax.swing.JPanel jP_conteudo;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
