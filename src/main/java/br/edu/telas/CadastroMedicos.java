@@ -118,8 +118,6 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jT_estado = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jT_numero = new javax.swing.JTextField();
-        jL_Etinia = new javax.swing.JLabel();
-        jC_etinia = new javax.swing.JComboBox<>();
         jL_genero = new javax.swing.JLabel();
         jC_Genero = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -346,19 +344,6 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
         jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 120, 30));
 
-        jL_Etinia.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_Etinia.setText("Etnia");
-        jP_conteudo.add(jL_Etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, 20));
-
-        jC_etinia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jC_etinia.setBorder(null);
-        jC_etinia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jC_etiniaActionPerformed(evt);
-            }
-        });
-        jP_conteudo.add(jC_etinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 160, 20));
-
         jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_genero.setText("Genero");
         jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 20));
@@ -543,10 +528,6 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private void jC_especialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_especialidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jC_especialidadeActionPerformed
-
-    private void jC_etiniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_etiniaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jC_etiniaActionPerformed
     
 
     /**
@@ -588,11 +569,9 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private javax.swing.JPasswordField JP_Senha;
     private javax.swing.JComboBox<String> jC_Genero;
     private javax.swing.JComboBox<String> jC_especialidade;
-    private javax.swing.JComboBox<String> jC_etinia;
     private javax.swing.JFormattedTextField jFT_cpf;
     private javax.swing.JFormattedTextField jFT_nascimento;
     private javax.swing.JFormattedTextField jFT_telefone;
-    private javax.swing.JLabel jL_Etinia;
     private javax.swing.JLabel jL_bairro;
     private javax.swing.JLabel jL_cadastrar;
     private javax.swing.JLabel jL_cancelar;
