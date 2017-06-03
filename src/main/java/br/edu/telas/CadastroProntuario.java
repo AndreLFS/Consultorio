@@ -9,7 +9,9 @@ import br.edu.DAO.ProntuarioDAO;
 import br.edu.anotacoes.Atendimento;
 import br.edu.anotacoes.Prontuario;
 import br.edu.util.Validacao;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
  *
@@ -69,12 +71,12 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jTA_encaminhamentos = new javax.swing.JTextField();
         jP_cadastrar = new javax.swing.JPanel();
         jL_cadastrar = new javax.swing.JLabel();
-        jP_cadastrar1 = new javax.swing.JPanel();
-        jL_cadastrar1 = new javax.swing.JLabel();
         jP_cancelar = new javax.swing.JPanel();
         jB_cancelar = new javax.swing.JButton();
         jL_medico = new javax.swing.JLabel();
         jT_medico = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,30 +84,30 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(36, 47, 65));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jL_consultas.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jL_consultas.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jL_consultas.setForeground(new java.awt.Color(255, 255, 255));
         jL_consultas.setText("Prontuário de Atendimentos");
         jPanel2.add(jL_consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 500, 44));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 530, 60));
 
-        jPanel1.setBackground(new java.awt.Color(67, 212, 195));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_data.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_data.setText("Data");
-        jPanel1.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
+        jPanel1.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 20));
 
         jL_cliente.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cliente.setText("Cliente");
-        jPanel1.add(jL_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, 20));
+        jPanel1.add(jL_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 70, 20));
 
         Sintomas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Sintomas.setText("Medicamentos");
-        jPanel1.add(Sintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 170, 20));
+        jPanel1.add(Sintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 160, 20));
 
         jT_cliente.setEditable(false);
-        jPanel1.add(jT_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 310, -1));
+        jPanel1.add(jT_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 310, -1));
 
         jFT_data.setEditable(false);
         jFT_data.setBorder(null);
@@ -119,68 +121,62 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jFT_dataActionPerformed(evt);
             }
         });
-        jPanel1.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 100, 20));
+        jPanel1.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 100, 20));
 
         jT_hora.setEditable(false);
-        jPanel1.add(jT_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 150, -1));
+        jPanel1.add(jT_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 150, -1));
 
         jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_hora.setText("Hora");
-        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 90, 20));
+        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 90, 20));
 
         jTA_sintomas.setColumns(20);
         jTA_sintomas.setRows(5);
         jScrollPane2.setViewportView(jTA_sintomas);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 310, 40));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 310, 50));
 
         Sintomas1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Sintomas1.setText("Sintomas");
-        jPanel1.add(Sintomas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 100, 20));
+        jPanel1.add(Sintomas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 100, 20));
 
         jTA_observacoes.setColumns(20);
         jTA_observacoes.setRows(5);
         jScrollPane3.setViewportView(jTA_observacoes);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 310, 40));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 270, 60));
 
         Sintomas2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        Sintomas2.setText("Observaçoes");
-        jPanel1.add(Sintomas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 120, 20));
-        jPanel1.add(jT_medicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 310, -1));
+        Sintomas2.setText("Observações");
+        jPanel1.add(Sintomas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 120, 20));
+        jPanel1.add(jT_medicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 250, 40));
 
         Sintomas3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Sintomas3.setText("Encaminhamentos");
-        jPanel1.add(Sintomas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 170, 20));
-        jPanel1.add(jTA_encaminhamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 310, -1));
+        jPanel1.add(Sintomas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 170, 20));
+        jPanel1.add(jTA_encaminhamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 220, 40));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
 
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
         jL_cadastrar.setText("Cadastrar ");
+        jL_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMouseMoved(evt);
+            }
+        });
         jL_cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jL_cadastrarMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMouseExited(evt);
+            }
         });
         jP_cadastrar.add(jL_cadastrar);
 
-        jPanel1.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, -1, 40));
-
-        jP_cadastrar1.setBackground(new java.awt.Color(36, 47, 65));
-
-        jL_cadastrar1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_cadastrar1.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cadastrar1.setText("Cadastrar ");
-        jL_cadastrar1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jL_cadastrar1MouseClicked(evt);
-            }
-        });
-        jP_cadastrar1.add(jL_cadastrar1);
-
-        jPanel1.add(jP_cadastrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 100, 40));
+        jPanel1.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, -1, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -197,16 +193,24 @@ public class CadastroProntuario extends javax.swing.JFrame {
         });
         jP_cancelar.add(jB_cancelar);
 
-        jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 100, 40));
+        jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 100, 40));
 
         jL_medico.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_medico.setText("Medico");
-        jPanel1.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, 20));
+        jL_medico.setText("Médico");
+        jPanel1.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 70, 20));
 
         jT_medico.setEditable(false);
-        jPanel1.add(jT_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 310, -1));
+        jPanel1.add(jT_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 310, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 520, 390));
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 490, 250));
+
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 120));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 520, 480));
 
         pack();
         setLocationRelativeTo(null);
@@ -223,24 +227,17 @@ public class CadastroProntuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jL_cadastrarMouseClicked
 
-    private void jL_cadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseClicked
-       prontuario.setEncaminhamentos(jTA_encaminhamentos.getText());
-       prontuario.setMedicamentos(jT_medicamentos.getText());
-       prontuario.setObservaçoes(jTA_observacoes.getText());
-       prontuario.setSintomas(jTA_sintomas.getText());
-       
-        try {
-            prontuarioDAO.salvar(prontuario);
-            JOptionPane.showMessageDialog(null, "Prontuario salvo com sucesso");
-        } catch (Exception e) {
-            System.out.println("erro no cadastro do prontuario " + e);
-        }
-       
-    }//GEN-LAST:event_jL_cadastrar1MouseClicked
-
     private void jB_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_jB_cancelarActionPerformed
+
+    private void jL_cadastrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseMoved
+        jP_cadastrar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_cadastrarMouseMoved
+
+    private void jL_cadastrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseExited
+        efeitoBordaCancelar(jP_cadastrar);
+    }//GEN-LAST:event_jL_cadastrarMouseExited
 
     Validacao validar =  new Validacao();
     ProntuarioDAO prontuarioDAO = new ProntuarioDAO();
@@ -279,7 +276,27 @@ public class CadastroProntuario extends javax.swing.JFrame {
             }
         });
     }
-                
+    //codigo para colocar as sombras nos paineis
+    private DropShadowBorder efeitoBorda(){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShadowColor(Color.black);
+        shadow.setShadowSize(5);
+        shadow.setShowLeftShadow(true);
+        shadow.setShowRightShadow(true);
+        shadow.setShowBottomShadow(true);
+        shadow.setShowTopShadow(true);
+        return shadow;
+    }
+    //codigo para cancelar a borda em todas os paineis
+    private void efeitoBordaCancelar(javax.swing.JPanel painel){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShowLeftShadow(false);
+        shadow.setShowRightShadow(false);
+        shadow.setShowBottomShadow(false);
+        shadow.setShowTopShadow(false);
+        
+        painel.setBorder(shadow);
+    }            
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Sintomas;
     private javax.swing.JLabel Sintomas1;
@@ -288,17 +305,17 @@ public class CadastroProntuario extends javax.swing.JFrame {
     private javax.swing.JButton jB_cancelar;
     private javax.swing.JFormattedTextField jFT_data;
     private javax.swing.JLabel jL_cadastrar;
-    private javax.swing.JLabel jL_cadastrar1;
     private javax.swing.JLabel jL_cliente;
     private javax.swing.JLabel jL_consultas;
     private javax.swing.JLabel jL_data;
     private javax.swing.JLabel jL_hora;
     private javax.swing.JLabel jL_medico;
     private javax.swing.JPanel jP_cadastrar;
-    private javax.swing.JPanel jP_cadastrar1;
     private javax.swing.JPanel jP_cancelar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTA_encaminhamentos;
