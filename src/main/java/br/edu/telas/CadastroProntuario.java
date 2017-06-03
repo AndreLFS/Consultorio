@@ -95,14 +95,17 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_data.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_data.setForeground(new java.awt.Color(255, 255, 255));
         jL_data.setText("Data");
         jPanel1.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 20));
 
         jL_cliente.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cliente.setForeground(new java.awt.Color(255, 255, 255));
         jL_cliente.setText("Cliente");
         jPanel1.add(jL_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 70, 20));
 
         Sintomas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        Sintomas.setForeground(new java.awt.Color(255, 255, 255));
         Sintomas.setText("Medicamentos");
         jPanel1.add(Sintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 160, 20));
 
@@ -127,6 +130,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel1.add(jT_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 150, -1));
 
         jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_hora.setForeground(new java.awt.Color(255, 255, 255));
         jL_hora.setText("Hora");
         jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 90, 20));
 
@@ -137,6 +141,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 310, 50));
 
         Sintomas1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        Sintomas1.setForeground(new java.awt.Color(255, 255, 255));
         Sintomas1.setText("Sintomas");
         jPanel1.add(Sintomas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 100, 20));
 
@@ -147,11 +152,13 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 270, 60));
 
         Sintomas2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        Sintomas2.setForeground(new java.awt.Color(255, 255, 255));
         Sintomas2.setText("Observações");
         jPanel1.add(Sintomas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 120, 20));
         jPanel1.add(jT_medicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 250, 40));
 
         Sintomas3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        Sintomas3.setForeground(new java.awt.Color(255, 255, 255));
         Sintomas3.setText("Encaminhamentos");
         jPanel1.add(Sintomas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 170, 20));
         jPanel1.add(jTA_encaminhamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 220, 40));
@@ -196,6 +203,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 100, 40));
 
         jL_medico.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_medico.setForeground(new java.awt.Color(255, 255, 255));
         jL_medico.setText("Médico");
         jPanel1.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 70, 20));
 
