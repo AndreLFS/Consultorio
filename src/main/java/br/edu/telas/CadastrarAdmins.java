@@ -36,6 +36,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         ControleTelas.telaCadastroAdmins = true;
         this.admin = admin;
         this.endereco = admin.getEndereco();
+        jL_cadastrar.setText("Editar");
         jT_logradouro.setText(admin.getEndereco().getLogradouro());   //set do logradouro
         jT_bairro.setText(admin.getEndereco().getBairro());           //set do bairro
         jT_cidade.setText(admin.getEndereco().getCidade());           //set da cidade
@@ -107,11 +108,13 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         enderecoDAO.salvar(endereco);
         if(adminDAO.salvar(admin)== true){
             JOptionPane.showMessageDialog(null, "Administrador Cadastrado com sucesso");
+            ControleTelas.telaCadastroAdmins = false;
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Erro no Cadastro !");
         }
     }
+    
      public void fechar(){
         if(ControleTelas.telaListarAdministrador == true){
             ControleTelas.telaCadastroAdmins = false;
@@ -171,6 +174,13 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -558,6 +568,10 @@ public class CadastrarAdmins extends javax.swing.JFrame {
     private void jL_cancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseExited
         efeitoBordaCancelar(jP_cancelar);
     }//GEN-LAST:event_jL_cancelarMouseExited
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowGainedFocus
     //codigo para colocar as sombras nos paineis
     private DropShadowBorder efeitoBorda(){
         DropShadowBorder shadow = new DropShadowBorder();

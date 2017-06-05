@@ -139,8 +139,11 @@ public class ListarAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_ExcluirActionPerformed
 
     private void jB_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EditarActionPerformed
-        CadastrarAdmins cac = new CadastrarAdmins(getAdmin());
-        cac.setVisible(true);
+        if(ControleTelas.telaCadastroAdmins ==  false){
+            CadastrarAdmins cac = new CadastrarAdmins(getAdmin());
+            cac.setVisible(true);
+        }
+        
     }//GEN-LAST:event_jB_EditarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

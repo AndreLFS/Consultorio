@@ -5,12 +5,26 @@
  */
 package br.edu.telas;
 
+import br.edu.util.ConnectionFactory;
 import br.edu.DAO.ProntuarioDAO;
 import br.edu.anotacoes.Atendimento;
 import br.edu.anotacoes.Prontuario;
 import br.edu.util.Validacao;
+import br.edu.util.ConnectionFactory;
+import com.sun.corba.se.spi.legacy.connection.Connection;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
@@ -77,6 +91,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jT_medico = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -218,6 +233,14 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 120));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 520, 480));
 
         pack();
@@ -231,7 +254,17 @@ public class CadastroProntuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jFT_dataActionPerformed
 
     private void jL_cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseClicked
-        // TODO add your handling code here:
+       prontuario.setEncaminhamentos(jTA_encaminhamentos.getText());
+       prontuario.setMedicamentos(jT_medicamentos.getText());
+       prontuario.setObservaçoes(jTA_observacoes.getText());
+       prontuario.setSintomas(jTA_sintomas.getText());
+       
+        try {
+            prontuarioDAO.salvar(prontuario);
+            JOptionPane.showMessageDialog(null, "Prontuario salvo com sucesso");
+        } catch (Exception e) {
+            System.out.println("erro no cadastro do prontuario " + e);
+        }
         
     }//GEN-LAST:event_jL_cadastrarMouseClicked
 
@@ -247,6 +280,31 @@ public class CadastroProntuario extends javax.swing.JFrame {
         efeitoBordaCancelar(jP_cadastrar);
     }//GEN-LAST:event_jL_cadastrarMouseExited
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            //coneção
+            java.sql.Connection connection = ConnectionFactory.getConnection();
+            JasperDesign jasperDesign= null;
+            jasperDesign = JRXmlLoader.load("D:\\3º Semestre\\Consultorio\\Receita.jrxml");
+            String sql = "SELECT prontuario.`encaminhamentos` AS prontuario_encaminhamentos, prontuario.`medicamentos` AS prontuario_medicamentos, prontuario.`observaçoes` AS prontuario_observaçoes, prontuario.`sintomas` AS prontuario_sintomas\n" +
+                            "FROM  `prontuario` prontuario\n" +
+                            "WHERE prontuario.`id` = " + prontuario.getId();
+            JasperPrint jasperPrint = null;
+            JRDesignQuery newQuerry = new JRDesignQuery();
+            newQuerry.setText(sql);
+            jasperDesign.setQuery(newQuerry);
+            JasperReport jasperReport = null;
+            jasperReport= JasperCompileManager.compileReport(jasperDesign);
+            jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);
+            jasperViewer.setVisible(true);
+        } catch (Exception e) {
+            System.out.println("Erro na geração do prontuario " + e);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
     Validacao validar =  new Validacao();
     ProntuarioDAO prontuarioDAO = new ProntuarioDAO();
     
@@ -304,13 +362,15 @@ public class CadastroProntuario extends javax.swing.JFrame {
         shadow.setShowTopShadow(false);
         
         painel.setBorder(shadow);
-    }            
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Sintomas;
     private javax.swing.JLabel Sintomas1;
     private javax.swing.JLabel Sintomas2;
     private javax.swing.JLabel Sintomas3;
     private javax.swing.JButton jB_cancelar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFormattedTextField jFT_data;
     private javax.swing.JLabel jL_cadastrar;
     private javax.swing.JLabel jL_cliente;

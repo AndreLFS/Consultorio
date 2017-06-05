@@ -239,16 +239,17 @@ public class Login extends javax.swing.JFrame {
     
     private void jL_loguinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseClicked
         if(logarMedico()){
-            //home de medico
             HomeMedico homeMedico = new HomeMedico(medico);
             homeMedico.setVisible(true);
             this.dispose();
         }else if(logarRecepcionista()){
-            //home de recepcionista
-            System.out.println("Login Recepcionista");
+            HomeRecepcionista homeRecepcionista = new HomeRecepcionista();
+            homeRecepcionista.setVisible(true);
+            this.dispose();
         }else if(logarAdmin()){
-            //home de admin
-            System.out.println("Loguin de Admin");
+            HomeAdmin homeAdmin = new HomeAdmin();
+            homeAdmin.setVisible(true);
+            this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuario ou senha errados");
         }
