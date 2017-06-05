@@ -239,8 +239,8 @@ public class Login extends javax.swing.JFrame {
     
     private void jL_loguinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseClicked
         if(logarMedico()){
-            HomeMedico homeMedico = new HomeMedico(medico);
-            homeMedico.setVisible(true);
+            ListarAtendimentoMedico atendimentoMedico = new ListarAtendimentoMedico("medico", medico);
+            atendimentoMedico.setVisible(true);
             this.dispose();
         }else if(logarRecepcionista()){
             HomeRecepcionista homeRecepcionista = new HomeRecepcionista();
