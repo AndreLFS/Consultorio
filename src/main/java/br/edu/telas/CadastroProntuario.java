@@ -11,8 +11,14 @@ import br.edu.anotacoes.Atendimento;
 import br.edu.anotacoes.Prontuario;
 import br.edu.util.Validacao;
 import br.edu.util.ConnectionFactory;
+import br.edu.util.Util;
 import com.sun.corba.se.spi.legacy.connection.Connection;
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -92,6 +98,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -239,7 +246,15 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 520, 480));
 
@@ -282,27 +297,33 @@ public class CadastroProntuario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            //coneção
-            java.sql.Connection connection = ConnectionFactory.getConnection();
-            JasperDesign jasperDesign= null;
-            jasperDesign = JRXmlLoader.load("D:\\3º Semestre\\Consultorio\\Receita.jrxml");
-            String sql = "SELECT prontuario.`encaminhamentos` AS prontuario_encaminhamentos, prontuario.`medicamentos` AS prontuario_medicamentos, prontuario.`observaçoes` AS prontuario_observaçoes, prontuario.`sintomas` AS prontuario_sintomas\n" +
-                            "FROM  `prontuario` prontuario\n" +
-                            "WHERE prontuario.`id` = " + prontuario.getId();
-            JasperPrint jasperPrint = null;
-            JRDesignQuery newQuerry = new JRDesignQuery();
-            newQuerry.setText(sql);
-            jasperDesign.setQuery(newQuerry);
-            JasperReport jasperReport = null;
-            jasperReport= JasperCompileManager.compileReport(jasperDesign);
-            jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);
-            JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);
-            jasperViewer.setVisible(true);
+            HashMap parametros = new HashMap();
+            parametros.put("idProntuario", String.valueOf(prontuario.getId()));
+            Util.imprimir("D:\\3º Semestre\\Consultorio\\Receita.jrxml", parametros);
         } catch (Exception e) {
             System.out.println("Erro na geração do prontuario " + e);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         int dias = Integer.valueOf(JOptionPane.showInputDialog(null, "Quantos dias de atestado?"));
+        try {
+           Date data = new Date();
+           SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+           Calendar calendar = Calendar.getInstance();
+           calendar.setTime(new Date());
+           calendar.add(Calendar.DAY_OF_MONTH, dias);
+           
+            HashMap parametros = new HashMap();
+            parametros.put("idCliente", String.valueOf(atendimento.getCliente().getId()));
+            parametros.put("hoje", formatador.format(data));
+            parametros.put("dataFinal", formatador.format(calendar.getTime()));
+            Util.imprimir("D:\\3º Semestre\\Consultorio\\AtestadoMedico.jrxml", parametros);
+        } catch (Exception e) {
+            System.out.println("Erro na geração do prontuario " + e);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     Validacao validar =  new Validacao();
@@ -371,6 +392,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
     private javax.swing.JLabel Sintomas3;
     private javax.swing.JButton jB_cancelar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JFormattedTextField jFT_data;
     private javax.swing.JLabel jL_cadastrar;
     private javax.swing.JLabel jL_cliente;

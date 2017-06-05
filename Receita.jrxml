@@ -4,14 +4,11 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<subDataset name="dataset1" uuid="6e949b23-8159-44b0-993f-90f474b03067"/>
-	<queryString language="SQL">
-		<![CDATA[SELECT
-     prontuario.`encaminhamentos` AS prontuario_encaminhamentos,
-     prontuario.`medicamentos` AS prontuario_medicamentos,
-     prontuario.`observaçoes` AS prontuario_observaçoes,
-     prontuario.`sintomas` AS prontuario_sintomas
-FROM
-     `prontuario` prontuario]]>
+	<parameter name="idProntuario" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT prontuario.`encaminhamentos` AS prontuario_encaminhamentos, prontuario.`medicamentos` AS prontuario_medicamentos, prontuario.`observaçoes` AS prontuario_observaçoes, prontuario.`sintomas` AS prontuario_sintomas
+ FROM  `prontuario` prontuario
+ WHERE prontuario.`id` =$P!{idProntuario}]]>
 	</queryString>
 	<field name="prontuario_encaminhamentos" class="java.lang.String"/>
 	<field name="prontuario_medicamentos" class="java.lang.String"/>
@@ -27,82 +24,78 @@ FROM
 				<staticText>
 					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="d27bd8b9-2e59-4b86-a0fd-cce3f5aafefb"/>
 					<textElement>
-						<font size="34" isBold="true"/>
+						<font fontName="Arial" size="34" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Prontuario]]></text>
 				</staticText>
 			</frame>
 		</band>
 	</title>
-	<pageHeader>
-		<band height="121">
-			<staticText>
-				<reportElement x="234" y="-168" width="100" height="20" uuid="19e2d345-5f4f-4836-86a8-90230b395232"/>
-				<text><![CDATA[Observações]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="334" y="-148" width="100" height="20" uuid="f3a49b6a-9afd-4a75-b504-df317d41a105"/>
-				<textFieldExpression><![CDATA[$F{prontuario_observaçoes}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="24" y="22" width="100" height="20" uuid="27922d95-b2ae-4f4c-ae7d-a1573ed88702"/>
-				<text><![CDATA[Sintomas]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="124" y="42" width="419" height="64" uuid="802ad3dc-f92a-412e-956d-466b13937da2"/>
-				<textFieldExpression><![CDATA[$F{prontuario_sintomas}]]></textFieldExpression>
-			</textField>
-		</band>
-	</pageHeader>
 	<columnHeader>
-		<band height="229">
+		<band height="342">
 			<textField>
-				<reportElement x="124" y="36" width="419" height="64" uuid="3e2b167c-845c-44a4-9312-521c1df66963"/>
+				<reportElement x="124" y="137" width="419" height="64" uuid="3e2b167c-845c-44a4-9312-521c1df66963"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{prontuario_encaminhamentos}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="12" y="16" width="100" height="20" uuid="7d218b90-ad22-4e4c-83ec-0fb17b7ab1b9"/>
+				<reportElement x="0" y="115" width="142" height="22" uuid="7d218b90-ad22-4e4c-83ec-0fb17b7ab1b9"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
 				<text><![CDATA[Encaminhamentos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="100" width="100" height="20" uuid="213ed7e0-d024-492a-bcab-00e13b37912a"/>
+				<reportElement x="0" y="201" width="124" height="31" uuid="213ed7e0-d024-492a-bcab-00e13b37912a"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
 				<text><![CDATA[Medicamentos]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="122" y="120" width="421" height="98" uuid="bd334835-df91-4286-9977-c6c20933b264"/>
+				<reportElement x="122" y="221" width="421" height="98" uuid="bd334835-df91-4286-9977-c6c20933b264"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{prontuario_medicamentos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="12" width="100" height="20" uuid="27922d95-b2ae-4f4c-ae7d-a1573ed88702"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[Sintomas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="124" y="32" width="419" height="64" uuid="802ad3dc-f92a-412e-956d-466b13937da2"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prontuario_sintomas}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
-	<detail>
-		<band height="79">
-			<staticText>
-				<reportElement x="188" y="46" width="146" height="20" uuid="470e147c-4e1c-4793-8711-77d2b25e38e3"/>
-				<text><![CDATA[Assinatura do medico]]></text>
-			</staticText>
-			<line>
-				<reportElement x="142" y="32" width="220" height="1" uuid="917a9293-f3f5-4fbb-a04b-5f82eaa47d40"/>
-			</line>
-		</band>
-	</detail>
 	<columnFooter>
 		<band/>
 	</columnFooter>
 	<pageFooter>
-		<band height="18">
-			<textField>
-				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="3a49c391-cc61-443b-8579-222f4983901f"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="aebdfa16-f6a6-483e-88fd-3af4f86b86e8"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
+		<band height="117">
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="0" y="4" width="100" height="13" uuid="d33c3164-6ae0-48a8-8285-76f0fe860b2c"/>
+				<reportElement x="0" y="82" width="100" height="13" uuid="d33c3164-6ae0-48a8-8285-76f0fe860b2c"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="555" height="20" uuid="470e147c-4e1c-4793-8711-77d2b25e38e3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[Assinatura do medico]]></text>
+			</staticText>
+			<line>
+				<reportElement x="142" y="37" width="278" height="1" uuid="917a9293-f3f5-4fbb-a04b-5f82eaa47d40"/>
+			</line>
 		</band>
 	</pageFooter>
 	<summary>
