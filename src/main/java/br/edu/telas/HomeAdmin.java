@@ -539,7 +539,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_listarFuncionarioMouseMoved
 
     private void jL_listarFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarFuncionarioMouseClicked
-        JOptionPane.showMessageDialog(null, "Tela não Criada Ainda");
+        if(ControleTelas.telaListarEspecialiades == false){
+            ListarEspecialidades listarEspecialidades = new ListarEspecialidades();
+            listarEspecialidades.setVisible(true);
+        }
     }//GEN-LAST:event_jL_listarFuncionarioMouseClicked
 
     private void jL_listarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarFuncionarioMouseExited

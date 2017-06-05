@@ -152,7 +152,8 @@ public class HomeMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_buscarConsultasMouseMoved
 
     private void jL_buscarConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_buscarConsultasMouseClicked
-        // TODO add your handling code here:
+        ListarAtendimentoMedico atendimentoMedico = new ListarAtendimentoMedico("medico", medico);
+        atendimentoMedico.setVisible(true);
     }//GEN-LAST:event_jL_buscarConsultasMouseClicked
 
     private void jL_buscarConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_buscarConsultasMouseExited

@@ -17,5 +17,12 @@ public class EspecialidadeDAO extends GenericoDAO<Especialidade>{
         super(Especialidade.class);
     }
     
-    
+    @Override
+    public boolean salvar(Especialidade especialidade) {
+        if(especialidade.getId() == 0){
+            return super.salvar(especialidade);
+        }else{
+            return super.editar(especialidade);
+        }
+    }
 }

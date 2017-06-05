@@ -17,13 +17,21 @@ import org.jdesktop.swingx.border.DropShadowBorder;
  * @author Lab3
  */
 public class CadastrarEspecialidade extends javax.swing.JFrame {
-
+    Especialidade especialidade;
     /**
      * Creates new form CadastrarEspecialidade
      */
     public CadastrarEspecialidade() {
         initComponents();
         ControleTelas.telaCadastroEspecialidade = true;
+        especialidade = new Especialidade();
+    }
+    public CadastrarEspecialidade(Especialidade especialidade) {
+        initComponents();
+        ControleTelas.telaCadastroEspecialidade = true;
+        this.especialidade = especialidade;
+        jT_especialidade.setText(especialidade.getEspecialidade());
+        jL_cadastrar1.setText("Editar");
     }
 
     /**
@@ -160,7 +168,11 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cadastrar1MouseMoved
 
     private void jL_cadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseClicked
-        // TODO add your handling code here:
+        if (testarVazio()) {
+            if (salvar()) {
+                
+            }
+        }
     }//GEN-LAST:event_jL_cadastrar1MouseClicked
 
     private void jL_cadastrar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseExited
@@ -184,9 +196,7 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
     }
     
     private boolean salvar(){
-        Especialidade especialidade = new Especialidade(
-                jT_especialidade.getText()
-        );
+        especialidade.setEspecialidade(jT_especialidade.getText());
         EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
         try {
             especialidadeDAO.salvar(especialidade);
@@ -195,7 +205,16 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
             return false;
         }
         JOptionPane.showMessageDialog(null, "Especialidade Cadastrada com sucesso");
+        fechar();
         return true;
+    }
+    
+    private void fechar (){
+        if(ControleTelas.telaListarEspecialiades){
+            ListarEspecialidades.atualizarTabela();
+        }
+        ControleTelas.telaCadastroEspecialidade = false;
+        this.dispose();
     }
     //codigo para colocar as sombras nos paineis
     private DropShadowBorder efeitoBorda(){
