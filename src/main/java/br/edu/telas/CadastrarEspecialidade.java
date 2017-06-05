@@ -7,6 +7,7 @@ package br.edu.telas;
 
 import br.edu.DAO.EspecialidadeDAO;
 import br.edu.anotacoes.Especialidade;
+import br.edu.util.ControleTelas;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.border.DropShadowBorder;
@@ -22,6 +23,7 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
      */
     public CadastrarEspecialidade() {
         initComponents();
+        ControleTelas.telaCadastroEspecialidade = true;
     }
 
     /**
@@ -44,7 +46,12 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
         jP_cadastrar = new javax.swing.JPanel();
         jL_cadastrar1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(36, 47, 65));
@@ -129,6 +136,7 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 510, 270));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jL_cancelarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseMoved
@@ -162,6 +170,10 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
     private void jP_cadastrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarMouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_cadastrarMouseMoved
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        ControleTelas.telaCadastroEspecialidade = false;
+    }//GEN-LAST:event_formWindowClosing
     
     private boolean testarVazio(){
         if(jT_especialidade.getText().isEmpty()){

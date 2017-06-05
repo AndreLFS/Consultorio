@@ -8,6 +8,7 @@ package br.edu.telas;
 import br.edu.util.ControleTelas;
 import com.sun.webkit.event.WCKeyEvent;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
 
@@ -81,7 +82,7 @@ public class HomeAdmin extends javax.swing.JFrame {
 
         jL_funcionario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jL_funcionario.setForeground(new java.awt.Color(240, 240, 240));
-        jL_funcionario.setText("Funcionário");
+        jL_funcionario.setText("Especialidade");
         jP_container.add(jL_funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
         jP_funcionario.setBackground(new java.awt.Color(36, 47, 65));
@@ -190,6 +191,9 @@ public class HomeAdmin extends javax.swing.JFrame {
             }
         });
         jP_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_sairMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jP_sairMouseExited(evt);
             }
@@ -535,7 +539,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_listarFuncionarioMouseMoved
 
     private void jL_listarFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarFuncionarioMouseClicked
-
+        JOptionPane.showMessageDialog(null, "Tela não Criada Ainda");
     }//GEN-LAST:event_jL_listarFuncionarioMouseClicked
 
     private void jL_listarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarFuncionarioMouseExited
@@ -555,7 +559,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cadastrarFuncionarioMouseMoved
 
     private void jL_cadastrarFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarFuncionarioMouseClicked
-        // TODO add your handling code here:
+       if(ControleTelas.telaCadastroEspecialidade == false){
+            CadastrarEspecialidade cadastrarEspecialidade = new CadastrarEspecialidade();
+            cadastrarEspecialidade.setVisible(true);
+        }
     }//GEN-LAST:event_jL_cadastrarFuncionarioMouseClicked
 
     private void jL_cadastrarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarFuncionarioMouseExited
@@ -575,7 +582,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_listarAdminMouseMoved
 
     private void jL_listarAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarAdminMouseClicked
-        // TODO add your handling code here:
+        if(ControleTelas.telaListarAdministrador == false){
+            ListarAdmin listarAdmin = new ListarAdmin();
+            listarAdmin.setVisible(true);
+        }
     }//GEN-LAST:event_jL_listarAdminMouseClicked
 
     private void jL_listarAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarAdminMouseExited
@@ -595,7 +605,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cadastrarAdminMouseMoved
 
     private void jL_cadastrarAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarAdminMouseClicked
-        // TODO add your handling code here:
+        if(ControleTelas.telaCadastroAdmins == false){
+            CadastrarAdmins cadastrarAdmins = new CadastrarAdmins();
+            cadastrarAdmins.setVisible(true);
+        }
     }//GEN-LAST:event_jL_cadastrarAdminMouseClicked
 
     private void jL_cadastrarAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarAdminMouseExited
@@ -615,7 +628,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_listarClienteMouseMoved
 
     private void jL_listarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarClienteMouseClicked
-        // TODO add your handling code here:
+        if(ControleTelas.telaListarClientes == false){
+            ListarClientes listarClientes = new ListarClientes();
+            listarClientes.setVisible(true);
+        }
     }//GEN-LAST:event_jL_listarClienteMouseClicked
 
     private void jL_listarClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarClienteMouseExited
@@ -635,7 +651,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cadastrarClienteMouseMoved
 
     private void jL_cadastrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarClienteMouseClicked
-        // TODO add your handling code here:
+        if(ControleTelas.telaCadastroClientes == false){
+            CadastroCliente cadastroCliente = new CadastroCliente();
+            cadastroCliente.setVisible(true);
+        }
     }//GEN-LAST:event_jL_cadastrarClienteMouseClicked
 
     private void jL_cadastrarClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarClienteMouseExited
@@ -655,7 +674,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_listarRecepcionistaMouseMoved
 
     private void jL_listarRecepcionistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarRecepcionistaMouseClicked
-        // TODO add your handling code here:
+        if(ControleTelas.telaListarRecepcionista == false){
+            ListarRecepcionista listarRecepcionista = new ListarRecepcionista();
+            listarRecepcionista.setVisible(true);
+        }
     }//GEN-LAST:event_jL_listarRecepcionistaMouseClicked
 
     private void jL_listarRecepcionistaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarRecepcionistaMouseExited
@@ -675,7 +697,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cadastrarRecepcionistaMouseMoved
 
     private void jL_cadastrarRecepcionistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarRecepcionistaMouseClicked
-        // TODO add your handling code here:
+        if(ControleTelas.telaCadastroRecepcionista == false){
+            CadastroRecepcionista cadastroRecepcionista = new CadastroRecepcionista();
+            cadastroRecepcionista.setVisible(true);
+        }
     }//GEN-LAST:event_jL_cadastrarRecepcionistaMouseClicked
 
     private void jL_cadastrarRecepcionistaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarRecepcionistaMouseExited
@@ -705,6 +730,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     private void jP_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseExited
         efeitoBordaCancelar(jP_sair);
     }//GEN-LAST:event_jP_sairMouseExited
+
+    private void jP_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseClicked
+       this.dispose();
+    }//GEN-LAST:event_jP_sairMouseClicked
     //codigo para colocar as sombras nos paineis
     private DropShadowBorder efeitoBorda(){
         DropShadowBorder shadow = new DropShadowBorder();

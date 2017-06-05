@@ -8,6 +8,7 @@ package br.edu.telas;
 import br.edu.DAO.RecepcionistaDAO;
 import br.edu.anotacoes.Recepcionista;
 import br.edu.tableModel.RecepcionistaTableModel;
+import br.edu.util.ControleTelas;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,7 @@ public class ListarRecepcionista extends javax.swing.JFrame {
     public ListarRecepcionista() {
         initComponents();
         atualizarTabela();
+        ControleTelas.telaListarRecepcionista = true;
     }
     protected static void atualizarTabela(){
         RecepcionistaDAO recepcionistaDAO = new RecepcionistaDAO();
@@ -53,7 +55,12 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         Excluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,6 +116,7 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
@@ -134,6 +142,10 @@ public class ListarRecepcionista extends javax.swing.JFrame {
             cadastroRecepcionista.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        ControleTelas.telaListarRecepcionista = false;
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

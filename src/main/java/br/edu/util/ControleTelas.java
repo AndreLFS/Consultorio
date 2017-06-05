@@ -12,7 +12,7 @@ package br.edu.util;
 public class ControleTelas {
     public static boolean telaCadastroAdmins = false;
     public static boolean telaCadastroAtendimento= false;
-    
+    public static boolean telaCadastroEspecialidade= false;
     public static boolean telaCadastroClientes = false;
     public static boolean telaCadastroMedicos = false;
     
