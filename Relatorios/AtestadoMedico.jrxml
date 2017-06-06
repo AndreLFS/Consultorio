@@ -49,7 +49,7 @@ WHERE id = $P{idCliente}]]>
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="e7078b9b-ca91-4605-a5f7-80b4dfba9466"/>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#009999" uuid="e7078b9b-ca91-4605-a5f7-80b4dfba9466"/>
 				<staticText>
 					<reportElement x="20" y="20" width="301" height="43" forecolor="#FFFFFF" uuid="ddd4d602-0b70-4c07-83e8-646e3c0a7808"/>
 					<textElement>

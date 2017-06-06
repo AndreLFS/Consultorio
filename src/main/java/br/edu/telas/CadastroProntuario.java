@@ -299,7 +299,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         try {
             HashMap parametros = new HashMap();
             parametros.put("idProntuario", String.valueOf(prontuario.getId()));
-            Util.imprimir("D:\\3º Semestre\\Consultorio\\Receita.jrxml", parametros);
+            Util.imprimir("Relatorios\\Receita.jrxml", parametros);
         } catch (Exception e) {
             System.out.println("Erro na geração do prontuario " + e);
         }
@@ -316,10 +316,10 @@ public class CadastroProntuario extends javax.swing.JFrame {
            calendar.add(Calendar.DAY_OF_MONTH, dias);
            
             HashMap parametros = new HashMap();
-            parametros.put("idCliente", String.valueOf(atendimento.getCliente().getId()));
+            parametros.put("idCliente", 1);
             parametros.put("hoje", formatador.format(data));
             parametros.put("dataFinal", formatador.format(calendar.getTime()));
-            Util.imprimir("D:\\3º Semestre\\Consultorio\\AtestadoMedico.jrxml", parametros);
+            Util.imprimir("Relatorios\\AtestadoMedico.jrxml", parametros);
         } catch (Exception e) {
             System.out.println("Erro na geração do prontuario " + e);
         }
