@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  * @author Gabriel
  */
 public class MedicoTableModel extends AbstractTableModel{
-    private String[] colunas = {"NOME", "ESPECIALIDADE", "CPF"}; 
+    private String[] colunas = {"NOME", "ESPECIALIDADE", "CRM"}; 
     private List<Medico> medicos;
 
     public MedicoTableModel(List<Medico> medicos) {
@@ -39,7 +39,7 @@ public class MedicoTableModel extends AbstractTableModel{
             case 1:
                 return medico.getEspecialidade().getEspecialidade();
             case 2:
-                return medico.getCpf();
+                return medico.getCrm();
         }
         return null;
     }

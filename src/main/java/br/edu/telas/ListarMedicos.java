@@ -153,15 +153,7 @@ public class ListarMedicos extends javax.swing.JFrame {
                     atualizarTabela();
                 } catch (Exception e) {
                     System.out.println("Erro ao deletar Médico " +e);
-                    System.out.println("Erro ao deletar Médico " +e);
-                    System.out.println("Erro ao deletar Médico " +e);
-                    System.out.println("Erro ao deletar Médico " +e);
-                    System.out.println("Erro ao deletar Médico " +e);
-                    System.out.println("Erro ao deletar Médico " +e);
-                    System.out.println("Erro ao deletar Médico " +e);
-                    System.out.println("Erro ao deletar Médico " +e);
-                    System.out.println("Erro ao deletar Médico " +e);
-                }
+                    }
                 JOptionPane.showMessageDialog(null, "Médico deletado com sucesso");
             }
         }
