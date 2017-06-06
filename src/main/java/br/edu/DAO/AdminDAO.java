@@ -18,4 +18,12 @@ public class AdminDAO extends GenericoDAO<Admin>{
         super(Admin.class);
     }
     
+    @Override
+    public boolean salvar(Admin admin) {
+        if(admin.getId() == 0){
+            return super.salvar(admin);
+        }else{
+            return super.editar(admin);
+        }
+    }
 }

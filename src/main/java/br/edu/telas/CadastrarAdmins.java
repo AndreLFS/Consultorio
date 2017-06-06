@@ -27,7 +27,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
      */
     public CadastrarAdmins(){
         initComponents();
-        this.admin = new Admin();
+        this.admin = new Admin(); 
         this.endereco = new Endereco();
         ControleTelas.telaCadastroAdmins = true;
     }
@@ -106,9 +106,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         EnderecoDAO enderecoDAO = new EnderecoDAO();
         //ele salva primeiro o endereço para depois salvar o cliente
         enderecoDAO.salvar(endereco);
-        if(adminDAO.salvar(admin)== true){
+        if(adminDAO.salvar(this.admin)== true){
             JOptionPane.showMessageDialog(null, "Administrador Cadastrado com sucesso");
             ControleTelas.telaCadastroAdmins = false;
+            if (ControleTelas.telaListarAdministrador) {
+                ListarAdmin.atualizarTabela();
+            }
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Erro no Cadastro !");
@@ -380,6 +383,11 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 130, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_cancelarMouseClicked(evt);
+            }
+        });
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -390,6 +398,9 @@ public class CadastrarAdmins extends javax.swing.JFrame {
             }
         });
         jL_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cancelarMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_cancelarMouseExited(evt);
             }
@@ -572,6 +583,20 @@ public class CadastrarAdmins extends javax.swing.JFrame {
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void jP_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cancelarMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jP_cancelarMouseClicked
+
+    private void jL_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseClicked
+        if(JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?")==0){
+            ControleTelas.telaCadastroAdmins = false;
+            this.dispose();
+        }
+       
+    }//GEN-LAST:event_jL_cancelarMouseClicked
     //codigo para colocar as sombras nos paineis
     private DropShadowBorder efeitoBorda(){
         DropShadowBorder shadow = new DropShadowBorder();

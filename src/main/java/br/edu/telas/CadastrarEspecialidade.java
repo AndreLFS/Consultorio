@@ -93,6 +93,11 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
                 jP_cancelarMouseMoved(evt);
             }
         });
+        jP_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_cancelarMouseClicked(evt);
+            }
+        });
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,7 +157,10 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cancelarMouseMoved
 
     private void jL_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseClicked
-        // TODO add your handling code here:
+         if(JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?")==0){
+            ControleTelas.telaCadastroEspecialidade = false;
+            this.dispose();
+        }
     }//GEN-LAST:event_jL_cancelarMouseClicked
 
     private void jL_cancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseExited
@@ -186,6 +194,14 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         ControleTelas.telaCadastroEspecialidade = false;
     }//GEN-LAST:event_formWindowClosing
+
+    private void jP_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cancelarMouseClicked
+        // TODO add your handling code here:
+         if(JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?")==0){
+            ControleTelas.telaCadastroEspecialidade = false;
+            this.dispose();
+        }
+    }//GEN-LAST:event_jP_cancelarMouseClicked
     
     private boolean testarVazio(){
         if(jT_especialidade.getText().isEmpty()){

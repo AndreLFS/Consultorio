@@ -68,6 +68,9 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         localizarHora();
         localizarMedicos();
         jFT_data.setText(validar.converterData(atendimento.getData()));
+        
+        AutoCompleteDecorator.decorate(jC_medicos);
+        AutoCompleteDecorator.decorate(jC_clientes);
     }
 
     /**
@@ -180,6 +183,11 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
                 jP_cancelarMouseMoved(evt);
             }
         });
+        jP_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_cancelarMouseClicked(evt);
+            }
+        });
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -265,8 +273,10 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cancelarMouseMoved
 
     private void jL_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseClicked
-        ControleTelas.telaCadastroAtendimento = false;
-        this.dispose();
+        if(JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?")==0){
+            ControleTelas.telaCadastroAtendimento = false;
+            this.dispose();
+        }
     }//GEN-LAST:event_jL_cancelarMouseClicked
 
     private void jL_cancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseExited
@@ -295,6 +305,14 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private void jP_cadastrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarMouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_cadastrarMouseMoved
+
+    private void jP_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cancelarMouseClicked
+        // TODO add your handling code here:
+         if(JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?")==0){
+            ControleTelas.telaCadastroAtendimento = false;
+            this.dispose();
+        }
+    }//GEN-LAST:event_jP_cancelarMouseClicked
     
     MedicoDAO medicoDAO = new MedicoDAO();
     ClienteDAO2 clienteDAO2 = new ClienteDAO2();
