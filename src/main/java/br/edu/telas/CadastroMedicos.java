@@ -348,6 +348,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jL_cancelarMouseMoved(evt);
             }
         });
+        jL_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cancelarMouseClicked(evt);
+            }
+        });
         jP_cancelar.add(jL_cancelar);
 
         jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 130, 40));
@@ -451,6 +456,9 @@ public class CadastroMedicos extends javax.swing.JFrame {
         } else if(jT_rg.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Campo RG esta em branco");
             return false;
+        } else if(jT_CRM.getText().isEmpty()){
+          JOptionPane.showMessageDialog(null, "Campo CRM está em branco");
+          return false;
         }
        return true;
     }
@@ -594,6 +602,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private void jT_CRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_CRMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_CRMActionPerformed
+
+    private void jL_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseClicked
+        fechar();
+        this.dispose();
+    }//GEN-LAST:event_jL_cancelarMouseClicked
     
 
     /**
