@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
@@ -49,6 +50,9 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         ControleTelas.telaCadastroAtendimento = true;
         passarMedicos();
         passarClientes();
+        
+        AutoCompleteDecorator.decorate(jC_medicos);
+        AutoCompleteDecorator.decorate(jC_clientes);
     }
     public CadastrarAtendimento(Atendimento atendimento) {
         initComponents();
@@ -82,11 +86,11 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jL_medicos1 = new javax.swing.JLabel();
         jL_cliente1 = new javax.swing.JLabel();
         jC_idCliente = new javax.swing.JComboBox<>();
-        jC_idMedicos = new javax.swing.JComboBox<>();
         jL_hora = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jFT_data = new javax.swing.JFormattedTextField();
         jP_conteudo = new javax.swing.JPanel();
+        jC_idMedicos = new javax.swing.JComboBox<>();
         jP_cancelar = new javax.swing.JPanel();
         jL_cancelar = new javax.swing.JLabel();
         jP_cadastrar = new javax.swing.JPanel();
@@ -105,6 +109,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jP_container.setBackground(new java.awt.Color(0, 153, 153));
         jP_container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jC_medicos.setEditable(true);
         jC_medicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jC_medicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +118,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         });
         jP_container.add(jC_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
+        jC_clientes.setEditable(true);
         jC_clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jP_container.add(jC_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
@@ -133,9 +139,6 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
 
         jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jP_container.add(jC_idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
-
-        jC_idMedicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jP_container.add(jC_idMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_hora.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,7 +168,11 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
 
         jP_conteudo.setBackground(new java.awt.Color(153, 153, 153));
         jP_conteudo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jP_container.add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 540, 160));
+
+        jC_idMedicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jP_conteudo.add(jC_idMedicos);
+
+        jP_container.add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 540, 160));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
         jP_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -192,7 +199,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         });
         jP_cancelar.add(jL_cancelar);
 
-        jP_container.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 130, 40));
+        jP_container.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 130, 40));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
         jP_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -219,7 +226,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         });
         jP_cadastrar.add(jL_cadastrar1);
 
-        jP_container.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 130, 40));
+        jP_container.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 130, 40));
 
         getContentPane().add(jP_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 590, 290));
 
@@ -258,10 +265,8 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_cancelarMouseMoved
 
     private void jL_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseClicked
-        // TODO add your handling code here:
-        if(testes()){
-            salvar();
-        }
+        ControleTelas.telaCadastroAtendimento = false;
+        this.dispose();
     }//GEN-LAST:event_jL_cancelarMouseClicked
 
     private void jL_cancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseExited
@@ -278,6 +283,9 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
 
     private void jL_cadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseClicked
         // TODO add your handling code here:
+        if(testes()){
+            salvar();
+        }
     }//GEN-LAST:event_jL_cadastrar1MouseClicked
 
     private void jL_cadastrar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrar1MouseExited
@@ -292,7 +300,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     ClienteDAO2 clienteDAO2 = new ClienteDAO2();
     Validacao validar = new Validacao();
     private boolean testes(){
-       if (jFT_data.getText().equals("  /  /    ") && validar.converterIdade(jFT_data.getText())!= null) {
+       if (jFT_data.getText().equals("  /  /    ") && validar.converterIdade(jFT_data.getText())== null) {
             JOptionPane.showMessageDialog(null, "Data em branco ou invalida");
             return false;
             //teste se a data que esta querendo ser cadastrada é igual a do dia atual
@@ -308,6 +316,20 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         }else if( validar.converterIdade(jFT_data.getText()).compareTo(validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date()))) < 0){
             JOptionPane.showMessageDialog(null, "Data anterior a Atual!");
             return false;
+        }else if(jC_medicos.getSelectedIndex() == -1){
+            if (localizarNomeMedicos()) {
+                medico = medicoLocalizar;
+           } else {
+                JOptionPane.showMessageDialog(null, "Medico não existe, por favor selecione um valido");
+           }
+            return false;
+        }else if(jC_clientes.getSelectedIndex() == -1){
+           if (localizarNomeClientes()) {
+                cliente = clienteLocalizar;
+           } else {
+                JOptionPane.showMessageDialog(null, "Cliente não existe, por favor selecione um valido");
+           }
+            return false;
         }else{
             return true;
         }
@@ -316,8 +338,12 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private void salvar(){
         if (testes()) {
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-            this.medico = (medicoDAO.listarCampos("id", Integer.parseInt(jC_idMedicos.getItemAt(jC_medicos.getSelectedIndex()))).get(0));
-            this.cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
+            if (medicoLocalizar != null) {
+                this.medico = (medicoDAO.listarCampos("id", Integer.parseInt(jC_idMedicos.getItemAt(jC_medicos.getSelectedIndex()))).get(0));
+            }
+            if (clienteLocalizar != null) {
+                this.cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
+            }
             if(TestesAtendimento.testeAtendimento(medico, cliente, validar.converterIdade(jFT_data.getText()), Integer.parseInt(jComboBox1.getSelectedItem().toString()))) {
                 atendimento.setCliente(cliente);
                 atendimento.setData(validar.converterIdade(jFT_data.getText()));
@@ -341,9 +367,9 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         
         }
 }
-    
+    List<Medico> medicos= medicoDAO.listar();
     private void passarMedicos(){
-        List<Medico> medicos= medicoDAO.listar();
+        
         jC_medicos.removeAllItems();
         jC_idMedicos.removeAllItems();
         jC_idMedicos.setVisible(false);
@@ -354,16 +380,25 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     }
     
     private void localizarMedicos(){
-        List<Medico> medicos= medicoDAO.listar();
         for (int i = 0; i < medicos.size(); i++) {
             if (medico.getId() == medicos.get(i).getId()) {
                 jC_medicos.setSelectedIndex(i);
             }
         }
     }
+    Medico medicoLocalizar = null;
+    private boolean localizarNomeMedicos(){
+        for (int i = 0; i < medicos.size(); i++) {
+            if (jC_medicos.getSelectedItem().toString().equals(medicos.get(i).getNome())) {
+                medicoLocalizar = medicos.get(i);
+                return true;
+            }
+        }
+        return false;
+    }
     
+    List<Cliente> clientes= clienteDAO2.listar();
     private void passarClientes(){
-        List<Cliente> clientes= clienteDAO2.listar();
         jC_clientes.removeAllItems();
         jC_idCliente.removeAllItems();
         jC_idCliente.setVisible(false);
@@ -371,15 +406,23 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
             jC_clientes.addItem(clientes.get(i).getNome());
             jC_idCliente.addItem(String.valueOf(clientes.get(i).getId()));
         }
-    }
-    
+    } 
     private void localizarClientes(){
-        List<Cliente> clientes= clienteDAO2.listar();
         for (int i = 0; i < clientes.size(); i++) {
             if (cliente.getId() == clientes.get(i).getId()) {
                 jC_clientes.setSelectedIndex(i);
             }
         }
+    }
+    Cliente clienteLocalizar = null;
+    private boolean localizarNomeClientes(){
+        for (int i = 0; i < clientes.size(); i++) {
+            if (jC_clientes.getSelectedItem().toString().equals(clientes.get(i).getNome())) {
+                clienteLocalizar = clientes.get(i);
+                return true;
+            }
+        }
+        return false;
     }
     
     private void localizarHora(){

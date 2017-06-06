@@ -27,10 +27,6 @@ public class Util {
     
     public static void imprimir(String caminhoRelatorio, HashMap parametros) {
         JasperReport pathjrxml;
-
-        //String caminho = Util.retornaCaminhoApp();
-//        String caminho = "";
-
         Connection connection = ConnectionFactory.getConnection();
         try {
             JDialog viewer = new JDialog(new javax.swing.JFrame(), "Visualização do Relatório", true);

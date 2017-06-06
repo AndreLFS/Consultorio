@@ -316,7 +316,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
            calendar.add(Calendar.DAY_OF_MONTH, dias);
            
             HashMap parametros = new HashMap();
-            parametros.put("idCliente", 1);
+            parametros.put("idCliente", String.valueOf(atendimento.getCliente().getId()));
             parametros.put("hoje", formatador.format(data));
             parametros.put("dataFinal", formatador.format(calendar.getTime()));
             Util.imprimir("Relatorios\\AtestadoMedico.jrxml", parametros);
