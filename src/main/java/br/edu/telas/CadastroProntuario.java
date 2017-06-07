@@ -95,10 +95,10 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jB_cancelar = new javax.swing.JButton();
         jL_medico = new javax.swing.JLabel();
         jT_medico = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -119,20 +119,20 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jL_data.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_data.setForeground(new java.awt.Color(255, 255, 255));
         jL_data.setText("Data");
-        jPanel1.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 20));
+        jPanel1.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, 20));
 
         jL_cliente.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cliente.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cliente.setText("Cliente");
-        jPanel1.add(jL_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 70, 20));
+        jL_cliente.setText("Paciente");
+        jPanel1.add(jL_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 80, 20));
 
         Sintomas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Sintomas.setForeground(new java.awt.Color(255, 255, 255));
         Sintomas.setText("Medicamentos");
-        jPanel1.add(Sintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 160, 20));
+        jPanel1.add(Sintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 160, 20));
 
         jT_cliente.setEditable(false);
-        jPanel1.add(jT_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 310, -1));
+        jPanel1.add(jT_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 290, 30));
 
         jFT_data.setEditable(false);
         jFT_data.setBorder(null);
@@ -146,44 +146,44 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jFT_dataActionPerformed(evt);
             }
         });
-        jPanel1.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 100, 20));
+        jPanel1.add(jFT_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 120, 30));
 
         jT_hora.setEditable(false);
-        jPanel1.add(jT_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 150, -1));
+        jPanel1.add(jT_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 120, 30));
 
         jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_hora.setForeground(new java.awt.Color(255, 255, 255));
         jL_hora.setText("Hora");
-        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 90, 20));
+        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 90, 20));
 
         jTA_sintomas.setColumns(20);
         jTA_sintomas.setRows(5);
         jScrollPane2.setViewportView(jTA_sintomas);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 310, 50));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 450, 50));
 
         Sintomas1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Sintomas1.setForeground(new java.awt.Color(255, 255, 255));
         Sintomas1.setText("Sintomas");
-        jPanel1.add(Sintomas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 100, 20));
+        jPanel1.add(Sintomas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 100, 20));
 
         jTA_observacoes.setColumns(20);
         jTA_observacoes.setRows(5);
         jScrollPane3.setViewportView(jTA_observacoes);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 270, 60));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 450, 70));
 
         Sintomas2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Sintomas2.setForeground(new java.awt.Color(255, 255, 255));
         Sintomas2.setText("Observações");
-        jPanel1.add(Sintomas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 120, 20));
-        jPanel1.add(jT_medicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 250, 40));
+        jPanel1.add(Sintomas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 120, 20));
+        jPanel1.add(jT_medicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 200, 40));
 
         Sintomas3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Sintomas3.setForeground(new java.awt.Color(255, 255, 255));
         Sintomas3.setText("Encaminhamentos");
-        jPanel1.add(Sintomas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 170, 20));
-        jPanel1.add(jTA_encaminhamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 220, 40));
+        jPanel1.add(Sintomas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 170, 20));
+        jPanel1.add(jTA_encaminhamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 200, 40));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -227,36 +227,36 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jL_medico.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_medico.setForeground(new java.awt.Color(255, 255, 255));
         jL_medico.setText("Médico");
-        jPanel1.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 70, 20));
+        jPanel1.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 70, 20));
 
         jT_medico.setEditable(false);
-        jPanel1.add(jT_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 310, -1));
+        jPanel1.add(jT_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 290, 30));
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 490, 250));
-
-        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 120));
-
-        jButton1.setText("jButton1");
+        jButton1.setText("prontuário");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, -1, -1));
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Atestado");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 520, 480));
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 480, 120));
+
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 480, 260));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 520, 470));
 
         pack();
         setLocationRelativeTo(null);

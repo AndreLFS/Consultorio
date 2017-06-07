@@ -168,12 +168,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jT_numero = new javax.swing.JTextField();
         jL_genero = new javax.swing.JLabel();
-        jC_Genero = new javax.swing.JComboBox<>();
+        jC_Genero = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -204,7 +204,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jL_nome.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_nome.setForeground(new java.awt.Color(255, 255, 255));
         jL_nome.setText("Nome");
-        jP_conteudo.add(jL_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 56, 20));
+        jP_conteudo.add(jL_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 56, 20));
 
         jT_nome.setBorder(null);
         jT_nome.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -217,12 +217,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jT_nomeActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 500, 30));
+        jP_conteudo.add(jT_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 560, 30));
 
         jL_nascimento.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_nascimento.setForeground(new java.awt.Color(255, 255, 255));
         jL_nascimento.setText("Data de Nascimento");
-        jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 190, 20));
+        jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 190, 20));
 
         try {
             jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -234,24 +234,24 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jFT_nascimentoActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 90, 30));
+        jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 190, 30));
 
         jL_rg.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_rg.setForeground(new java.awt.Color(255, 255, 255));
         jL_rg.setText("RG");
-        jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
+        jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 20));
 
         jT_rg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_rgActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 250, 30));
+        jP_conteudo.add(jT_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 270, 30));
 
         jl_logradouro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jl_logradouro.setForeground(new java.awt.Color(255, 255, 255));
         jl_logradouro.setText("Logradouro");
-        jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+        jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         jT_logradouro.setBorder(null);
         jT_logradouro.addActionListener(new java.awt.event.ActionListener() {
@@ -259,12 +259,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jT_logradouroActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 240, 30));
+        jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 340, 30));
 
         jL_cidade.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cidade.setForeground(new java.awt.Color(255, 255, 255));
         jL_cidade.setText("Cidade");
-        jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, 20));
+        jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, 20));
 
         jT_cidade.setBorder(null);
         jT_cidade.addActionListener(new java.awt.event.ActionListener() {
@@ -272,12 +272,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jT_cidadeActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 270, 30));
+        jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 340, 30));
 
         jL_email.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_email.setForeground(new java.awt.Color(255, 255, 255));
         jL_email.setText("Email");
-        jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 60, 20));
+        jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 60, 20));
 
         jT_email.setBorder(null);
         jT_email.addActionListener(new java.awt.event.ActionListener() {
@@ -285,12 +285,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jT_emailActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 240, 30));
+        jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 340, 30));
 
         jL_telefone.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_telefone.setForeground(new java.awt.Color(255, 255, 255));
         jL_telefone.setText("Telefone");
-        jP_conteudo.add(jL_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, 20));
+        jP_conteudo.add(jL_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, 20));
 
         try {
             jFT_telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9####-####")));
@@ -302,12 +302,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jFT_telefoneActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 190, 30));
+        jP_conteudo.add(jFT_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 190, 30));
 
         jL_cpf.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cpf.setForeground(new java.awt.Color(255, 255, 255));
         jL_cpf.setText("CPF");
-        jP_conteudo.add(jL_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 49, 20));
+        jP_conteudo.add(jL_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 49, 20));
 
         try {
             jFT_cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-###-##")));
@@ -319,12 +319,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jFT_cpfActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 220, 30));
+        jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 270, 30));
 
         jL_bairro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_bairro.setForeground(new java.awt.Color(255, 255, 255));
         jL_bairro.setText("Bairro");
-        jP_conteudo.add(jL_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 74, 20));
+        jP_conteudo.add(jL_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 74, 20));
 
         jT_bairro.setBorder(null);
         jT_bairro.addActionListener(new java.awt.event.ActionListener() {
@@ -332,12 +332,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jT_bairroActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 280, 30));
+        jP_conteudo.add(jT_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 340, 30));
 
         jL_cep.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cep.setForeground(new java.awt.Color(255, 255, 255));
         jL_cep.setText("CEP");
-        jP_conteudo.add(jL_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, 20));
+        jP_conteudo.add(jL_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, 20));
 
         jT_cep.setBorder(null);
         jT_cep.addActionListener(new java.awt.event.ActionListener() {
@@ -345,12 +345,12 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 jT_cepActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 180, 30));
+        jP_conteudo.add(jT_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 190, 30));
 
         jL_senha.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_senha.setForeground(new java.awt.Color(255, 255, 255));
         jL_senha.setText("Senha");
-        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, -1, 20));
+        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, -1, 20));
 
         JP_Senha.setBorder(null);
         JP_Senha.addActionListener(new java.awt.event.ActionListener() {
@@ -358,7 +358,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
                 JP_SenhaActionPerformed(evt);
             }
         });
-        jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 160, 30));
+        jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, 190, 30));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -380,7 +380,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         });
         jP_cadastrar.add(jL_cadastrar);
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 130, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, 130, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
         jP_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -407,33 +407,33 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         });
         jP_cancelar.add(jL_cancelar);
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 130, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 650, 130, 40));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Estado");
-        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
-        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 150, 30));
+        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
+        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 190, 30));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Número");
-        jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
-        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 150, 30));
+        jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
+        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 190, 30));
 
         jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_genero.setForeground(new java.awt.Color(255, 255, 255));
         jL_genero.setText("Genero");
-        jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 20));
+        jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, 20));
 
         jC_Genero.setForeground(new java.awt.Color(255, 255, 255));
-        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
-        jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 180, 100, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dados de Acesso");
-        jP_conteudo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, 20));
+        jP_conteudo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -441,20 +441,21 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jP_conteudo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Endereço");
-        jP_conteudo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-
-        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jP_conteudo.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 600, 140));
+        jP_conteudo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jP_conteudo.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 600, 70));
+        jP_conteudo.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 600, 110));
+
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jP_conteudo.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 600, 220));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jP_conteudo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 600, 160));
+        jP_conteudo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 600, 200));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -471,13 +472,13 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 675, Short.MAX_VALUE)
+            .addGap(0, 775, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jP_cabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jP_conteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jP_conteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -493,7 +494,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 675, Short.MAX_VALUE)
+            .addGap(0, 775, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)

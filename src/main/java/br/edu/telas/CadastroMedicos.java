@@ -86,6 +86,8 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jP_cabecalho = new javax.swing.JPanel();
+        jP_cabecalho1 = new javax.swing.JPanel();
+        jL_medico1 = new javax.swing.JLabel();
         jL_medico = new javax.swing.JLabel();
         jP_conteudo = new javax.swing.JPanel();
         jL_nome = new javax.swing.JLabel();
@@ -115,7 +117,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_cadastrar = new javax.swing.JLabel();
         jP_cancelar = new javax.swing.JPanel();
         jL_cancelar = new javax.swing.JLabel();
-        jC_especialidade = new javax.swing.JComboBox<>();
+        jC_especialidade = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         jT_complemento = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -123,14 +125,14 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jT_numero = new javax.swing.JTextField();
         jL_genero = new javax.swing.JLabel();
-        jC_Genero = new javax.swing.JComboBox<>();
+        jC_Genero = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jT_CRM = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -142,10 +144,19 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jP_cabecalho.setBackground(new java.awt.Color(0, 102, 102));
         jP_cabecalho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jP_cabecalho1.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cabecalho1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_medico1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jL_medico1.setForeground(new java.awt.Color(255, 255, 255));
+        jP_cabecalho1.add(jL_medico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 610, 70));
+
         jL_medico.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jL_medico.setForeground(new java.awt.Color(255, 255, 255));
         jL_medico.setText("Médicos");
-        jP_cabecalho.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 370, 44));
+        jP_cabecalho1.add(jL_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 610, 50));
+
+        jP_cabecalho.add(jP_cabecalho1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jP_cabecalho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 50));
 
@@ -155,7 +166,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_nome.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_nome.setForeground(new java.awt.Color(255, 255, 255));
         jL_nome.setText("Nome");
-        jP_conteudo.add(jL_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 56, 20));
+        jP_conteudo.add(jL_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 56, 20));
 
         jT_nome.setBorder(null);
         jT_nome.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,17 +179,17 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_nomeActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 510, 30));
+        jP_conteudo.add(jT_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 530, 30));
 
         jL_especialidade.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_especialidade.setForeground(new java.awt.Color(255, 255, 255));
         jL_especialidade.setText("Especialidade");
-        jP_conteudo.add(jL_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 150, 20));
+        jP_conteudo.add(jL_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 150, 20));
 
-        jL_nascimento.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_nascimento.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jL_nascimento.setForeground(new java.awt.Color(255, 255, 255));
         jL_nascimento.setText("Data de Nascimento");
-        jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 190, 20));
+        jP_conteudo.add(jL_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 190, 20));
 
         try {
             jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -190,24 +201,24 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jFT_nascimentoActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 90, 30));
+        jP_conteudo.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 140, 30));
 
         jL_rg.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_rg.setForeground(new java.awt.Color(255, 255, 255));
         jL_rg.setText("RG");
-        jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
+        jP_conteudo.add(jL_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 20));
 
         jT_rg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_rgActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 240, 30));
+        jP_conteudo.add(jT_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 260, 30));
 
         jl_logradouro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jl_logradouro.setForeground(new java.awt.Color(255, 255, 255));
         jl_logradouro.setText("Logradouro");
-        jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        jP_conteudo.add(jl_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         jT_logradouro.setBorder(null);
         jT_logradouro.addActionListener(new java.awt.event.ActionListener() {
@@ -215,12 +226,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_logradouroActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 190, 30));
+        jP_conteudo.add(jT_logradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 260, 30));
 
         jL_cidade.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cidade.setForeground(new java.awt.Color(255, 255, 255));
         jL_cidade.setText("Cidade");
-        jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 20));
+        jP_conteudo.add(jL_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, 20));
 
         jT_cidade.setBorder(null);
         jT_cidade.addActionListener(new java.awt.event.ActionListener() {
@@ -228,12 +239,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_cidadeActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 500, 30));
+        jP_conteudo.add(jT_cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 260, 30));
 
         jL_email.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_email.setForeground(new java.awt.Color(255, 255, 255));
         jL_email.setText("Email");
-        jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 60, 20));
+        jP_conteudo.add(jL_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 60, 20));
 
         jT_email.setBorder(null);
         jT_email.addActionListener(new java.awt.event.ActionListener() {
@@ -241,12 +252,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_emailActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 240, 30));
+        jP_conteudo.add(jT_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 260, 30));
 
         jL_telefone.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_telefone.setForeground(new java.awt.Color(255, 255, 255));
         jL_telefone.setText("Telefone");
-        jP_conteudo.add(jL_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, 20));
+        jP_conteudo.add(jL_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, 20));
 
         try {
             jFT_telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9####-####")));
@@ -258,12 +269,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jFT_telefoneActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 190, 30));
+        jP_conteudo.add(jFT_telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 200, 30));
 
         jL_cpf.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cpf.setForeground(new java.awt.Color(255, 255, 255));
         jL_cpf.setText("CPF");
-        jP_conteudo.add(jL_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 49, 20));
+        jP_conteudo.add(jL_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 49, 20));
 
         try {
             jFT_cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-###-##")));
@@ -275,12 +286,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jFT_cpfActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 220, 30));
+        jP_conteudo.add(jFT_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 200, 30));
 
         jL_bairro.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_bairro.setForeground(new java.awt.Color(255, 255, 255));
         jL_bairro.setText("Bairro");
-        jP_conteudo.add(jL_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 74, 20));
+        jP_conteudo.add(jL_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 74, 20));
 
         jT_bairro.setBorder(null);
         jT_bairro.addActionListener(new java.awt.event.ActionListener() {
@@ -288,12 +299,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_bairroActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 240, 30));
+        jP_conteudo.add(jT_bairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 260, 30));
 
         jL_cep.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cep.setForeground(new java.awt.Color(255, 255, 255));
         jL_cep.setText("CEP");
-        jP_conteudo.add(jL_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, 20));
+        jP_conteudo.add(jL_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, -1, 20));
 
         jT_cep.setBorder(null);
         jT_cep.addActionListener(new java.awt.event.ActionListener() {
@@ -301,12 +312,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jT_cepActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 190, 30));
+        jP_conteudo.add(jT_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 100, 30));
 
         jL_senha.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_senha.setForeground(new java.awt.Color(255, 255, 255));
         jL_senha.setText("Senha");
-        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, -1, 20));
+        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, -1, 20));
 
         JP_Senha.setBorder(null);
         JP_Senha.addActionListener(new java.awt.event.ActionListener() {
@@ -314,7 +325,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 JP_SenhaActionPerformed(evt);
             }
         });
-        jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 200, 30));
+        jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 200, 30));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -336,7 +347,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         });
         jP_cadastrar.add(jL_cadastrar);
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, -1, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, -1, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -355,82 +366,82 @@ public class CadastroMedicos extends javax.swing.JFrame {
         });
         jP_cancelar.add(jL_cancelar);
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 130, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 590, 130, 40));
 
-        jC_especialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_especialidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jC_especialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jC_especialidadeActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jC_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 60, -1));
+        jP_conteudo.add(jC_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 200, 30));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Complemento");
-        jP_conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
-        jP_conteudo.add(jT_complemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 170, 30));
+        jP_conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        jP_conteudo.add(jT_complemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Estado");
-        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
-        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 190, 30));
+        jP_conteudo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, -1, -1));
+        jP_conteudo.add(jT_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 200, 30));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Número");
-        jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
-        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 170, 30));
+        jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
+        jP_conteudo.add(jT_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 200, 30));
 
-        jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jL_genero.setForeground(new java.awt.Color(255, 255, 255));
         jL_genero.setText("Gênero");
-        jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, 20));
 
-        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
-        jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 100, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dados de Acesso");
-        jP_conteudo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, 20));
+        jP_conteudo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Dados Pessoais");
-        jP_conteudo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jP_conteudo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Endereço");
-        jP_conteudo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
-
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jP_conteudo.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 600, 60));
-
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jP_conteudo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 600, 170));
+        jP_conteudo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("C.R.M");
-        jP_conteudo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jP_conteudo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jT_CRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_CRMActionPerformed(evt);
             }
         });
-        jP_conteudo.add(jT_CRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 260, 30));
+        jP_conteudo.add(jT_CRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 260, 30));
+
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jP_conteudo.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 580, 90));
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jP_conteudo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 580, 200));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jP_conteudo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 600, 180));
+        jP_conteudo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 230));
 
-        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 620, 600));
+        getContentPane().add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 620, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -681,6 +692,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private javax.swing.JLabel jL_especialidade;
     private javax.swing.JLabel jL_genero;
     private javax.swing.JLabel jL_medico;
+    private javax.swing.JLabel jL_medico1;
     private javax.swing.JLabel jL_nascimento;
     private javax.swing.JLabel jL_nome;
     private javax.swing.JLabel jL_rg;
@@ -695,6 +707,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jP_cabecalho;
+    private javax.swing.JPanel jP_cabecalho1;
     private javax.swing.JPanel jP_cadastrar;
     private javax.swing.JPanel jP_cancelar;
     private javax.swing.JPanel jP_conteudo;

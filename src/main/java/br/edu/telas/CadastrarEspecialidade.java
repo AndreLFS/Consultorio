@@ -48,11 +48,11 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jL_hora = new javax.swing.JLabel();
         jT_especialidade = new javax.swing.JTextField();
-        jP_conteudo = new javax.swing.JPanel();
         jP_cancelar = new javax.swing.JPanel();
         jL_cancelar = new javax.swing.JLabel();
         jP_cadastrar = new javax.swing.JPanel();
         jL_cadastrar1 = new javax.swing.JLabel();
+        jP_conteudo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -70,7 +70,7 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
         jL_consultas.setText("Especialidades");
         jPanel2.add(jL_consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 44));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 520, 60));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 520, 50));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,14 +78,10 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
         jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_hora.setForeground(new java.awt.Color(255, 255, 255));
         jL_hora.setText("Especialidade");
-        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 130, 20));
+        jPanel1.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 130, 20));
 
         jT_especialidade.setBorder(null);
-        jPanel1.add(jT_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 260, 30));
-
-        jP_conteudo.setBackground(new java.awt.Color(153, 153, 153));
-        jP_conteudo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jPanel1.add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 440, 80));
+        jPanel1.add(jT_especialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 260, 30));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
         jP_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -117,7 +113,7 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
         });
         jP_cancelar.add(jL_cancelar);
 
-        jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 130, 40));
+        jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, 40));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
         jP_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -144,7 +140,11 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
         });
         jP_cadastrar.add(jL_cadastrar1);
 
-        jPanel1.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 130, 40));
+        jPanel1.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 130, 40));
+
+        jP_conteudo.setBackground(new java.awt.Color(153, 153, 153));
+        jP_conteudo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel1.add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 430, 100));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 510, 270));
 
