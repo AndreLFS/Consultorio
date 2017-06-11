@@ -47,8 +47,8 @@ public class HomeAdmin extends javax.swing.JFrame {
         jL_cadastrarFuncionario = new javax.swing.JLabel();
         jL_admin = new javax.swing.JLabel();
         jP_sair = new javax.swing.JPanel();
-        jL_sair = new javax.swing.JLabel();
         jL_iconSair = new javax.swing.JLabel();
+        jL_sair = new javax.swing.JLabel();
         jP_administrador = new javax.swing.JPanel();
         jP_listarAdmin = new javax.swing.JPanel();
         jL_listarAdmin = new javax.swing.JLabel();
@@ -184,7 +184,8 @@ public class HomeAdmin extends javax.swing.JFrame {
         jL_admin.setText("Administrador");
         jP_container.add(jL_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        jP_sair.setBackground(new java.awt.Color(0, 102, 102));
+        jP_sair.setBackground(new java.awt.Color(36, 47, 65));
+        jP_sair.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_sairMouseMoved(evt);
@@ -201,7 +202,7 @@ public class HomeAdmin extends javax.swing.JFrame {
 
         jL_sair.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jL_sair.setForeground(new java.awt.Color(255, 255, 255));
-        jL_sair.setText("Sair");
+        jL_sair.setText("         Logout");
         jL_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jL_sairMouseMoved(evt);
@@ -218,24 +219,21 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_sairLayout.setHorizontalGroup(
             jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_sairLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(jL_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jL_iconSair)
                 .addContainerGap())
-            .addGroup(jP_sairLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jL_sair)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jP_sairLayout.setVerticalGroup(
             jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_sairLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jL_iconSair)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jL_sair))
+                .addContainerGap())
+            .addComponent(jL_sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jP_container.add(jP_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 414, 60, 70));
+        jP_container.add(jP_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 90, 40));
 
         jP_administrador.setBackground(new java.awt.Color(36, 47, 65));
         jP_administrador.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -718,25 +716,25 @@ public class HomeAdmin extends javax.swing.JFrame {
         efeitoBordaCancelar(jP_cadastrarRecepcionista);
     }//GEN-LAST:event_jP_cadastrarRecepcionistaMouseExited
 
-    private void jL_sairMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseMoved
-
-    }//GEN-LAST:event_jL_sairMouseMoved
-
-    private void jL_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseExited
-
-    }//GEN-LAST:event_jL_sairMouseExited
-
-    private void jP_sairMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseMoved
-        jP_sair.setBorder(efeitoBorda());
-    }//GEN-LAST:event_jP_sairMouseMoved
-
     private void jP_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseExited
         efeitoBordaCancelar(jP_sair);
     }//GEN-LAST:event_jP_sairMouseExited
 
     private void jP_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseClicked
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jP_sairMouseClicked
+
+    private void jP_sairMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseMoved
+        jP_sair.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jP_sairMouseMoved
+
+    private void jL_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseExited
+        efeitoBordaCancelar(jP_sair);
+    }//GEN-LAST:event_jL_sairMouseExited
+
+    private void jL_sairMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseMoved
+        jP_sair.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_sairMouseMoved
     //codigo para colocar as sombras nos paineis
     private DropShadowBorder efeitoBorda(){
         DropShadowBorder shadow = new DropShadowBorder();

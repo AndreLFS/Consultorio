@@ -9,7 +9,9 @@ import br.edu.DAO.MedicoDAO;
 import br.edu.anotacoes.Medico;
 import br.edu.tableModel.MedicoTableModel;
 import br.edu.util.ControleTelas;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
  *
@@ -37,8 +39,15 @@ public class ListarMedicos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jB_Editar = new javax.swing.JButton();
-        jB_Excluir = new javax.swing.JButton();
+        JP_conteudo = new javax.swing.JPanel();
+        jP_voltar = new javax.swing.JPanel();
+        jL_voltar = new javax.swing.JLabel();
+        jP_excluir = new javax.swing.JPanel();
+        jL_excluir = new javax.swing.JLabel();
+        jP_editar = new javax.swing.JPanel();
+        jL_editar = new javax.swing.JLabel();
+        jB_Excluir2 = new javax.swing.JButton();
+        jB_Editar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -52,12 +61,18 @@ public class ListarMedicos extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "A", "B", "C", "D"
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
+        jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -65,44 +80,181 @@ public class ListarMedicos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jB_Editar.setText("Editar");
-        jB_Editar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_EditarActionPerformed(evt);
+        JP_conteudo.setBackground(new java.awt.Color(36, 47, 65));
+        JP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jP_voltar.setBackground(new java.awt.Color(0, 102, 102));
+        jP_voltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jP_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseMoved(evt);
+            }
+        });
+        jP_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseExited(evt);
             }
         });
 
-        jB_Excluir.setText("Excluir");
-        jB_Excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_ExcluirActionPerformed(evt);
+        jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_voltar.setText("          Voltar");
+        jL_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseMoved(evt);
             }
         });
+        jL_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_voltarLayout = new javax.swing.GroupLayout(jP_voltar);
+        jP_voltar.setLayout(jP_voltarLayout);
+        jP_voltarLayout.setHorizontalGroup(
+            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+        );
+        jP_voltarLayout.setVerticalGroup(
+            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_voltarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jL_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 120, 40));
+
+        jP_excluir.setBackground(new java.awt.Color(0, 102, 102));
+        jP_excluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jP_excluir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_excluirMouseMoved(evt);
+            }
+        });
+        jP_excluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_excluirMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_excluirMouseExited(evt);
+            }
+        });
+
+        jL_excluir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_excluir.setForeground(new java.awt.Color(255, 255, 255));
+        jL_excluir.setText("        Excluir");
+        jL_excluir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_excluirMouseMoved(evt);
+            }
+        });
+        jL_excluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_excluirMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_excluirMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_excluirLayout = new javax.swing.GroupLayout(jP_excluir);
+        jP_excluir.setLayout(jP_excluirLayout);
+        jP_excluirLayout.setHorizontalGroup(
+            jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_excluir, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+        );
+        jP_excluirLayout.setVerticalGroup(
+            jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_excluirLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jL_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        JP_conteudo.add(jP_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 110, 40));
+
+        jP_editar.setBackground(new java.awt.Color(0, 102, 102));
+        jP_editar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jP_editar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_editarMouseMoved(evt);
+            }
+        });
+        jP_editar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_editarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_editarMouseExited(evt);
+            }
+        });
+
+        jL_editar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_editar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_editar.setText("       Editar");
+        jL_editar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_editarMouseMoved(evt);
+            }
+        });
+        jL_editar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_editarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_editarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_editarLayout = new javax.swing.GroupLayout(jP_editar);
+        jP_editar.setLayout(jP_editarLayout);
+        jP_editarLayout.setHorizontalGroup(
+            jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_editarLayout.createSequentialGroup()
+                .addComponent(jL_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jP_editarLayout.setVerticalGroup(
+            jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jL_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        JP_conteudo.add(jP_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 40));
+
+        jB_Excluir2.setText("Excluir");
+        jB_Excluir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_Excluir2ActionPerformed(evt);
+            }
+        });
+        JP_conteudo.add(jB_Excluir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
+
+        jB_Editar2.setText("Editar");
+        jB_Editar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_Editar2ActionPerformed(evt);
+            }
+        });
+        JP_conteudo.add(jB_Editar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jB_Excluir)
-                .addGap(78, 78, 78)
-                .addComponent(jB_Editar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
+            .addComponent(JP_conteudo, javax.swing.GroupLayout.DEFAULT_SIZE, 978, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jB_Editar)
-                    .addComponent(jB_Excluir))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JP_conteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -136,15 +288,36 @@ public class ListarMedicos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jB_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EditarActionPerformed
-        if (getMedico() != null) {
-            CadastroMedicos cam = new CadastroMedicos(getMedico());
-            cam.setVisible(true);
-        }
-        
-    }//GEN-LAST:event_jB_EditarActionPerformed
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       ControleTelas.telaListarMedicos = false;
+    }//GEN-LAST:event_formWindowClosing
 
-    private void jB_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ExcluirActionPerformed
+    private void jL_voltarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseMoved
+        jP_voltar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_voltarMouseMoved
+
+    private void jL_voltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseExited
+        efeitoBordaCancelar(jP_voltar);
+    }//GEN-LAST:event_jL_voltarMouseExited
+
+    private void jP_voltarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltarMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltarMouseMoved
+
+    private void jP_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltarMouseClicked
+
+    private void jP_voltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltarMouseExited
+
+    private void jL_excluirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_excluirMouseMoved
+        jP_excluir.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_excluirMouseMoved
+
+    private void jL_excluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_excluirMouseClicked
+        {                                           
         if(getMedico() !=  null){
             if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o cliente " + getMedico().getNome()) == 0){
                 try {
@@ -158,11 +331,78 @@ public class ListarMedicos extends javax.swing.JFrame {
             }
         }
         
-    }//GEN-LAST:event_jB_ExcluirActionPerformed
+    }
+    }//GEN-LAST:event_jL_excluirMouseClicked
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       ControleTelas.telaListarMedicos = false;
-    }//GEN-LAST:event_formWindowClosing
+    private void jL_excluirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_excluirMouseExited
+        efeitoBordaCancelar(jP_excluir);
+    }//GEN-LAST:event_jL_excluirMouseExited
+
+    private void jP_excluirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_excluirMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_excluirMouseMoved
+
+    private void jP_excluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_excluirMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_excluirMouseClicked
+
+    private void jP_excluirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_excluirMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_excluirMouseExited
+
+    private void jL_editarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_editarMouseMoved
+        jP_editar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_editarMouseMoved
+
+    private void jL_editarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_editarMouseClicked
+        {                                          
+        if (getMedico() != null) {
+            CadastroMedicos cam = new CadastroMedicos(getMedico());
+            cam.setVisible(true);
+        }
+        
+    }
+    }//GEN-LAST:event_jL_editarMouseClicked
+
+    private void jL_editarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_editarMouseExited
+        efeitoBordaCancelar(jP_editar);
+    }//GEN-LAST:event_jL_editarMouseExited
+
+    private void jP_editarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_editarMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_editarMouseMoved
+
+    private void jP_editarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_editarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_editarMouseClicked
+
+    private void jP_editarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_editarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_editarMouseExited
+
+    private void jB_Excluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Excluir2ActionPerformed
+        if(getMedico() !=  null){
+            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o cliente " + getMedico().getNome()) == 0){
+                try {
+                    MedicoDAO medicoDAO = new MedicoDAO();
+                    medicoDAO.deletar(getMedico());
+                    atualizarTabela();
+                } catch (Exception e) {
+                    System.out.println("Erro ao deletar Médico " +e);
+                }
+                JOptionPane.showMessageDialog(null, "Médico deletado com sucesso");
+            }
+        }
+
+    }//GEN-LAST:event_jB_Excluir2ActionPerformed
+
+    private void jB_Editar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Editar2ActionPerformed
+        if (getMedico() != null) {
+            CadastroMedicos cam = new CadastroMedicos(getMedico());
+            cam.setVisible(true);
+        }
+
+    }//GEN-LAST:event_jB_Editar2ActionPerformed
     
    
     
@@ -200,10 +440,37 @@ public class ListarMedicos extends javax.swing.JFrame {
             }
         });
     }
-
+    //codigo para colocar as sombras nos paineis
+    private DropShadowBorder efeitoBorda(){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShadowColor(Color.black);
+        shadow.setShadowSize(5);
+        shadow.setShowLeftShadow(true);
+        shadow.setShowRightShadow(true);
+        shadow.setShowBottomShadow(true);
+        shadow.setShowTopShadow(true);
+        return shadow;
+    }
+    //codigo para cancelar a borda em todas os paineis
+    private void efeitoBordaCancelar(javax.swing.JPanel painel){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShowLeftShadow(false);
+        shadow.setShowRightShadow(false);
+        shadow.setShowBottomShadow(false);
+        shadow.setShowTopShadow(false);
+        
+        painel.setBorder(shadow);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jB_Editar;
-    private javax.swing.JButton jB_Excluir;
+    private javax.swing.JPanel JP_conteudo;
+    private javax.swing.JButton jB_Editar2;
+    private javax.swing.JButton jB_Excluir2;
+    private javax.swing.JLabel jL_editar;
+    private javax.swing.JLabel jL_excluir;
+    private javax.swing.JLabel jL_voltar;
+    private javax.swing.JPanel jP_editar;
+    private javax.swing.JPanel jP_excluir;
+    private javax.swing.JPanel jP_voltar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

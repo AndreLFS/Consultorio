@@ -107,7 +107,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         jT_estado = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jT_cep = new javax.swing.JTextField();
-        jC_Genero = new javax.swing.JComboBox<String>();
+        jC_Genero = new javax.swing.JComboBox<>();
         jL_genero = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -353,7 +353,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
         jP_conteudo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
         jP_conteudo.add(jT_cep, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 110, 30));
 
-        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 90, 30));
 
         jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N

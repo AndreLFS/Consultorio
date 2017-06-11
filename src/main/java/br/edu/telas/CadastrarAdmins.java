@@ -168,13 +168,13 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jT_numero = new javax.swing.JTextField();
         jL_genero = new javax.swing.JLabel();
-        jC_Genero = new javax.swing.JComboBox<String>();
+        jC_Genero = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -350,7 +350,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jL_senha.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_senha.setForeground(new java.awt.Color(255, 255, 255));
         jL_senha.setText("Senha");
-        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, -1, 20));
+        jP_conteudo.add(jL_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, -1, 20));
 
         JP_Senha.setBorder(null);
         JP_Senha.addActionListener(new java.awt.event.ActionListener() {
@@ -380,7 +380,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         });
         jP_cadastrar.add(jL_cadastrar);
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, 130, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 620, 130, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
         jP_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -407,7 +407,7 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         });
         jP_cancelar.add(jL_cancelar);
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 650, 130, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 130, 40));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -423,11 +423,11 @@ public class CadastrarAdmins extends javax.swing.JFrame {
 
         jL_genero.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_genero.setForeground(new java.awt.Color(255, 255, 255));
-        jL_genero.setText("Genero");
+        jL_genero.setText("Gênero");
         jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, 20));
 
         jC_Genero.setForeground(new java.awt.Color(255, 255, 255));
-        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 180, 100, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -445,10 +445,6 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jLabel7.setText("Endereço");
         jP_conteudo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jP_conteudo.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 600, 110));
-
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jP_conteudo.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 600, 220));
@@ -456,6 +452,10 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jP_conteudo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 600, 200));
+
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jP_conteudo.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 600, 110));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -38,6 +38,8 @@ public class HomeMedico extends javax.swing.JFrame {
 
         jP_container = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jP_sair = new javax.swing.JPanel();
+        jL_sair = new javax.swing.JLabel();
         jP_buscarConsultas = new javax.swing.JPanel();
         jL_buscarConsultas = new javax.swing.JLabel();
 
@@ -47,7 +49,67 @@ public class HomeMedico extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
 
-        jP_buscarConsultas.setBackground(new java.awt.Color(0, 102, 102));
+        jP_sair.setBackground(new java.awt.Color(0, 102, 102));
+        jP_sair.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jP_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_sairMouseMoved(evt);
+            }
+        });
+        jP_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_sairMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_sairMouseExited(evt);
+            }
+        });
+
+        jL_sair.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_sair.setForeground(new java.awt.Color(255, 255, 255));
+        jL_sair.setText("                Logout");
+        jL_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_sairMouseMoved(evt);
+            }
+        });
+        jL_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_sairMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_sairLayout = new javax.swing.GroupLayout(jP_sair);
+        jP_sair.setLayout(jP_sairLayout);
+        jP_sairLayout.setHorizontalGroup(
+            jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_sair, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+        );
+        jP_sairLayout.setVerticalGroup(
+            jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_sairLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jL_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jP_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(179, Short.MAX_VALUE)
+                .addComponent(jP_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jP_buscarConsultas.setBackground(new java.awt.Color(36, 47, 65));
         jP_buscarConsultas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_buscarConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_buscarConsultas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -81,45 +143,36 @@ public class HomeMedico extends javax.swing.JFrame {
         });
         jP_buscarConsultas.add(jL_buscarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jP_buscarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(375, Short.MAX_VALUE)
-                .addComponent(jP_buscarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout jP_containerLayout = new javax.swing.GroupLayout(jP_container);
         jP_container.setLayout(jP_containerLayout);
         jP_containerLayout.setHorizontalGroup(
             jP_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_containerLayout.createSequentialGroup()
-                .addContainerGap(422, Short.MAX_VALUE)
+                .addGap(67, 67, 67)
+                .addComponent(jP_buscarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jP_containerLayout.setVerticalGroup(
             jP_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jP_containerLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jP_buscarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jP_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jP_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jP_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jP_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,6 +221,26 @@ public class HomeMedico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_buscarConsultasMouseExited
 
+    private void jL_sairMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseMoved
+        jP_sair.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_sairMouseMoved
+
+    private void jL_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseExited
+        efeitoBordaCancelar(jP_sair);
+    }//GEN-LAST:event_jL_sairMouseExited
+
+    private void jP_sairMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_sairMouseMoved
+
+    private void jP_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_sairMouseClicked
+
+    private void jP_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_sairMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -205,8 +278,10 @@ public class HomeMedico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jL_buscarConsultas;
+    private javax.swing.JLabel jL_sair;
     private javax.swing.JPanel jP_buscarConsultas;
     private javax.swing.JPanel jP_container;
+    private javax.swing.JPanel jP_sair;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

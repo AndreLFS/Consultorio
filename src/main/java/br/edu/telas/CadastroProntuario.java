@@ -99,6 +99,10 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jP_atestado = new javax.swing.JPanel();
+        jB_atestado = new javax.swing.JButton();
+        jP_prontuario = new javax.swing.JPanel();
+        jB_prontuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -205,7 +209,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         });
         jP_cadastrar.add(jL_cadastrar);
 
-        jPanel1.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, -1, 40));
+        jPanel1.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 100, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -215,6 +219,16 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jB_cancelar.setBorder(null);
         jB_cancelar.setBorderPainted(false);
         jB_cancelar.setContentAreaFilled(false);
+        jB_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jB_cancelarMouseMoved(evt);
+            }
+        });
+        jB_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jB_cancelarMouseExited(evt);
+            }
+        });
         jB_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_cancelarActionPerformed(evt);
@@ -222,7 +236,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         });
         jP_cancelar.add(jB_cancelar);
 
-        jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 100, 40));
+        jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 100, 40));
 
         jL_medico.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_medico.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,7 +252,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
 
         jButton2.setText("Atestado");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +260,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -256,7 +270,61 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 480, 260));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 520, 470));
+        jP_atestado.setBackground(new java.awt.Color(36, 47, 65));
+
+        jB_atestado.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jB_atestado.setForeground(new java.awt.Color(255, 255, 255));
+        jB_atestado.setText("Atestado");
+        jB_atestado.setBorder(null);
+        jB_atestado.setBorderPainted(false);
+        jB_atestado.setContentAreaFilled(false);
+        jB_atestado.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jB_atestadoMouseMoved(evt);
+            }
+        });
+        jB_atestado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jB_atestadoMouseExited(evt);
+            }
+        });
+        jB_atestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_atestadoActionPerformed(evt);
+            }
+        });
+        jP_atestado.add(jB_atestado);
+
+        jPanel1.add(jP_atestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 100, 40));
+
+        jP_prontuario.setBackground(new java.awt.Color(36, 47, 65));
+
+        jB_prontuario.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jB_prontuario.setForeground(new java.awt.Color(255, 255, 255));
+        jB_prontuario.setText("Prontuário");
+        jB_prontuario.setBorder(null);
+        jB_prontuario.setBorderPainted(false);
+        jB_prontuario.setContentAreaFilled(false);
+        jB_prontuario.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jB_prontuarioMouseMoved(evt);
+            }
+        });
+        jB_prontuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jB_prontuarioMouseExited(evt);
+            }
+        });
+        jB_prontuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_prontuarioActionPerformed(evt);
+            }
+        });
+        jP_prontuario.add(jB_prontuario);
+
+        jPanel1.add(jP_prontuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 100, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 520, 520));
 
         pack();
         setLocationRelativeTo(null);
@@ -325,6 +393,64 @@ public class CadastroProntuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jB_atestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_atestadoActionPerformed
+        {                                         
+         int dias = Integer.valueOf(JOptionPane.showInputDialog(null, "Quantos dias de atestado?"));
+        try {
+           Date data = new Date();
+           SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+           Calendar calendar = Calendar.getInstance();
+           calendar.setTime(new Date());
+           calendar.add(Calendar.DAY_OF_MONTH, dias);
+           
+            HashMap parametros = new HashMap();
+            parametros.put("idCliente", String.valueOf(atendimento.getCliente().getId()));
+            parametros.put("hoje", formatador.format(data));
+            parametros.put("dataFinal", formatador.format(calendar.getTime()));
+            Util.imprimir("Relatorios\\AtestadoMedico.jrxml", parametros);
+        } catch (Exception e) {
+            System.out.println("Erro na geração do prontuario " + e);
+        }
+    }
+    }//GEN-LAST:event_jB_atestadoActionPerformed
+
+    private void jB_prontuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_prontuarioActionPerformed
+        {                                         
+        try {
+            HashMap parametros = new HashMap();
+            parametros.put("idProntuario", String.valueOf(prontuario.getId()));
+            Util.imprimir("Relatorios\\Receita.jrxml", parametros);
+        } catch (Exception e) {
+            System.out.println("Erro na geração do prontuario " + e);
+        }
+        
+    }
+    }//GEN-LAST:event_jB_prontuarioActionPerformed
+
+    private void jB_prontuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_prontuarioMouseMoved
+        jP_prontuario.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jB_prontuarioMouseMoved
+
+    private void jB_prontuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_prontuarioMouseExited
+        efeitoBordaCancelar(jP_prontuario);
+    }//GEN-LAST:event_jB_prontuarioMouseExited
+
+    private void jB_atestadoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_atestadoMouseMoved
+        jP_atestado.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jB_atestadoMouseMoved
+
+    private void jB_atestadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_atestadoMouseExited
+        efeitoBordaCancelar(jP_atestado);
+    }//GEN-LAST:event_jB_atestadoMouseExited
+
+    private void jB_cancelarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_cancelarMouseMoved
+        jP_cancelar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jB_cancelarMouseMoved
+
+    private void jB_cancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_cancelarMouseExited
+        efeitoBordaCancelar(jP_cancelar);
+    }//GEN-LAST:event_jB_cancelarMouseExited
+
     
     Validacao validar =  new Validacao();
     ProntuarioDAO prontuarioDAO = new ProntuarioDAO();
@@ -390,7 +516,9 @@ public class CadastroProntuario extends javax.swing.JFrame {
     private javax.swing.JLabel Sintomas1;
     private javax.swing.JLabel Sintomas2;
     private javax.swing.JLabel Sintomas3;
+    private javax.swing.JButton jB_atestado;
     private javax.swing.JButton jB_cancelar;
+    private javax.swing.JButton jB_prontuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JFormattedTextField jFT_data;
@@ -400,8 +528,10 @@ public class CadastroProntuario extends javax.swing.JFrame {
     private javax.swing.JLabel jL_data;
     private javax.swing.JLabel jL_hora;
     private javax.swing.JLabel jL_medico;
+    private javax.swing.JPanel jP_atestado;
     private javax.swing.JPanel jP_cadastrar;
     private javax.swing.JPanel jP_cancelar;
+    private javax.swing.JPanel jP_prontuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

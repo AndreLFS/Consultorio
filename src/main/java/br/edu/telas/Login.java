@@ -93,6 +93,7 @@ public class Login extends javax.swing.JFrame {
         jP_loguin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_loguin.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jL_loguin.setForeground(new java.awt.Color(255, 255, 255));
         jL_loguin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_loguin.setText("Login");
         jL_loguin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -118,6 +119,7 @@ public class Login extends javax.swing.JFrame {
 
         jL_sair.setBackground(new java.awt.Color(0, 102, 102));
         jL_sair.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jL_sair.setForeground(new java.awt.Color(255, 255, 255));
         jL_sair.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_sair.setText("Sair");
         jL_sair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

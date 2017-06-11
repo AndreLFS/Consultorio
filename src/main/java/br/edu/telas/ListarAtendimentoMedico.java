@@ -12,10 +12,12 @@ import br.edu.anotacoes.Cliente;
 import br.edu.tableModel.AtendimentoTableModel;
 import br.edu.util.ControleTelas;
 import br.edu.util.Validacao;
+import java.awt.Color;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
  *
@@ -52,13 +54,15 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         Cliente = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jFT_nascimento = new javax.swing.JFormattedTextField();
         jC_clientes = new javax.swing.JComboBox<>();
         jC_idCliente = new javax.swing.JComboBox<>();
+        JP_conteudo = new javax.swing.JPanel();
+        jP_voltar = new javax.swing.JPanel();
+        jL_voltar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -72,12 +76,19 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "A", "B", "C", "D"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -85,23 +96,18 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(36, 47, 65));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Cliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Cliente.setForeground(new java.awt.Color(255, 255, 255));
         Cliente.setText("Cliente");
+        jPanel1.add(Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel2.setText("jLabel2");
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Data");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jFT_nascimento.setBorder(null);
         try {
@@ -114,56 +120,78 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
                 jFT_nascimentoActionPerformed(evt);
             }
         });
+        jPanel1.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 110, 30));
 
         jC_clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jC_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 110, -1));
 
         jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jC_idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+
+        JP_conteudo.setBackground(new java.awt.Color(36, 47, 65));
+        JP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jP_voltar.setBackground(new java.awt.Color(0, 102, 102));
+        jP_voltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jP_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseMoved(evt);
+            }
+        });
+        jP_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseExited(evt);
+            }
+        });
+
+        jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_voltar.setText("          Voltar");
+        jL_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseMoved(evt);
+            }
+        });
+        jL_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_voltarLayout = new javax.swing.GroupLayout(jP_voltar);
+        jP_voltar.setLayout(jP_voltarLayout);
+        jP_voltarLayout.setHorizontalGroup(
+            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+        );
+        jP_voltarLayout.setVerticalGroup(
+            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_voltarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jL_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 120, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(15, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Cliente)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jC_clientes, 0, 110, Short.MAX_VALUE)
-                            .addComponent(jFT_nascimento))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jC_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
-                        .addGap(27, 27, 27))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
+            .addComponent(JP_conteudo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(Cliente)
-                    .addComponent(jC_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jC_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton2)
-                    .addComponent(jFT_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JP_conteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -178,27 +206,32 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFT_nascimentoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-        List<Atendimento> lista = atendimentoDAO.listarDoisCampos(valor, tipo, "data", validar.converterIdade(jFT_nascimento.getText()));
-        AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
-        jTable1.setModel(atendimentoTableModel);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-        Cliente cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
-        List<Atendimento> lista = atendimentoDAO.listarDoisCampos(valor, tipo, "cliente", cliente);
-        AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
-        jTable1.setModel(atendimentoTableModel);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         if(evt.getClickCount() >= 2 && getAtendimento() != null){
             CadastroProntuario cadastroProntuario = new CadastroProntuario(getAtendimento());
             cadastroProntuario.setVisible(true);
         }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jL_voltarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseMoved
+        jP_voltar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_voltarMouseMoved
+
+    private void jL_voltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseExited
+        efeitoBordaCancelar(jP_voltar);
+    }//GEN-LAST:event_jL_voltarMouseExited
+
+    private void jP_voltarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltarMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltarMouseMoved
+
+    private void jP_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltarMouseClicked
+
+    private void jP_voltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltarMouseExited
     
     private String  valor = null;
     private Object tipo = null;
@@ -269,15 +302,37 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
             }
         });
     }
-
+    //codigo para colocar as sombras nos paineis
+    private DropShadowBorder efeitoBorda(){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShadowColor(Color.black);
+        shadow.setShadowSize(5);
+        shadow.setShowLeftShadow(true);
+        shadow.setShowRightShadow(true);
+        shadow.setShowBottomShadow(true);
+        shadow.setShowTopShadow(true);
+        return shadow;
+    }
+    //codigo para cancelar a borda em todas os paineis
+    private void efeitoBordaCancelar(javax.swing.JPanel painel){
+        DropShadowBorder shadow = new DropShadowBorder();
+        shadow.setShowLeftShadow(false);
+        shadow.setShowRightShadow(false);
+        shadow.setShowBottomShadow(false);
+        shadow.setShowTopShadow(false);
+        
+        painel.setBorder(shadow);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cliente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel JP_conteudo;
     private javax.swing.JComboBox<String> jC_clientes;
     private javax.swing.JComboBox<String> jC_idCliente;
     private javax.swing.JFormattedTextField jFT_nascimento;
+    private javax.swing.JLabel jL_voltar;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jP_voltar;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
