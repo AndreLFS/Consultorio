@@ -98,7 +98,6 @@ public class HomeRecepcionista extends javax.swing.JFrame {
         jP_quadroDireito.setBackground(new java.awt.Color(36, 47, 65));
 
         jP_sair.setBackground(new java.awt.Color(0, 102, 102));
-        jP_sair.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_sairMouseMoved(evt);
@@ -147,12 +146,12 @@ public class HomeRecepcionista extends javax.swing.JFrame {
             .addGroup(jP_quadroDireitoLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jP_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jP_quadroDireitoLayout.setVerticalGroup(
             jP_quadroDireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_quadroDireitoLayout.createSequentialGroup()
-                .addContainerGap(179, Short.MAX_VALUE)
+                .addContainerGap(183, Short.MAX_VALUE)
                 .addComponent(jP_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

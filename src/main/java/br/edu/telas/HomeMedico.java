@@ -50,7 +50,6 @@ public class HomeMedico extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
 
         jP_sair.setBackground(new java.awt.Color(0, 102, 102));
-        jP_sair.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_sairMouseMoved(evt);
@@ -110,7 +109,6 @@ public class HomeMedico extends javax.swing.JFrame {
         );
 
         jP_buscarConsultas.setBackground(new java.awt.Color(36, 47, 65));
-        jP_buscarConsultas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_buscarConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_buscarConsultas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {

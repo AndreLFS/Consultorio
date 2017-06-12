@@ -89,7 +89,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_funcionario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
 
         jP_listarFuncionario.setBackground(new java.awt.Color(0, 102, 102));
-        jP_listarFuncionario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_listarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_listarFuncionario.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -123,7 +122,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_listarFuncionario.add(jL_listarFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 40));
 
         jP_cadastrarFuncionario.setBackground(new java.awt.Color(0, 102, 102));
-        jP_cadastrarFuncionario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_cadastrarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_cadastrarFuncionario.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -185,7 +183,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_container.add(jL_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         jP_sair.setBackground(new java.awt.Color(36, 47, 65));
-        jP_sair.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_sairMouseMoved(evt);
@@ -227,7 +224,7 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_sairLayout.setVerticalGroup(
             jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_sairLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jL_iconSair)
                 .addContainerGap())
             .addComponent(jL_sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -239,7 +236,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_administrador.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
 
         jP_listarAdmin.setBackground(new java.awt.Color(0, 102, 102));
-        jP_listarAdmin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_listarAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_listarAdmin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -273,7 +269,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_listarAdmin.add(jL_listarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 40));
 
         jP_cadastrarAdmin.setBackground(new java.awt.Color(0, 102, 102));
-        jP_cadastrarAdmin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_cadastrarAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_cadastrarAdmin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -333,7 +328,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_cliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
 
         jP_listarCliente.setBackground(new java.awt.Color(0, 102, 102));
-        jP_listarCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_listarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_listarCliente.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -367,7 +361,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_listarCliente.add(jL_listarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 40));
 
         jP_cadastrarCliente.setBackground(new java.awt.Color(0, 102, 102));
-        jP_cadastrarCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_cadastrarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_cadastrarCliente.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -427,7 +420,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_cliente1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
 
         jP_listarRecepcionista.setBackground(new java.awt.Color(0, 102, 102));
-        jP_listarRecepcionista.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_listarRecepcionista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_listarRecepcionista.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -461,7 +453,6 @@ public class HomeAdmin extends javax.swing.JFrame {
         jP_listarRecepcionista.add(jL_listarRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 40));
 
         jP_cadastrarRecepcionista.setBackground(new java.awt.Color(0, 102, 102));
-        jP_cadastrarRecepcionista.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jP_cadastrarRecepcionista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jP_cadastrarRecepcionista.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
