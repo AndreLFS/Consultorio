@@ -48,7 +48,6 @@ public class HomeRecepcionista extends javax.swing.JFrame {
         jP_container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jP_cadastrarConsultas.setBackground(new java.awt.Color(36, 47, 65));
-        jP_cadastrarConsultas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_cadastrarConsultas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_cadastrarConsultasMouseMoved(evt);
@@ -84,7 +83,7 @@ public class HomeRecepcionista extends javax.swing.JFrame {
         jP_cadastrarConsultas.setLayout(jP_cadastrarConsultasLayout);
         jP_cadastrarConsultasLayout.setHorizontalGroup(
             jP_cadastrarConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_cadastrarConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+            .addComponent(jL_cadastrarConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
         jP_cadastrarConsultasLayout.setVerticalGroup(
             jP_cadastrarConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
