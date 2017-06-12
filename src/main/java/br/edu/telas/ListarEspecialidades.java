@@ -111,6 +111,9 @@ public class ListarEspecialidades extends javax.swing.JFrame {
             }
         });
         jL_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_voltarMouseExited(evt);
             }
@@ -149,7 +152,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
 
         jL_excluir1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_excluir1.setForeground(new java.awt.Color(255, 255, 255));
-        jL_excluir1.setText("jbutton2");
+        jL_excluir1.setText("Editar");
         jL_excluir1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jL_excluir1MouseMoved(evt);
@@ -168,7 +171,10 @@ public class ListarEspecialidades extends javax.swing.JFrame {
         jP_excluir.setLayout(jP_excluirLayout);
         jP_excluirLayout.setHorizontalGroup(
             jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_excluir1, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_excluirLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jL_excluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jP_excluirLayout.setVerticalGroup(
             jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +203,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
 
         jL_editar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_editar1.setForeground(new java.awt.Color(255, 255, 255));
-        jL_editar1.setText("jbutton1");
+        jL_editar1.setText("Excluir");
         jL_editar1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jL_editar1MouseMoved(evt);
@@ -216,9 +222,10 @@ public class ListarEspecialidades extends javax.swing.JFrame {
         jP_editar.setLayout(jP_editarLayout);
         jP_editarLayout.setHorizontalGroup(
             jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_editarLayout.createSequentialGroup()
-                .addComponent(jL_editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(jL_editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         jP_editarLayout.setVerticalGroup(
             jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,6 +383,12 @@ public class ListarEspecialidades extends javax.swing.JFrame {
     private void jP_editarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_editarMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_editarMouseExited
+
+    private void jL_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseClicked
+        // TODO add your handling code here:
+                    this.dispose();
+
+    }//GEN-LAST:event_jL_voltarMouseClicked
     protected static void atualizarTabela(){
         EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
         EspecialidadeTableModel especialidadeTableModel = new EspecialidadeTableModel(especialidadeDAO.listar());

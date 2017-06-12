@@ -123,6 +123,9 @@ public class ListarClientes extends javax.swing.JFrame {
             }
         });
         jL_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_voltarMouseExited(evt);
             }
@@ -420,6 +423,12 @@ public class ListarClientes extends javax.swing.JFrame {
         
     } 
     }//GEN-LAST:event_jL_excluirMouseClicked
+
+    private void jL_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseClicked
+        // TODO add your handling code here:
+                    this.dispose();
+
+    }//GEN-LAST:event_jL_voltarMouseClicked
     
     /**
      * @param args the command line arguments

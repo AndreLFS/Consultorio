@@ -5,6 +5,7 @@
  */
 package br.edu.telas;
 
+import br.edu.anotacoes.Recepcionista;
 import java.awt.Color;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
@@ -13,12 +14,16 @@ import org.jdesktop.swingx.border.DropShadowBorder;
  * @author Lab1
  */
 public class HomeRecepcionista extends javax.swing.JFrame {
-
+       // Recepcionista = recepcionista;
     /**
      * Creates new form HomeRecepcionista
      */
     public HomeRecepcionista() {
         initComponents();
+    }
+    public HomeRecepcionista(Recepcionista recepcionista) {
+        initComponents();
+       // this.recepcionista = recepcionista;
     }
 
     /**
@@ -67,6 +72,9 @@ public class HomeRecepcionista extends javax.swing.JFrame {
             }
         });
         jL_cadastrarConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultasMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_cadastrarConsultasMouseExited(evt);
             }
@@ -206,6 +214,12 @@ public class HomeRecepcionista extends javax.swing.JFrame {
     private void jP_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_sairMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_sairMouseExited
+
+    private void jL_cadastrarConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultasMouseClicked
+        // TODO add your handling code here:
+        CadastrarAtendimento atendimento = new CadastrarAtendimento();
+        atendimento.setVisible(true);
+    }//GEN-LAST:event_jL_cadastrarConsultasMouseClicked
 
     /**
      * @param args the command line arguments

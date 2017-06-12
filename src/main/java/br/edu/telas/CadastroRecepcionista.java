@@ -327,6 +327,9 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
             }
         });
         jL_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cancelarMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_cancelarMouseExited(evt);
             }
@@ -531,7 +534,16 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
 
     private void jL_cancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseExited
         efeitoBordaCancelar(jP_cancelar);
+        
     }//GEN-LAST:event_jL_cancelarMouseExited
+
+    private void jL_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cancelarMouseClicked
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?")==0){
+            ControleTelas.telaCadastroAdmins = false;
+            this.dispose();
+        }
+    }//GEN-LAST:event_jL_cancelarMouseClicked
 
     /**
      * @param args the command line arguments

@@ -547,8 +547,11 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_complementoActionPerformed
  
     private void jB_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cancelarActionPerformed
-        fechar();
-        this.dispose();
+        if(JOptionPane.showConfirmDialog(null, "Deseja realmente fechar?")==0){
+            ControleTelas.telaCadastroClientes = false;
+            this.dispose();
+        }
+       
     }//GEN-LAST:event_jB_cancelarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -569,6 +572,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void jB_cancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_cancelarMouseExited
         efeitoBordaCancelar(jP_cancelar);
+        
     }//GEN-LAST:event_jB_cancelarMouseExited
     
     
