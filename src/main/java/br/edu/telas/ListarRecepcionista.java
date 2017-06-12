@@ -101,7 +101,6 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         JP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jP_voltar.setBackground(new java.awt.Color(0, 102, 102));
-        jP_voltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_voltarMouseMoved(evt);
@@ -137,7 +136,7 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         jP_voltar.setLayout(jP_voltarLayout);
         jP_voltarLayout.setHorizontalGroup(
             jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jP_voltarLayout.setVerticalGroup(
             jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +148,6 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 120, 40));
 
         jP_excluir.setBackground(new java.awt.Color(0, 102, 102));
-        jP_excluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_excluir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_excluirMouseMoved(evt);
@@ -185,7 +183,7 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         jP_excluir.setLayout(jP_excluirLayout);
         jP_excluirLayout.setHorizontalGroup(
             jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_excluir1, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+            .addComponent(jL_excluir1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         jP_excluirLayout.setVerticalGroup(
             jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +195,6 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         JP_conteudo.add(jP_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 110, 40));
 
         jP_editar.setBackground(new java.awt.Color(0, 102, 102));
-        jP_editar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_editar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_editarMouseMoved(evt);
