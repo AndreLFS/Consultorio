@@ -78,7 +78,6 @@ public class ListarAtendimentoHoje extends javax.swing.JFrame {
         JP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jP_voltar.setBackground(new java.awt.Color(0, 102, 102));
-        jP_voltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jP_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jP_voltarMouseMoved(evt);
@@ -111,7 +110,7 @@ public class ListarAtendimentoHoje extends javax.swing.JFrame {
         jP_voltar.setLayout(jP_voltarLayout);
         jP_voltarLayout.setHorizontalGroup(
             jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jP_voltarLayout.setVerticalGroup(
             jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
