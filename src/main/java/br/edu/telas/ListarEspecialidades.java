@@ -46,8 +46,6 @@ public class ListarEspecialidades extends javax.swing.JFrame {
         jL_excluir1 = new javax.swing.JLabel();
         jP_editar = new javax.swing.JPanel();
         jL_editar1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -100,6 +98,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
                 jP_voltarMouseExited(evt);
             }
         });
+        jP_voltar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,19 +116,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
                 jL_voltarMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_voltarLayout = new javax.swing.GroupLayout(jP_voltar);
-        jP_voltar.setLayout(jP_voltarLayout);
-        jP_voltarLayout.setHorizontalGroup(
-            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
-        jP_voltarLayout.setVerticalGroup(
-            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_voltarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_voltar.add(jL_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 120, 36));
 
         JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 120, 40));
 
@@ -147,6 +134,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
                 jP_excluirMouseExited(evt);
             }
         });
+        jP_excluir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_excluir1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_excluir1.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,22 +152,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
                 jL_excluir1MouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_excluirLayout = new javax.swing.GroupLayout(jP_excluir);
-        jP_excluir.setLayout(jP_excluirLayout);
-        jP_excluirLayout.setHorizontalGroup(
-            jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_excluirLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jL_excluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jP_excluirLayout.setVerticalGroup(
-            jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_excluirLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_excluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_excluir.add(jL_excluir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 0, 75, 36));
 
         JP_conteudo.add(jP_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 110, 40));
 
@@ -197,6 +170,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
                 jP_editarMouseExited(evt);
             }
         });
+        jP_editar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_editar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_editar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,40 +188,9 @@ public class ListarEspecialidades extends javax.swing.JFrame {
                 jL_editar1MouseExited(evt);
             }
         });
+        jP_editar.add(jL_editar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 50, -1));
 
-        javax.swing.GroupLayout jP_editarLayout = new javax.swing.GroupLayout(jP_editar);
-        jP_editar.setLayout(jP_editarLayout);
-        jP_editarLayout.setHorizontalGroup(
-            jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jL_editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
-        jP_editarLayout.setVerticalGroup(
-            jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        JP_conteudo.add(jP_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 40));
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        JP_conteudo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, -1, -1));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        JP_conteudo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
+        JP_conteudo.add(jP_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -272,28 +215,6 @@ public class ListarEspecialidades extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         ControleTelas.telaListarEspecialiades=false;
     }//GEN-LAST:event_formWindowClosing
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(getEspecialidade() !=  null){
-            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar a especilidade ") == 0){
-                try {
-                    EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
-                    especialidadeDAO.deletar(getEspecialidade());
-                    atualizarTabela();
-                } catch (Exception e) {
-                    System.out.println("Erro no delete da especialidade " +e);
-                }
-                JOptionPane.showMessageDialog(null, "Especialidade deletada com sucesso");
-            }
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       if(ControleTelas.telaCadastroEspecialidade == false && getEspecialidade()!= null){
-            CadastrarEspecialidade cadastrarEspecialidade = new CadastrarEspecialidade(getEspecialidade());
-            cadastrarEspecialidade.setVisible(true);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jL_voltarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseMoved
         jP_voltar.setBorder(efeitoBorda());
@@ -382,6 +303,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_editarMouseExited
 
     private void jL_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseClicked
+        ControleTelas.telaListarEspecialiades = false;
         this.dispose();
     }//GEN-LAST:event_jL_voltarMouseClicked
     protected static void atualizarTabela(){
@@ -455,8 +377,6 @@ public class ListarEspecialidades extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JP_conteudo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jL_editar1;
     private javax.swing.JLabel jL_excluir1;
     private javax.swing.JLabel jL_voltar;

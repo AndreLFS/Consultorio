@@ -61,6 +61,7 @@ public class HomeRecepcionista extends javax.swing.JFrame {
                 jP_cadastrarConsultasMouseExited(evt);
             }
         });
+        jP_cadastrarConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_cadastrarConsultas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_cadastrarConsultas.setForeground(new java.awt.Color(255, 255, 255));
@@ -78,19 +79,7 @@ public class HomeRecepcionista extends javax.swing.JFrame {
                 jL_cadastrarConsultasMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_cadastrarConsultasLayout = new javax.swing.GroupLayout(jP_cadastrarConsultas);
-        jP_cadastrarConsultas.setLayout(jP_cadastrarConsultasLayout);
-        jP_cadastrarConsultasLayout.setHorizontalGroup(
-            jP_cadastrarConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_cadastrarConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-        );
-        jP_cadastrarConsultasLayout.setVerticalGroup(
-            jP_cadastrarConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_cadastrarConsultasLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_cadastrarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_cadastrarConsultas.add(jL_cadastrarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 210, 36));
 
         jP_container.add(jP_cadastrarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 210, 40));
 
@@ -110,6 +99,7 @@ public class HomeRecepcionista extends javax.swing.JFrame {
                 jP_sairMouseExited(evt);
             }
         });
+        jP_sair.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_sair.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_sair.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,19 +114,7 @@ public class HomeRecepcionista extends javax.swing.JFrame {
                 jL_sairMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_sairLayout = new javax.swing.GroupLayout(jP_sair);
-        jP_sair.setLayout(jP_sairLayout);
-        jP_sairLayout.setHorizontalGroup(
-            jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_sair, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-        );
-        jP_sairLayout.setVerticalGroup(
-            jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_sairLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_sair.add(jL_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 176, 36));
 
         javax.swing.GroupLayout jP_quadroDireitoLayout = new javax.swing.GroupLayout(jP_quadroDireito);
         jP_quadroDireito.setLayout(jP_quadroDireitoLayout);

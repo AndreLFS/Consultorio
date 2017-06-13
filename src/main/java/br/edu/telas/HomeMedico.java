@@ -63,6 +63,7 @@ public class HomeMedico extends javax.swing.JFrame {
                 jP_sairMouseExited(evt);
             }
         });
+        jP_sair.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_sair.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_sair.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,19 +78,7 @@ public class HomeMedico extends javax.swing.JFrame {
                 jL_sairMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_sairLayout = new javax.swing.GroupLayout(jP_sair);
-        jP_sair.setLayout(jP_sairLayout);
-        jP_sairLayout.setHorizontalGroup(
-            jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_sair, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-        );
-        jP_sairLayout.setVerticalGroup(
-            jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_sairLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_sair.add(jL_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 176, 36));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

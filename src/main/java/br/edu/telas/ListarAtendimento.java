@@ -100,6 +100,7 @@ public class ListarAtendimento extends javax.swing.JFrame {
                 jP_voltarMouseExited(evt);
             }
         });
+        jP_voltar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,23 +111,14 @@ public class ListarAtendimento extends javax.swing.JFrame {
             }
         });
         jL_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_voltarMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_voltarLayout = new javax.swing.GroupLayout(jP_voltar);
-        jP_voltar.setLayout(jP_voltarLayout);
-        jP_voltarLayout.setHorizontalGroup(
-            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
-        jP_voltarLayout.setVerticalGroup(
-            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_voltarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_voltar.add(jL_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 120, 36));
 
         JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 120, 40));
 
@@ -144,6 +136,7 @@ public class ListarAtendimento extends javax.swing.JFrame {
                 jP_excluirMouseExited(evt);
             }
         });
+        jP_excluir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_excluir1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_excluir1.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,19 +154,7 @@ public class ListarAtendimento extends javax.swing.JFrame {
                 jL_excluir1MouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_excluirLayout = new javax.swing.GroupLayout(jP_excluir);
-        jP_excluir.setLayout(jP_excluirLayout);
-        jP_excluirLayout.setHorizontalGroup(
-            jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_excluir1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-        );
-        jP_excluirLayout.setVerticalGroup(
-            jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_excluirLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_excluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_excluir.add(jL_excluir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 110, 36));
 
         JP_conteudo.add(jP_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 110, 40));
 
@@ -191,6 +172,7 @@ public class ListarAtendimento extends javax.swing.JFrame {
                 jP_editarMouseExited(evt);
             }
         });
+        jP_editar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_editar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_editar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,21 +190,7 @@ public class ListarAtendimento extends javax.swing.JFrame {
                 jL_editar1MouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_editarLayout = new javax.swing.GroupLayout(jP_editar);
-        jP_editar.setLayout(jP_editarLayout);
-        jP_editarLayout.setHorizontalGroup(
-            jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_editarLayout.createSequentialGroup()
-                .addComponent(jL_editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jP_editarLayout.setVerticalGroup(
-            jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_editar.add(jL_editar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 105, 36));
 
         JP_conteudo.add(jP_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 40));
 
@@ -345,6 +313,11 @@ public class ListarAtendimento extends javax.swing.JFrame {
     private void jP_editarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_editarMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_editarMouseExited
+
+    private void jL_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseClicked
+        ControleTelas.telaListarAtendimento = false;
+        this.dispose();
+    }//GEN-LAST:event_jL_voltarMouseClicked
 
     public void atualizarTabela(){
         AtendimentoDAO atendimentoDAO = new AtendimentoDAO();

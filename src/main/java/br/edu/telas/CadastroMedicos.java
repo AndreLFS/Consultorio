@@ -117,7 +117,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_cadastrar = new javax.swing.JLabel();
         jP_cancelar = new javax.swing.JPanel();
         jL_cancelar = new javax.swing.JLabel();
-        jC_especialidade = new javax.swing.JComboBox<String>();
+        jC_especialidade = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jT_complemento = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -125,7 +125,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jT_numero = new javax.swing.JTextField();
         jL_genero = new javax.swing.JLabel();
-        jC_Genero = new javax.swing.JComboBox<String>();
+        jC_Genero = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -328,6 +328,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jP_conteudo.add(JP_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 200, 30));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cadastrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -345,11 +346,12 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jL_cadastrarMouseExited(evt);
             }
         });
-        jP_cadastrar.add(jL_cadastrar);
+        jP_cadastrar.add(jL_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, -1, -1));
 
         jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, -1, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cancelar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -364,11 +366,11 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jL_cancelarMouseClicked(evt);
             }
         });
-        jP_cancelar.add(jL_cancelar);
+        jP_cancelar.add(jL_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 5, -1, -1));
 
         jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 590, 130, 40));
 
-        jC_especialidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_especialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jC_especialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jC_especialidadeActionPerformed(evt);
@@ -399,7 +401,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
         jL_genero.setText("Gênero");
         jP_conteudo.add(jL_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, 20));
 
-        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        jC_Genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         jP_conteudo.add(jC_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 100, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

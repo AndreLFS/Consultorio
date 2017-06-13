@@ -95,8 +95,6 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jB_cancelar = new javax.swing.JButton();
         jL_medico = new javax.swing.JLabel();
         jT_medico = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jP_atestado = new javax.swing.JPanel();
@@ -190,6 +188,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel1.add(jTA_encaminhamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 200, 40));
 
         jP_cadastrar.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cadastrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,11 +206,12 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jL_cadastrarMouseExited(evt);
             }
         });
-        jP_cadastrar.add(jL_cadastrar);
+        jP_cadastrar.add(jL_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 5, -1, -1));
 
-        jPanel1.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 100, 40));
+        jPanel1.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 100, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cancelar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jB_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jB_cancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -234,9 +234,9 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jB_cancelarActionPerformed(evt);
             }
         });
-        jP_cancelar.add(jB_cancelar);
+        jP_cancelar.add(jB_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 5, -1, -1));
 
-        jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 100, 40));
+        jPanel1.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 100, 40));
 
         jL_medico.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_medico.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,22 +245,6 @@ public class CadastroProntuario extends javax.swing.JFrame {
 
         jT_medico.setEditable(false);
         jPanel1.add(jT_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 290, 30));
-
-        jButton1.setText("prontuário");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
-
-        jButton2.setText("Atestado");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -271,6 +255,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 480, 260));
 
         jP_atestado.setBackground(new java.awt.Color(36, 47, 65));
+        jP_atestado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jB_atestado.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jB_atestado.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,11 +278,12 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jB_atestadoActionPerformed(evt);
             }
         });
-        jP_atestado.add(jB_atestado);
+        jP_atestado.add(jB_atestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, -1, -1));
 
-        jPanel1.add(jP_atestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 100, 40));
+        jPanel1.add(jP_atestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 100, 40));
 
         jP_prontuario.setBackground(new java.awt.Color(36, 47, 65));
+        jP_prontuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jB_prontuario.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jB_prontuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -320,11 +306,11 @@ public class CadastroProntuario extends javax.swing.JFrame {
                 jB_prontuarioActionPerformed(evt);
             }
         });
-        jP_prontuario.add(jB_prontuario);
+        jP_prontuario.add(jB_prontuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, -1, -1));
 
-        jPanel1.add(jP_prontuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 100, 40));
+        jPanel1.add(jP_prontuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 100, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 520, 520));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 520, 470));
 
         pack();
         setLocationRelativeTo(null);
@@ -362,36 +348,6 @@ public class CadastroProntuario extends javax.swing.JFrame {
     private void jL_cadastrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMouseExited
         efeitoBordaCancelar(jP_cadastrar);
     }//GEN-LAST:event_jL_cadastrarMouseExited
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            HashMap parametros = new HashMap();
-            parametros.put("idProntuario", String.valueOf(prontuario.getId()));
-            Util.imprimir("Relatorios\\Receita.jrxml", parametros);
-        } catch (Exception e) {
-            System.out.println("Erro na geração do prontuario " + e);
-        }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         int dias = Integer.valueOf(JOptionPane.showInputDialog(null, "Quantos dias de atestado?"));
-        try {
-           Date data = new Date();
-           SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-           Calendar calendar = Calendar.getInstance();
-           calendar.setTime(new Date());
-           calendar.add(Calendar.DAY_OF_MONTH, dias);
-           
-            HashMap parametros = new HashMap();
-            parametros.put("idCliente", String.valueOf(atendimento.getCliente().getId()));
-            parametros.put("hoje", formatador.format(data));
-            parametros.put("dataFinal", formatador.format(calendar.getTime()));
-            Util.imprimir("Relatorios\\AtestadoMedico.jrxml", parametros);
-        } catch (Exception e) {
-            System.out.println("Erro na geração do prontuario " + e);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jB_atestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_atestadoActionPerformed
         {                                         
@@ -519,8 +475,6 @@ public class CadastroProntuario extends javax.swing.JFrame {
     private javax.swing.JButton jB_atestado;
     private javax.swing.JButton jB_cancelar;
     private javax.swing.JButton jB_prontuario;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JFormattedTextField jFT_data;
     private javax.swing.JLabel jL_cadastrar;
     private javax.swing.JLabel jL_cliente;

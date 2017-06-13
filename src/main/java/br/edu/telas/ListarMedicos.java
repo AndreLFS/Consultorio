@@ -48,9 +48,8 @@ public class ListarMedicos extends javax.swing.JFrame {
         jL_excluir = new javax.swing.JLabel();
         jP_editar = new javax.swing.JPanel();
         jL_editar = new javax.swing.JLabel();
-        jB_Excluir2 = new javax.swing.JButton();
-        jB_Editar2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jP_Relatorio = new javax.swing.JPanel();
+        jL_Relatorio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -100,6 +99,7 @@ public class ListarMedicos extends javax.swing.JFrame {
                 jP_voltarMouseExited(evt);
             }
         });
+        jP_voltar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,19 +117,7 @@ public class ListarMedicos extends javax.swing.JFrame {
                 jL_voltarMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_voltarLayout = new javax.swing.GroupLayout(jP_voltar);
-        jP_voltar.setLayout(jP_voltarLayout);
-        jP_voltarLayout.setHorizontalGroup(
-            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
-        jP_voltarLayout.setVerticalGroup(
-            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_voltarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_voltar.add(jL_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 120, 36));
 
         JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 120, 40));
 
@@ -147,6 +135,7 @@ public class ListarMedicos extends javax.swing.JFrame {
                 jP_excluirMouseExited(evt);
             }
         });
+        jP_excluir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_excluir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_excluir.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,19 +153,7 @@ public class ListarMedicos extends javax.swing.JFrame {
                 jL_excluirMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_excluirLayout = new javax.swing.GroupLayout(jP_excluir);
-        jP_excluir.setLayout(jP_excluirLayout);
-        jP_excluirLayout.setHorizontalGroup(
-            jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_excluir, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-        );
-        jP_excluirLayout.setVerticalGroup(
-            jP_excluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_excluirLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_excluir.add(jL_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 110, 36));
 
         JP_conteudo.add(jP_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 110, 40));
 
@@ -194,6 +171,7 @@ public class ListarMedicos extends javax.swing.JFrame {
                 jP_editarMouseExited(evt);
             }
         });
+        jP_editar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_editar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_editar.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,47 +189,46 @@ public class ListarMedicos extends javax.swing.JFrame {
                 jL_editarMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_editarLayout = new javax.swing.GroupLayout(jP_editar);
-        jP_editar.setLayout(jP_editarLayout);
-        jP_editarLayout.setHorizontalGroup(
-            jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_editarLayout.createSequentialGroup()
-                .addComponent(jL_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jP_editarLayout.setVerticalGroup(
-            jP_editarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_editarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_editar.add(jL_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 105, 36));
 
         JP_conteudo.add(jP_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 40));
 
-        jB_Excluir2.setText("Excluir");
-        jB_Excluir2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_Excluir2ActionPerformed(evt);
+        jP_Relatorio.setBackground(new java.awt.Color(0, 102, 102));
+        jP_Relatorio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_RelatorioMouseMoved(evt);
             }
         });
-        JP_conteudo.add(jB_Excluir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
+        jP_Relatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_RelatorioMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_RelatorioMouseExited(evt);
+            }
+        });
+        jP_Relatorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jB_Editar2.setText("Editar");
-        jB_Editar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_Editar2ActionPerformed(evt);
+        jL_Relatorio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_Relatorio.setForeground(new java.awt.Color(255, 255, 255));
+        jL_Relatorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_Relatorio.setText("Gerar Relatorio");
+        jL_Relatorio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_RelatorioMouseMoved(evt);
             }
         });
-        JP_conteudo.add(jB_Editar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
+        jL_Relatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_RelatorioMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_RelatorioMouseExited(evt);
+            }
+        });
+        jP_Relatorio.add(jL_Relatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 40));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        JP_conteudo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        JP_conteudo.add(jP_Relatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 120, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -391,43 +368,39 @@ public class ListarMedicos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_editarMouseExited
 
-    private void jB_Excluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Excluir2ActionPerformed
-        if(getMedico() !=  null){
-            if(JOptionPane.showConfirmDialog(null, "Certeza que deseja deletar o cliente " + getMedico().getNome()) == 0){
-                try {
-                    MedicoDAO medicoDAO = new MedicoDAO();
-                    medicoDAO.deletar(getMedico());
-                    atualizarTabela();
-                } catch (Exception e) {
-                    System.out.println("Erro ao deletar Médico " +e);
-                }
-                JOptionPane.showMessageDialog(null, "Médico deletado com sucesso");
-            }
-        }
-
-    }//GEN-LAST:event_jB_Excluir2ActionPerformed
-
-    private void jB_Editar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Editar2ActionPerformed
-        if (getMedico() != null) {
-            CadastroMedicos cam = new CadastroMedicos(getMedico());
-            cam.setVisible(true);
-        }
-
-    }//GEN-LAST:event_jB_Editar2ActionPerformed
-
     private void jL_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseClicked
-        // TODO add your handling code here:
+        ControleTelas.telaListarMedicos = false;
         this.dispose();
     }//GEN-LAST:event_jL_voltarMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+    private void jL_RelatorioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_RelatorioMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_RelatorioMouseMoved
+
+    private void jL_RelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_RelatorioMouseClicked
+         try {
             HashMap parametros = new HashMap();
             Util.imprimir("Relatorios\\ListaMedicos.jrxml", parametros);
         } catch (Exception e) {
             System.out.println("Erro na geração do prontuario " + e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jL_RelatorioMouseClicked
+
+    private void jL_RelatorioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_RelatorioMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_RelatorioMouseExited
+
+    private void jP_RelatorioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_RelatorioMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_RelatorioMouseMoved
+
+    private void jP_RelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_RelatorioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_RelatorioMouseClicked
+
+    private void jP_RelatorioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_RelatorioMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_RelatorioMouseExited
     
    
     
@@ -488,12 +461,11 @@ public class ListarMedicos extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JP_conteudo;
-    private javax.swing.JButton jB_Editar2;
-    private javax.swing.JButton jB_Excluir2;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jL_Relatorio;
     private javax.swing.JLabel jL_editar;
     private javax.swing.JLabel jL_excluir;
     private javax.swing.JLabel jL_voltar;
+    private javax.swing.JPanel jP_Relatorio;
     private javax.swing.JPanel jP_editar;
     private javax.swing.JPanel jP_excluir;
     private javax.swing.JPanel jP_voltar;

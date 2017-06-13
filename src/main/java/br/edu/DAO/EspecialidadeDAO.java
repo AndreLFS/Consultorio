@@ -34,7 +34,7 @@ public class EspecialidadeDAO extends GenericoDAO<Especialidade>{
         try {
             sessao = getSessao().openSession();
             lista = sessao.createCriteria(Especialidade.class).
-                    addOrder(Order.asc("nome")).list();
+                    addOrder(Order.asc("especialidade")).list();
         } catch (Exception e) {
             System.out.println("Erro na lista: " + e);
         }

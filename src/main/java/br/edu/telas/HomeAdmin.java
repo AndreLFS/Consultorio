@@ -196,6 +196,8 @@ public class HomeAdmin extends javax.swing.JFrame {
                 jP_sairMouseExited(evt);
             }
         });
+        jP_sair.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jP_sair.add(jL_iconSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 29, -1, -1));
 
         jL_sair.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jL_sair.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,25 +212,7 @@ public class HomeAdmin extends javax.swing.JFrame {
                 jL_sairMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_sairLayout = new javax.swing.GroupLayout(jP_sair);
-        jP_sair.setLayout(jP_sairLayout);
-        jP_sairLayout.setHorizontalGroup(
-            jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_sairLayout.createSequentialGroup()
-                .addComponent(jL_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jL_iconSair)
-                .addContainerGap())
-        );
-        jP_sairLayout.setVerticalGroup(
-            jP_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jP_sairLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(jL_iconSair)
-                .addContainerGap())
-            .addComponent(jL_sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jP_sair.add(jL_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
         jP_container.add(jP_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 90, 40));
 

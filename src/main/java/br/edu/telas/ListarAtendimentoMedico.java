@@ -145,6 +145,7 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
                 jP_voltarMouseExited(evt);
             }
         });
+        jP_voltar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,19 +160,7 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
                 jL_voltarMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jP_voltarLayout = new javax.swing.GroupLayout(jP_voltar);
-        jP_voltar.setLayout(jP_voltarLayout);
-        jP_voltarLayout.setHorizontalGroup(
-            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jL_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
-        jP_voltarLayout.setVerticalGroup(
-            jP_voltarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_voltarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jL_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jP_voltar.add(jL_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 120, 36));
 
         JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 120, 40));
 
