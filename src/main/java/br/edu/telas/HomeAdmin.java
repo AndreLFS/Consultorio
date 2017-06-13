@@ -64,6 +64,12 @@ public class HomeAdmin extends javax.swing.JFrame {
         jL_listarRecepcionista = new javax.swing.JLabel();
         jP_cadastrarRecepcionista = new javax.swing.JPanel();
         jL_cadastrarRecepcionista = new javax.swing.JLabel();
+        jP_CadastrarMedicos = new javax.swing.JPanel();
+        jP_listarMedicos = new javax.swing.JPanel();
+        jL_listarMedico = new javax.swing.JLabel();
+        jP_cadastraMedicos = new javax.swing.JPanel();
+        jL_cadastrarMedico = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -214,7 +220,7 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
         jP_sair.add(jL_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        jP_container.add(jP_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 90, 40));
+        jP_container.add(jP_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 90, 40));
 
         jP_administrador.setBackground(new java.awt.Color(36, 47, 65));
         jP_administrador.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -492,6 +498,92 @@ public class HomeAdmin extends javax.swing.JFrame {
 
         jP_container.add(jP_cliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 280, 160));
 
+        jP_CadastrarMedicos.setBackground(new java.awt.Color(36, 47, 65));
+        jP_CadastrarMedicos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        jP_listarMedicos.setBackground(new java.awt.Color(0, 102, 102));
+        jP_listarMedicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_listarMedico.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jL_listarMedico.setForeground(new java.awt.Color(255, 255, 255));
+        jL_listarMedico.setText("                      Listar");
+        jL_listarMedico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jL_listarMedico.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_listarMedicoMouseMoved(evt);
+            }
+        });
+        jL_listarMedico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_listarMedicoMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_listarMedicoMouseExited(evt);
+            }
+        });
+        jP_listarMedicos.add(jL_listarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -1, 220, 40));
+
+        jP_cadastraMedicos.setBackground(new java.awt.Color(0, 102, 102));
+        jP_cadastraMedicos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_cadastraMedicosMouseMoved(evt);
+            }
+        });
+        jP_cadastraMedicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_cadastrarMedico.setBackground(new java.awt.Color(255, 255, 255));
+        jL_cadastrarMedico.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jL_cadastrarMedico.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cadastrarMedico.setText("                       Cadastrar");
+        jL_cadastrarMedico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jL_cadastrarMedico.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMedicoMouseMoved(evt);
+            }
+        });
+        jL_cadastrarMedico.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                jL_cadastrarMedicoMouseWheelMoved(evt);
+            }
+        });
+        jL_cadastrarMedico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMedicoMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_cadastrarMedicoMouseExited(evt);
+            }
+        });
+        jP_cadastraMedicos.add(jL_cadastrarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 240, 40));
+
+        javax.swing.GroupLayout jP_CadastrarMedicosLayout = new javax.swing.GroupLayout(jP_CadastrarMedicos);
+        jP_CadastrarMedicos.setLayout(jP_CadastrarMedicosLayout);
+        jP_CadastrarMedicosLayout.setHorizontalGroup(
+            jP_CadastrarMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_CadastrarMedicosLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jP_CadastrarMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jP_cadastraMedicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jP_listarMedicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jP_CadastrarMedicosLayout.setVerticalGroup(
+            jP_CadastrarMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_CadastrarMedicosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jP_cadastraMedicos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jP_listarMedicos, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+        );
+
+        jP_container.add(jP_CadastrarMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 280, 160));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Médico");
+        jP_container.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -500,10 +592,10 @@ public class HomeAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jP_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jP_container, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(645, 530));
+        setSize(new java.awt.Dimension(645, 681));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -710,6 +802,44 @@ public class HomeAdmin extends javax.swing.JFrame {
     private void jL_sairMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseMoved
         jP_sair.setBorder(efeitoBorda());
     }//GEN-LAST:event_jL_sairMouseMoved
+
+    private void jL_cadastrarMedicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMedicoMouseClicked
+       if(ControleTelas.telaCadastroMedicos == false){
+            CadastroMedicos cadastroMedico = new CadastroMedicos();
+            cadastroMedico.setVisible(true);
+        }
+    }//GEN-LAST:event_jL_cadastrarMedicoMouseClicked
+
+    private void jL_listarMedicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarMedicoMouseClicked
+         if(ControleTelas.telaListarMedicos == false){
+            ListarMedicos listarMedicos = new ListarMedicos();
+            listarMedicos.setVisible(true);
+        }
+    }//GEN-LAST:event_jL_listarMedicoMouseClicked
+
+    private void jL_cadastrarMedicoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMedicoMouseExited
+       efeitoBordaCancelar(jP_cadastraMedicos);
+    }//GEN-LAST:event_jL_cadastrarMedicoMouseExited
+
+    private void jP_cadastraMedicosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastraMedicosMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastraMedicosMouseMoved
+
+    private void jL_cadastrarMedicoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarMedicoMouseMoved
+       jP_cadastraMedicos.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_cadastrarMedicoMouseMoved
+
+    private void jL_listarMedicoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarMedicoMouseExited
+        efeitoBordaCancelar(jP_listarMedicos);
+    }//GEN-LAST:event_jL_listarMedicoMouseExited
+
+    private void jL_listarMedicoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_listarMedicoMouseMoved
+        jP_listarMedicos.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_listarMedicoMouseMoved
+
+    private void jL_cadastrarMedicoMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jL_cadastrarMedicoMouseWheelMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_cadastrarMedicoMouseWheelMoved
     //codigo para colocar as sombras nos paineis
     private DropShadowBorder efeitoBorda(){
         DropShadowBorder shadow = new DropShadowBorder();
@@ -777,6 +907,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jL_cadastrarAdmin;
     private javax.swing.JLabel jL_cadastrarCliente;
     private javax.swing.JLabel jL_cadastrarFuncionario;
+    private javax.swing.JLabel jL_cadastrarMedico;
     private javax.swing.JLabel jL_cadastrarRecepcionista;
     private javax.swing.JLabel jL_cliente;
     private javax.swing.JLabel jL_funcionario;
@@ -784,10 +915,14 @@ public class HomeAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jL_listarAdmin;
     private javax.swing.JLabel jL_listarCliente;
     private javax.swing.JLabel jL_listarFuncionario;
+    private javax.swing.JLabel jL_listarMedico;
     private javax.swing.JLabel jL_listarRecepcionista;
     private javax.swing.JLabel jL_recepcionista;
     private javax.swing.JLabel jL_sair;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jP_CadastrarMedicos;
     private javax.swing.JPanel jP_administrador;
+    private javax.swing.JPanel jP_cadastraMedicos;
     private javax.swing.JPanel jP_cadastrarAdmin;
     private javax.swing.JPanel jP_cadastrarCliente;
     private javax.swing.JPanel jP_cadastrarFuncionario;
@@ -799,6 +934,7 @@ public class HomeAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jP_listarAdmin;
     private javax.swing.JPanel jP_listarCliente;
     private javax.swing.JPanel jP_listarFuncionario;
+    private javax.swing.JPanel jP_listarMedicos;
     private javax.swing.JPanel jP_listarRecepcionista;
     private javax.swing.JPanel jP_sair;
     // End of variables declaration//GEN-END:variables
