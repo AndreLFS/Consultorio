@@ -98,7 +98,6 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\cancel.png")); // NOI18N
         jL_cancelar.setText("Cancelar");
         jL_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -127,7 +126,6 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
 
         jL_cadastrar1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar1.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cadastrar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\accept.png")); // NOI18N
         jL_cadastrar1.setText("Cadastrar ");
         jL_cadastrar1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {

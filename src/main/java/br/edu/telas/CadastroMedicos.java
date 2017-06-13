@@ -332,7 +332,6 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cadastrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\accept.png")); // NOI18N
         jL_cadastrar.setText("Cadastrar ");
         jL_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -356,7 +355,6 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\cancel.png")); // NOI18N
         jL_cancelar.setText("Cancelar");
         jL_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {

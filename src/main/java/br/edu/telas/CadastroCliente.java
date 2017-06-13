@@ -253,7 +253,6 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jB_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jB_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        jB_cadastrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\accept.png")); // NOI18N
         jB_cadastrar.setText("Cadastrar");
         jB_cadastrar.setBorder(null);
         jB_cadastrar.setBorderPainted(false);
@@ -282,7 +281,6 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jB_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jB_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jB_cancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\cancel.png")); // NOI18N
         jB_cancelar.setText("Cancelar");
         jB_cancelar.setBorder(null);
         jB_cancelar.setBorderPainted(false);
@@ -528,12 +526,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_cepActionPerformed
 
-    private void jB_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cadastrarActionPerformed
-        if(testeVazio()){
-            salvar();
-        }
-    }//GEN-LAST:event_jB_cadastrarActionPerformed
-
     private void jT_alergiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_alergiasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_alergiasActionPerformed
@@ -562,14 +554,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         ControleTelas.telaCadastroClientes = false;
     }//GEN-LAST:event_formWindowClosing
 
-    private void jB_cadastrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_cadastrarMouseMoved
-       jP_cadastrar.setBorder(efeitoBorda());
-    }//GEN-LAST:event_jB_cadastrarMouseMoved
-
-    private void jB_cadastrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_cadastrarMouseExited
-        efeitoBordaCancelar(jP_cadastrar);
-    }//GEN-LAST:event_jB_cadastrarMouseExited
-
     private void jB_cancelarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_cancelarMouseMoved
        jP_cancelar.setBorder(efeitoBorda());
     }//GEN-LAST:event_jB_cancelarMouseMoved
@@ -578,6 +562,20 @@ public class CadastroCliente extends javax.swing.JFrame {
         efeitoBordaCancelar(jP_cancelar);
         
     }//GEN-LAST:event_jB_cancelarMouseExited
+
+    private void jB_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cadastrarActionPerformed
+        if(testeVazio()){
+            salvar();
+        }
+    }//GEN-LAST:event_jB_cadastrarActionPerformed
+
+    private void jB_cadastrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_cadastrarMouseExited
+        efeitoBordaCancelar(jP_cadastrar);
+    }//GEN-LAST:event_jB_cadastrarMouseExited
+
+    private void jB_cadastrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_cadastrarMouseMoved
+        jP_cadastrar.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jB_cadastrarMouseMoved
     
     
     // </editor-fold>        

@@ -128,7 +128,7 @@ public class HomeMedico extends javax.swing.JFrame {
                 jL_buscarConsultasMouseExited(evt);
             }
         });
-        jP_buscarConsultas.add(jL_buscarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 40));
+        jP_buscarConsultas.add(jL_buscarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 40));
 
         javax.swing.GroupLayout jP_containerLayout = new javax.swing.GroupLayout(jP_container);
         jP_container.setLayout(jP_containerLayout);
