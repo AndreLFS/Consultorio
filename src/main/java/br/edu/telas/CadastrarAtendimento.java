@@ -68,7 +68,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         localizarHora();
         localizarMedicos();
         jFT_data.setText(validar.converterData(atendimento.getData()));
-        
+        jL_cadastrar1.setText("Editar");
         AutoCompleteDecorator.decorate(jC_medicos);
         AutoCompleteDecorator.decorate(jC_clientes);
     }
@@ -83,21 +83,21 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private void initComponents() {
 
         jP_container = new javax.swing.JPanel();
-        jC_medicos = new javax.swing.JComboBox<String>();
-        jC_clientes = new javax.swing.JComboBox<String>();
+        jC_medicos = new javax.swing.JComboBox<>();
+        jC_clientes = new javax.swing.JComboBox<>();
         jL_data = new javax.swing.JLabel();
-        jL_medicos1 = new javax.swing.JLabel();
-        jL_cliente1 = new javax.swing.JLabel();
-        jC_idCliente = new javax.swing.JComboBox<String>();
+        jC_idCliente = new javax.swing.JComboBox<>();
         jL_hora = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jFT_data = new javax.swing.JFormattedTextField();
         jP_cancelar = new javax.swing.JPanel();
         jL_cancelar = new javax.swing.JLabel();
         jP_cadastrar = new javax.swing.JPanel();
         jL_cadastrar1 = new javax.swing.JLabel();
-        jC_idMedicos = new javax.swing.JComboBox<String>();
+        jC_idMedicos = new javax.swing.JComboBox<>();
         jP_conteudo = new javax.swing.JPanel();
+        jL_cliente1 = new javax.swing.JLabel();
+        jL_medicos1 = new javax.swing.JLabel();
         jP_cabeçalho = new javax.swing.JPanel();
         jL_consultas = new javax.swing.JLabel();
 
@@ -113,7 +113,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jP_container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jC_medicos.setEditable(true);
-        jC_medicos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_medicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jC_medicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jC_medicosActionPerformed(evt);
@@ -122,7 +122,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jP_container.add(jC_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, 30));
 
         jC_clientes.setEditable(true);
-        jC_clientes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jP_container.add(jC_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 150, 30));
 
         jL_data.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -130,17 +130,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jL_data.setText("Data");
         jP_container.add(jL_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 50, 20));
 
-        jL_medicos1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_medicos1.setForeground(new java.awt.Color(255, 255, 255));
-        jL_medicos1.setText("Médico");
-        jP_container.add(jL_medicos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 90, 20));
-
-        jL_cliente1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jL_cliente1.setForeground(new java.awt.Color(255, 255, 255));
-        jL_cliente1.setText("Paciente");
-        jP_container.add(jL_cliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 90, 20));
-
-        jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jP_container.add(jC_idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, 30));
 
         jL_hora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -148,7 +138,7 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
         jL_hora.setText("Hora");
         jP_container.add(jL_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 90, 20));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8", "9", "10", "11", "14", "15", "16", "17" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "14", "15", "16", "17" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -228,11 +218,23 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
 
         jP_container.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 130, 40));
 
-        jC_idMedicos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_idMedicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jP_container.add(jC_idMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
         jP_conteudo.setBackground(new java.awt.Color(153, 153, 153));
         jP_conteudo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_cliente1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cliente1.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cliente1.setText("Paciente");
+        jP_conteudo.add(jL_cliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 90, 20));
+
+        jL_medicos1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_medicos1.setForeground(new java.awt.Color(255, 255, 255));
+        jL_medicos1.setText("Médico");
+        jP_conteudo.add(jL_medicos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, 20));
+
         jP_container.add(jP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 480, 170));
 
         getContentPane().add(jP_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 590, 280));
@@ -355,12 +357,13 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
     private void salvar(){
         if (testes()) {
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-            if (medicoLocalizar != null) {
+            if (medicoLocalizar == null) {
                 this.medico = (medicoDAO.listarCampos("id", Integer.parseInt(jC_idMedicos.getItemAt(jC_medicos.getSelectedIndex()))).get(0));
             }
-            if (clienteLocalizar != null) {
+            if (clienteLocalizar == null) {
                 this.cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
             }
+            JOptionPane.showMessageDialog(null, this.medico.getNome());
             if(TestesAtendimento.testeAtendimento(medico, cliente, validar.converterIdade(jFT_data.getText()), Integer.parseInt(jComboBox1.getSelectedItem().toString()))) {
                 atendimento.setCliente(cliente);
                 atendimento.setData(validar.converterIdade(jFT_data.getText()));

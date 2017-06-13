@@ -9,7 +9,9 @@ import br.edu.DAO.AdminDAO;
 import br.edu.anotacoes.Admin;
 import br.edu.tableModel.AdministradorTableModel;
 import br.edu.util.ControleTelas;
+import br.edu.util.Util;
 import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
@@ -65,6 +67,7 @@ public class ListarAdmin extends javax.swing.JFrame {
         jL_excluir = new javax.swing.JLabel();
         jP_editar = new javax.swing.JPanel();
         jL_editar = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -74,7 +77,6 @@ public class ListarAdmin extends javax.swing.JFrame {
         });
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -254,6 +256,14 @@ public class ListarAdmin extends javax.swing.JFrame {
 
         JP_conteudo.add(jP_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 110, 40));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        JP_conteudo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -394,6 +404,15 @@ public class ListarAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jL_voltarMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            HashMap parametros = new HashMap();
+            Util.imprimir("Relatorios\\ListarAdmin.jrxml", parametros);
+        } catch (Exception e) {
+            System.out.println("Erro na geração do prontuario " + e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -453,6 +472,7 @@ public class ListarAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel JP_conteudo;
     private javax.swing.JButton jB_Editar;
     private javax.swing.JButton jB_Excluir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jL_editar;
     private javax.swing.JLabel jL_excluir;
     private javax.swing.JLabel jL_voltar;

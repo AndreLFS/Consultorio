@@ -382,9 +382,7 @@ public class ListarEspecialidades extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_editarMouseExited
 
     private void jL_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseClicked
-        // TODO add your handling code here:
-                    this.dispose();
-
+        this.dispose();
     }//GEN-LAST:event_jL_voltarMouseClicked
     protected static void atualizarTabela(){
         EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();

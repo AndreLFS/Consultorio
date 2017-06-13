@@ -6,6 +6,8 @@
 package br.edu.DAO;
 
 import br.edu.anotacoes.Especialidade;
+import java.util.List;
+import org.hibernate.criterion.Order;
 
 /**
  *
@@ -24,5 +26,21 @@ public class EspecialidadeDAO extends GenericoDAO<Especialidade>{
         }else{
             return super.editar(especialidade);
         }
+    }
+    
+    @Override
+    public List<Especialidade> listar() {
+        List<Especialidade> lista=null;
+        try {
+            sessao = getSessao().openSession();
+            lista = sessao.createCriteria(Especialidade.class).
+                    addOrder(Order.asc("nome")).list();
+        } catch (Exception e) {
+            System.out.println("Erro na lista: " + e);
+        }
+        finally{
+            sessao.close();
+        }
+        return lista;
     }
 }

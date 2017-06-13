@@ -9,7 +9,9 @@ import br.edu.DAO.RecepcionistaDAO;
 import br.edu.anotacoes.Recepcionista;
 import br.edu.tableModel.RecepcionistaTableModel;
 import br.edu.util.ControleTelas;
+import br.edu.util.Util;
 import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
@@ -63,6 +65,7 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         jL_editar1 = new javax.swing.JLabel();
         Excluir = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -259,6 +262,14 @@ public class ListarRecepcionista extends javax.swing.JFrame {
         });
         JP_conteudo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        JP_conteudo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -401,6 +412,15 @@ public class ListarRecepcionista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jL_voltarMouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            HashMap parametros = new HashMap();
+            Util.imprimir("Relatorios\\ListarRecepcionista.jrxml", parametros);
+        } catch (Exception e) {
+            System.out.println("Erro na geração do prontuario " + e);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -460,6 +480,7 @@ public class ListarRecepcionista extends javax.swing.JFrame {
     private javax.swing.JButton Excluir;
     private javax.swing.JPanel JP_conteudo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jL_editar1;
     private javax.swing.JLabel jL_excluir1;
     private javax.swing.JLabel jL_voltar;

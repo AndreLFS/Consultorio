@@ -6,6 +6,8 @@
 package br.edu.DAO;
 
 import br.edu.anotacoes.Cliente;
+import java.util.List;
+import org.hibernate.criterion.Order;
 
 /**
  *
@@ -24,6 +26,22 @@ public class ClienteDAO2 extends GenericoDAO<Cliente>{
         }else{
             return super.editar(cliente);
         }
+    }
+    
+    @Override
+    public List<Cliente> listar() {
+        List<Cliente> lista=null;
+        try {
+            sessao = getSessao().openSession();
+            lista = sessao.createCriteria(Cliente.class).
+                    addOrder(Order.asc("nome")).list();
+        } catch (Exception e) {
+            System.out.println("Erro na lista: " + e);
+        }
+        finally{
+            sessao.close();
+        }
+        return lista;
     }
     
     

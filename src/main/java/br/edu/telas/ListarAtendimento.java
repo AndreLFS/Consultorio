@@ -31,7 +31,7 @@ public class ListarAtendimento extends javax.swing.JFrame {
     public ListarAtendimento() {
         initComponents();
         ControleTelas.telaListarAtendimento = true;
-        //atualizarTabela();
+        atualizarTabela();
     }
 
     /**

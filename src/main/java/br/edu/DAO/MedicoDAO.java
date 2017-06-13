@@ -8,6 +8,7 @@ package br.edu.DAO;
 
 import br.edu.anotacoes.Medico;
 import java.util.List;
+import org.hibernate.criterion.Order;
 
 
 /**
@@ -37,5 +38,21 @@ public class MedicoDAO extends GenericoDAO<Medico>  {
     @Override
     public List<Medico> listarCampos(String campo, Object valor) {
         return super.listarCampos(campo, valor);
+    }
+    
+    @Override
+    public List<Medico> listar() {
+        List<Medico> lista=null;
+        try {
+            sessao = getSessao().openSession();
+            lista = sessao.createCriteria(Medico.class).
+                    addOrder(Order.asc("nome")).list();
+        } catch (Exception e) {
+            System.out.println("Erro na lista: " + e);
+        }
+        finally{
+            sessao.close();
+        }
+        return lista;
     }
 }

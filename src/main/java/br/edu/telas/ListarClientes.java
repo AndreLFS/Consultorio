@@ -9,7 +9,9 @@ import br.edu.DAO.ClienteDAO2;
 import br.edu.anotacoes.Cliente;
 import br.edu.tableModel.ClienteTableModel;
 import br.edu.util.ControleTelas;
+import br.edu.util.Util;
 import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
@@ -48,6 +50,7 @@ public class ListarClientes extends javax.swing.JFrame {
         jL_excluir = new javax.swing.JLabel();
         jP_editar = new javax.swing.JPanel();
         jL_editar = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -256,6 +259,14 @@ public class ListarClientes extends javax.swing.JFrame {
 
         JP_conteudo.add(jP_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 120, 40));
 
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        JP_conteudo.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -429,6 +440,15 @@ public class ListarClientes extends javax.swing.JFrame {
                     this.dispose();
 
     }//GEN-LAST:event_jL_voltarMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            HashMap parametros = new HashMap();
+            Util.imprimir("Relatorios\\ListaClientes.jrxml", parametros);
+        } catch (Exception e) {
+            System.out.println("Erro na geração do prontuario " + e);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -492,6 +512,7 @@ public class ListarClientes extends javax.swing.JFrame {
     private javax.swing.JPanel JP_conteudo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jL_editar;
     private javax.swing.JLabel jL_excluir;
     private javax.swing.JLabel jL_voltar;

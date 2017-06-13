@@ -9,7 +9,9 @@ import br.edu.DAO.MedicoDAO;
 import br.edu.anotacoes.Medico;
 import br.edu.tableModel.MedicoTableModel;
 import br.edu.util.ControleTelas;
+import br.edu.util.Util;
 import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
@@ -48,6 +50,7 @@ public class ListarMedicos extends javax.swing.JFrame {
         jL_editar = new javax.swing.JLabel();
         jB_Excluir2 = new javax.swing.JButton();
         jB_Editar2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -242,6 +245,14 @@ public class ListarMedicos extends javax.swing.JFrame {
         });
         JP_conteudo.add(jB_Editar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        JP_conteudo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -408,6 +419,15 @@ public class ListarMedicos extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jL_voltarMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            HashMap parametros = new HashMap();
+            Util.imprimir("Relatorios\\ListaMedicos.jrxml", parametros);
+        } catch (Exception e) {
+            System.out.println("Erro na geração do prontuario " + e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
     
    
     
@@ -470,6 +490,7 @@ public class ListarMedicos extends javax.swing.JFrame {
     private javax.swing.JPanel JP_conteudo;
     private javax.swing.JButton jB_Editar2;
     private javax.swing.JButton jB_Excluir2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jL_editar;
     private javax.swing.JLabel jL_excluir;
     private javax.swing.JLabel jL_voltar;
