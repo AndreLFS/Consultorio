@@ -299,6 +299,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
 
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cadastrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\accept.png")); // NOI18N
         jL_cadastrar.setText("Cadastrar ");
         jL_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -313,7 +314,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
                 jL_cadastrarMouseExited(evt);
             }
         });
-        jP_cadastrar.add(jL_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 5, -1, -1));
+        jP_cadastrar.add(jL_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 600, 130, 40));
 
@@ -322,6 +323,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\cancel.png")); // NOI18N
         jL_cancelar.setText("Cancelar");
         jL_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -336,7 +338,7 @@ public class CadastroRecepcionista extends javax.swing.JFrame {
                 jL_cancelarMouseExited(evt);
             }
         });
-        jP_cancelar.add(jL_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 5, -1, -1));
+        jP_cancelar.add(jL_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, 130, 40));
 

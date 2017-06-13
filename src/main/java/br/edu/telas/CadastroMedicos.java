@@ -332,6 +332,7 @@ public class CadastroMedicos extends javax.swing.JFrame {
 
         jL_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cadastrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\accept.png")); // NOI18N
         jL_cadastrar.setText("Cadastrar ");
         jL_cadastrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -348,13 +349,14 @@ public class CadastroMedicos extends javax.swing.JFrame {
         });
         jP_cadastrar.add(jL_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, -1, -1));
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, -1, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 600, -1, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
         jP_cancelar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\cancel.png")); // NOI18N
         jL_cancelar.setText("Cancelar");
         jL_cancelar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -366,9 +368,9 @@ public class CadastroMedicos extends javax.swing.JFrame {
                 jL_cancelarMouseClicked(evt);
             }
         });
-        jP_cancelar.add(jL_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 5, -1, -1));
+        jP_cancelar.add(jL_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 590, 130, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 130, 40));
 
         jC_especialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jC_especialidade.addActionListener(new java.awt.event.ActionListener() {
