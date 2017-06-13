@@ -253,6 +253,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jB_cadastrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jB_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jB_cadastrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\accept.png")); // NOI18N
         jB_cadastrar.setText("Cadastrar");
         jB_cadastrar.setBorder(null);
         jB_cadastrar.setBorderPainted(false);
@@ -272,15 +273,16 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jB_cadastrarActionPerformed(evt);
             }
         });
-        jP_cadastrar.add(jB_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 5, -1, -1));
+        jP_cadastrar.add(jB_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
-        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 110, 40));
+        jP_conteudo.add(jP_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 610, 120, 40));
 
         jP_cancelar.setBackground(new java.awt.Color(36, 47, 65));
         jP_cancelar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jB_cancelar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jB_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jB_cancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lab1\\Downloads\\cancel.png")); // NOI18N
         jB_cancelar.setText("Cancelar");
         jB_cancelar.setBorder(null);
         jB_cancelar.setBorderPainted(false);
@@ -300,9 +302,9 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jB_cancelarActionPerformed(evt);
             }
         });
-        jP_cancelar.add(jB_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 5, -1, -1));
+        jP_cancelar.add(jB_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, 110, 40));
+        jP_conteudo.add(jP_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, 120, 40));
 
         jL_alerguias.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jL_alerguias.setForeground(new java.awt.Color(255, 255, 255));
