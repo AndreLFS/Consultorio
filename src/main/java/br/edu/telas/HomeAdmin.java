@@ -208,12 +208,16 @@ public class HomeAdmin extends javax.swing.JFrame {
         jL_sair.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jL_sair.setForeground(new java.awt.Color(255, 255, 255));
         jL_sair.setText("         Logout");
+        jL_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jL_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jL_sairMouseMoved(evt);
             }
         });
         jL_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_sairMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_sairMouseExited(evt);
             }
@@ -840,6 +844,14 @@ public class HomeAdmin extends javax.swing.JFrame {
     private void jL_cadastrarMedicoMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jL_cadastrarMedicoMouseWheelMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jL_cadastrarMedicoMouseWheelMoved
+
+    private void jL_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseClicked
+       if(JOptionPane.showConfirmDialog(null,"Deseja fazer logout")==0){
+       Login login = new Login();
+       login.setVisible(true);
+       this.dispose();
+       }
+    }//GEN-LAST:event_jL_sairMouseClicked
     //codigo para colocar as sombras nos paineis
     private DropShadowBorder efeitoBorda(){
         DropShadowBorder shadow = new DropShadowBorder();

@@ -7,6 +7,7 @@ package br.edu.telas;
 
 import br.edu.anotacoes.Recepcionista;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
@@ -104,12 +105,16 @@ public class HomeRecepcionista extends javax.swing.JFrame {
         jL_sair.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_sair.setForeground(new java.awt.Color(255, 255, 255));
         jL_sair.setText("                Logout");
+        jL_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jL_sair.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jL_sairMouseMoved(evt);
             }
         });
         jL_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_sairMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_sairMouseExited(evt);
             }
@@ -196,6 +201,14 @@ public class HomeRecepcionista extends javax.swing.JFrame {
         CadastrarAtendimento atendimento = new CadastrarAtendimento();
         atendimento.setVisible(true);
     }//GEN-LAST:event_jL_cadastrarConsultasMouseClicked
+
+    private void jL_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseClicked
+      if(JOptionPane.showConfirmDialog(null,"Deseja fazer logout")==0){
+       Login login = new Login();
+       login.setVisible(true);
+       this.dispose();
+       }
+    }//GEN-LAST:event_jL_sairMouseClicked
 
     /**
      * @param args the command line arguments
