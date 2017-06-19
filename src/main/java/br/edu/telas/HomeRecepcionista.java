@@ -6,6 +6,7 @@
 package br.edu.telas;
 
 import br.edu.anotacoes.Recepcionista;
+import br.edu.util.ControleTelas;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.border.DropShadowBorder;
@@ -42,6 +43,12 @@ public class HomeRecepcionista extends javax.swing.JFrame {
         jP_quadroDireito = new javax.swing.JPanel();
         jP_sair = new javax.swing.JPanel();
         jL_sair = new javax.swing.JLabel();
+        jP_cadastrarConsultas2 = new javax.swing.JPanel();
+        jL_cadastrarConsultas2 = new javax.swing.JLabel();
+        jP_cadastrarConsultas1 = new javax.swing.JPanel();
+        jL_cadastrarConsultas1 = new javax.swing.JLabel();
+        jP_cadastrarConsultas3 = new javax.swing.JPanel();
+        jL_cadastrarConsultas3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,9 +87,9 @@ public class HomeRecepcionista extends javax.swing.JFrame {
                 jL_cadastrarConsultasMouseExited(evt);
             }
         });
-        jP_cadastrarConsultas.add(jL_cadastrarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 210, 36));
+        jP_cadastrarConsultas.add(jL_cadastrarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 36));
 
-        jP_container.add(jP_cadastrarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 210, 40));
+        jP_container.add(jP_cadastrarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 210, 40));
 
         jP_quadroDireito.setBackground(new java.awt.Color(36, 47, 65));
 
@@ -140,6 +147,123 @@ public class HomeRecepcionista extends javax.swing.JFrame {
 
         jP_container.add(jP_quadroDireito, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 220, 230));
 
+        jP_cadastrarConsultas2.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cadastrarConsultas2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas2MouseMoved(evt);
+            }
+        });
+        jP_cadastrarConsultas2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas2MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas2MouseExited(evt);
+            }
+        });
+        jP_cadastrarConsultas2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_cadastrarConsultas2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_cadastrarConsultas2.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cadastrarConsultas2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_cadastrarConsultas2.setText("Cadastrar Cliente");
+        jL_cadastrarConsultas2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jL_cadastrarConsultas2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_cadastrarConsultas2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas2MouseMoved(evt);
+            }
+        });
+        jL_cadastrarConsultas2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas2MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas2MouseExited(evt);
+            }
+        });
+        jP_cadastrarConsultas2.add(jL_cadastrarConsultas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 40));
+
+        jP_container.add(jP_cadastrarConsultas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 210, 40));
+
+        jP_cadastrarConsultas1.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cadastrarConsultas1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas1MouseMoved(evt);
+            }
+        });
+        jP_cadastrarConsultas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas1MouseExited(evt);
+            }
+        });
+        jP_cadastrarConsultas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_cadastrarConsultas1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_cadastrarConsultas1.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cadastrarConsultas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_cadastrarConsultas1.setText("Listar Consultas");
+        jL_cadastrarConsultas1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jL_cadastrarConsultas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_cadastrarConsultas1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas1MouseMoved(evt);
+            }
+        });
+        jL_cadastrarConsultas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas1MouseExited(evt);
+            }
+        });
+        jP_cadastrarConsultas1.add(jL_cadastrarConsultas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 40));
+
+        jP_container.add(jP_cadastrarConsultas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 210, 40));
+
+        jP_cadastrarConsultas3.setBackground(new java.awt.Color(36, 47, 65));
+        jP_cadastrarConsultas3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas3MouseMoved(evt);
+            }
+        });
+        jP_cadastrarConsultas3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas3MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_cadastrarConsultas3MouseExited(evt);
+            }
+        });
+        jP_cadastrarConsultas3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_cadastrarConsultas3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_cadastrarConsultas3.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cadastrarConsultas3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_cadastrarConsultas3.setText("Listar Clientes");
+        jL_cadastrarConsultas3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jL_cadastrarConsultas3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_cadastrarConsultas3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas3MouseMoved(evt);
+            }
+        });
+        jL_cadastrarConsultas3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas3MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_cadastrarConsultas3MouseExited(evt);
+            }
+        });
+        jP_cadastrarConsultas3.add(jL_cadastrarConsultas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 40));
+
+        jP_container.add(jP_cadastrarConsultas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,6 +278,7 @@ public class HomeRecepcionista extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jP_cadastrarConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultasMouseExited
@@ -209,6 +334,87 @@ public class HomeRecepcionista extends javax.swing.JFrame {
        this.dispose();
        }
     }//GEN-LAST:event_jL_sairMouseClicked
+
+    private void jL_cadastrarConsultas1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas1MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_cadastrarConsultas1MouseMoved
+
+    private void jL_cadastrarConsultas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas1MouseClicked
+        if(ControleTelas.telaListarAtendimentoHoje == false){
+            ListarAtendimentoHoje listarAtendimentoHoje = new ListarAtendimentoHoje();
+            listarAtendimentoHoje.setVisible(true);
+        }
+    }//GEN-LAST:event_jL_cadastrarConsultas1MouseClicked
+
+    private void jL_cadastrarConsultas1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_cadastrarConsultas1MouseExited
+
+    private void jP_cadastrarConsultas1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas1MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas1MouseMoved
+
+    private void jP_cadastrarConsultas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas1MouseClicked
+
+    private void jP_cadastrarConsultas1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas1MouseExited
+
+    private void jL_cadastrarConsultas2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas2MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_cadastrarConsultas2MouseMoved
+
+    private void jL_cadastrarConsultas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas2MouseClicked
+        if(ControleTelas.telaCadastroClientes == false){
+            CadastroCliente cadastroCliente = new CadastroCliente();
+            cadastroCliente.setVisible(true);
+        }
+    }//GEN-LAST:event_jL_cadastrarConsultas2MouseClicked
+
+    private void jL_cadastrarConsultas2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_cadastrarConsultas2MouseExited
+
+    private void jP_cadastrarConsultas2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas2MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas2MouseMoved
+
+    private void jP_cadastrarConsultas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas2MouseClicked
+
+    private void jP_cadastrarConsultas2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas2MouseExited
+
+    private void jL_cadastrarConsultas3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas3MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_cadastrarConsultas3MouseMoved
+
+    private void jL_cadastrarConsultas3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas3MouseClicked
+        if(ControleTelas.telaListarClientes == false){
+            ListarClientes listarClientes = new ListarClientes();
+            listarClientes.setVisible(true);
+        }
+    }//GEN-LAST:event_jL_cadastrarConsultas3MouseClicked
+
+    private void jL_cadastrarConsultas3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_cadastrarConsultas3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jL_cadastrarConsultas3MouseExited
+
+    private void jP_cadastrarConsultas3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas3MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas3MouseMoved
+
+    private void jP_cadastrarConsultas3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas3MouseClicked
+
+    private void jP_cadastrarConsultas3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_cadastrarConsultas3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_cadastrarConsultas3MouseExited
 
     /**
      * @param args the command line arguments
@@ -267,8 +473,14 @@ public class HomeRecepcionista extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jL_cadastrarConsultas;
+    private javax.swing.JLabel jL_cadastrarConsultas1;
+    private javax.swing.JLabel jL_cadastrarConsultas2;
+    private javax.swing.JLabel jL_cadastrarConsultas3;
     private javax.swing.JLabel jL_sair;
     private javax.swing.JPanel jP_cadastrarConsultas;
+    private javax.swing.JPanel jP_cadastrarConsultas1;
+    private javax.swing.JPanel jP_cadastrarConsultas2;
+    private javax.swing.JPanel jP_cadastrarConsultas3;
     private javax.swing.JPanel jP_container;
     private javax.swing.JPanel jP_quadroDireito;
     private javax.swing.JPanel jP_sair;

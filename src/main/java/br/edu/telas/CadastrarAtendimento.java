@@ -365,7 +365,6 @@ public class CadastrarAtendimento extends javax.swing.JFrame {
             if (clienteLocalizar == null) {
                 this.cliente = (clienteDAO2.listarCampos("id", Integer.parseInt(jC_idCliente.getItemAt(jC_clientes.getSelectedIndex()))).get(0));
             }
-            JOptionPane.showMessageDialog(null, this.medico.getNome());
             if(TestesAtendimento.testeAtendimento(medico, cliente, validar.converterIdade(jFT_data.getText()), Integer.parseInt(jComboBox1.getSelectedItem().toString()))) {
                 atendimento.setCliente(cliente);
                 atendimento.setData(validar.converterIdade(jFT_data.getText()));

@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
@@ -35,7 +36,7 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
         this.tipo = tipo;
         passarClientes();
         atualizarTabela();
-        
+        AutoCompleteDecorator.decorate(jC_clientes);
     }
 
     private ListarAtendimentoMedico() {
@@ -57,9 +58,12 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Cliente = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jFT_nascimento = new javax.swing.JFormattedTextField();
         jC_clientes = new javax.swing.JComboBox<>();
         jC_idCliente = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jButton1 = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
         JP_conteudo = new javax.swing.JPanel();
         jP_voltar = new javax.swing.JPanel();
         jL_voltar = new javax.swing.JLabel();
@@ -109,24 +113,22 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
         jLabel2.setText("Data");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        jFT_nascimento.setBorder(null);
-        try {
-            jFT_nascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFT_nascimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFT_nascimentoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jFT_nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 110, 30));
-
         jC_clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jC_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 110, -1));
+        jPanel1.add(jC_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 520, -1));
 
         jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jC_idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 130, -1));
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, -1, -1));
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, -1, -1));
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, -1, -1));
 
         JP_conteudo.setBackground(new java.awt.Color(36, 47, 65));
         JP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -149,7 +151,8 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
 
         jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_voltar.setText("          Voltar");
+        jL_voltar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_voltar.setText("Logout");
         jL_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jL_voltarMouseMoved(evt);
@@ -160,7 +163,7 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
                 jL_voltarMouseExited(evt);
             }
         });
-        jP_voltar.add(jL_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 120, 36));
+        jP_voltar.add(jL_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 40));
 
         JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 120, 40));
 
@@ -190,10 +193,6 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
         ControleTelas.telaAtendimentoGenerico = false;
     }//GEN-LAST:event_formWindowClosed
 
-    private void jFT_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFT_nascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFT_nascimentoActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         if(evt.getClickCount() >= 2 && getAtendimento() != null){
             CadastroProntuario cadastroProntuario = new CadastroProntuario(getAtendimento());
@@ -220,6 +219,18 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
     private void jP_voltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltarMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_voltarMouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       if(jCheckBox1.isSelected() && jCheckBox2.isSelected()){
+           atualizarTabela("data", validar.converterIdade(validar.converterData(jDateChooser1.getDate())), "cliente", clienteDAO2.listarCampos("nome", jC_clientes.getSelectedItem().toString()).get(0));
+       }else if(jCheckBox1.isSelected()){
+           atualizarTabela("cliente", clienteDAO2.listarCampos("nome", jC_clientes.getSelectedItem().toString()).get(0));
+       }else if(jCheckBox2.isSelected()){
+            atualizarTabela("data", validar.converterIdade(validar.converterData(jDateChooser1.getDate())));
+       }else{
+             JOptionPane.showMessageDialog(null, "Nenhum campo selecionado");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private String  valor = null;
     private Object tipo = null;
@@ -229,6 +240,18 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
     private void atualizarTabela(){
         AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
         List<Atendimento> lista = atendimentoDAO.listarHoje(valor, tipo);
+        AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
+        jTable1.setModel(atendimentoTableModel);
+    }
+    private void atualizarTabela(String valor2, Object tipo2){
+        AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
+        List<Atendimento> lista = atendimentoDAO.listarDoisCampos(valor, tipo, valor2, tipo2);
+        AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
+        jTable1.setModel(atendimentoTableModel);
+    }
+    private void atualizarTabela(String valor2, Object tipo2,String valor3, Object tipo3){
+        AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
+        List<Atendimento> lista = atendimentoDAO.listarTresCampos(valor, tipo, valor2, tipo2, valor3, tipo3);
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
         jTable1.setModel(atendimentoTableModel);
     }
@@ -314,9 +337,12 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cliente;
     private javax.swing.JPanel JP_conteudo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jC_clientes;
     private javax.swing.JComboBox<String> jC_idCliente;
-    private javax.swing.JFormattedTextField jFT_nascimento;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jL_voltar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jP_voltar;

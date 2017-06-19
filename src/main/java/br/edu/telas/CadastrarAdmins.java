@@ -37,6 +37,8 @@ public class CadastrarAdmins extends javax.swing.JFrame {
         this.admin = admin;
         this.endereco = admin.getEndereco();
         jL_cadastrar.setText("Editar");
+        
+        //if()
         jT_logradouro.setText(admin.getEndereco().getLogradouro());   //set do logradouro
         jT_bairro.setText(admin.getEndereco().getBairro());           //set do bairro
         jT_cidade.setText(admin.getEndereco().getCidade());           //set da cidade

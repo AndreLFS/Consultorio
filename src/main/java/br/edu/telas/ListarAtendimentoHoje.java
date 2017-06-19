@@ -6,8 +6,13 @@
 package br.edu.telas;
 
 import br.edu.DAO.AtendimentoDAO;
+import br.edu.DAO.ClienteDAO2;
+import br.edu.DAO.MedicoDAO;
 import br.edu.anotacoes.Atendimento;
+import br.edu.anotacoes.Cliente;
+import br.edu.anotacoes.Medico;
 import br.edu.tableModel.AtendimentoTableModel;
+import br.edu.util.ControleTelas;
 import br.edu.util.Validacao;
 import java.awt.Color;
 import java.text.DateFormat;
@@ -15,6 +20,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.jdesktop.swingx.border.DropShadowBorder;
 
 /**
@@ -23,12 +29,21 @@ import org.jdesktop.swingx.border.DropShadowBorder;
  */
 public class ListarAtendimentoHoje extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ListarAtendimentoHoje
-     */
+    Validacao validar = new Validacao();
+    MedicoDAO medicoDAO = new MedicoDAO();
+    ClienteDAO2 clienteDAO2 = new ClienteDAO2();
+    
+    Medico medico;
+    Cliente cliente;
     public ListarAtendimentoHoje() {
         initComponents();
-        atualizarTabela();
+        ControleTelas.telaListarAtendimentoHoje = true;
+        
+        atualizarTabela("data", validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date())));
+        passarClientes();
+        passarMedicos();
+        AutoCompleteDecorator.decorate(jC_medicos);
+        AutoCompleteDecorator.decorate(jC_clientes);
     }
 
     /**
@@ -40,13 +55,68 @@ public class ListarAtendimentoHoje extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         JP_conteudo = new javax.swing.JPanel();
         jP_voltar = new javax.swing.JPanel();
         jL_voltar = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jP_voltar1 = new javax.swing.JPanel();
+        jL_voltar1 = new javax.swing.JLabel();
+        jL_cliente = new javax.swing.JLabel();
+        jC_clientes = new javax.swing.JComboBox<>();
+        jL_medicos1 = new javax.swing.JLabel();
+        jC_medicos = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jL_medicos2 = new javax.swing.JLabel();
+        jCB_data = new javax.swing.JCheckBox();
+        jCB_paciente = new javax.swing.JCheckBox();
+        jCB_medico = new javax.swing.JCheckBox();
+        jC_idMedicos = new javax.swing.JComboBox<>();
+        jC_idCliente = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JP_conteudo.setBackground(new java.awt.Color(36, 47, 65));
+        JP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jP_voltar.setBackground(new java.awt.Color(0, 102, 102));
+        jP_voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseMoved(evt);
+            }
+        });
+        jP_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jP_voltarMouseExited(evt);
+            }
+        });
+        jP_voltar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
+        jL_voltar.setText("          Voltar");
+        jL_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseMoved(evt);
+            }
+        });
+        jL_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseExited(evt);
+            }
+        });
+        jP_voltar.add(jL_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 40));
+
+        JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 120, 40));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,61 +144,88 @@ public class ListarAtendimentoHoje extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
-        JP_conteudo.setBackground(new java.awt.Color(36, 47, 65));
-        JP_conteudo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JP_conteudo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 750, 340));
 
-        jP_voltar.setBackground(new java.awt.Color(0, 102, 102));
-        jP_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jP_voltar1.setBackground(new java.awt.Color(0, 102, 102));
+        jP_voltar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP_voltar1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jP_voltarMouseMoved(evt);
+                jP_voltar1MouseMoved(evt);
             }
         });
-        jP_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jP_voltar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jP_voltarMouseClicked(evt);
+                jP_voltar1MouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jP_voltarMouseExited(evt);
+                jP_voltar1MouseExited(evt);
             }
         });
-        jP_voltar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jP_voltar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jL_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jL_voltar.setForeground(new java.awt.Color(255, 255, 255));
-        jL_voltar.setText("          Voltar");
-        jL_voltar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jL_voltar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jL_voltar1.setForeground(new java.awt.Color(255, 255, 255));
+        jL_voltar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_voltar1.setText("Buscar");
+        jL_voltar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jL_voltar1.setFocusCycleRoot(true);
+        jL_voltar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_voltar1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jL_voltarMouseMoved(evt);
+                jL_voltar1MouseMoved(evt);
             }
         });
-        jL_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jL_voltar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_voltar1MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jL_voltarMouseExited(evt);
+                jL_voltar1MouseExited(evt);
             }
         });
-        jP_voltar.add(jL_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 120, 36));
+        jP_voltar1.add(jL_voltar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 40));
 
-        JP_conteudo.add(jP_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 120, 40));
+        JP_conteudo.add(jP_voltar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 120, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(JP_conteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JP_conteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jL_cliente.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jL_cliente.setText("Paciente");
+        JP_conteudo.add(jL_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 20));
+
+        jC_clientes.setEditable(true);
+        jC_clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JP_conteudo.add(jC_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 440, 30));
+
+        jL_medicos1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_medicos1.setForeground(new java.awt.Color(255, 255, 255));
+        jL_medicos1.setText("Data");
+        JP_conteudo.add(jL_medicos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 90, 20));
+
+        jC_medicos.setEditable(true);
+        jC_medicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC_medicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jC_medicosActionPerformed(evt);
+            }
+        });
+        JP_conteudo.add(jC_medicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 440, 30));
+        JP_conteudo.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 170, -1));
+
+        jL_medicos2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jL_medicos2.setForeground(new java.awt.Color(255, 255, 255));
+        jL_medicos2.setText("Médico");
+        JP_conteudo.add(jL_medicos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 90, 20));
+        JP_conteudo.add(jCB_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
+        JP_conteudo.add(jCB_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, -1));
+        JP_conteudo.add(jCB_medico, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, -1, -1));
+
+        jC_idMedicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JP_conteudo.add(jC_idMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
+
+        jC_idCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JP_conteudo.add(jC_idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
+
+        getContentPane().add(JP_conteudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 764, 520));
 
         pack();
         setLocationRelativeTo(null);
@@ -153,16 +250,104 @@ public class ListarAtendimentoHoje extends javax.swing.JFrame {
     private void jP_voltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltarMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_jP_voltarMouseExited
+
+    private void jL_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseClicked
+        ControleTelas.telaListarAtendimentoHoje = false;
+        this.dispose();
+    }//GEN-LAST:event_jL_voltarMouseClicked
+
+    private void jC_medicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_medicosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jC_medicosActionPerformed
+
+    private void jL_voltar1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltar1MouseMoved
+        jP_voltar1.setBorder(efeitoBorda());
+    }//GEN-LAST:event_jL_voltar1MouseMoved
+
+    private void jL_voltar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltar1MouseClicked
+        if(jCB_paciente.isSelected() && jCB_medico.isSelected() && jCB_data.isSelected()){
+            atualizarTabela("cliente", getCliente(), "medico", getMedico(), "data", validar.converterIdade(validar.converterData(jDateChooser1.getDate())));
+        }else if (jCB_paciente.isSelected() && jCB_medico.isSelected()){
+            atualizarTabela("cliente", getCliente(), "medico", getMedico());
+        }else if (jCB_medico.isSelected() && jCB_data.isSelected()){
+            atualizarTabela("medico", getMedico(), "data", validar.converterIdade(validar.converterData(jDateChooser1.getDate())));
+        }else if (jCB_paciente.isSelected() && jCB_data.isSelected()){
+            atualizarTabela("cliente", getCliente(), "data", validar.converterIdade(validar.converterData(jDateChooser1.getDate())));
+        }else if (jCB_paciente.isSelected()){
+            atualizarTabela("cliente", getCliente());
+        }else if (jCB_medico.isSelected()){
+            atualizarTabela("medico", getMedico());
+        }else if (jCB_data.isSelected()){
+            atualizarTabela("data", validar.converterIdade(validar.converterData(jDateChooser1.getDate())));
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum campo selecionado");
+        }
+    }//GEN-LAST:event_jL_voltar1MouseClicked
+
+    private void jL_voltar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltar1MouseExited
+        efeitoBordaCancelar(jP_voltar1);
+    }//GEN-LAST:event_jL_voltar1MouseExited
+
+    private void jP_voltar1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltar1MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltar1MouseMoved
+
+    private void jP_voltar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltar1MouseClicked
+
+    private void jP_voltar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_voltar1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jP_voltar1MouseExited
    
+    List<Medico> medicos= medicoDAO.listar();
+    private void passarMedicos(){
+        jC_medicos.removeAllItems();
+        jC_idMedicos.removeAllItems();
+        jC_idMedicos.setVisible(false);
+        for (int i = 0; i < medicos.size(); i++) {
+            jC_medicos.addItem(medicos.get(i).getNome());
+            jC_idMedicos.addItem(String.valueOf(medicos.get(i).getId()));
+        }
+    }
     
-    private void atualizarTabela(){
-        Validacao validar = new Validacao();
-        AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
-        List<Atendimento> lista = atendimentoDAO.listarCampos("data", validar.converterIdade(java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date())));
+    List<Cliente> clientes= clienteDAO2.listar();
+    private void passarClientes(){
+        jC_clientes.removeAllItems();
+        jC_idCliente.removeAllItems();
+        jC_idCliente.setVisible(false);
+        for (int i = 0; i < clientes.size(); i++) {
+            jC_clientes.addItem(clientes.get(i).getNome());
+            jC_idCliente.addItem(String.valueOf(clientes.get(i).getId()));
+        }
+    }
+    
+    private Cliente getCliente(){
+        return clienteDAO2.listarCampos("nome", jC_clientes.getSelectedItem().toString()).get(0);
+    }
+    private Medico getMedico(){
+        return medicoDAO.listarCampos("nome", jC_medicos.getSelectedItem().toString()).get(0);
+    }
+    private void atualizarTabela(String atributo, Object valor){
+       AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
+        List<Atendimento> lista = atendimentoDAO.listarCampos(atributo, valor);
         AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
         jTable1.setModel(atendimentoTableModel);
     }
     
+    private void atualizarTabela(String atributo, Object valor, String atributo2, Object valor2){
+       AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
+        List<Atendimento> lista = atendimentoDAO.listarDoisCampos(atributo, valor,atributo2, valor2);
+        AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
+        jTable1.setModel(atendimentoTableModel);
+    }
+    
+    private void atualizarTabela(String atributo, Object valor, String atributo2, Object valor2, String atributo3, Object valor3){
+       AtendimentoDAO atendimentoDAO = new AtendimentoDAO();
+        List<Atendimento> lista = atendimentoDAO.listarTresCampos(atributo, valor,atributo2, valor2, atributo3, valor3);
+        AtendimentoTableModel atendimentoTableModel = new AtendimentoTableModel(lista);
+        jTable1.setModel(atendimentoTableModel);
+    }
     /**
      * @param args the command line arguments
      */
@@ -220,8 +405,22 @@ public class ListarAtendimentoHoje extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JP_conteudo;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBox jCB_data;
+    private javax.swing.JCheckBox jCB_medico;
+    private javax.swing.JCheckBox jCB_paciente;
+    private javax.swing.JComboBox<String> jC_clientes;
+    private javax.swing.JComboBox<String> jC_idCliente;
+    private javax.swing.JComboBox<String> jC_idMedicos;
+    private javax.swing.JComboBox<String> jC_medicos;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jL_cliente;
+    private javax.swing.JLabel jL_medicos1;
+    private javax.swing.JLabel jL_medicos2;
     private javax.swing.JLabel jL_voltar;
+    private javax.swing.JLabel jL_voltar1;
     private javax.swing.JPanel jP_voltar;
+    private javax.swing.JPanel jP_voltar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

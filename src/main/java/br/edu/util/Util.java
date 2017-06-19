@@ -5,6 +5,8 @@
  */
 package br.edu.util;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -30,7 +32,9 @@ public class Util {
         Connection connection = ConnectionFactory.getConnection();
         try {
             JDialog viewer = new JDialog(new javax.swing.JFrame(), "Visualização do Relatório", true);
-            viewer.setSize(900, 600);
+            Toolkit tk = Toolkit.getDefaultToolkit();
+            Dimension d = tk.getScreenSize();
+            viewer.setSize(d.width, d.height);
             viewer.setLocationRelativeTo(null);
             viewer.setModal(true);
             File file = new File(caminhoRelatorio);

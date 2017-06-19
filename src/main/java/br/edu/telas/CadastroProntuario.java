@@ -371,7 +371,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_atestadoActionPerformed
 
     private void jB_prontuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_prontuarioActionPerformed
-        {                                         
+                                                
         try {
             HashMap parametros = new HashMap();
             parametros.put("idProntuario", String.valueOf(prontuario.getId()));
@@ -380,7 +380,7 @@ public class CadastroProntuario extends javax.swing.JFrame {
             System.out.println("Erro na geração do prontuario " + e);
         }
         
-    }
+    
     }//GEN-LAST:event_jB_prontuarioActionPerformed
 
     private void jB_prontuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_prontuarioMouseMoved

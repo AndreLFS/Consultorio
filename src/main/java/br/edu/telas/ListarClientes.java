@@ -258,8 +258,7 @@ public class ListarClientes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JP_conteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(JP_conteudo, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
         );
 
         pack();
@@ -398,7 +397,7 @@ public class ListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_voltarMouseClicked
 
     private void jL_RelatorioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_RelatorioMouseMoved
-        // TODO add your handling code here:
+       jP_Relatorio.setBorder(efeitoBorda());
     }//GEN-LAST:event_jL_RelatorioMouseMoved
 
     private void jL_RelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_RelatorioMouseClicked
@@ -411,7 +410,7 @@ public class ListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jL_RelatorioMouseClicked
 
     private void jL_RelatorioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_RelatorioMouseExited
-        // TODO add your handling code here:
+        efeitoBordaCancelar(jP_Relatorio);
     }//GEN-LAST:event_jL_RelatorioMouseExited
 
     private void jP_RelatorioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_RelatorioMouseMoved
