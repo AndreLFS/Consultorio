@@ -235,7 +235,7 @@ public class HomeAdmin extends javax.swing.JFrame {
                 jL_sairMouseExited(evt);
             }
         });
-        jP_sair.add(jL_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 90, 40));
+        jP_sair.add(jL_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
         jP_container.add(jP_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 610, 90, 40));
 

@@ -159,6 +159,9 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
             }
         });
         jL_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_voltarMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jL_voltarMouseExited(evt);
             }
@@ -231,6 +234,14 @@ public class ListarAtendimentoMedico extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Nenhum campo selecionado");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jL_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_voltarMouseClicked
+        if(JOptionPane.showConfirmDialog(null,"Deseja fazer logout")==0){
+            Login login = new Login();
+            login.setVisible(true);
+            this.dispose();
+       }
+    }//GEN-LAST:event_jL_voltarMouseClicked
     
     private String  valor = null;
     private Object tipo = null;
